@@ -8,9 +8,9 @@ const MENU_ITEMS: AppSidebarMenuItem[] = [
 
 // This page is published standalone on puppy.walmart.com/sharing, embedded
 // in a sandboxed iframe. We can't be 100% sure the sandbox grants
-// `allow-popups`, so the link below both (a) tries to open in a new tab,
-// and (b) shows the plain URL as a copy/paste fallback that works
-// regardless of sandbox restrictions.
+// `allow-popups` for the new-tab open, so the raw URL also rides along in
+// the `title` attribute -- a native tooltip on hover/long-press that works
+// as a copy/paste fallback without cluttering the UI with visible text.
 const PROTOTYPE_HUB_URL = 'https://puppy.walmart.com/sharing/p0b05bu/prototype-hub';
 
 export interface AppShellProps {
@@ -22,34 +22,27 @@ export function AppShell({ children }: AppShellProps) {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', height: '100vh', overflow: 'hidden' }}>
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          flexWrap: 'wrap',
-          gap: '4px 8px',
-          padding: '6px 16px',
-          fontSize: '12px',
-          flexShrink: 0,
-          background: 'var(--ld-semantic-color-surface-subtle, #f8f8f8)',
-          borderBottom: '1px solid var(--ld-semantic-color-separator, #e0e0e0)',
-        }}
-      >
-        <a
-          href={PROTOTYPE_HUB_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ fontWeight: 600, color: 'var(--ld-semantic-color-text-link, #0071ce)' }}
-        >
-          &larr; Back to Prototype Hub
-        </a>
-        <span style={{ color: 'var(--ld-semantic-color-text-subtle, #74767c)' }}>
-          (link blocked? copy: {PROTOTYPE_HUB_URL})
-        </span>
-      </div>
       <Masthead
         a11yLabel="Kairos REX Director"
         appName="Kairos"
+        leftSlot={
+          <a
+            href={PROTOTYPE_HUB_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            title={`Open ${PROTOTYPE_HUB_URL} in a new tab`}
+            style={{
+              fontSize: '12px',
+              color: 'var(--ld-semantic-color-text-subtle, #74767c)',
+              textDecoration: 'none',
+              marginRight: '12px',
+              paddingRight: '12px',
+              borderRight: '1px solid var(--ld-semantic-color-separator, #d5d5d5)',
+            }}
+          >
+            &larr; Hub
+          </a>
+        }
         onNotificationClick={() => {}}
         notificationLabel="Notifications"
         onHelpClick={() => {}}
