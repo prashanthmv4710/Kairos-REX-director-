@@ -11,6 +11,11 @@ const MENU_ITEMS: AppSidebarMenuItem[] = [
 // `allow-popups` for the new-tab open, so the raw URL also rides along in
 // the `title` attribute -- a native tooltip on hover/long-press that works
 // as a copy/paste fallback without cluttering the UI with visible text.
+//
+// This link deliberately does NOT use Living Design tokens/components and
+// sits below the app in its own strip -- it's plumbing from whoever
+// published this prototype, not part of the app being prototyped, and it
+// should read that way at a glance (plain system font, flat grey bar).
 const PROTOTYPE_HUB_URL = 'https://puppy.walmart.com/sharing/p0b05bu/prototype-hub';
 
 export interface AppShellProps {
@@ -25,24 +30,6 @@ export function AppShell({ children }: AppShellProps) {
       <Masthead
         a11yLabel="Kairos REX Director"
         appName="Kairos"
-        leftSlot={
-          <a
-            href={PROTOTYPE_HUB_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            title={`Open ${PROTOTYPE_HUB_URL} in a new tab`}
-            style={{
-              fontSize: '12px',
-              color: 'var(--ld-semantic-color-text-subtle, #74767c)',
-              textDecoration: 'none',
-              marginRight: '12px',
-              paddingRight: '12px',
-              borderRight: '1px solid var(--ld-semantic-color-separator, #d5d5d5)',
-            }}
-          >
-            &larr; Hub
-          </a>
-        }
         onNotificationClick={() => {}}
         notificationLabel="Notifications"
         onHelpClick={() => {}}
@@ -81,6 +68,30 @@ export function AppShell({ children }: AppShellProps) {
         >
           {children}
         </div>
+      </div>
+      <div
+        style={{
+          flexShrink: 0,
+          padding: '4px 12px',
+          fontFamily: 'system-ui, sans-serif',
+          fontSize: '11px',
+          lineHeight: '18px',
+          color: '#666',
+          background: '#eee',
+          borderTop: '1px dashed #bbb',
+          textAlign: 'right',
+        }}
+      >
+        Shared prototype &middot;{' '}
+        <a
+          href={PROTOTYPE_HUB_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          title={`Open ${PROTOTYPE_HUB_URL} in a new tab`}
+          style={{ color: '#666' }}
+        >
+          Back to Prototype Hub
+        </a>
       </div>
     </div>
   );
