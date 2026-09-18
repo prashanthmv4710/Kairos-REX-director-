@@ -111,8 +111,6 @@ export const rexRequests: RexRequest[] = [
         tentativeSapSubmissionDate: '2026-09-13',
         reason: 'Anticipated demand spike ahead of holiday promo event.',
         decision: 'pending',
-        imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Self-serve_aisle_in_IKEA_Torp_Uddevalla_2.jpg',
-        imageAlt: 'Retail self-serve aisle with gondola shelving',
       },
       {
         id: 'A2',
