@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Page } from '../components/Page';
 import { Container } from '../components/Container';
-import { Heading, Body } from '../components/Text';
+import { Heading, Body, Caption } from '../components/Text';
 import { Grid, GridColumn } from '../components/Grid';
 import { SelectCard } from '../components/SelectCard';
 import {
@@ -28,10 +28,12 @@ import { IconButton } from '../components/IconButton';
 import { Tooltip } from '../components/Tooltip';
 import { Modal } from '../components/Modal';
 import { TextArea } from '../components/TextArea';
-import { QuantityStepper } from '../components/QuantityStepper';
+import { SpinButton } from '../components/SpinButton';
 import { LineClamp } from '../components/LineClamp';
+import { VisuallyHidden } from '../components/VisuallyHidden';
 import { SearchField } from '../components/SearchField';
 import { FilterDropdownChip } from '../components/custom/FilterDropdownChip';
+import { ArticleThumbnail } from '../components/custom/ArticleThumbnail';
 import { TablePagination } from '../patterns/TablePagination';
 import { useSnackbar } from '../components/Snackbar';
 import { useAnnounce } from '../components/A11yAnnouncement';
@@ -44,6 +46,7 @@ import {
   type InboxSection,
   type RexArticleRow,
 } from '../data/rexData';
+import './InboxPage.css';
 
 const PAGE_SIZE_OPTIONS = [5, 10, 25];
 const DEFAULT_PAGE_SIZE = 10;
@@ -89,7 +92,7 @@ function sortRows(rows: RexArticleRow[], sort: SortOption): RexArticleRow[] {
 // Column widths for the frozen Article column + sticky select/actions rails.
 const SELECT_COL_WIDTH = 52;
 const ACTIONS_COL_WIDTH = 150;
-const ARTICLE_COL_WIDTH = 220;
+const ARTICLE_COL_WIDTH = 260;
 const PROJECT_ID_COL_WIDTH = 160;
 const DEPARTMENT_COL_WIDTH = 200;
 const STORE_COL_WIDTH = 220;
@@ -354,28 +357,28 @@ export function InboxPage() {
   // Status alone anchors the right edge.
   const statusRightOffset = isPending ? ACTIONS_COL_WIDTH : 0;
 
+  // Background + hover-repaint + frozen-edge shadow for every sticky cell
+  // below live in InboxPage.css (`.rex-inbox-sticky` and friends) — CSS
+  // classes, not inline styles, so `tr:hover .rex-inbox-sticky` can repaint
+  // them to match the rest of the hovered row. Only the per-state dynamic
+  // positioning (left/right offsets, width) stays inline here.
   const stickyLeftHeaderStyle: React.CSSProperties = {
     position: 'sticky',
     left: articleLeftOffset,
     zIndex: 3,
     minWidth: ARTICLE_COL_WIDTH,
     whiteSpace: 'nowrap',
-    background: 'var(--ld-semantic-color-surface-subtle, #f8f8f8)',
-    boxShadow: 'inset -1px 0 0 var(--ld-semantic-color-separator, #e3e4e5)',
   };
   const stickyLeftCellStyle: React.CSSProperties = {
     position: 'sticky',
     left: articleLeftOffset,
     zIndex: 2,
     minWidth: ARTICLE_COL_WIDTH,
-    background: 'var(--ld-semantic-color-surface, #ffffff)',
-    boxShadow: 'inset -1px 0 0 var(--ld-semantic-color-separator, #e3e4e5)',
   };
   const stickySelectHeaderStyle: React.CSSProperties = {
     position: 'sticky',
     left: 0,
     zIndex: 3,
-    background: 'var(--ld-semantic-color-surface-subtle, #f8f8f8)',
     textAlign: 'center',
     verticalAlign: 'middle',
   };
@@ -383,7 +386,6 @@ export function InboxPage() {
     position: 'sticky',
     left: 0,
     zIndex: 2,
-    background: 'var(--ld-semantic-color-surface, #ffffff)',
     textAlign: 'center',
     verticalAlign: 'middle',
   };
@@ -393,8 +395,6 @@ export function InboxPage() {
     zIndex: 3,
     width: '1%',
     whiteSpace: 'nowrap',
-    background: 'var(--ld-semantic-color-surface-subtle, #f8f8f8)',
-    boxShadow: 'inset 1px 0 0 var(--ld-semantic-color-separator, #e3e4e5)',
   };
   const stickyStatusCellStyle: React.CSSProperties = {
     position: 'sticky',
@@ -402,8 +402,6 @@ export function InboxPage() {
     zIndex: 2,
     width: '1%',
     whiteSpace: 'nowrap',
-    background: 'var(--ld-semantic-color-surface, #ffffff)',
-    boxShadow: 'inset 1px 0 0 var(--ld-semantic-color-separator, #e3e4e5)',
   };
   const stickyActionsHeaderStyle: React.CSSProperties = {
     position: 'sticky',
@@ -412,12 +410,6 @@ export function InboxPage() {
     width: ACTIONS_COL_WIDTH,
     minWidth: ACTIONS_COL_WIDTH,
     whiteSpace: 'nowrap',
-    background: 'var(--ld-semantic-color-surface-subtle, #f8f8f8)',
-    // Status and Actions never render in the same table state anymore
-    // (Status only outside Pending, Actions only inside Pending), so this
-    // is always the left edge of the frozen block now — restore the
-    // divider marking where the scrollable columns end.
-    boxShadow: 'inset 1px 0 0 var(--ld-semantic-color-separator, #e3e4e5)',
   };
   const stickyActionsCellStyle: React.CSSProperties = {
     position: 'sticky',
@@ -425,8 +417,6 @@ export function InboxPage() {
     zIndex: 2,
     width: ACTIONS_COL_WIDTH,
     minWidth: ACTIONS_COL_WIDTH,
-    background: 'var(--ld-semantic-color-surface, #ffffff)',
-    boxShadow: 'inset 1px 0 0 var(--ld-semantic-color-separator, #e3e4e5)',
   };
   const wrapHeaderStyle = (width: number): React.CSSProperties => ({ minWidth: width, whiteSpace: 'nowrap' });
   const wrapColStyle = (width: number): React.CSSProperties => ({ minWidth: width });
@@ -693,7 +683,7 @@ export function InboxPage() {
             ) : null}
 
             <div style={{ overflowX: 'auto' }}>
-              <DataTable aria-label={`${SECTION_COPY[section].label} articles`}>
+              <DataTable aria-label={`${SECTION_COPY[section].label} articles`} UNSAFE_className="rex-inbox-table">
                 <DataTableHead>
                   <DataTableRow>
                     {isPending && (
@@ -702,10 +692,10 @@ export function InboxPage() {
                         checked={pageItems.length > 0 && selectedIds.size === pageItems.length}
                         indeterminate={selectedIds.size > 0 && selectedIds.size < pageItems.length}
                         onChange={(e) => (e.target.checked ? selectAll() : clearSelected())}
-                        {...({ UNSAFE_style: stickySelectHeaderStyle } as object)}
+                        {...({ UNSAFE_style: stickySelectHeaderStyle, UNSAFE_className: 'rex-inbox-sticky' } as object)}
                       />
                     )}
-                    <DataTableHeader {...({ UNSAFE_style: stickyLeftHeaderStyle } as object)}>Article</DataTableHeader>
+                    <DataTableHeader {...({ UNSAFE_style: stickyLeftHeaderStyle, UNSAFE_className: 'rex-inbox-sticky rex-inbox-sticky-article' } as object)}>Article ID</DataTableHeader>
                     <DataTableHeader {...({ UNSAFE_style: wrapHeaderStyle(PROJECT_ID_COL_WIDTH) } as object)}>Project ID</DataTableHeader>
                     <DataTableHeader {...({ UNSAFE_style: wrapHeaderStyle(STORE_COL_WIDTH) } as object)}>Store</DataTableHeader>
                     <DataTableHeader {...({ UNSAFE_style: wrapHeaderStyle(DEPARTMENT_COL_WIDTH) } as object)}>Department</DataTableHeader>
@@ -731,8 +721,8 @@ export function InboxPage() {
                     )}
                     {/* Every row in the Pending section is, by definition, pending — the
                         column would just repeat the section you're already looking at. */}
-                    {!isPending && <DataTableHeader {...({ UNSAFE_style: stickyStatusHeaderStyle } as object)}>Status</DataTableHeader>}
-                    {isPending && <DataTableHeader {...({ UNSAFE_style: stickyActionsHeaderStyle } as object)}>Actions</DataTableHeader>}
+                    {!isPending && <DataTableHeader {...({ UNSAFE_style: stickyStatusHeaderStyle, UNSAFE_className: 'rex-inbox-sticky rex-inbox-sticky-end' } as object)}>Status</DataTableHeader>}
+                    {isPending && <DataTableHeader {...({ UNSAFE_style: stickyActionsHeaderStyle, UNSAFE_className: 'rex-inbox-sticky rex-inbox-sticky-end' } as object)}>Actions</DataTableHeader>}
                   </DataTableRow>
                 </DataTableHead>
                 <DataTableBody>
@@ -745,14 +735,24 @@ export function InboxPage() {
                             a11yLabelledBy={`article-name-${row.rowId}`}
                             checked={selectedIds.has(row.rowId)}
                             onChange={(e) => toggleSelected(row.rowId, e.target.checked)}
-                            {...({ UNSAFE_style: stickySelectCellStyle } as object)}
+                            {...({ UNSAFE_style: stickySelectCellStyle, UNSAFE_className: 'rex-inbox-sticky' } as object)}
                           />
                         )}
-                        <DataTableCell {...({ UNSAFE_style: stickyLeftCellStyle } as object)}>
-                          <Body as="p" weight="alt" id={`article-name-${row.rowId}`}>#{row.articleNumber}</Body>
-                          <LineClamp lines={1}>
-                            <Body as="p" size="small" color="subtle">{row.articleName}</Body>
-                          </LineClamp>
+                        <DataTableCell {...({ UNSAFE_style: stickyLeftCellStyle, UNSAFE_className: 'rex-inbox-sticky rex-inbox-sticky-article' } as object)}>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--ld-primitive-scale-space-150, 12px)' }}>
+                            <ArticleThumbnail
+                              articleId={row.articleNumber}
+                              articleName={row.articleName}
+                              imageUrl={row.imageUrl}
+                              imageAlt={row.imageAlt}
+                            />
+                            <div style={{ minWidth: 0 }}>
+                              <Body as="p" size="small" weight="alt" id={`article-name-${row.rowId}`}>#{row.articleNumber}</Body>
+                              <LineClamp lines={1}>
+                                <Caption as="p" color="subtle">{row.articleName}</Caption>
+                              </LineClamp>
+                            </div>
+                          </div>
                         </DataTableCell>
                         <DataTableCell {...({ UNSAFE_style: wrapColStyle(PROJECT_ID_COL_WIDTH) } as object)}>{row.projectId}</DataTableCell>
                         <DataTableCell {...({ UNSAFE_style: wrapColStyle(STORE_COL_WIDTH) } as object)}>
@@ -760,20 +760,46 @@ export function InboxPage() {
                         </DataTableCell>
                         <DataTableCell {...({ UNSAFE_style: wrapColStyle(DEPARTMENT_COL_WIDTH) } as object)}>
                           <LineClamp lines={2}>
-                            <Body as="p">{row.departmentNumber} - {row.departmentName}</Body>
+                            <Body as="p" size="small">{row.departmentNumber} - {row.departmentName}</Body>
                           </LineClamp>
                         </DataTableCell>
                         <DataTableCell variant="numeric">{row.requestedQty}</DataTableCell>
                         <DataTableCell variant="numeric" {...({ UNSAFE_style: wrapColStyle(FINALIZED_QTY_COL_WIDTH) } as object)}>
                           {isPending && row.decision === 'pending' ? (
-                            <QuantityStepper
-                              size="small"
-                              count={row.newQty}
-                              maxQuantity={row.asIsQty * 10 || 1000}
-                              addLabel={`Add ${row.articleName}`}
-                              countLabel="qty"
-                              onChange={(value) => updateQty(row.rowId, value)}
-                            />
+                            (() => {
+                              const rowMaxQty = row.asIsQty * 10 || 1000;
+                              const finalizedQtyLabelId = `finalized-qty-label-${row.rowId}`;
+                              return (
+                                <>
+                                  <VisuallyHidden id={finalizedQtyLabelId}>Finalized quantity for {row.articleName}</VisuallyHidden>
+                                  <div className="rex-finalized-qty-spinbutton">
+                                    <IconButton
+                                      a11yLabel={`Decrease finalized quantity for ${row.articleName}`}
+                                      size="small"
+                                      variant="round"
+                                      onClick={() => updateQty(row.rowId, Math.max(0, row.newQty - 1))}
+                                    >
+                                      <Icon name="Minus" decorative />
+                                    </IconButton>
+                                    <SpinButton
+                                      a11yLabelledBy={finalizedQtyLabelId}
+                                      value={row.newQty}
+                                      onChange={(value) => updateQty(row.rowId, value)}
+                                      min={0}
+                                      max={rowMaxQty}
+                                    />
+                                    <IconButton
+                                      a11yLabel={`Increase finalized quantity for ${row.articleName}`}
+                                      size="small"
+                                      variant="round"
+                                      onClick={() => updateQty(row.rowId, Math.min(rowMaxQty, row.newQty + 1))}
+                                    >
+                                      <Icon name="Plus" decorative />
+                                    </IconButton>
+                                  </div>
+                                </>
+                              );
+                            })()
                           ) : (
                             row.newQty
                           )}
@@ -791,7 +817,7 @@ export function InboxPage() {
                         )}
                         <DataTableCell {...({ UNSAFE_style: wrapColStyle(PEOPLE_COL_WIDTH) } as object)}>
                           {row.submittedBy}
-                          <Body as="p" size="small" color="subtle">{formatDateTime(row.submittedAt)}</Body>
+                          <Caption as="p" color="subtle">{formatDateTime(row.submittedAt)}</Caption>
                         </DataTableCell>
                         <DataTableCell {...({ UNSAFE_style: wrapColStyle(PEOPLE_COL_WIDTH) } as object)}>{row.director}</DataTableCell>
                         <DataTableCell {...({ UNSAFE_style: wrapColStyle(PEOPLE_COL_WIDTH) } as object)}>{row.srDirector}</DataTableCell>
@@ -805,7 +831,7 @@ export function InboxPage() {
                         )}
                         {/* Pending section: every row is pending — no need to repeat it per row. */}
                         {!isPending && (
-                          <DataTableCellStatus {...({ UNSAFE_style: stickyStatusCellStyle } as object)}>
+                          <DataTableCellStatus {...({ UNSAFE_style: stickyStatusCellStyle, UNSAFE_className: 'rex-inbox-sticky rex-inbox-sticky-end' } as object)}>
                             {row.decision === 'rejected' ? (
                               <Tag variant="tertiary" color="negative" leading={<Icon name="Close" decorative />}>Rejected</Tag>
                             ) : (
@@ -814,7 +840,7 @@ export function InboxPage() {
                           </DataTableCellStatus>
                         )}
                         {isPending && (
-                          <DataTableCellActions {...({ UNSAFE_style: stickyActionsCellStyle } as object)}>
+                          <DataTableCellActions {...({ UNSAFE_style: stickyActionsCellStyle, UNSAFE_className: 'rex-inbox-sticky rex-inbox-sticky-end' } as object)}>
                             <div style={{ display: 'flex', gap: 8, whiteSpace: 'nowrap' }}>
                               <Tooltip content="Accept">
                                 <IconButton
@@ -859,7 +885,7 @@ export function InboxPage() {
                     <DataTableRow>
                       <DataTableCell {...({ colSpan: isPending ? 15 : 17 } as object)}>
                         <div style={{ padding: 'var(--ld-primitive-scale-space-400) 0', textAlign: 'center' }}>
-                          <Body as="p" color="subtle">No {SECTION_COPY[section].label.toLowerCase()} articles found.</Body>
+                          <Body as="p" size="small" color="subtle">No {SECTION_COPY[section].label.toLowerCase()} articles found.</Body>
                         </div>
                       </DataTableCell>
                     </DataTableRow>
@@ -968,14 +994,32 @@ export function InboxPage() {
         <Body as="p" UNSAFE_style={{ marginBottom: 16 }}>
           {bulkApproveTargets?.length ?? 0} article{bulkApproveTargets && bulkApproveTargets.length === 1 ? '' : 's'} selected. Set the final quantity to apply to all of them.
         </Body>
-        <Label style={{ display: 'block', marginBottom: 8 }}>Finalized qty</Label>
-        <QuantityStepper
-          count={bulkApproveQty}
-          maxQuantity={Math.max(...(bulkApproveTargets?.map((r) => r.asIsQty * 10) ?? [1000]), 1000)}
-          addLabel="Add to final quantity"
-          countLabel=""
-          onChange={setBulkApproveQty}
-        />
+        <Label id="bulk-finalized-qty-label" style={{ display: 'block', marginBottom: 8 }}>Finalized qty</Label>
+        <div className="rex-finalized-qty-spinbutton">
+          <IconButton
+            a11yLabel="Decrease finalized quantity"
+            size="small"
+            variant="round"
+            onClick={() => setBulkApproveQty((q) => Math.max(0, q - 1))}
+          >
+            <Icon name="Minus" decorative />
+          </IconButton>
+          <SpinButton
+            a11yLabelledBy="bulk-finalized-qty-label"
+            value={bulkApproveQty}
+            onChange={setBulkApproveQty}
+            min={0}
+            max={Math.max(...(bulkApproveTargets?.map((r) => r.asIsQty * 10) ?? [1000]), 1000)}
+          />
+          <IconButton
+            a11yLabel="Increase finalized quantity"
+            size="small"
+            variant="round"
+            onClick={() => setBulkApproveQty((q) => Math.min(Math.max(...(bulkApproveTargets?.map((r) => r.asIsQty * 10) ?? [1000]), 1000), q + 1))}
+          >
+            <Icon name="Plus" decorative />
+          </IconButton>
+        </div>
       </Modal>
     </Page>
   );

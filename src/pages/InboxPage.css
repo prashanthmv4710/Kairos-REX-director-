@@ -1,0 +1,113 @@
+/* InboxPage — table typography overrides.
+   Shrinks the REX inbox table's primary text from 16px to 14px and its
+   header text to match. The Status column (DataTableCellStatus + its Tag)
+   is intentionally excluded — DataTableCellStatus carries no font-size rule
+   of its own, so it is untouched by these selectors. */
+.rex-inbox-table .ld-datatable-datatablecell-dataTableCell,
+.rex-inbox-table .ld-datatable-datatableheader-dataTableHeader,
+.rex-inbox-table .ld-datatable-datatableheaderbutton-button {
+  font-size: var(--ld-semantic-font-body-small-size);
+}
+
+/* Finalized qty — pill-shaped stepper: [minus IconButton] [bare SpinButton
+   input] [plus IconButton]. SpinButton's own chevrons are hidden; the two
+   IconButtons provide the visible +/- affordance instead. Matches the
+   pattern used for "Finalized qty" in the RPM Rejected Reprocess app. */
+.rex-finalized-qty-spinbutton {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-50, 0.25rem);
+  height: 40px;
+  padding-inline: var(--ld-primitive-scale-space-50, 0.25rem);
+  border-radius: var(--ld-semantic-border-radius-round, 62.5rem);
+  box-shadow: inset 0 0 0 1.5px var(--ld-semantic-color-action-border-secondary, #2e2f32);
+}
+
+.rex-finalized-qty-spinbutton:has(.ld-spinbutton-input:focus-visible) {
+  box-shadow:
+    inset 0 0 0 1.5px var(--ld-semantic-color-action-border-secondary, #2e2f32),
+    inset 0 0 0 3px var(--ld-semantic-focus-ring-color, #0053e2);
+}
+
+.rex-finalized-qty-spinbutton .ld-spinbutton-root {
+  display: inline-flex;
+  width: auto;
+}
+
+.rex-finalized-qty-spinbutton .ld-spinbutton-container {
+  background: transparent;
+  box-shadow: none;
+  height: auto;
+}
+
+.rex-finalized-qty-spinbutton .ld-spinbutton-container:hover,
+.rex-finalized-qty-spinbutton .ld-spinbutton-container:focus-within {
+  box-shadow: none;
+}
+
+.rex-finalized-qty-spinbutton .ld-spinbutton-input {
+  text-align: center;
+  font-size: var(--ld-semantic-font-body-medium-size, 1rem);
+  font-weight: var(--ld-semantic-font-action-weight, 700);
+  width: 8ch;
+  padding-inline: var(--ld-primitive-scale-space-50, 0.25rem);
+}
+
+.rex-finalized-qty-spinbutton .ld-spinbutton-buttons {
+  display: none;
+}
+
+/* Sticky/frozen columns — background, hover repaint, and frozen-edge shadow.
+   Matches the pattern in the RPM Rejected Reprocess app's DataTable: sticky
+   cells paint their own background (since position: sticky paints over the
+   row), so a plain `tr:hover` on the generated DataTableRow class does
+   nothing for them on its own — this repaints every `.rex-inbox-sticky` cell
+   to the same hovered token whenever its row is hovered. */
+.rex-inbox-table thead .rex-inbox-sticky {
+  background: var(--ld-semantic-color-surface-subtle, #f8f8f8);
+}
+
+.rex-inbox-table tbody .rex-inbox-sticky {
+  background: var(--ld-semantic-color-surface, #ffffff);
+}
+
+.rex-inbox-table tr.ld-datatable-datatablerow-dataTableRow:hover .rex-inbox-sticky {
+  background: var(--ld-semantic-color-surface-hovered, #f1f1f2);
+}
+
+/* Frozen-edge shadows — directional, mirroring which side of the table each
+   sticky block anchors to. Article ID is the left-frozen block (shadow falls
+   to its right, onto the scrollable columns); Status/Actions is the
+   right-frozen block (shadow falls to its left).
+
+   NOTE: this is a `::after` gradient, not `box-shadow` directly on the cell.
+   The generated DataTable sets `border-collapse: collapse` on the <table>
+   (DataTable.css), and browsers do not paint `box-shadow` on table cells at
+   all once border-collapse is collapsed — a long-standing, cross-browser
+   table-rendering limitation, not a specificity/override bug. A pseudo-
+   element is a plain box (not a table-cell), so it isn't subject to that
+   suppression and paints normally. The parent cell already has
+   `position: sticky` inline (stickyLeftCellStyle etc. in InboxPage.tsx),
+   which is what gives this absolutely-positioned pseudo its containing
+   block — no extra `position` needed here. */
+.rex-inbox-table .rex-inbox-sticky-article::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 100%;
+  width: 6px;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0));
+  pointer-events: none;
+}
+
+.rex-inbox-table .rex-inbox-sticky-end::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 100%;
+  width: 6px;
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0));
+  pointer-events: none;
+}

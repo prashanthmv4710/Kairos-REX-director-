@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Icon } from '../Icons';
+import { ArrowRightLineIcon, ArrowLineLeftIcon } from './SidebarToggleIcons';
 import { cx } from '../../common/cx';
 import './AppSidebar.css';
 
@@ -151,7 +152,7 @@ export function AppSidebar({
           aria-expanded={locked}
         >
           <span className="ld-app-sidebar-shell__toggle-icon">
-            <Icon name={locked ? 'ArrowLeft' : 'ArrowRight'} size="small" decorative />
+            {locked ? <ArrowLineLeftIcon /> : <ArrowRightLineIcon />}
           </span>
           {expanded ? (
             <span className="ld-app-sidebar-shell__toggle-label">{locked ? 'Collapse' : 'Lock'}</span>
