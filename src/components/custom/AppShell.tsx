@@ -88,7 +88,7 @@ export function AppShell({ children }: AppShellProps) {
           target="_blank"
           rel="noopener noreferrer"
           title={`Open ${PROTOTYPE_HUB_URL} in a new tab`}
-          style={{ color: '#666' }}
+          style={{ color: '#666', textDecoration: 'underline' }}
         >
           Back to Prototype Hub
         </a>
