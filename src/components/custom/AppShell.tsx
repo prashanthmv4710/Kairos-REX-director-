@@ -30,7 +30,27 @@ export function AppShell({ children }: AppShellProps) {
     <div style={{ display: 'flex', flexDirection: 'column', height: '100vh', overflow: 'hidden' }}>
       <Masthead
         a11yLabel="Kairos REX Director"
-        appName="Kairos"
+        // Masthead's own `appName` prop renders through `.ld-masthead__app-name`,
+        // whose font-size is pinned to a shared design token
+        // (--ld-semantic-font-body-medium-size). Overriding that token via
+        // UNSAFE_style would risk bleeding into other elements in the
+        // masthead's subtree that might reference the same token, so instead
+        // we use the `appLogo` slot -- it accepts any ReactNode -- to render
+        // our own span with the same styling as `.ld-masthead__app-name`,
+        // just at the requested 20px size.
+        appLogo={
+          <span
+            style={{
+              fontSize: '20px',
+              fontWeight: 'var(--ld-primitive-font-weight-700)' as unknown as number,
+              color:
+                'var(--ld-semantic-color-top-nav-app-name, var(--ld-semantic-color-text-brand, var(--ld-primitive-color-blue-100, #0053e2)))',
+              whiteSpace: 'nowrap',
+            }}
+          >
+            Kairos
+          </span>
+        }
         onNotificationClick={() => {}}
         notificationLabel="Notifications"
         onHelpClick={() => {}}

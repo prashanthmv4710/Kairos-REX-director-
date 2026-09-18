@@ -423,7 +423,15 @@ export function InboxPage() {
 
   return (
     <Page title="Order reviews — REX Director" titleVisuallyHidden>
-      <Container>
+      {/* Design spec calls for a flat 24px left/right gutter on this page,
+          overriding Container's own responsive padding (16px below 1200px
+          viewport width, 24px above it) so it's consistent at every size.
+          Container's runtime (applyCommonProps) supports UNSAFE_style same
+          as every other LD component here, but ContainerProps' own type
+          declaration doesn't list it -- a gap in that read-only file, not
+          something to fix by editing it. */}
+      {/* @ts-expect-error -- UNSAFE_style is supported at runtime via applyCommonProps but missing from ContainerProps' type */}
+      <Container UNSAFE_style={{ paddingLeft: '24px', paddingRight: '24px' }}>
         <div style={{ margin: '24px 0 24px', display: 'flex', alignItems: 'center', gap: 16 }}>
           <Heading as="h2" size="large">Order reviews</Heading>
           <style>{`
