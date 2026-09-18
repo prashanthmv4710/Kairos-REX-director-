@@ -17,6 +17,7 @@ const MENU_ITEMS: AppSidebarMenuItem[] = [
 // published this prototype, not part of the app being prototyped, and it
 // should read that way at a glance (plain system font, flat grey bar).
 const PROTOTYPE_HUB_URL = 'https://puppy.walmart.com/sharing/p0b05bu/prototype-hub';
+const GITHUB_REPO_URL = 'https://github.com/prashanthmv4710/Kairos-REX-director-';
 
 export interface AppShellProps {
   children: React.ReactNode;
@@ -91,6 +92,16 @@ export function AppShell({ children }: AppShellProps) {
           style={{ color: '#666', textDecoration: 'underline' }}
         >
           Back to Prototype Hub
+        </a>
+        {' | '}
+        <a
+          href={GITHUB_REPO_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          title={`Open ${GITHUB_REPO_URL} in a new tab`}
+          style={{ color: '#666', textDecoration: 'underline' }}
+        >
+          GitHub
         </a>
       </div>
     </div>
