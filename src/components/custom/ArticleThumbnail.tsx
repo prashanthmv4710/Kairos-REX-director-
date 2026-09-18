@@ -3,7 +3,7 @@ import { Icon } from '../Icons';
 import { IconButton } from '../IconButton';
 import { Image } from '../Image';
 import { Modal } from '../Modal';
-import { Caption } from '../Text';
+import { Body } from '../Text';
 
 /**
  * Article thumbnail — a fixed 36x36 rounded frame used next to the article
@@ -58,9 +58,9 @@ export function ArticleThumbnail({ articleId, articleName, imageUrl, imageAlt }:
       </IconButton>
 
       <Modal isOpen={isOpen} onClose={() => setIsOpen(false)} title={articleId} size="medium">
-        <Caption color="subtle" UNSAFE_style={{ display: 'block', marginBottom: 'var(--ld-primitive-scale-space-200)' }}>
+        <Body as="p" size="small" color="subtle" UNSAFE_style={{ marginBottom: 'var(--ld-primitive-scale-space-200)' }}>
           {articleName}
-        </Caption>
+        </Body>
         <div style={{ width: '100%', aspectRatio: '1 / 1', overflow: 'hidden', borderRadius: 8 }}>
           <Image src={imageUrl} alt={alt} UNSAFE_style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
         </div>
