@@ -16,6 +16,10 @@ export interface RexArticle {
   reason: string;
   decision: ArticleDecision;
   decisionReason?: string;
+  /** Resolved fixture photo — optional; rows without one fall back to a generic thumbnail placeholder. */
+  imageUrl?: string;
+  /** Meaningful a11y description of imageUrl's contents — required whenever imageUrl is set. */
+  imageAlt?: string;
 }
 
 export interface RexRequest {
@@ -107,6 +111,8 @@ export const rexRequests: RexRequest[] = [
         tentativeSapSubmissionDate: '2026-09-13',
         reason: 'Anticipated demand spike ahead of holiday promo event.',
         decision: 'pending',
+        imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Self-serve_aisle_in_IKEA_Torp_Uddevalla_2.jpg',
+        imageAlt: 'Retail self-serve aisle with gondola shelving',
       },
       {
         id: 'A2',
@@ -123,6 +129,8 @@ export const rexRequests: RexRequest[] = [
         tentativeSapSubmissionDate: '2026-09-15',
         reason: 'Regional trend spike; comparable stores selling out weekly.',
         decision: 'pending',
+        imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Pallet_Racking.jpg',
+        imageAlt: 'Warehouse pallet racking shelving unit',
       },
       {
         id: 'A3',
@@ -185,6 +193,8 @@ export const rexRequests: RexRequest[] = [
         reason: 'Late-season heat wave extending patio category sales.',
         decision: 'cancelled',
         decisionReason: 'Store possession date pushed out; fixture no longer needed this cycle.',
+        imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Custom_PVC_Stands.jpg',
+        imageAlt: 'Custom PVC floor display stands',
       },
     ],
   },
@@ -230,6 +240,8 @@ export const rexRequests: RexRequest[] = [
         tentativeSapSubmissionDate: '2026-09-14',
         reason: 'Bundled with promo endcap running through month end.',
         decision: 'pending',
+        imageUrl: 'https://commons.wikimedia.org/wiki/Special:FilePath/Drive-In-Rack.jpg',
+        imageAlt: 'Drive-in pallet rack storage system',
       },
       {
         id: 'A3',
