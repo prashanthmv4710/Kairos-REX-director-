@@ -1,0 +1,15 @@
+/* LD Portable – SearchFilterBar */
+.ld-wcp-search-filter-bar-root {
+  display: flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-100);
+  padding-block: var(--ld-primitive-scale-space-100);
+  padding-inline: var(--ld-primitive-scale-space-200);
+  border-bottom: 1px solid var(--ld-semantic-color-separator, #e0e0e0);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.ld-wcp-search-filter-bar-root::-webkit-scrollbar {
+  display: none;
+}

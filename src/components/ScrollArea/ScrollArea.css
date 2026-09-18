@@ -1,0 +1,73 @@
+/* ============================================
+   ScrollArea — Living Design
+   Portable scroll container with thin native scrollbar styling
+   ============================================ */
+
+.ld-scroll-area-root {
+  position: relative;
+  overflow: hidden;
+}
+
+.ld-scroll-area-viewport {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  border-radius: inherit;
+  scrollbar-width: thin;
+  /* Thumb is hidden until the scroll area is hovered/focused. */
+  scrollbar-color: transparent transparent;
+}
+.ld-scroll-area-root:hover .ld-scroll-area-viewport,
+.ld-scroll-area-viewport:hover,
+.ld-scroll-area-viewport:focus-within {
+  scrollbar-color: var(--ld-semantic-color-separator, #e3e4e5) transparent;
+}
+
+/* Webkit scrollbar styling */
+.ld-scroll-area-viewport::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.ld-scroll-area-viewport::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.ld-scroll-area-viewport::-webkit-scrollbar-thumb {
+  /* Transparent by default; the gray subtlest fill shows only on hover. */
+  background-color: transparent;
+  border-radius: var(--ld-primitive-scale-borderRadius-100, 0.5rem);
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+.ld-scroll-area-root:hover .ld-scroll-area-viewport::-webkit-scrollbar-thumb,
+.ld-scroll-area-viewport:hover::-webkit-scrollbar-thumb,
+.ld-scroll-area-viewport:focus-within::-webkit-scrollbar-thumb {
+  background-color: var(--ld-semantic-color-separator, #e3e4e5);
+}
+
+/* ============================================
+   ScrollBar (decorative / layout hint)
+   ============================================ */
+
+.ld-scroll-area-scrollbar {
+  display: flex;
+  touch-action: none;
+  user-select: none;
+  transition: background-color var(--ld-primitive-duration-200, 0.2s) ease;
+}
+
+.ld-scroll-area-scrollbar--vertical {
+  height: 100%;
+  width: 10px;
+  border-left: 1px solid transparent;
+  padding: 1px;
+}
+
+.ld-scroll-area-scrollbar--horizontal {
+  height: 10px;
+  flex-direction: column;
+  border-top: 1px solid transparent;
+  padding: 1px;
+}

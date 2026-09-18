@@ -1,0 +1,38 @@
+.ax-meganav-action-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ld-primitive-scale-space-50);
+  padding-block: var(--ld-primitive-scale-space-150);
+  padding-inline: var(--ld-primitive-scale-space-100);
+  flex: 1;
+  min-height: 64px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 0;
+  color: var(--ld-semantic-color-topNav-text-onFill, #fff);
+  transition: background 150ms ease;
+}
+
+.ax-meganav-action-btn:hover {}
+
+.ax-meganav-action-btn:active {}
+
+.ax-meganav-action-btn__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  color: var(--ld-semantic-color-topNav-text-onFill, #fff);
+}
+
+.ax-meganav-action-btn__label {}
+
+@media (prefers-reduced-motion: reduce) {
+  .ax-meganav-action-btn {
+    transition: none;
+  }
+}

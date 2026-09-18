@@ -1,0 +1,79 @@
+/* LD Portable – MwebFooter */
+
+.ld-wcp-mweb-footer-root {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--ld-semantic-color-surface);
+}
+
+/* ---------- Feedback section ---------- */
+.ld-wcp-mweb-footer-feedback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-200);
+  padding-block: var(--ld-primitive-scale-space-300);
+  padding-inline: var(--ld-primitive-scale-space-200);
+  text-align: center;
+}
+
+.ld-wcp-mweb-footer-feedback-text {
+  margin: 0;
+  color: var(--ld-semantic-color-text);
+  font-size: var(--ld-semantic-font-body-medium-size);
+  font-weight: var(--ld-primitive-font-weight-400);
+  line-height: 1.5;
+}
+
+/* ---------- Footer nav ---------- */
+.ld-wcp-mweb-footer-nav {
+  display: flex;
+  flex-direction: column;
+  padding-block-start: var(--ld-primitive-scale-space-200);
+  padding-block-end: var(--ld-primitive-scale-space-100);
+  padding-inline: var(--ld-primitive-scale-space-200);
+  gap: 0;
+  border-top: 1px solid var(--ld-semantic-color-separator);
+  border-bottom: 1px solid var(--ld-semantic-color-separator);
+}
+
+.ld-wcp-mweb-footer-link {
+  display: block;
+  color: var(--ld-semantic-color-text);
+  font-size: var(--ld-semantic-font-body-medium-size);
+  font-weight: var(--ld-primitive-font-weight-400);
+  line-height: 1.5;
+  text-decoration: none;
+  padding-block: var(--ld-primitive-scale-space-100);
+  padding-inline: 0;
+}
+
+.ld-wcp-mweb-footer-privacy-link {
+  display: flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-50);
+  color: var(--ld-semantic-color-text);
+  font-size: var(--ld-semantic-font-body-medium-size);
+  font-weight: var(--ld-primitive-font-weight-400);
+  line-height: 1.5;
+  text-decoration: none;
+  padding-block: var(--ld-primitive-scale-space-100);
+  padding-inline: 0;
+}
+
+.ld-wcp-mweb-footer-privacy-icon {
+  flex-shrink: 0;
+}
+
+/* ---------- Copyright ---------- */
+.ld-wcp-mweb-footer-copyright {
+  margin: 0;
+  padding-block-start: var(--ld-primitive-scale-space-100);
+  padding-block-end: var(--ld-primitive-scale-space-250);
+  padding-inline: var(--ld-primitive-scale-space-200);
+  font-size: var(--ld-semantic-font-caption-size);
+  font-weight: var(--ld-primitive-font-weight-400);
+  line-height: 1.33;
+  color: var(--ld-semantic-color-text-subtle);
+}

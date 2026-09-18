@@ -1,0 +1,113 @@
+/* LD Portable - MagicSurface */
+/*
+ * Recipe from Figma's "Surface Composite token" doc: the Magic Surface is two
+ * soft glow layers (theme tint top-left, shared blue top-right) that overlap
+ * across the top and feather down into the surface, leaving the lower area
+ * clean for content.
+ *
+ * The glows are wide ELLIPSES, not circles. An earlier pass used two equal
+ * `radial-gradient(circle)` discs sized to 85% of the box and offset left/
+ * right — because they were the same size and met at the horizontal center,
+ * their circular edges (plus `multiply`) crossed in a sharp vertical seam down
+ * the middle instead of the ambient oval wash the doc calls for.
+ *
+ * Instead each pseudo-element fills the whole box (`inset: 0`) and paints one
+ * elliptical radial gradient whose center sits just ABOVE a top corner. The
+ * ellipse is wider than the box is tall, so each glow spreads horizontally
+ * across the top and the two overlap over the entire top band (a smooth blend,
+ * no geometric edge). Anchoring the centers above the top edge means only the
+ * lower arc of each oval shows, giving the "bright at the top, fading down"
+ * falloff. Ending in fully transparent (rather than an opaque near-white stop)
+ * leaves the blobs with no visible edge — they just dissolve outward.
+ */
+.ld-magicsurface-surface {
+  background-color: var(--ld-semantic-color-surface, #ffffff);
+  box-sizing: border-box;
+  isolation: isolate;
+  opacity: 0.9;
+  overflow: hidden;
+  padding: var(--ld-primitive-scale-space-300, 1.5rem);
+  position: relative;
+  width: 100%;
+}
+
+.ld-magicsurface-surface::before,
+.ld-magicsurface-surface::after {
+  content: '';
+  inset: 0;
+  /*
+   * Both glows carry a tint through their midtone stop, so without blending
+   * the one painted second would sit flatly on top of the first. `multiply`
+   * lets them combine into a single wash — `isolation: isolate` on the parent
+   * keeps that blending scoped to these two layers, not the page behind.
+   */
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+}
+
+/* Glow 1 — the theme's own tint, oval anchored above the top-left corner. */
+.ld-magicsurface-surface::before {
+  background: radial-gradient(
+    ellipse 80% 120% at 15% -25%,
+    var(--ld-semantic-color-surface-magic-subtle-left-start, #fff3d2) 0%,
+    var(--ld-semantic-color-surface-magic-subtle-left-stop, #fffcf4) 40%,
+    transparent 72%
+  );
+}
+
+/* Glow 2 — the shared blue tint, oval anchored above the top-right corner. */
+.ld-magicsurface-surface::after {
+  background: radial-gradient(
+    ellipse 80% 120% at 85% -25%,
+    var(--ld-semantic-color-surface-magic-subtle-right-start, #c9dcfd) 0%,
+    var(--ld-semantic-color-surface-magic-subtle-right-stop, #f0f5ff) 40%,
+    transparent 72%
+  );
+}
+
+.ld-magicsurface-surface.ld-magicsurface-borderRadius25 {
+  border-radius: var(--ld-primitive-scale-borderRadius-25, 0.125rem);
+}
+
+.ld-magicsurface-surface.ld-magicsurface-borderRadius50 {
+  border-radius: var(--ld-primitive-scale-borderRadius-50, 0.25rem);
+}
+
+.ld-magicsurface-surface.ld-magicsurface-borderRadius100 {
+  border-radius: var(--ld-primitive-scale-borderRadius-100, 0.5rem);
+}
+
+.ld-magicsurface-surface.ld-magicsurface-borderRadius200 {
+  border-radius: var(--ld-primitive-scale-borderRadius-200, 1rem);
+}
+
+.ld-magicsurface-surface.ld-magicsurface-borderRadiusRound {
+  border-radius: var(--ld-primitive-scale-borderRadius-round, 62.5rem);
+}
+
+/*
+ * Wibey is the one Agent theme with a near-black surface. `multiply` (above)
+ * combines the two glows correctly against every light-surfaced theme, but
+ * multiplying any color by near-black always crushes it toward black — so
+ * the identical glow tokens render as an invisible dark patch on Wibey
+ * instead of a visible wash. `screen` is multiply's inverse (it lightens
+ * rather than darkens), so against a near-black backdrop it reproduces the
+ * glow at full strength while still blending the two layers together.
+ */
+[data-agent-theme="wibey"] .ld-magicsurface-surface::before,
+[data-agent-theme="wibey"] .ld-magicsurface-surface::after {
+  mix-blend-mode: screen;
+}
+
+/*
+ * The base 90% opacity above lets whatever sits behind the surface bleed
+ * through slightly, reinforcing the "glow" as ambient rather than a solid
+ * card. On Wibey that same translucency instead lets its near-black page
+ * background show through the surface's own near-black fill, muddying the
+ * glow — so Wibey opts back in to a fully opaque surface.
+ */
+[data-agent-theme="wibey"] .ld-magicsurface-surface {
+  opacity: 1;
+}

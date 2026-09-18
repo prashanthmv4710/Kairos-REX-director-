@@ -1,0 +1,52 @@
+/* LD Portable - MagicText */
+.ld-magictext-subtle {
+  color: var(--ld-semantic-color-text-magic-brand, #330f06);
+  font-weight: var(--ld-primitive-font-weight-700);
+}
+
+.ld-magictext-bold {
+  font-weight: var(--ld-primitive-font-weight-700);
+  display: inline-block;
+  color: transparent;
+  /*
+   * Two radial blooms over a solid dark brand base, deliberately asymmetric:
+   * the blue bloom's radius is much wider (105%/90%) than the accent bloom's
+   * (65%/85%) so blue — the shared anchor across every agent theme — reads
+   * across most of the text, including its left portion, rather than staying
+   * confined to a sliver on the right edge. The accent bloom's own radius was
+   * widened to compensate (it sits behind blue in the layer stack, so as
+   * blue's footprint grew the accent needed more reach/opacity of its own to
+   * still read clearly at the bottom of the glyphs instead of getting faded
+   * out toward the dark base too early). Layer order matches Figma: blue
+   * over accent over the base.
+   */
+  background-image:
+    radial-gradient(
+      ellipse 105% 115% at 97% 78%,
+      var(--ld-semantic-color-text-magic-gradient-stop, #0053e2) 0%,
+      var(--ld-semantic-color-text-magic-gradient-stop-transparent, #0053e200) 90%
+    ),
+    radial-gradient(
+      ellipse 65% 130% at 3% 88%,
+      var(--ld-semantic-color-text-magic-gradient-start, #ffc220) 0%,
+      var(--ld-semantic-color-text-magic-gradient-start-transparent, #ffc22000) 85%
+    ),
+    linear-gradient(
+      var(--ld-semantic-color-text-magic-gradient-middle, #330f06),
+      var(--ld-semantic-color-text-magic-gradient-middle, #330f06)
+    );
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+/*
+ * color: transparent + background-clip: text can leave glyphs unpainted
+ * under forced-colors / high-contrast modes in some browsers. Fall back to
+ * a solid, themed color — same pattern as .ld-skeleton-skeleton.
+ */
+@media screen and (forced-colors: active), screen and (prefers-contrast: more) {
+  .ld-magictext-bold {
+    background-image: none;
+    color: var(--ld-semantic-color-text-magic-gradient-middle, #330f06);
+  }
+}

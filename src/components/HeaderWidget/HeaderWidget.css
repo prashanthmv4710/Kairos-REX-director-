@@ -1,0 +1,153 @@
+.ax-header-widget {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.ax-header-widget__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--ld-primitive-scale-space-50, 4px);
+  align-self: stretch;
+}
+
+.ax-header-widget__title-row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--ld-primitive-scale-space-100, 8px);
+  align-self: stretch;
+}
+
+.ax-header-widget__title-and-count {
+  display: flex;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 4px var(--ld-primitive-scale-space-50, 4px);
+  flex: 1 0 0;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+}
+
+/* Chevron variant: title-row becomes the positioning context for the stretched touch target */
+.ax-header-widget__title-row--chevron {
+  position: relative;
+}
+
+.ax-header-widget__title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--ld-semantic-color-text, #2e2f32);
+  font-family: var(
+    --ld-semantic-font-heading-large-family,
+    'Everyday Sans UI',
+    -apple-system,
+    Roboto,
+    sans-serif
+  );
+  font-size: var(--ld-semantic-font-heading-large-size-b-s, 24px);
+  font-weight: var(--ld-semantic-font-heading-large-weight-default, 700);
+  line-height: var(--ld-semantic-font-heading-large-line-height-b-s, 1.333);
+  font-kerning: none;
+  font-feature-settings: 'liga' off;
+}
+
+.ax-header-widget__count-wrapper {
+  display: flex;
+  padding-top: var(--ld-primitive-scale-space-50, 4px);
+  align-items: center;
+}
+
+.ax-header-widget__count {
+  color: var(--ld-semantic-color-text, #2e2f32);
+  font-family: var(
+    --ld-semantic-font-body-large-family,
+    'Everyday Sans UI',
+    -apple-system,
+    Roboto,
+    sans-serif
+  );
+  font-size: var(--ld-semantic-font-body-large-size, 18px);
+  font-weight: var(--ld-semantic-font-body-large-weight-default, 400);
+  line-height: var(--ld-semantic-font-body-large-line-height, 1.333);
+  font-kerning: none;
+  font-feature-settings: 'liga' off;
+}
+
+.ax-header-widget__chevron-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--ld-primitive-scale-space-400, 32px);
+  height: var(--ld-primitive-scale-space-400, 32px);
+  padding: 0;
+  margin-top: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--ld-semantic-color-text, #2e2f32);
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+
+/* Stretched touch target — ::before fills the entire title-row (the positioned parent) */
+.ax-header-widget__title-row--chevron .ax-header-widget__chevron-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+.ax-header-widget__chevron-button:hover {}
+
+.ax-header-widget__chevron-button:focus-visible {
+  outline: 2px solid var(--ld-semantic-color-border-activated, #0860f6);
+  outline-offset: 2px;
+}
+
+.ax-header-widget__trailing-action {
+  display: flex;
+  height: var(--ld-primitive-scale-space-400, 32px);
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.ax-header-widget__description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  align-self: stretch;
+  margin: 0;
+  color: var(--ld-semantic-color-text, #2e2f32);
+  font-family: var(
+    --ld-semantic-font-body-medium-family,
+    'Everyday Sans UI',
+    -apple-system,
+    Roboto,
+    sans-serif
+  );
+  font-size: var(--ld-semantic-font-body-medium-size, 16px);
+  font-weight: var(--ld-semantic-font-body-medium-weight-default, 400);
+  line-height: var(--ld-semantic-font-body-medium-line-height, 1.5);
+  font-kerning: none;
+  font-feature-settings: 'liga' off;
+}
+
+.ax-header-widget__alert-container {
+  padding-top: var(--ld-primitive-scale-space-100, 8px);
+  align-self: stretch;
+}
+
+.ax-header-widget__divider-container {
+  padding-top: var(--ld-primitive-scale-space-200, 16px);
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+}

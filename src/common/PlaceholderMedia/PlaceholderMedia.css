@@ -1,0 +1,26 @@
+.ld-placeholder-media {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  background-color: var(--ld-primitive-color-gray-30, #d5d6d8);
+  color: var(--ld-semantic-color-text-subtle, #515357);
+  border: 1px solid var(--ld-semantic-color-border-subtle, #515357);
+  border-radius: var(--ld-primitive-scale-borderRadius-100, 4px);
+  overflow: hidden;
+  font-family: var(--ld-semantic-font-family-sans, sans-serif);
+  font-size: 11px;
+  line-height: 1;
+  text-align: center;
+  user-select: none;
+}
+
+.ld-placeholder-media--circle {
+  border-radius: 50%;
+}
+
+.ld-placeholder-media__label {
+  padding: 2px 6px;
+  pointer-events: none;
+}

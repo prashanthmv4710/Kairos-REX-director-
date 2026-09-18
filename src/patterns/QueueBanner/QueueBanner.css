@@ -1,0 +1,206 @@
+.ld-wcp-queuebanner-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-100);
+  width: 100%;
+}
+.ld-wcp-queuebanner-snackbar {
+  min-width: 311px;
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-100);
+  padding-block: var(--ld-primitive-scale-space-100);
+  padding-inline-end: var(--ld-primitive-scale-space-100);
+  padding-inline-start: var(--ld-primitive-scale-space-200);
+  background: var(--ld-semantic-color-background-inverse, #2e2f32);
+  border-radius: var(--ld-primitive-scale-borderRadius-100, 8px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.ld-wcp-queuebanner-snackbarContent {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+.ld-wcp-queuebanner-snackbarText {
+  font-size: var(--ld-semantic-font-body-small-size);
+  line-height: var(--ld-semantic-font-body-small-line-height);
+  color: var(--ld-semantic-color-text-inverse, #fff);
+}
+.ld-wcp-queuebanner-snackbarActions {
+  display: flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-100);
+}
+.ld-wcp-queuebanner-snackbarActionBtn {
+  background: none;
+  border: none;
+  padding-block: var(--ld-primitive-scale-space-50);
+  padding-inline: var(--ld-primitive-scale-space-100);
+  font-size: var(--ld-semantic-font-body-small-size);
+  font-weight: var(--ld-primitive-font-weight-700);
+  color: var(--ld-semantic-color-text-inverse, #fff);
+  text-decoration: underline;
+  cursor: pointer;
+}
+.ld-wcp-queuebanner-snackbarCloseBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--ld-primitive-scale-space-100);
+  background: rgba(255,255,255,0.1);
+  border: none;
+  border-radius: var(--ld-primitive-scale-borderRadius-100, 8px);
+  color: var(--ld-semantic-color-text-inverse, #fff);
+  cursor: pointer;
+}
+.ld-wcp-queuebanner-bannerContainer {
+  display: flex;
+  flex-direction: column;
+  padding: var(--ld-primitive-scale-space-100);
+  background: var(--ld-semantic-color-fill-brand-bold);
+  border-radius: var(--ld-primitive-scale-borderRadius-100, 8px);
+}
+.ld-wcp-queuebanner-bannerBar {
+  display: flex;
+  flex-direction: column;
+  padding: var(--ld-primitive-scale-space-150);
+  background: var(--ld-semantic-color-surface, #fff);
+  border-radius: var(--ld-primitive-scale-borderRadius-50, 4px);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+.ld-wcp-queuebanner-barContents {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  row-gap: 20px;
+}
+.ld-wcp-queuebanner-infoGroup {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--ld-primitive-scale-space-100);
+  max-width: 415px;
+  flex: 1;
+}
+.ld-wcp-queuebanner-productThumb {
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+  border-radius: var(--ld-semantic-border-radius-medium);
+  flex-shrink: 0;
+}
+.ld-wcp-queuebanner-productPlaceholder {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--ld-semantic-border-radius-medium);
+  flex-shrink: 0;
+  background: var(--ld-semantic-color-surface-subtle, #f2f4f7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ld-semantic-color-text-subtle, #515357);
+}
+.ld-wcp-queuebanner-reservationText {
+  flex: 1;
+  font-size: var(--ld-semantic-font-body-medium-size);
+  line-height: var(--ld-semantic-font-body-medium-line-height);
+  color: var(--ld-semantic-color-text, #2e2f32);
+}
+.ld-wcp-queuebanner-actionGroup {
+  display: flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-200);
+  justify-content: flex-end;
+}
+.ld-wcp-queuebanner-linkGroup {
+  display: flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-200);
+}
+.ld-wcp-queuebanner-linkBtn {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: var(--ld-semantic-font-body-small-size);
+  font-weight: var(--ld-primitive-font-weight-700);
+  color: var(--ld-semantic-color-text, #2e2f32);
+  text-decoration: underline;
+  cursor: pointer;
+}
+.ld-wcp-queuebanner-divider {
+  width: 1px;
+  height: 16px;
+  background: var(--ld-semantic-color-separator, #e6e6e8);
+}
+.ld-wcp-queuebanner-chevronBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--ld-primitive-scale-space-100);
+  background: var(--ld-semantic-color-surface, #fff);
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  color: var(--ld-semantic-color-text, #2e2f32);
+  cursor: pointer;
+}
+.ld-wcp-queuebanner-checkoutBanner {
+  display: flex;
+  padding: var(--ld-primitive-scale-space-300);
+  background: var(--ld-semantic-color-fill-brand-bold);
+  border-radius: var(--ld-primitive-scale-borderRadius-100, 8px);
+  width: 100%;
+  box-sizing: border-box;
+}
+.ld-wcp-queuebanner-checkoutContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+  min-height: 32px;
+}
+.ld-wcp-queuebanner-checkoutInfo {
+  display: flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-100);
+}
+.ld-wcp-queuebanner-checkoutMessage {
+  font-size: var(--ld-semantic-font-body-medium-size);
+  line-height: var(--ld-semantic-font-body-medium-line-height);
+  color: var(--ld-semantic-color-text-inverse, #fff);
+}
+.ld-wcp-queuebanner-checkoutCloseBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--ld-primitive-scale-space-50);
+  background: rgba(255,255,255,0.2);
+  border: none;
+  border-radius: 50%;
+  color: var(--ld-semantic-color-text-inverse, #fff);
+  cursor: pointer;
+}
+.ld-wcp-queuebanner-errorBanner {
+  display: flex;
+  align-items: center;
+  padding: var(--ld-primitive-scale-space-300);
+  gap: var(--ld-primitive-scale-space-100);
+  background: var(--ld-semantic-color-fill-brand-bold);
+  border-radius: var(--ld-primitive-scale-borderRadius-100, 8px);
+  width: 100%;
+  box-sizing: border-box;
+}
+.ld-wcp-queuebanner-errorIcon {
+  width: 24px;
+  height: 24px;
+  color: var(--ld-semantic-color-text-inverse, #fff);
+  flex-shrink: 0;
+}
+.ld-wcp-queuebanner-errorMessage {
+  flex: 1;
+  font-size: var(--ld-semantic-font-body-medium-size);
+  line-height: var(--ld-semantic-font-body-medium-line-height);
+  color: var(--ld-semantic-color-text-inverse, #fff);
+}

@@ -1,0 +1,111 @@
+/* Masthead — LD top-of-app header bar.
+ * Ported from PX V2 MastHead.module.css; selectors converted to BEM (`ld-masthead__*`).
+ */
+
+.ld-masthead {
+  position: relative;
+  height: 54px;
+  background-color: var(--ld-semantic-color-topNav-fill, var(--ld-primitive-color-white, #ffffff));
+  border-bottom: 1px solid
+    var(--ld-semantic-color-topNav-separator, var(--ld-semantic-color-separator, #e3e4e5));
+  /* Left + right sit at the bar edges via flex. The center is taken out of
+     flow and pinned to the viewport center via absolute positioning, so it
+     stays centered regardless of how wide the left/right groups become. */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--ld-semantic-spacing-300, 24px);
+  font-family: var(--ld-semantic-font-family-sans, 'Everyday_Sans_UI', sans-serif);
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.ld-masthead__left {
+  display: flex;
+  align-items: center;
+  gap: var(--ld-semantic-spacing-250, 20px);
+  min-width: 0;
+}
+
+.ld-masthead__center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  padding: 0 var(--ld-semantic-spacing-200, 16px);
+  white-space: nowrap;
+  pointer-events: auto;
+}
+
+.ld-masthead__right {
+  display: flex;
+  align-items: center;
+  gap: var(--ld-semantic-spacing-100, 8px);
+  flex-shrink: 0;
+}
+
+.ld-masthead__app-name {
+  font-size: var(--ld-semantic-font-body-medium-size);
+  font-weight: var(--ld-primitive-font-weight-700);
+  color: var(
+    --ld-semantic-color-top-nav-app-name,
+    var(--ld-semantic-color-text-brand, var(--ld-primitive-color-blue-100, #0053e2))
+  );
+  white-space: nowrap;
+}
+
+.ld-masthead__app-logo {
+  display: flex;
+  align-items: center;
+  height: 24px;
+  width: auto;
+  object-fit: contain;
+  max-width: 160px;
+  flex-shrink: 0;
+}
+
+.ld-masthead__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--ld-semantic-spacing-50, 4px);
+}
+
+.ld-masthead__icon-button {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  padding: var(--ld-primitive-scale-space-50);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--ld-semantic-border-radius-round, 9999px);
+  border: none;
+  background: transparent;
+  color: var(--ld-semantic-color-topNav-text-onFill, var(--ld-primitive-color-gray-160, #2e2f32));
+  cursor: pointer;
+  transition: background-color 150ms ease;
+}
+
+.ld-masthead__icon-button:hover {
+  background-color: var(
+    --ld-semantic-color-topNav-fill-hovered,
+    var(--ld-semantic-color-fill-subtle, #f1f1f2)
+  );
+}
+
+.ld-masthead__icon-button:focus-visible {
+  outline: 2px solid var(--ld-semantic-color-border-activated, #0053e2);
+  outline-offset: 2px;
+}
+
+.ld-masthead__notif-dot {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 6px;
+  height: 6px;
+  background-color: var(--ld-semantic-color-fill-negative, #ea1100);
+  border-radius: var(--ld-semantic-border-radius-round, 9999px);
+}

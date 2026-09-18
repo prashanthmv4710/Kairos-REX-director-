@@ -1,0 +1,762 @@
+/* ============================================
+   SELECT DROPDOWN - LD 3.5 Tokens
+   Shared pattern for dropdown-menu, context-menu
+   ============================================ */
+
+/* --- Content overlay --- */
+.ld-select-dropdown-content {
+  z-index: 50;
+  /* Size to the longest item rather than a fixed width, within comfortable
+     bounds. `overflow: visible` lets cascading submenu panels escape. */
+  width: max-content;
+  min-width: 12rem;
+  max-width: 22rem;
+  overflow: visible;
+  padding: var(--ld-primitive-scale-space-100, 8px);
+  background-color: var(--ld-semantic-color-surface-overlay, #ffffff);
+  color: var(--ld-semantic-color-text, #2e2f32);
+  box-shadow: var(--ld-semantic-elevation-200, 0px 4px 16px rgba(0, 0, 0, 0.12));
+  border-radius: var(--ld-semantic-border-radius-large, 8px);
+  position: fixed;
+}
+
+.ld-select-dropdown-content[data-state="open"] {
+  animation: ld-select-dropdown-fadeIn 0.15s ease-out, ld-select-dropdown-zoomIn 0.15s ease-out;
+}
+
+.ld-select-dropdown-content[data-state="closed"] {
+  animation: ld-select-dropdown-fadeOut 0.1s ease-in, ld-select-dropdown-zoomOut 0.1s ease-in;
+}
+
+@keyframes ld-select-dropdown-fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes ld-select-dropdown-fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes ld-select-dropdown-zoomIn {
+  from { transform: scale(0.95); }
+  to { transform: scale(1); }
+}
+
+@keyframes ld-select-dropdown-zoomOut {
+  from { transform: scale(1); }
+  to { transform: scale(0.95); }
+}
+
+/* --- Item (base) --- */
+.ld-select-dropdown-item {
+  display: flex;
+  position: relative;
+  cursor: default;
+  user-select: none;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-100, 8px);
+  padding: var(--ld-primitive-scale-space-100, 8px) var(--ld-primitive-scale-space-200, 16px);
+  border-radius: 0;
+  border: none;
+  width: 100%;
+  background: var(--ld-semantic-color-action-fill-transparent, transparent);
+  font-size: var(--ld-semantic-font-body-small-size, 0.875rem);
+  font-weight: var(--ld-semantic-font-body-small-weight-default, 400);
+  line-height: var(--ld-semantic-font-body-small-line-height, 1.25rem);
+  color: var(--ld-semantic-color-action-text-onFill-transparent, #2e2f32);
+  outline: none;
+  transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+  box-sizing: border-box;
+}
+
+.ld-select-dropdown-item:hover:not([data-disabled]) {
+  background: var(--ld-semantic-color-fill-hovered, #f1f1f2);
+  color: var(--ld-semantic-color-action-text-onFill-transparent-hovered, #2e2f32);
+}
+
+.ld-select-dropdown-item:focus-visible,
+.ld-select-dropdown-item[data-highlighted] {
+  background: var(--ld-semantic-color-fill-focused, #e8e8e9);
+  color: var(--ld-semantic-color-action-text-onFill-transparent-focused, #2e2f32);
+  outline: none;
+}
+
+.ld-select-dropdown-item:active:not([data-disabled]) {
+  background: var(--ld-semantic-color-fill-pressed, #dadadc);
+  color: var(--ld-semantic-color-action-text-onFill-transparent-pressed, #2e2f32);
+}
+
+.ld-select-dropdown-item[data-disabled] {
+  color: var(--ld-semantic-color-action-text-onFill-transparent-disabled, #babbbe);
+  pointer-events: none;
+}
+
+/* Inset variant */
+.ld-select-dropdown-item--inset {
+  padding-left: var(--ld-primitive-scale-space-500, 40px);
+}
+
+/* Destructive variant (e.g. a "Delete" action) */
+.ld-select-dropdown-item--destructive {
+  color: var(--ld-semantic-color-text-negative, #de1c24);
+}
+
+.ld-select-dropdown-item--destructive:hover:not([data-disabled]),
+.ld-select-dropdown-item--destructive:focus-visible,
+.ld-select-dropdown-item--destructive[data-highlighted],
+.ld-select-dropdown-item--destructive:active:not([data-disabled]) {
+  color: var(--ld-semantic-color-text-negative, #de1c24);
+}
+
+/* --- SubTrigger --- */
+.ld-select-dropdown-sub-trigger {
+  display: flex;
+  position: relative;
+  cursor: default;
+  user-select: none;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-100, 8px);
+  padding: var(--ld-primitive-scale-space-100, 8px) var(--ld-primitive-scale-space-200, 16px);
+  border-radius: 0;
+  border: none;
+  width: 100%;
+  background: var(--ld-semantic-color-action-fill-transparent, transparent);
+  font-size: var(--ld-semantic-font-body-small-size, 0.875rem);
+  font-weight: var(--ld-semantic-font-body-small-weight-default, 400);
+  line-height: var(--ld-semantic-font-body-small-line-height, 1.25rem);
+  color: var(--ld-semantic-color-action-text-onFill-transparent, #2e2f32);
+  outline: none;
+  transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+  box-sizing: border-box;
+}
+
+.ld-select-dropdown-sub-trigger:hover:not([data-disabled]) {
+  background: var(--ld-semantic-color-fill-hovered, #f1f1f2);
+  color: var(--ld-semantic-color-action-text-onFill-transparent-hovered, #2e2f32);
+}
+
+.ld-select-dropdown-sub-trigger[data-state="open"] {
+  background: var(--ld-semantic-color-surface-activated, #e8e8e9);
+}
+
+/* --- Checkbox / Radio items with leading indicator space --- */
+.ld-select-dropdown-item-with-indicator {
+  display: flex;
+  position: relative;
+  cursor: default;
+  user-select: none;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-100, 8px);
+  padding: var(--ld-primitive-scale-space-100, 8px) var(--ld-primitive-scale-space-200, 16px);
+  padding-left: var(--ld-primitive-scale-space-500, 40px);
+  border-radius: 0;
+  border: none;
+  width: 100%;
+  background: var(--ld-semantic-color-action-fill-transparent, transparent);
+  font-size: var(--ld-semantic-font-body-small-size, 0.875rem);
+  font-weight: var(--ld-semantic-font-body-small-weight-default, 400);
+  line-height: var(--ld-semantic-font-body-small-line-height, 1.25rem);
+  color: var(--ld-semantic-color-action-text-onFill-transparent, #2e2f32);
+  outline: none;
+  transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+  box-sizing: border-box;
+}
+
+.ld-select-dropdown-item-with-indicator:hover:not([data-disabled]) {
+  background: var(--ld-semantic-color-fill-hovered, #f1f1f2);
+  color: var(--ld-semantic-color-action-text-onFill-transparent-hovered, #2e2f32);
+}
+
+.ld-select-dropdown-item-with-indicator:focus-visible,
+.ld-select-dropdown-item-with-indicator[data-highlighted] {
+  background: var(--ld-semantic-color-fill-focused, #e8e8e9);
+  color: var(--ld-semantic-color-action-text-onFill-transparent-focused, #2e2f32);
+  outline: none;
+}
+
+.ld-select-dropdown-item-with-indicator:active:not([data-disabled]) {
+  background: var(--ld-semantic-color-fill-pressed, #dadadc);
+  color: var(--ld-semantic-color-action-text-onFill-transparent-pressed, #2e2f32);
+}
+
+.ld-select-dropdown-item-with-indicator[data-disabled] {
+  color: var(--ld-semantic-color-action-text-onFill-transparent-disabled, #babbbe);
+  pointer-events: none;
+}
+
+/*
+ * Selected radio/checkbox item — bold (alt) weight so the active choice is
+ * immediately scannable in the list. Both `SelectDropdown.RadioItem` and
+ * `SelectDropdown.CheckboxItem` apply `data-state="checked"` when active, so a
+ * single attribute selector covers both.
+ */
+.ld-select-dropdown-item-with-indicator[data-state="checked"] {
+  font-weight: var(--ld-semantic-font-body-small-weight-alt, 700);
+}
+
+/* --- Indicator container --- */
+.ld-select-dropdown-indicator {
+  position: absolute;
+  left: var(--ld-primitive-scale-space-200, 16px);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--ld-semantic-scale-icon-small, 16px);
+  height: var(--ld-semantic-scale-icon-small, 16px);
+}
+
+.ld-select-dropdown-indicator svg {
+  width: var(--ld-semantic-scale-icon-small, 16px);
+  height: var(--ld-semantic-scale-icon-small, 16px);
+}
+
+/* --- Chevron icon (submenu) --- */
+.ld-select-dropdown-chevron {
+  margin-left: auto;
+  width: var(--ld-semantic-scale-icon-small, 16px);
+  height: var(--ld-semantic-scale-icon-small, 16px);
+  flex-shrink: 0;
+}
+
+/* --- Label --- */
+.ld-select-dropdown-label {
+  padding: var(--ld-primitive-scale-space-100, 8px) var(--ld-primitive-scale-space-200, 16px);
+  font-size: var(--ld-semantic-font-body-small-size, 0.875rem);
+  font-weight: var(--ld-semantic-font-body-small-weight-default, 400);
+  color: var(--ld-semantic-color-text, #2e2f32);
+}
+
+.ld-select-dropdown-label--inset {
+  padding-left: var(--ld-primitive-scale-space-500, 40px);
+}
+
+/* --- Separator --- */
+.ld-select-dropdown-separator {
+  height: 1px;
+  margin: var(--ld-primitive-scale-space-50, 4px) 0;
+  background-color: var(--ld-semantic-color-separator, #e3e4e5);
+}
+
+/* --- Footer (sticky action row, e.g. Cancel / Apply) --- */
+.ld-select-dropdown-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--ld-primitive-scale-space-100, 8px);
+  /* Offset the content's 4px padding so the divider spans edge-to-edge and the
+     row sits flush against the bottom of the overlay. */
+  margin: var(--ld-primitive-scale-space-50, 4px) calc(-1 * var(--ld-primitive-scale-space-50, 4px))
+    calc(-1 * var(--ld-primitive-scale-space-50, 4px));
+  padding: var(--ld-primitive-scale-space-100, 8px) var(--ld-primitive-scale-space-150, 12px);
+  border-top: 1px solid var(--ld-semantic-color-separator, #e3e4e5);
+}
+
+/* --- Shortcut text --- */
+.ld-select-dropdown-shortcut {
+  margin-left: auto;
+  font-size: var(--ld-semantic-font-caption-size, 0.75rem);
+  letter-spacing: 0.05em;
+  color: var(--ld-semantic-color-text-subtle, #74767c);
+}
+
+/* --- Submenu: cascading flyout panel --- */
+.ld-select-dropdown-sub {
+  position: relative;
+}
+
+/* The flyout anchors to its trigger row and opens to the side as a separate
+   panel, offset slightly so it reads as a distinct surface. */
+.ld-select-dropdown-sub-content {
+  position: absolute;
+  left: 100%;
+  /* Pull up by the panel's own padding so the first submenu row lines up with
+     the trigger row. */
+  top: calc(-1 * var(--ld-primitive-scale-space-100, 8px));
+  margin-left: var(--ld-primitive-scale-space-50, 4px);
+}
+
+/* ============================================
+   SELECT ITEMS
+   Selection-oriented variants (user picks a value rather than
+   navigating actions). Share the base row layout + interaction states.
+   ============================================ */
+
+/* --- Shared row layout for interactive select items --- */
+.ld-select-dropdown-checkmark-item,
+.ld-select-dropdown-radio-item,
+.ld-select-dropdown-description-item,
+.ld-select-dropdown-accordion-trigger {
+  display: flex;
+  position: relative;
+  cursor: default;
+  user-select: none;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-100, 8px);
+  padding: var(--ld-primitive-scale-space-100, 8px) var(--ld-primitive-scale-space-200, 16px);
+  border-radius: 0;
+  border: none;
+  width: 100%;
+  text-align: left;
+  background: var(--ld-semantic-color-action-fill-transparent, transparent);
+  font-family: inherit;
+  font-size: var(--ld-semantic-font-body-small-size, 0.875rem);
+  font-weight: var(--ld-semantic-font-body-small-weight-default, 400);
+  line-height: var(--ld-semantic-font-body-small-line-height, 1.25rem);
+  color: var(--ld-semantic-color-action-text-onFill-transparent, #2e2f32);
+  outline: none;
+  transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+  box-sizing: border-box;
+}
+
+.ld-select-dropdown-checkmark-item:hover:not([data-disabled]),
+.ld-select-dropdown-radio-item:hover:not([data-disabled]),
+.ld-select-dropdown-description-item:hover:not([data-disabled]),
+.ld-select-dropdown-accordion-trigger:hover:not([data-disabled]) {
+  background: var(--ld-semantic-color-fill-hovered, #f1f1f2);
+}
+
+.ld-select-dropdown-checkmark-item:focus-visible,
+.ld-select-dropdown-radio-item:focus-visible,
+.ld-select-dropdown-description-item:focus-visible,
+.ld-select-dropdown-accordion-trigger:focus-visible,
+.ld-select-dropdown-checkmark-item[data-highlighted],
+.ld-select-dropdown-radio-item[data-highlighted],
+.ld-select-dropdown-description-item[data-highlighted] {
+  background: var(--ld-semantic-color-fill-focused, #e8e8e9);
+  outline: none;
+}
+
+.ld-select-dropdown-checkmark-item:active:not([data-disabled]),
+.ld-select-dropdown-radio-item:active:not([data-disabled]),
+.ld-select-dropdown-description-item:active:not([data-disabled]),
+.ld-select-dropdown-accordion-trigger:active:not([data-disabled]) {
+  background: var(--ld-semantic-color-fill-pressed, #dadadc);
+}
+
+.ld-select-dropdown-checkmark-item[data-disabled],
+.ld-select-dropdown-radio-item[data-disabled],
+.ld-select-dropdown-description-item[data-disabled],
+.ld-select-dropdown-accordion-trigger[data-disabled] {
+  color: var(--ld-semantic-color-action-text-onFill-transparent-disabled, #babbbe);
+  pointer-events: none;
+}
+
+/* Disabled selection controls use disabled token colors (not opacity) so the
+   text stays legible at the accessible disabled contrast. */
+.ld-select-dropdown-radio-item[data-disabled] .ld-select-dropdown-radio-control {
+  border-color: var(--ld-semantic-color-input-border-disabled, #babbbe);
+  background: var(--ld-semantic-color-input-fill-disabled, #ffffff);
+}
+
+.ld-select-dropdown-item-with-indicator[data-disabled] .ld-select-dropdown-indicator {
+  color: var(--ld-semantic-color-input-border-disabled, #babbbe);
+}
+
+/* Selected option text is bold so the active choice is scannable. */
+.ld-select-dropdown-checkmark-item[data-state="checked"] .ld-select-dropdown-checkmark-label,
+.ld-select-dropdown-description-item[data-state="checked"] .ld-select-dropdown-description-title,
+.ld-select-dropdown-radio-item[data-state="checked"] .ld-select-dropdown-radio-label,
+.ld-select-dropdown-accordion-trigger[data-state="open"] .ld-select-dropdown-accordion-title {
+  font-weight: var(--ld-semantic-font-body-small-weight-alt, 700);
+}
+
+/* --- Trailing checkmark indicator ---
+   Always rendered as a fixed-size slot (icon shown only when checked) so the
+   row width stays constant whether or not the option is selected. */
+.ld-select-dropdown-trailing-check {
+  margin-left: auto;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--ld-semantic-scale-icon-small, 16px);
+  height: var(--ld-semantic-scale-icon-small, 16px);
+  color: var(--ld-semantic-color-text, #2e2f32);
+}
+
+/* --- Checkmark item --- */
+.ld-select-dropdown-checkmark-label {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* --- Radio item: real radio control --- */
+.ld-select-dropdown-radio-label {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* --- Checkbox item label --- */
+.ld-select-dropdown-checkbox-label {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* Reserve the bold (selected) width up front so the menu never grows or
+   shrinks as the active option changes — it stays as wide as the longest
+   option rendered bold. An invisible, zero-height copy of the label text in
+   the bold weight holds the maximum width. */
+.ld-select-dropdown-checkmark-label[data-text]::after,
+.ld-select-dropdown-radio-label[data-text]::after,
+.ld-select-dropdown-checkbox-label[data-text]::after,
+.ld-select-dropdown-description-title[data-text]::after {
+  content: attr(data-text);
+  display: block;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+  font-weight: var(--ld-semantic-font-body-small-weight-alt, 700);
+}
+
+.ld-select-dropdown-radio-control {
+  flex-shrink: 0;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--ld-primitive-scale-space-250, 20px);
+  height: var(--ld-primitive-scale-space-250, 20px);
+  border: var(--ld-semantic-scale-borderwidth-interactive, 1px) solid
+    var(--ld-semantic-color-input-border, #6d6e71);
+  border-radius: var(--ld-primitive-scale-borderRadius-round, 1000px);
+  background: var(--ld-semantic-color-input-fill, #ffffff);
+}
+
+.ld-select-dropdown-radio-control::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: var(--ld-primitive-scale-borderRadius-round, 1000px);
+  background: var(--ld-semantic-color-input-indicator-activated, #ffffff);
+  opacity: 0;
+  transition: opacity 0.1s ease-in-out;
+}
+
+.ld-select-dropdown-radio-item[data-state="checked"] .ld-select-dropdown-radio-control {
+  border-width: var(--ld-semantic-scale-borderwidth-interactive-activated, 2px);
+  border-color: var(--ld-semantic-color-input-border-activated, #2e2f32);
+  background: var(--ld-semantic-color-input-fill-activated, #2e2f32);
+}
+
+.ld-select-dropdown-radio-item[data-state="checked"] .ld-select-dropdown-radio-control::after {
+  opacity: 1;
+}
+
+/* --- Description item --- */
+.ld-select-dropdown-description-item {
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-150, 12px);
+}
+
+.ld-select-dropdown-description-avatar {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--ld-primitive-scale-space-600, 48px);
+  height: var(--ld-primitive-scale-space-600, 48px);
+  border-radius: var(--ld-primitive-scale-borderRadius-round, 1000px);
+  background: var(--ld-semantic-color-fill-brand-subtle, #e9f1fe);
+  color: var(--ld-semantic-color-text-onFill-brand-subtle, #114ab6);
+  overflow: hidden;
+}
+
+.ld-select-dropdown-description-avatar svg,
+.ld-select-dropdown-description-avatar img {
+  width: var(--ld-semantic-scale-icon-medium, 24px);
+  height: var(--ld-semantic-scale-icon-medium, 24px);
+  object-fit: cover;
+}
+
+.ld-select-dropdown-description-text {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.ld-select-dropdown-description-title {
+  color: var(--ld-semantic-color-text, #2e2f32);
+}
+
+.ld-select-dropdown-description-desc {
+  color: var(--ld-semantic-color-text-subtle, #515357);
+}
+
+/* --- Favorite star button (Description Favorite item) --- */
+.ld-select-dropdown-favorite-button {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--ld-semantic-scale-icon-small, 16px);
+  height: var(--ld-semantic-scale-icon-small, 16px);
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: var(--ld-semantic-color-text, #2e2f32);
+  border-radius: var(--ld-primitive-scale-borderRadius-50, 4px);
+  outline: none;
+}
+
+.ld-select-dropdown-favorite-button:hover {
+  color: var(--ld-semantic-color-rating-fill, #ffc220);
+}
+
+/* Favorited star: a filled star with its outline border layered on top so the
+   edge stays crisp against the fill. Uses the shared Rating color tokens. */
+.ld-select-dropdown-favorite-star {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--ld-semantic-scale-icon-small, 16px);
+  height: var(--ld-semantic-scale-icon-small, 16px);
+}
+
+.ld-select-dropdown-favorite-star-fill {
+  color: var(--ld-semantic-color-rating-fill, #ffc220);
+}
+
+.ld-select-dropdown-favorite-star-border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--ld-semantic-color-rating-border, #cc851a);
+}
+
+.ld-select-dropdown-favorite-button:disabled {
+  color: var(--ld-semantic-color-action-text-onFill-transparent-disabled, #babbbe);
+  cursor: default;
+}
+
+/* --- Switch item: label + trailing toggle --- */
+.ld-select-dropdown-switch-item {
+  display: flex;
+  position: relative;
+  cursor: default;
+  user-select: none;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-100, 8px);
+  padding: var(--ld-primitive-scale-space-100, 8px) var(--ld-primitive-scale-space-200, 16px);
+  width: 100%;
+  background: var(--ld-semantic-color-action-fill-transparent, transparent);
+  font-size: var(--ld-semantic-font-body-small-size, 0.875rem);
+  font-weight: var(--ld-semantic-font-body-small-weight-default, 400);
+  line-height: var(--ld-semantic-font-body-small-line-height, 1.25rem);
+  color: var(--ld-semantic-color-action-text-onFill-transparent, #2e2f32);
+  outline: none;
+  transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+  box-sizing: border-box;
+}
+
+.ld-select-dropdown-switch-item:hover:not([data-disabled]) {
+  background: var(--ld-semantic-color-fill-hovered, #f1f1f2);
+}
+
+.ld-select-dropdown-switch-item:focus-visible,
+.ld-select-dropdown-switch-item[data-highlighted] {
+  background: var(--ld-semantic-color-fill-focused, #e8e8e9);
+  outline: none;
+}
+
+.ld-select-dropdown-switch-item:active:not([data-disabled]) {
+  background: var(--ld-semantic-color-fill-pressed, #dadadc);
+}
+
+.ld-select-dropdown-switch-item[data-disabled] {
+  color: var(--ld-semantic-color-action-text-onFill-transparent-disabled, #babbbe);
+  pointer-events: none;
+}
+
+.ld-select-dropdown-switch-icon {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--ld-semantic-scale-icon-small, 16px);
+  height: var(--ld-semantic-scale-icon-small, 16px);
+}
+
+.ld-select-dropdown-switch-label {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* The switch is purely visual here; the row carries the interaction. */
+.ld-select-dropdown-switch-control {
+  margin-left: auto;
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
+/* --- Edit item: inline editable field --- */
+.ld-select-dropdown-edit-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-50, 4px);
+  padding: var(--ld-primitive-scale-space-50, 4px) var(--ld-primitive-scale-space-200, 16px);
+  box-sizing: border-box;
+}
+
+.ld-select-dropdown-edit-row {
+  display: flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-100, 8px);
+}
+
+.ld-select-dropdown-edit-field {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  border: var(--ld-semantic-scale-borderwidth-interactive, 1px) solid
+    var(--ld-semantic-color-field-border, #6d6e71);
+  border-radius: var(--ld-primitive-scale-borderRadius-50, 4px);
+  background: var(--ld-semantic-color-field-fill, #ffffff);
+  padding: 0 var(--ld-primitive-scale-space-150, 12px);
+  transition: border-color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+}
+
+.ld-select-dropdown-edit-field:focus-within {
+  border-width: var(--ld-semantic-scale-borderwidth-interactive-focused, 2px);
+  border-color: var(--ld-semantic-color-field-border-focused, #2e2f32);
+  background: var(--ld-semantic-color-fill-activated-subtle-focused, #e9f1fe);
+}
+
+.ld-select-dropdown-edit-input {
+  flex: 1 1 auto;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: var(--ld-primitive-scale-space-100, 8px) 0;
+  font-family: inherit;
+  font-size: var(--ld-semantic-font-body-small-size, 0.875rem);
+  font-weight: var(--ld-semantic-font-body-small-weight-default, 400);
+  line-height: var(--ld-semantic-font-body-small-line-height, 1.25rem);
+  color: var(--ld-semantic-color-field-text-onFill, #2e2f32);
+}
+
+.ld-select-dropdown-edit-input::placeholder {
+  color: var(--ld-semantic-color-text-subtle, #74767c);
+}
+
+/* Read-only display shown in gated (double-click to edit) mode. Hovers like
+   any other menu/select item — full-width row highlight, no field chrome. */
+.ld-select-dropdown-edit-item--readonly {
+  padding: var(--ld-primitive-scale-space-100, 8px) var(--ld-primitive-scale-space-200, 16px);
+  cursor: text;
+  transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+
+.ld-select-dropdown-edit-item--readonly:hover:not([data-disabled]) {
+  background: var(--ld-semantic-color-fill-hovered, #f1f1f2);
+}
+
+.ld-select-dropdown-edit-item--readonly:focus-within:not([data-disabled]) {
+  background: var(--ld-semantic-color-fill-focused, #e8e8e9);
+}
+
+.ld-select-dropdown-edit-display {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  font-size: var(--ld-semantic-font-body-small-size, 0.875rem);
+  font-weight: var(--ld-semantic-font-body-small-weight-default, 400);
+  line-height: var(--ld-semantic-font-body-small-line-height, 1.25rem);
+  color: var(--ld-semantic-color-field-text-onFill, #2e2f32);
+  outline: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ld-select-dropdown-edit-display[data-placeholder] {
+  color: var(--ld-semantic-color-text-subtle, #74767c);
+}
+
+.ld-select-dropdown-edit-item[data-disabled] .ld-select-dropdown-edit-display {
+  color: var(--ld-semantic-color-field-text-onFill-disabled, #babbbe);
+  cursor: default;
+}
+
+.ld-select-dropdown-edit-item[data-error] .ld-select-dropdown-edit-field,
+.ld-select-dropdown-edit-item[data-error] .ld-select-dropdown-edit-field:focus-within {
+  border-color: var(--ld-semantic-color-field-border-negative, #ea1100);
+  background: var(--ld-semantic-color-field-fill-negative, #ffffff);
+}
+
+.ld-select-dropdown-edit-item[data-disabled] .ld-select-dropdown-edit-field {
+  border-color: var(--ld-semantic-color-field-border-disabled, #babbbe);
+  background: var(--ld-semantic-color-field-fill-disabled, #ffffff);
+}
+
+.ld-select-dropdown-edit-item[data-disabled] .ld-select-dropdown-edit-input {
+  color: var(--ld-semantic-color-field-text-onFill-disabled, #babbbe);
+}
+
+.ld-select-dropdown-edit-error {
+  display: flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-50, 4px);
+  color: var(--ld-semantic-color-text-negative, #ea1100);
+  font-size: var(--ld-semantic-font-caption-size, 0.75rem);
+  line-height: var(--ld-semantic-font-caption-line-height, 1rem);
+}
+
+.ld-select-dropdown-edit-error-icon {
+  flex-shrink: 0;
+  width: var(--ld-semantic-scale-icon-small, 16px);
+  height: var(--ld-semantic-scale-icon-small, 16px);
+}
+
+/* --- Section title (non-interactive heading) --- */
+/* A divider line always sits below a section title to set the group apart. */
+.ld-select-dropdown-section-title {
+  padding: var(--ld-primitive-scale-space-100, 8px) var(--ld-primitive-scale-space-200, 16px);
+  margin-bottom: var(--ld-primitive-scale-space-50, 4px);
+  border-bottom: 1px solid var(--ld-semantic-color-separator, #e3e4e5);
+  font-size: var(--ld-semantic-font-body-small-size, 0.875rem);
+  font-weight: var(--ld-semantic-font-body-small-weight-default, 400);
+  line-height: var(--ld-semantic-font-body-small-line-height, 1.25rem);
+  color: var(--ld-semantic-color-text-subtle, #515357);
+}
+
+.ld-select-dropdown-section-title[data-variant="bold"] {
+  font-weight: var(--ld-semantic-font-body-small-weight-alt, 700);
+}
+
+/* --- Accordion section (collapsible group) --- */
+.ld-select-dropdown-accordion-trigger {
+  cursor: pointer;
+  color: var(--ld-semantic-color-text, #2e2f32);
+}
+
+.ld-select-dropdown-accordion-title {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.ld-select-dropdown-accordion-chevron {
+  margin-left: auto;
+  flex-shrink: 0;
+  width: var(--ld-semantic-scale-icon-small, 16px);
+  height: var(--ld-semantic-scale-icon-small, 16px);
+  transition: transform 0.15s ease-in-out;
+}
+
+.ld-select-dropdown-accordion-trigger[data-state="open"] .ld-select-dropdown-accordion-chevron {
+  transform: rotate(180deg);
+}
+
+.ld-select-dropdown-accordion-content[hidden] {
+  display: none;
+}

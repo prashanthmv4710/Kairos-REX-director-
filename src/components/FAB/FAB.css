@@ -1,0 +1,658 @@
+/* LD Portable – FAB (Floating Action Button) */
+
+/* ── Root — fixed to bottom-right of the containing block ───────────── */
+.ld-fab-root {
+  position: fixed;
+  z-index: 400;
+  display: inline-flex;
+  align-items: center;
+}
+
+.ld-fab-root--size-desktop-large,
+.ld-fab-root--size-desktop-small {
+  bottom: var(--ld-semantic-spacing-300); /* 24px */
+  right: var(--ld-semantic-spacing-300); /* 24px */
+}
+
+.ld-fab-root--size-mobile {
+  bottom: var(--ld-semantic-spacing-200); /* 16px */
+  right: var(--ld-semantic-spacing-200); /* 16px */
+}
+
+/* ── Button wrapper — establishes stacking context for badge ─────────── */
+.ld-fab-buttonWrap {
+  position: relative;
+  display: inline-flex;
+}
+
+/* ── Button — shared geometry, no fill/color (set by surface modifier) ── */
+.ld-fab-button {
+  --ld-fab-magic-gradient: linear-gradient(
+    135deg,
+    var(--ld-semantic-color-border-magic-start),
+    var(--ld-semantic-color-border-magic-middle),
+    var(--ld-semantic-color-border-magic-stop)
+  );
+  --ld-fab-magic-glow-duration: 6s;
+  --ld-fab-magic-glow-timing: var(
+    --ld-semantic-timing-ease-in-out,
+    cubic-bezier(0.77, 0, 0.175, 1)
+  );
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: var(--ld-primitive-scale-borderradius-round, 9999px);
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--ld-semantic-elevation-300);
+  transition: background-color 0.15s ease, box-shadow 0.15s ease, color 0.15s ease;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  overflow: hidden;
+}
+
+.ld-fab-button--size-desktop-large {
+  width: 3.5rem;
+  min-width: 3.5rem;
+  height: 3.5rem;
+  min-height: 3.5rem;
+  padding: var(--ld-semantic-spacing-150);
+}
+
+.ld-fab-button--size-desktop-small {
+  width: 2.5rem;
+  min-width: 2.5rem;
+  height: 2.5rem;
+  min-height: 2.5rem;
+  padding: var(--ld-semantic-spacing-100);
+}
+
+.ld-fab-button--size-mobile {
+  width: 3rem;
+  min-width: 3rem;
+  height: 3rem;
+  min-height: 3rem;
+  padding: var(--ld-semantic-spacing-100);
+}
+
+/* ── Disabled (shared across all surfaces) ───────────────────────────── */
+/*
+ * Disabled state is communicated solely by the surface background switching
+ * to its -disabled token (see per-surface rules below) plus removing the
+ * elevation shadow and swapping to not-allowed cursor. Opacity is intentionally
+ * omitted so that the icon / avatar content does not change color tokens.
+ */
+.ld-fab-button:disabled {
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+/* ── Focus ring (shared across all surfaces) ─────────────────────────── */
+.ld-fab-button:focus-visible {
+  outline-width: var(--ld-semantic-focus-ring-width);
+  outline-style: var(--ld-semantic-focus-ring-style);
+  outline-color: var(--ld-semantic-focus-ring-color);
+  outline-offset: var(--ld-semantic-focus-ring-offset);
+}
+
+/* ════════════════════════════════════════════════════════════════════════
+   SURFACE MODIFIERS
+   Each surface provides background + box-shadow for all interactive states.
+   ════════════════════════════════════════════════════════════════════════ */
+
+/* ── Surface 1: primary ──────────────────────────────────────────────── */
+.ld-fab-button--surface-primary {
+  background: var(--ld-semantic-color-action-fill-primary);
+}
+.ld-fab-button--surface-primary:hover:not(:disabled) {
+  background: var(--ld-semantic-color-action-fill-primary-hovered);
+}
+.ld-fab-button--surface-primary:focus-visible {
+  background: var(--ld-semantic-color-action-fill-primary-focused);
+}
+.ld-fab-button--surface-primary:active:not(:disabled) {
+  background: var(--ld-semantic-color-action-fill-primary-pressed);
+  box-shadow: none;
+}
+.ld-fab-button--surface-primary:disabled {
+  background: var(--ld-semantic-color-action-fill-primary-disabled);
+}
+
+/* ── Surface 2: primary-bordered (primary fill + white inset border) ─── */
+/*
+ * Both the elevation and the inset border are folded into --_fab-shadow so
+ * box-shadow references a single var() — required by the strict-value rule.
+ */
+.ld-fab-button--surface-primary-bordered {
+  --_fab-shadow: var(--ld-semantic-elevation-300), inset 0 0 0 var(--ld-semantic-scale-border-width-interactive) var(--ld-semantic-color-text-inverse);
+  background: var(--ld-semantic-color-action-fill-primary);
+  box-shadow: var(--_fab-shadow);
+}
+.ld-fab-button--surface-primary-bordered:hover:not(:disabled) {
+  --_fab-shadow: var(--ld-semantic-elevation-300), inset 0 0 0 var(--ld-semantic-scale-border-width-interactive-hovered) var(--ld-semantic-color-text-inverse);
+  background: var(--ld-semantic-color-action-fill-primary-hovered);
+  box-shadow: var(--_fab-shadow);
+}
+.ld-fab-button--surface-primary-bordered:focus-visible {
+  --_fab-shadow: var(--ld-semantic-elevation-300), inset 0 0 0 var(--ld-semantic-scale-border-width-interactive-focused) var(--ld-semantic-color-text-inverse);
+  background: var(--ld-semantic-color-action-fill-primary-focused);
+  box-shadow: var(--_fab-shadow);
+}
+.ld-fab-button--surface-primary-bordered:active:not(:disabled) {
+  --_fab-shadow: inset 0 0 0 var(--ld-semantic-scale-border-width-interactive-pressed) var(--ld-semantic-color-text-inverse);
+  background: var(--ld-semantic-color-action-fill-primary-pressed);
+  box-shadow: var(--_fab-shadow);
+}
+.ld-fab-button--surface-primary-bordered:disabled {
+  --_fab-shadow: inset 0 0 0 var(--ld-semantic-scale-border-width-interactive) var(--ld-semantic-color-text-inverse);
+  background: var(--ld-semantic-color-action-fill-primary-disabled);
+  box-shadow: var(--_fab-shadow);
+}
+
+/* ── Surface 3: secondary ────────────────────────────────────────────── */
+.ld-fab-button--surface-secondary {
+  background: var(--ld-semantic-color-action-fill-secondary);
+}
+.ld-fab-button--surface-secondary:hover:not(:disabled) {
+  background: var(--ld-semantic-color-action-fill-secondary-hovered);
+}
+.ld-fab-button--surface-secondary:focus-visible {
+  background: var(--ld-semantic-color-action-fill-secondary-focused);
+}
+.ld-fab-button--surface-secondary:active:not(:disabled) {
+  background: var(--ld-semantic-color-action-fill-secondary-pressed);
+  box-shadow: none;
+}
+.ld-fab-button--surface-secondary:disabled {
+  background: var(--ld-semantic-color-action-fill-secondary-disabled);
+}
+
+/* ── Surface 4: secondary-bordered (secondary fill + magic gradient ring) */
+/*
+ * The gradient ring is built on a ::before pseudo-element using the
+ * padding + mask-composite trick: fill the pseudo with the gradient,
+ * then mask out the content-box so only the padding ring (= border) shows.
+ * border-width changes on interaction by updating `padding`.
+ */
+.ld-fab-button--surface-secondary-bordered {
+  background: var(--ld-semantic-color-action-fill-secondary);
+}
+.ld-fab-button--surface-secondary-bordered:hover:not(:disabled) {
+  background: var(--ld-semantic-color-action-fill-secondary-hovered);
+}
+.ld-fab-button--surface-secondary-bordered:focus-visible {
+  background: var(--ld-semantic-color-action-fill-secondary-focused);
+}
+.ld-fab-button--surface-secondary-bordered:active:not(:disabled) {
+  background: var(--ld-semantic-color-action-fill-secondary-pressed);
+  box-shadow: none;
+}
+.ld-fab-button--surface-secondary-bordered:disabled {
+  background: var(--ld-semantic-color-action-fill-secondary-disabled);
+}
+
+/* Magic gradient ring */
+.ld-fab-button--surface-secondary-bordered::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: var(--ld-semantic-scale-border-width-interactive);
+  background: var(--ld-fab-magic-gradient);
+  -webkit-mask: linear-gradient(black 0 0) content-box,
+    linear-gradient(black 0 0);
+  mask: linear-gradient(black 0 0) content-box,
+    linear-gradient(black 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: ld-fab-magic-border-glow var(--ld-fab-magic-glow-duration) var(--ld-fab-magic-glow-timing) infinite;
+  pointer-events: none;
+}
+.ld-fab-button--surface-secondary-bordered:hover:not(:disabled)::before {
+  padding: var(--ld-semantic-scale-border-width-interactive-hovered);
+}
+.ld-fab-button--surface-secondary-bordered:focus-visible::before {
+  padding: var(--ld-semantic-scale-border-width-interactive-focused);
+}
+.ld-fab-button--surface-secondary-bordered:active:not(:disabled)::before {
+  padding: var(--ld-semantic-scale-border-width-interactive-pressed);
+}
+.ld-fab-button--surface-secondary-bordered:disabled::before {
+  padding: var(--ld-semantic-scale-border-width-interactive);
+  background: var(--ld-semantic-color-action-border-secondary-disabled);
+  opacity: 1;
+}
+
+/* ── Surface 5: magic (gradient fill, no border) ─────────────────────── */
+/*
+ * Default state: magic linear gradient.
+ * Interactive states: switch to primary fill tokens (no gradients per spec).
+ */
+.ld-fab-button--surface-magic {
+  background: var(--ld-fab-magic-gradient);
+}
+.ld-fab-button--surface-magic:hover:not(:disabled) {
+  background: var(--ld-semantic-color-action-fill-primary-hovered);
+}
+.ld-fab-button--surface-magic:focus-visible {
+  background: var(--ld-semantic-color-action-fill-primary-focused);
+}
+.ld-fab-button--surface-magic:active:not(:disabled) {
+  background: var(--ld-semantic-color-action-fill-primary-pressed);
+  box-shadow: none;
+}
+.ld-fab-button--surface-magic:disabled {
+  background: var(--ld-semantic-color-action-fill-primary-disabled);
+}
+
+/* ── Surface 6: magic-bordered (gradient fill + white inset border) ───── */
+.ld-fab-button--surface-magic-bordered {
+  --_fab-shadow: var(--ld-semantic-elevation-300), inset 0 0 0 var(--ld-semantic-scale-border-width-interactive) var(--ld-semantic-color-text-inverse);
+  background: var(--ld-fab-magic-gradient);
+  box-shadow: var(--_fab-shadow);
+}
+.ld-fab-button--surface-magic-bordered:hover:not(:disabled) {
+  --_fab-shadow: var(--ld-semantic-elevation-300), inset 0 0 0 var(--ld-semantic-scale-border-width-interactive-hovered) var(--ld-semantic-color-text-inverse);
+  background: var(--ld-semantic-color-action-fill-primary-hovered);
+  box-shadow: var(--_fab-shadow);
+}
+.ld-fab-button--surface-magic-bordered:focus-visible {
+  --_fab-shadow: var(--ld-semantic-elevation-300), inset 0 0 0 var(--ld-semantic-scale-border-width-interactive-focused) var(--ld-semantic-color-text-inverse);
+  background: var(--ld-semantic-color-action-fill-primary-focused);
+  box-shadow: var(--_fab-shadow);
+}
+.ld-fab-button--surface-magic-bordered:active:not(:disabled) {
+  --_fab-shadow: inset 0 0 0 var(--ld-semantic-scale-border-width-interactive-pressed) var(--ld-semantic-color-text-inverse);
+  background: var(--ld-semantic-color-action-fill-primary-pressed);
+  box-shadow: var(--_fab-shadow);
+}
+.ld-fab-button--surface-magic-bordered:disabled {
+  --_fab-shadow: inset 0 0 0 var(--ld-semantic-scale-border-width-interactive) var(--ld-semantic-color-text-inverse);
+  background: var(--ld-semantic-color-action-fill-primary-disabled);
+  box-shadow: var(--_fab-shadow);
+}
+
+/* Sparky custom: keep shadow inside the circular wrapper instead of outside elevation. */
+.ld-fab-button--variant-agent.ld-fab-button--persona-sparky {
+  background: var(--ld-semantic-color-background-subtle);
+  border: var(--ld-semantic-scale-border-width-interactive) solid transparent;
+  background-image: linear-gradient(var(--ld-semantic-color-background-subtle), var(--ld-semantic-color-background-subtle)), var(--ld-semantic-color-gradient-blue-surface);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  box-shadow: var(--ld-semantic-elevation-100);
+}
+
+.ld-fab-button--variant-agent.ld-fab-button--persona-sparky:active:not(:disabled) {
+  box-shadow: var(--ld-semantic-elevation-100);
+}
+
+.ld-fab-button--variant-agent.ld-fab-button--persona-sparky:disabled {
+  box-shadow: none;
+}
+/* ════════════════════════════════════════════════════════════════════════
+   ICON / TEXT COLOR MODIFIERS
+   Applied independently of surface. Caller is responsible for valid
+   combinations (see FABProps JSDoc).
+   ════════════════════════════════════════════════════════════════════════ */
+
+/* ── Icon color modifiers (primary mechanism for all surfaces) ──────────── */
+
+.ld-fab-button--icon-inverse {
+  color: var(--ld-semantic-color-text-inverse);
+}
+
+.ld-fab-button--icon-inverse:hover:not(:disabled) {
+  color: var(--ld-semantic-color-text-inverse-hovered, var(--ld-semantic-color-text-inverse));
+}
+
+.ld-fab-button--icon-inverse:focus-visible {
+  color: var(--ld-semantic-color-text-inverse-focused, var(--ld-semantic-color-text-inverse));
+}
+
+.ld-fab-button--icon-inverse:active:not(:disabled) {
+  color: var(--ld-semantic-color-text-inverse-pressed, var(--ld-semantic-color-text-inverse));
+}
+
+.ld-fab-button--icon-inverse:disabled {
+  color: var(--ld-semantic-color-text-inverse-disabled, var(--ld-semantic-color-text-inverse));
+}
+
+.ld-fab-button--icon-text {
+  color: var(--ld-semantic-color-text);
+}
+
+.ld-fab-button--icon-text:hover:not(:disabled) {
+  color: var(--ld-semantic-color-text-hovered, var(--ld-semantic-color-text));
+}
+
+.ld-fab-button--icon-text:focus-visible {
+  color: var(--ld-semantic-color-text-focused, var(--ld-semantic-color-text));
+}
+
+.ld-fab-button--icon-text:active:not(:disabled) {
+  color: var(--ld-semantic-color-text-pressed, var(--ld-semantic-color-text));
+}
+
+.ld-fab-button--icon-text:disabled {
+  color: var(--ld-semantic-color-text-disabled, var(--ld-semantic-color-text));
+}
+
+.ld-fab-button--icon-brand {
+  color: var(--ld-semantic-color-action-fill-primary);
+}
+
+.ld-fab-button--icon-brand:hover:not(:disabled) {
+  color: var(--ld-semantic-color-action-fill-primary-hovered);
+}
+
+.ld-fab-button--icon-brand:focus-visible {
+  color: var(--ld-semantic-color-action-fill-primary-focused);
+}
+
+.ld-fab-button--icon-brand:active:not(:disabled) {
+  color: var(--ld-semantic-color-action-fill-primary-pressed);
+}
+
+.ld-fab-button--icon-brand:disabled {
+  color: var(--ld-semantic-color-action-fill-primary-disabled);
+}
+
+/* ── Icon wrap ───────────────────────────────────────────────────────── */
+.ld-fab-iconWrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  pointer-events: none;
+  position: relative;
+  z-index: 1; /* sit above ::before gradient ring */
+}
+
+.ld-fab-button--variant-icon.ld-fab-button--size-desktop-large .ld-fab-iconWrap,
+.ld-fab-button--variant-icon.ld-fab-button--size-mobile .ld-fab-iconWrap {
+  width: 2rem;
+  height: 2rem;
+}
+
+.ld-fab-button--variant-icon.ld-fab-button--size-desktop-small .ld-fab-iconWrap {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.ld-fab-button--variant-image.ld-fab-button--size-desktop-large .ld-fab-iconWrap,
+.ld-fab-button--variant-agent.ld-fab-button--size-desktop-large .ld-fab-iconWrap,
+.ld-fab-button--variant-image.ld-fab-button--size-mobile .ld-fab-iconWrap,
+.ld-fab-button--variant-agent.ld-fab-button--size-mobile .ld-fab-iconWrap {
+  width: 2rem;
+  height: 2rem;
+}
+
+.ld-fab-button--variant-image.ld-fab-button--size-desktop-small .ld-fab-iconWrap,
+.ld-fab-button--variant-agent.ld-fab-button--size-desktop-small .ld-fab-iconWrap {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* ── Avatar wrapper — agent/image content ────────────────────────────── */
+.ld-fab-avatarWrap {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ld-fab-avatarMedia {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ld-fab-avatarMedia > span {
+  width: 100%;
+  height: 100%;
+  display: inline-flex;
+}
+
+/* Slightly increase media fill in desktop-large so avatar/image matches spec density. */
+.ld-fab-button--variant-image.ld-fab-button--size-desktop-large .ld-fab-avatarMedia,
+.ld-fab-button--variant-agent.ld-fab-button--size-desktop-large .ld-fab-avatarMedia {
+  transform: scale(1.08);
+  transform-origin: center;
+}
+
+/* Hidden avatar wrapper: container invisible, media scales up to fill */
+.ld-fab-button--hide-avatar-wrapper .ld-fab-avatarWrap {
+  visibility: hidden;
+}
+
+.ld-fab-button--hide-avatar-wrapper .ld-fab-avatarMedia {
+  visibility: visible;
+  transform: scale(1.25);
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+/* ── Badge — container positioned at top-right of button ───────────────── */
+.ld-fab-badge {
+  position: absolute;
+  bottom: 42px;  /* Anchor badge by bottom-left corner, 42px from FAB bottom */
+  left: 42px;    /* Anchor badge by bottom-left corner, 42px from FAB left */
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  pointer-events: none;
+  /* Collapse inline line-height so the span tightly wraps Badge. */
+  line-height: 0;
+}
+
+/* Desktop-large badge positioning (56x56 button) */
+.ld-fab-buttonWrap--size-desktop-large .ld-fab-badge {
+  bottom: 42px;
+  left: 42px;
+}
+
+/* Desktop-small badge positioning (40x40 button) */
+.ld-fab-buttonWrap--size-desktop-small .ld-fab-badge {
+  bottom: 30px;
+  left: 30px;
+}
+
+/* Mobile badge positioning (48x48 button) */
+.ld-fab-buttonWrap--size-mobile .ld-fab-badge {
+  bottom: 36px;
+  left: 36px;
+}
+
+/* Label mode: anchor the badge wrapper to the pill's right edge.
+   The wrapper's content remains left-aligned so number width changes
+   expand inward without drifting the right-edge anchor. */
+.ld-fab-buttonWrap--size-desktop-large.ld-fab-buttonWrap--has-label .ld-fab-badge {
+  bottom: 42px;
+  left: auto;
+  right: -2px;
+}
+
+.ld-fab-buttonWrap--size-desktop-small.ld-fab-buttonWrap--has-label .ld-fab-badge {
+  bottom: 30px;
+  left: auto;
+  right: -6px;
+}
+
+.ld-fab-buttonWrap--size-mobile.ld-fab-buttonWrap--has-label .ld-fab-badge {
+  bottom: 36px;
+  left: auto;
+  right: -4px;
+}
+
+/* Dot badges are narrower than numeric badges and should sit slightly
+   further left in label mode so visual edge alignment matches spec. */
+.ld-fab-buttonWrap--size-desktop-large.ld-fab-buttonWrap--has-label .ld-fab-badge.ld-fab-badge--dot {
+  right: 4px;
+}
+
+.ld-fab-buttonWrap--size-desktop-small.ld-fab-buttonWrap--has-label .ld-fab-badge.ld-fab-badge--dot {
+  right: 0;
+}
+
+.ld-fab-buttonWrap--size-mobile.ld-fab-buttonWrap--has-label .ld-fab-badge.ld-fab-badge--dot {
+  right: 2px;
+}
+
+/* Badge shifts inward when avatar wrapper is hidden */
+.ld-fab-buttonWrap--hide-avatar-wrapper .ld-fab-badge {
+  bottom: 8px;   /* Shifts inward when avatar is hidden */
+  left: 8px;     /* Shifts inward when avatar is hidden */
+}
+
+.ld-fab-buttonWrap--size-desktop-large.ld-fab-buttonWrap--hide-avatar-wrapper .ld-fab-badge {
+  bottom: 8px;
+  left: 8px;
+}
+
+/* Desktop-small with hidden avatar */
+.ld-fab-buttonWrap--size-desktop-small.ld-fab-buttonWrap--hide-avatar-wrapper .ld-fab-badge {
+  bottom: 6px;
+  left: 6px;
+}
+
+/* Mobile with hidden avatar */
+.ld-fab-buttonWrap--size-mobile.ld-fab-buttonWrap--hide-avatar-wrapper .ld-fab-badge {
+  bottom: 7px;
+  left: 7px;
+}
+
+/* ── Extended pill — button expands when label is present ────────────── */
+.ld-fab-button--has-label {
+  width: auto;
+  min-width: 0;
+  gap: var(--ld-semantic-spacing-100); /* 8px between icon and text */
+}
+
+.ld-fab-button--size-desktop-large.ld-fab-button--has-label,
+.ld-fab-button--size-mobile.ld-fab-button--has-label {
+  padding-top: var(--ld-semantic-spacing-150);
+  padding-right: var(--ld-semantic-spacing-250);
+  padding-bottom: var(--ld-semantic-spacing-150);
+  padding-left: var(--ld-semantic-spacing-150);
+}
+
+.ld-fab-button--size-desktop-small.ld-fab-button--has-label {
+  padding-top: var(--ld-semantic-spacing-100);
+  padding-right: var(--ld-semantic-spacing-200);
+  padding-bottom: var(--ld-semantic-spacing-100);
+  padding-left: var(--ld-semantic-spacing-100);
+}
+
+/* ── Label — inline text inside the button ───────────────────────────── */
+.ld-fab-label {
+  font-family: var(--ld-semantic-font-body-large-family);
+  font-size: var(--ld-semantic-font-body-large-size);
+  font-weight: var(--ld-semantic-font-body-large-weight-alt, 700);
+  line-height: var(--ld-semantic-font-body-large-lineheight);
+  white-space: nowrap;
+}
+
+.ld-fab-button--size-desktop-small .ld-fab-label {
+  font-family: var(--ld-semantic-font-body-medium-family);
+  font-size: var(--ld-semantic-font-body-medium-size);
+  font-weight: var(--ld-semantic-font-body-medium-weight-alt, 700);
+  line-height: var(--ld-semantic-font-body-medium-lineheight);
+}
+
+.ld-fab-button--label-inverse .ld-fab-label {
+  color: var(--ld-semantic-color-text-inverse);
+}
+
+.ld-fab-button--label-text .ld-fab-label {
+  color: var(--ld-semantic-color-text);
+}
+
+.ld-fab-button--label-brand .ld-fab-label {
+  color: var(--ld-semantic-color-action-fill-primary);
+}
+
+.ld-fab-button--label-brand:hover:not(:disabled) .ld-fab-label {
+  color: var(--ld-semantic-color-action-fill-primary-hovered);
+}
+
+.ld-fab-button--label-brand:focus-visible .ld-fab-label {
+  color: var(--ld-semantic-color-action-fill-primary-focused);
+}
+
+.ld-fab-button--label-brand:active:not(:disabled) .ld-fab-label {
+  color: var(--ld-semantic-color-action-fill-primary-pressed);
+}
+
+.ld-fab-button--label-brand:disabled .ld-fab-label {
+  color: var(--ld-semantic-color-action-fill-primary-disabled);
+}
+
+@keyframes ld-fab-magic-border-glow {
+  0%, 100% { opacity: 0.88; }
+  50% { opacity: 1; }
+}
+
+/* ── Reduced motion ──────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .ld-fab-button {
+    transition: none;
+  }
+
+  .ld-fab-button--surface-secondary-bordered::before {
+    animation: none;
+    opacity: 0.7;
+  }
+
+  .ld-fab-button--surface-magic-bordered::before {
+    animation: none;
+    opacity: 0.7;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────────────────
+   CONTAINERLESS MODE
+   No background, shadow, or border. Icon floats with icon color modifier.
+   Teams customize interactive states.
+   ──────────────────────────────────────────────────────────────────────── */
+
+.ld-fab-button--containerless {
+  background: transparent !important;
+  box-shadow: none !important;
+  cursor: pointer;
+}
+
+.ld-fab-button--containerless:hover:not(:disabled) {
+  /* No default hover state - teams customize */
+}
+
+.ld-fab-button--containerless:focus-visible {
+  outline-width: var(--ld-semantic-focus-ring-width);
+  outline-style: var(--ld-semantic-focus-ring-style);
+  outline-color: var(--ld-semantic-focus-ring-color);
+  outline-offset: var(--ld-semantic-focus-ring-offset);
+}
+
+.ld-fab-button--containerless:active:not(:disabled) {
+  /* No default active state - teams customize */
+}
+
+.ld-fab-button--containerless:disabled {
+  /* No default disabled state - teams customize */
+}
+
+/* Ensure 44px minimum touch target on mobile */
+@media (max-width: 480px) {
+  .ld-fab-button--containerless {
+    min-width: 44px;
+    min-height: 44px;
+  }
+}

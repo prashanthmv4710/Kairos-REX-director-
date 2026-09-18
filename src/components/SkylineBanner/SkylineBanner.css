@@ -1,0 +1,106 @@
+/* LD Portable – SkylineBanner */
+
+.ld-wcp-skyline-banner-root {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--ld-semantic-color-surface, #fff);
+  border-radius: var(--ld-semantic-border-radius-large);
+  box-shadow: var(--ld-primitive-elevation-100);
+  padding-block: var(--ld-primitive-scale-space-150);
+  padding-inline: var(--ld-primitive-scale-space-200);
+  gap: var(--ld-primitive-scale-space-200);
+}
+
+/* ---------- Left column ---------- */
+.ld-wcp-skyline-banner-left {
+  display: flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-150);
+  flex: 1;
+  min-width: 0;
+}
+
+.ld-wcp-skyline-banner-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  flex-shrink: 0;
+  border-radius: var(--ld-semantic-border-radius-medium);
+}
+
+.ld-wcp-skyline-banner-logo-placeholder {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: var(--ld-semantic-border-radius-medium);
+  background: var(--ld-semantic-color-surface-subtle, #f2f4f7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ld-semantic-color-text-subtle, #46474a);
+}
+
+.ld-wcp-skyline-banner-text-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-25);
+  min-width: 0;
+}
+
+.ld-wcp-skyline-banner-headline {
+  font-size: var(--ld-semantic-font-body-small-size);
+  font-weight: var(--ld-primitive-font-weight-700);
+  color: var(--ld-semantic-color-text, #2e2f32);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ld-wcp-skyline-banner-subtext {
+  font-size: var(--ld-semantic-font-caption-size);
+  color: var(--ld-semantic-color-text-subtle, #46474a);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ---------- Right column ---------- */
+.ld-wcp-skyline-banner-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--ld-primitive-scale-space-50);
+  flex-shrink: 0;
+}
+
+.ld-wcp-skyline-banner-sponsored-row {
+  display: flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-50);
+}
+
+.ld-wcp-skyline-banner-sponsored-label {
+  font-size: 11px;
+  color: var(--ld-semantic-color-text-subtle, #46474a);
+}
+
+.ld-wcp-skyline-banner-info-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.ld-wcp-skyline-banner-info-icon {
+  color: var(--ld-semantic-color-text-subtle, #46474a);
+}
+
+.ld-wcp-skyline-banner-product-image {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  border-radius: var(--ld-semantic-border-radius-medium);
+}

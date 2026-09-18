@@ -1,0 +1,102 @@
+/* LD Portable – CheckInModal */
+
+/* Confirmed state */
+.ld-wcp-check-in-modal-confirmed {
+  padding-block: var(--ld-primitive-scale-space-400);
+  padding-inline: var(--ld-primitive-scale-space-300);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-200);
+  text-align: center;
+}
+.ld-wcp-check-in-modal-check-circle {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--ld-semantic-color-fill-positive, #16a34a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ld-wcp-check-in-modal-confirmed-title {
+  font-size: 20px;
+  font-weight: var(--ld-primitive-font-weight-700);
+  color: var(--ld-semantic-color-text);
+  margin: 0;
+}
+.ld-wcp-check-in-modal-confirmed-desc {
+  font-size: var(--ld-semantic-font-body-small-size);
+  color: var(--ld-semantic-color-text-subtle);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Pre-confirm state */
+.ld-wcp-check-in-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: var(--ld-primitive-scale-space-200);
+  padding-inline: var(--ld-primitive-scale-space-250);
+  border-bottom: 1px solid var(--ld-semantic-color-separator);
+}
+.ld-wcp-check-in-modal-header-title {
+  font-size: 18px;
+  font-weight: var(--ld-primitive-font-weight-700);
+  color: var(--ld-semantic-color-text);
+  margin: 0;
+}
+.ld-wcp-check-in-modal-close-btn {
+  background: none;
+  border: none;
+  padding: var(--ld-primitive-scale-space-50);
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  color: var(--ld-semantic-color-text-subtle);
+}
+.ld-wcp-check-in-modal-body {
+  padding: var(--ld-primitive-scale-space-250);
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-150);
+}
+.ld-wcp-check-in-modal-info-box {
+  padding: var(--ld-primitive-scale-space-200);
+  border-radius: var(--ld-semantic-border-radius-large);
+  background: var(--ld-semantic-color-background-subtle, #f8f8f8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-100);
+}
+.ld-wcp-check-in-modal-info-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+}
+.ld-wcp-check-in-modal-info-label {
+  color: var(--ld-semantic-color-text-subtle);
+}
+.ld-wcp-check-in-modal-info-value {
+  font-weight: var(--ld-primitive-font-weight-600);
+  color: var(--ld-semantic-color-text);
+}
+.ld-wcp-check-in-modal-info-value-positive {
+  font-weight: var(--ld-primitive-font-weight-600);
+  color: var(--ld-semantic-color-text-positive, #16a34a);
+}
+.ld-wcp-check-in-modal-fine-print {
+  font-size: var(--ld-semantic-font-caption-size);
+  color: var(--ld-semantic-color-text-subtle);
+  margin: 0;
+  line-height: 1.5;
+}
+.ld-wcp-check-in-modal-footer {
+  display: flex;
+  gap: var(--ld-primitive-scale-space-100);
+  padding-block: var(--ld-primitive-scale-space-200);
+  padding-inline: var(--ld-primitive-scale-space-250);
+  border-top: 1px solid var(--ld-semantic-color-separator);
+  justify-content: flex-end;
+}

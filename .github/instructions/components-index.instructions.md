@@ -1,0 +1,418 @@
+---
+description: 'Living Design component inventory — name, category, import path, one-line intent'
+applyTo: '**'
+---
+# Living Design Component Index
+
+Use this index to discover what this kit gives you. **Before using anything here**, either:
+
+- **Run** `node scripts/ld/cli.mjs show <Name>` — works from any working directory, needs no install.
+- **Read** the markdown next to the source — `src/<category>/<dir>/<Name>.md`. `<category>` is `components` (atoms and molecules), `patterns` (composed recipes), or `utils` (runtime services). e.g. `Button.md` lives under `src/components/Button/`; `ProductService.md` under `src/utils/`.
+
+The `.tsx`/`.ts` sits in the same directory; its JSDoc is also authoritative.
+
+Searching by intent beats scanning this list: `node scripts/ld/cli.mjs search <keywords>` ranks over rule sections, components and utilities at once.
+
+## Components (270)
+
+- **A11yDevAssertions** — `./components/A11yDevAssertions`
+- **ActionGroup** — `./components/ActionGroup` — Structured primary/secondary (and optional tertiary) action pair with prescribed Button variants and a fixed layout pattern. For generic button rows, use ButtonGroup instead.
+- **ActionTile** — `./components/ActionTile` — Selectable icon + title tile for action/choice grids (variant sets layout + size; selected drives pressed state)
+- **AgentFramework** — `./components/AgentFramework` — Floating elevated work-surface card beside an agent chat (header with close/title/actions, scrollable body, optional footer)
+- **AgentResponse** — `./components/AgentResponse` — Agent/assistant chat turn — avatar, name, reply body or streaming placeholder, optional link/timestamp/feedback slots
+- **Alert** — `./components/Alert` — Status message (success/info/warning/error)
+- **AlertDialog** — `./components/AlertDialog` — Confirmation dialog (destructive flows)
+- **AlertDialogAction** — `./components/AlertDialog` — Confirmation dialog (destructive flows)
+- **AlertDialogCancel** — `./components/AlertDialog` — Confirmation dialog (destructive flows)
+- **AlertDialogContent** — `./components/AlertDialog` — Confirmation dialog (destructive flows)
+- **AlertDialogTrigger** — `./components/AlertDialog` — Confirmation dialog (destructive flows)
+- **AspectRatio** — `./components/AspectRatio` — Layout primitive locking children to a fixed width/height ratio (e.g. ratio={16/9})
+- **AttachmentTile** — `./components/AttachmentTile` — Removable attached-file/image chip — icon variant (pictogram + text) or image variant (thumbnail); wire onRemove
+- **Attribute** — `./components/Attribute` — Leading-icon + label pill with size/color variants and optional comparison label (pass iconLabel when the icon carries meaning)
+- **Avatar** — `./components/Avatar` — User / entity portrait
+- **AvatarButton** — `./components/Avatar` — User / entity portrait
+- **AvatarFallback** — `./components/Avatar` — User / entity portrait
+- **AvatarImage** — `./components/Avatar` — User / entity portrait
+- **Badge** — `./components/Badge` — Count/status pill — integer-only children (number or numeric string), throws at runtime otherwise. Omit children for a status dot. Use Badge for counts; use Tag for text status labels ("New", "Beta", "Out of stock").
+- **Banner** — `./components/Banner` — High-impact global announcement; required close
+- **BasicBanner** — `./components/BasicBanner` — Generic promotional banner
+- **Body** — `./components/Text`
+- **BottomNav** — `./components/BottomNav` — Mobile-web bottom navigation bar
+- **BottomSheet** — `./components/BottomSheet` — Modal anchored to the bottom of the viewport
+- **Breadcrumb** — `./components/Breadcrumb` — Hierarchical path navigation
+- **BreadcrumbItem** — `./components/Breadcrumb` — Single breadcrumb entry
+- **Button** — `./components/Button` — Primary/secondary/tertiary/destructive action
+- **ButtonGroup** — `./components/Button` — Related action row (children must be Button elements). For structured primary/secondary action pairs with prescribed variants, see ActionGroup.
+- **ButtonToggle** — `./components/ButtonToggle` — Disclosure/next button with trailing chevron (isOpen sets aria-expanded) and optional +N count
+- **Callout** — `./components/Callout` — Anchored onboarding / coach-mark overlay
+- **CalloutLink** — `./components/Callout` — Anchored onboarding / coach-mark overlay
+- **Caption** — `./components/Text`
+- **Card** — `./components/Card` — Structured card surface (header / body / footer)
+- **CardActions** — `./components/Card` — Structured card surface (header / body / footer)
+- **CardContent** — `./components/Card` — Card body slot
+- **CardHeader** — `./components/Card` — Card title and leading content
+- **CardInteractive** — `./components/Card` — Single- or multi-action card with actionMode="single" interactive states or actionMode="multi" static surface tokens; use static adornments in single mode and independent controls in multi mode
+- **CardInteractiveContent** — `./components/Card` — Structured card surface (header / body / footer)
+- **CardInteractiveHeader** — `./components/Card` — Structured card surface (header / body / footer)
+- **CardMedia** — `./components/Card` — Structured card surface (header / body / footer)
+- **Carousel** — `./components/Carousel` — Horizontal scrolling content row
+- **CarouselContent** — `./components/Carousel` — Horizontal scrolling content row
+- **CarouselHeaderNext** — `./components/Carousel` — Horizontal scrolling content row
+- **CarouselHeaderPrevious** — `./components/Carousel` — Horizontal scrolling content row
+- **CarouselItem** — `./components/Carousel` — Horizontal scrolling content row
+- **CarouselNext** — `./components/Carousel` — Horizontal scrolling content row
+- **CarouselPagination** — `./components/Carousel` — Horizontal scrolling content row
+- **CarouselPrevious** — `./components/Carousel` — Horizontal scrolling content row
+- **CarouselProgressBar** — `./components/Carousel` — Horizontal scrolling content row
+- **CarouselSection** — `./components/Carousel` — Horizontal scrolling content row
+- **CategoryNav** — `./components/CategoryNav` — Category browse navigation
+- **Checkbox** — `./components/Checkbox` — Multi-select choice (group with FormGroup)
+- **Chip** — `./components/Chip` — Interactive filter chip (multi-select; toggles independently)
+- **ChipGroup** — `./components/Chip` — Container for filter-style multi-select chips
+- **Collapse** — `./components/Collapse` — Expand / collapse inline content
+- **Collapsible** — `./components/Collapsible` — Headless expand/collapse primitive (Collapsible + Trigger + Content) — manages open state only, no styling
+- **CollapsibleContent** — `./components/Collapsible` — Headless expand/collapse primitive (Collapsible + Trigger + Content) — manages open state only, no styling
+- **CollapsibleTrigger** — `./components/Collapsible` — Headless expand/collapse primitive (Collapsible + Trigger + Content) — manages open state only, no styling
+- **Command** — `./components/Command` — Cmd-K command palette
+- **CommandDialog** — `./components/Command` — Cmd-K command palette
+- **CommandEmpty** — `./components/Command` — Cmd-K command palette
+- **CommandGroup** — `./components/Command` — Cmd-K command palette
+- **CommandInput** — `./components/Command` — Cmd-K command palette
+- **CommandItem** — `./components/Command` — Cmd-K command palette
+- **CommandList** — `./components/Command` — Cmd-K command palette
+- **CommandSeparator** — `./components/Command` — Cmd-K command palette
+- **CommandShortcut** — `./components/Command` — Cmd-K command palette
+- **Container** — `./components/Container` — Max-width responsive content wrapper
+- **ContentCard** — `./components/ContentCard` — Editorial / promotional card
+- **ContextMenu** — `./components/ContextMenu` — Right-click menu — thin wrapper over SelectDropdown with the full ContextMenu* item set (trigger via right-click)
+- **ContextMenuCheckboxItem** — `./components/ContextMenu` — Right-click menu — thin wrapper over SelectDropdown with the full ContextMenu* item set (trigger via right-click)
+- **ContextMenuContent** — `./components/ContextMenu` — Right-click menu — thin wrapper over SelectDropdown with the full ContextMenu* item set (trigger via right-click)
+- **ContextMenuItem** — `./components/ContextMenu` — Right-click menu — thin wrapper over SelectDropdown with the full ContextMenu* item set (trigger via right-click)
+- **ContextMenuLabel** — `./components/ContextMenu` — Right-click menu — thin wrapper over SelectDropdown with the full ContextMenu* item set (trigger via right-click)
+- **ContextMenuRadioGroup** — `./components/ContextMenu` — Right-click menu — thin wrapper over SelectDropdown with the full ContextMenu* item set (trigger via right-click)
+- **ContextMenuRadioItem** — `./components/ContextMenu` — Right-click menu — thin wrapper over SelectDropdown with the full ContextMenu* item set (trigger via right-click)
+- **ContextMenuSeparator** — `./components/ContextMenu` — Right-click menu — thin wrapper over SelectDropdown with the full ContextMenu* item set (trigger via right-click)
+- **ContextMenuShortcut** — `./components/ContextMenu` — Right-click menu — thin wrapper over SelectDropdown with the full ContextMenu* item set (trigger via right-click)
+- **ContextMenuSub** — `./components/ContextMenu` — Right-click menu — thin wrapper over SelectDropdown with the full ContextMenu* item set (trigger via right-click)
+- **ContextMenuSubContent** — `./components/ContextMenu` — Right-click menu — thin wrapper over SelectDropdown with the full ContextMenu* item set (trigger via right-click)
+- **ContextMenuSubTrigger** — `./components/ContextMenu` — Right-click menu — thin wrapper over SelectDropdown with the full ContextMenu* item set (trigger via right-click)
+- **ContextMenuTrigger** — `./components/ContextMenu` — Right-click menu — thin wrapper over SelectDropdown with the full ContextMenu* item set (trigger via right-click)
+- **CountryCodePhoneInput** — `./components/CountryCodePhoneInput` — Phone-number field with a country-code selector that opens CountrySelectBottomSheet (onChange = phone string)
+- **CountrySelectBottomSheet** — `./components/CountrySelectBottomSheet` — Modal bottom-sheet radio list for picking one country, confirmed via footer button (controlled open)
+- **CountrySelectDropdown** — `./components/CountrySelectDropdown` — Searchable single/multi country combobox with keyboard listbox nav (multi confirmed via Apply)
+- **CountrySelectGroup** — `./components/CountrySelectGroup` — Radio-list country picker with flags and optional dial codes. For a mobile sheet, use CountrySelectBottomSheet
+- **DataTableBulkActions** — `./components/DataTable` — Tabular data with sortable columns
+- **DataTableCell** — `./components/DataTable` — Tabular data with sortable columns
+- **DataTableCellActions** — `./components/DataTable` — Tabular data with sortable columns
+- **DataTableCellBulkEditTextArea** — `./components/DataTable` — Tabular data with sortable columns
+- **DataTableCellInlineEditTextArea** — `./components/DataTable` — Tabular data with sortable columns
+- **DataTableCellSelect** — `./components/DataTable` — Tabular data with sortable columns
+- **DataTableCellStatus** — `./components/DataTable` — Tabular data with sortable columns
+- **DataTableConfigPanel** — `./components/DataTableConfigPanel` — Right-side overlay for customizing DataTable columns — visibility, pinning, drag-reorder (controlled isOpen)
+- **DataTableHeaderSelect** — `./components/DataTable` — Tabular data with sortable columns
+- **DataTableTitle** — `./components/DataTableTitle` — Header bar above a DataTable — title with optional subtitle and right-aligned actions slot
+- **DateField** — `./components/DateField` — Date input
+- **DatePicker** — `./components/DatePicker` — Calendar-style date selector
+- **DatePickerCalendar** — `./components/DatePickerCalendar` — Single/multiple/range calendar grid with month navigation and keyboard support (mode). Standalone calendar of DatePicker
+- **DateRangePicker** — `./components/DateRangePicker` — Paired calendars plus mm/dd/yyyy inputs and Cancel/Apply for picking a {from,to} date range
+- **Display** — `./components/Text`
+- **Divider** — `./components/Divider` — Section separator (needs surrounding margin)
+- **FAB** — `./components/FAB`
+- **Feedback** — `./components/Feedback` — Thumbs up/down rating for an agent response with confirmation and Share-more affordance (value + onChange)
+- **FilterChip** — `./components/FilterChip`
+- **Flag** — `./components/Flag` — Inline label / flag pill
+- **FloatingButton** — `./components/FloatingButton` — Icon-only floating action button (aria-label required, TS-enforced)
+- **FluentCombobox** — `./components/Combobox` — Searchable single-select combobox, Fluent-styled (requires label or a11yLabelledBy). For LD-standard styling, use Combobox
+- **FluentMenu** — `./components/FluentMenu` — Compound dropdown menu (Trigger/List/Item/Divider) with keyboard focus management (controlled open)
+- **FluentMenuDivider** — `./components/FluentMenu` — Compound dropdown menu (Trigger/List/Item/Divider) with keyboard focus management (controlled open)
+- **FluentMenuItem** — `./components/FluentMenu` — Compound dropdown menu (Trigger/List/Item/Divider) with keyboard focus management (controlled open)
+- **FluentMenuList** — `./components/FluentMenu` — Compound dropdown menu (Trigger/List/Item/Divider) with keyboard focus management (controlled open)
+- **FluentMenuTrigger** — `./components/FluentMenu` — Compound dropdown menu (Trigger/List/Item/Divider) with keyboard focus management (controlled open)
+- **FocusTrap** — `./components/FocusTrap`
+- **FormGroup** — `./components/FormGroup` — Group related form controls under a shared label
+- **Grid** — `./components/Grid` — Responsive 12-column layout (always pass hasGutter)
+- **GridColumn** — `./components/Grid` — Grid column (always set sm/md/lg breakpoints)
+- **HeaderInstructional** — `./components/HeaderInstructional` — L2-screen context header — large title, optional count/description and trailing chevron or link action
+- **HeaderSection** — `./components/HeaderSection` — Section header for in-screen hierarchy — medium (link action) or small (collapsible chevron) size, with divider
+- **HeaderWidget** — `./components/HeaderWidget` — Header for a self-contained widget/card — title, count, description, trailing action, optional error alert
+- **Heading** — `./components/Text` — Section heading (use as=h2..h6; never skip levels)
+- **HeartView** — `./components/HeartView` — Favorite toggle indicator
+- **HighlightText** — `./components/HighlightText` — Renders text with the case-insensitive query match un-bolded and the rest bold (typeahead convention)
+- **IconButton** — `./components/IconButton` — Icon-only interactive button (requires a11yLabel)
+- **IconSelector** — `./components/IconSelector` — Binary on/off toggle shown as a paired icon set (outline/filled); announces as a switch (a11yLabel required)
+- **Image** — `./components/Image` — LD-wrapped img with mandatory alt or unsafeDecorative
+- **Label** — `./components/Label` — PX form label primitive (disabled via data-disabled). For core form labels, use FormLabel
+- **LanguageSelector** — `./components/LanguageSelector` — Circular flag dropdown for switching locales (controlled value/onChange)
+- **LineClamp** — `./components/LineClamp`
+- **Link** — `./components/Link` — Inline text link
+- **LinkButton** — `./components/LinkButton` — Link styled as a button
+- **LocationBreadcrumb** — `./components/LocationBreadcrumb` — Hierarchical location path with a trailing item count (wraps core Breadcrumb)
+- **MagicBorder** — `./components/MagicBorder`
+- **MagicBox** — `./components/MagicBox`
+- **MagicFill** — `./components/MagicFill`
+- **MagicSurface** — `./components/MagicSurface`
+- **MagicText** — `./components/MagicText`
+- **Masthead** — `./components/Masthead` — PX top-of-app header bar (logo/name, left/center/right slots, opt-in Bell/Help/Account). For the retail site header, use Header
+- **Menu** — `./components/Menu` — Triggered action menu
+- **Menubar** — `./components/Menubar` — Desktop menubar (File/Edit/View) with menus, submenus, checkbox/radio items and shortcuts (compound)
+- **MenubarCheckboxItem** — `./components/Menubar` — Desktop menubar (File/Edit/View) with menus, submenus, checkbox/radio items and shortcuts (compound)
+- **MenubarContent** — `./components/Menubar` — Desktop menubar (File/Edit/View) with menus, submenus, checkbox/radio items and shortcuts (compound)
+- **MenubarGroup** — `./components/Menubar` — Desktop menubar (File/Edit/View) with menus, submenus, checkbox/radio items and shortcuts (compound)
+- **MenubarItem** — `./components/Menubar` — Desktop menubar (File/Edit/View) with menus, submenus, checkbox/radio items and shortcuts (compound)
+- **MenubarLabel** — `./components/Menubar` — Desktop menubar (File/Edit/View) with menus, submenus, checkbox/radio items and shortcuts (compound)
+- **MenubarMenu** — `./components/Menubar` — Desktop menubar (File/Edit/View) with menus, submenus, checkbox/radio items and shortcuts (compound)
+- **MenubarPortal** — `./components/Menubar` — Desktop menubar (File/Edit/View) with menus, submenus, checkbox/radio items and shortcuts (compound)
+- **MenubarRadioGroup** — `./components/Menubar` — Desktop menubar (File/Edit/View) with menus, submenus, checkbox/radio items and shortcuts (compound)
+- **MenubarRadioItem** — `./components/Menubar` — Desktop menubar (File/Edit/View) with menus, submenus, checkbox/radio items and shortcuts (compound)
+- **MenubarSeparator** — `./components/Menubar` — Desktop menubar (File/Edit/View) with menus, submenus, checkbox/radio items and shortcuts (compound)
+- **MenubarShortcut** — `./components/Menubar` — Desktop menubar (File/Edit/View) with menus, submenus, checkbox/radio items and shortcuts (compound)
+- **MenubarSub** — `./components/Menubar` — Desktop menubar (File/Edit/View) with menus, submenus, checkbox/radio items and shortcuts (compound)
+- **MenubarSubContent** — `./components/Menubar` — Desktop menubar (File/Edit/View) with menus, submenus, checkbox/radio items and shortcuts (compound)
+- **MenubarSubTrigger** — `./components/Menubar` — Desktop menubar (File/Edit/View) with menus, submenus, checkbox/radio items and shortcuts (compound)
+- **MenubarTrigger** — `./components/Menubar` — Desktop menubar (File/Edit/View) with menus, submenus, checkbox/radio items and shortcuts (compound)
+- **MenuBreadcrumbItem** — `./components/Menu` — Triggered action menu
+- **MenuDescriptionItem** — `./components/Menu` — Triggered action menu
+- **MenuEditItem** — `./components/Menu` — Triggered action menu
+- **MenuInfoItem** — `./components/Menu` — Triggered action menu
+- **MenuItem** — `./components/Menu` — Menu entry
+- **MenuNote** — `./components/Menu` — Triggered action menu
+- **MenuSectionTitle** — `./components/Menu` — Triggered action menu
+- **MenuSectionTitleAccordion** — `./components/Menu` — Triggered action menu
+- **MenuSubMenu** — `./components/Menu` — Triggered action menu
+- **Metric** — `./components/Metric` — KPI / trend display
+- **MetricGroup** — `./components/MetricGroup` — Two or three Metric components side-by-side with vertical dividers. For a single KPI, use Metric
+- **Modal** — `./components/Modal` — Centered overlay dialog (controlled isOpen)
+- **Nudge** — `./components/Nudge` — Coaching hint / reminder
+- **OfferBadge** — `./components/OfferBadge` — Savings/offer badge for item tiles — selectable cashback offer or applied discount
+- **Page** — `./components/Page` — Page shell (renders main landmark + single h1 + skip link). Exactly ONE Page per app — do not nest a Page inside another Page.
+- **PageHeader** — `./components/PageHeader` — Full-bleed page header block (eyebrow label + h1 title + optional description; drop headingLevel when nested under an h1)
+- **Pagination** — `./components/Pagination` — Page navigation control
+- **PaginationContent** — `./components/Pagination` — Page navigation control
+- **PaginationEllipsis** — `./components/Pagination` — Page navigation control
+- **PaginationItem** — `./components/Pagination` — Page navigation control
+- **PaginationLink** — `./components/Pagination` — Page navigation control
+- **PaginationNext** — `./components/Pagination` — Page navigation control
+- **PaginationPrevious** — `./components/Pagination` — Page navigation control
+- **Panel** — `./components/Panel` — Side-drawer overlay (controlled isOpen)
+- **Popover** — `./components/Popover` — Anchored contextual overlay
+- **PrimarySection** — `./components/Section`
+- **ProcessingTrace** — `./components/ProcessingTrace` — Collapsible AI agent run trace with a status pill and composable body cards (Reasoning, TaskPlan, Sources, Timeline, etc.)
+- **ProcessingTrace.Row** — `./components/ProcessingTrace` — Collapsible AI agent run trace with a status pill and composable body cards (Reasoning, TaskPlan, Sources, Timeline, etc.)
+- **ProgressIndicator** — `./components/ProgressIndicator` — Determinate progress bar
+- **ProgressTracker** — `./components/ProgressTracker` — Multi-step progress
+- **ProgressTrackerItem** — `./components/ProgressTracker` — Multi-step progress
+- **PromptComposer** — `./components/PromptComposer` — AI agent chat input with attachments, dictation, slash/mention triggers, char counter, and generate/stop cycle
+- **PromptComposerDisclaimer** — `./components/PromptComposer` — AI agent chat input with attachments, dictation, slash/mention triggers, char counter, and generate/stop cycle
+- **PromptComposerSuggestions** — `./components/PromptComposer` — AI agent chat input with attachments, dictation, slash/mention triggers, char counter, and generate/stop cycle
+- **QuantityStepper** — `./components/QuantityStepper` — Increment/decrement stepper (onChange = absolute count)
+- **Radio** — `./components/Radio` — Single-select choice (share name; group via FormGroup)
+- **RadioGroup** — `./components/Radio` — Single-select choice (share name; group via FormGroup)
+- **RadioGroupItem** — `./components/Radio` — Single-select choice (share name; group via FormGroup)
+- **Rating** — `./components/Rating` — Star rating display
+- **RatingDisplay** — `./components/RatingDisplay` — Read-only star rating with optional review count, link, and text (value clamped 0–5). For input, use a rating control
+- **ResizableHandle** — `./components/Resizable`
+- **ResizablePanel** — `./components/Resizable`
+- **ResizablePanelGroup** — `./components/Resizable`
+- **RichMediaSheet** — `./components/RichMediaSheet` — Rich media bottom sheet
+- **RichSnackbar** — `./components/RichSnackbar` — Rich-content snackbar variant
+- **RichSnackbarContainer** — `./components/RichSnackbar` — Rich-content snackbar variant
+- **RichTextEditor** — `./components/RichTextEditor` — Contenteditable rich-text input with a formatting toolbar, char limit and optional AI styling; emits HTML via onChange
+- **Scrim** — `./components/Scrim` — Backdrop dimming primitive for PX overlays (isOpen/isClosing animation). Modal/Panel already include their own scrim
+- **ScrimOverlay** — `./components/ScrimOverlay` — Portalled dimming layer behind custom overlay surfaces, dismiss on click/Escape. For standard dialogs use Modal/Panel/BottomSheet
+- **ScrollArea** — `./components/ScrollArea` — Keyboard-focusable scrollable region with an accessible label (pair with ScrollBar)
+- **ScrollBar** — `./components/ScrollArea` — Keyboard-focusable scrollable region with an accessible label (pair with ScrollBar)
+- **SearchBar** — `./components/SearchBar` — Site-wide search bar
+- **SearchField** — `./components/SearchField` — Pill-shaped search input with leading magnifier, inline mic/barcode buttons and slide-in Cancel
+- **SecondarySection** — `./components/Section`
+- **SectionHeader** — `./components/SectionHeader` — Titled section header with optional count, description, and trailing link or expand/collapse chevron
+- **SegmentedControl** — `./components/SegmentedControl` — One-of-many pill toggle (radiogroup semantics)
+- **Select** — `./components/Select` — Option-selection dropdown
+- **SelectCard** — `./components/SelectCard` — Card as a selectable option with built-in Checkbox (multi) or Radio (single); the whole card is the toggle target
+- **SelectDropdown** — `./components/SelectDropdown` — Composable menu/dropdown primitive (Trigger + Content + Item variants: checkbox/radio/switch/edit). For a value picker, use Select
+- **SelectDropdownAccordionSection** — `./components/SelectDropdown` — Composable menu/dropdown primitive (Trigger + Content + Item variants: checkbox/radio/switch/edit). For a value picker, use Select
+- **SelectDropdownCheckboxItem** — `./components/SelectDropdown` — Composable menu/dropdown primitive (Trigger + Content + Item variants: checkbox/radio/switch/edit). For a value picker, use Select
+- **SelectDropdownCheckmarkItem** — `./components/SelectDropdown` — Composable menu/dropdown primitive (Trigger + Content + Item variants: checkbox/radio/switch/edit). For a value picker, use Select
+- **SelectDropdownContent** — `./components/SelectDropdown` — Composable menu/dropdown primitive (Trigger + Content + Item variants: checkbox/radio/switch/edit). For a value picker, use Select
+- **SelectDropdownDescriptionFavoriteItem** — `./components/SelectDropdown` — Composable menu/dropdown primitive (Trigger + Content + Item variants: checkbox/radio/switch/edit). For a value picker, use Select
+- **SelectDropdownDescriptionItem** — `./components/SelectDropdown` — Composable menu/dropdown primitive (Trigger + Content + Item variants: checkbox/radio/switch/edit). For a value picker, use Select
+- **SelectDropdownEditItem** — `./components/SelectDropdown` — Composable menu/dropdown primitive (Trigger + Content + Item variants: checkbox/radio/switch/edit). For a value picker, use Select
+- **SelectDropdownFooter** — `./components/SelectDropdown` — Composable menu/dropdown primitive (Trigger + Content + Item variants: checkbox/radio/switch/edit). For a value picker, use Select
+- **SelectDropdownItem** — `./components/SelectDropdown` — Composable menu/dropdown primitive (Trigger + Content + Item variants: checkbox/radio/switch/edit). For a value picker, use Select
+- **SelectDropdownLabel** — `./components/SelectDropdown` — Composable menu/dropdown primitive (Trigger + Content + Item variants: checkbox/radio/switch/edit). For a value picker, use Select
+- **SelectDropdownRadioGroup** — `./components/SelectDropdown` — Composable menu/dropdown primitive (Trigger + Content + Item variants: checkbox/radio/switch/edit). For a value picker, use Select
+- **SelectDropdownRadioItem** — `./components/SelectDropdown` — Composable menu/dropdown primitive (Trigger + Content + Item variants: checkbox/radio/switch/edit). For a value picker, use Select
+- **SelectDropdownSectionTitle** — `./components/SelectDropdown` — Composable menu/dropdown primitive (Trigger + Content + Item variants: checkbox/radio/switch/edit). For a value picker, use Select
+- **SelectDropdownSeparator** — `./components/SelectDropdown` — Composable menu/dropdown primitive (Trigger + Content + Item variants: checkbox/radio/switch/edit). For a value picker, use Select
+- **SelectDropdownShortcut** — `./components/SelectDropdown` — Composable menu/dropdown primitive (Trigger + Content + Item variants: checkbox/radio/switch/edit). For a value picker, use Select
+- **SelectDropdownSub** — `./components/SelectDropdown` — Composable menu/dropdown primitive (Trigger + Content + Item variants: checkbox/radio/switch/edit). For a value picker, use Select
+- **SelectDropdownSubContent** — `./components/SelectDropdown` — Composable menu/dropdown primitive (Trigger + Content + Item variants: checkbox/radio/switch/edit). For a value picker, use Select
+- **SelectDropdownSubTrigger** — `./components/SelectDropdown` — Composable menu/dropdown primitive (Trigger + Content + Item variants: checkbox/radio/switch/edit). For a value picker, use Select
+- **SelectDropdownSwitchItem** — `./components/SelectDropdown` — Composable menu/dropdown primitive (Trigger + Content + Item variants: checkbox/radio/switch/edit). For a value picker, use Select
+- **SelectDropdownTrigger** — `./components/SelectDropdown` — Composable menu/dropdown primitive (Trigger + Content + Item variants: checkbox/radio/switch/edit). For a value picker, use Select
+- **SideNavigation** — `./components/SideNavigation`
+- **SideNavigationItem** — `./components/SideNavigation`
+- **SignatureCapture** — `./components/SignatureCapture` — E-signature agreement block (trigger/terms/base/reauth variants). Embed via SignatureCaptureBottomSheet or SignatureCapturePanel
+- **SignatureCaptureBottomSheet** — `./components/SignatureCaptureBottomSheet` — SignatureCapture hosted in a BottomSheet with an Agree & sign action. For a side panel, use SignatureCapturePanel
+- **SignatureCapturePanel** — `./components/SignatureCapturePanel` — SignatureCapture hosted in a side Panel with an Agree & sign action. For a mobile sheet, use SignatureCaptureBottomSheet
+- **Skeleton** — `./components/Skeleton` — Block loading placeholder
+- **SkeletonText** — `./components/Skeleton` — Text-line loading placeholder
+- **SkylineBanner** — `./components/SkylineBanner` — Promotional skyline banner
+- **Slider** — `./components/Slider` — Range-input slider, single or two-thumb range (value array length sets thumb count); optional labels
+- **Slot** — `./components/Slot` — Radix-style prop-merging primitive: renders its single child with Slot's props/refs merged in (powers asChild)
+- **Sources** — `./components/Sources` — Ordered list of cited references (favicon + title + snippet) backing an agent response
+- **SpinButton** — `./components/SpinButton` — Numeric stepper input with up/down chevrons and min/max/step clamping (requires label or a11yLabelledBy)
+- **Spinner** — `./components/Spinner` — Indeterminate loading indicator
+- **SuggestionButton** — `./components/AgentFramework` — Floating elevated work-surface card beside an agent chat (header with close/title/actions, scrollable body, optional footer)
+- **SuggestionTextLink** — `./components/AgentFramework` — Floating elevated work-surface card beside an agent chat (header with close/title/actions, scrollable body, optional footer)
+- **Switch** — `./components/Switch` — Boolean toggle
+- **TabNavigation** — `./components/TabNavigation` — Top-level section tabs
+- **TabNavigationItem** — `./components/TabNavigation` — Tab entry
+- **Tag** — `./components/Tag` — Text status pill — accepts any ReactNode children (e.g. "New", "Beta", "Out of stock"). For integer-only counts and status dots, use Badge.
+- **TagInteractive** — `./components/TagInteractive`
+- **TertiarySection** — `./components/Section`
+- **TextArea** — `./components/TextArea` — Multi-line text input
+- **TextField** — `./components/TextField` — Single-line text input
+- **TextFieldSplit** — `./components/TextFieldSplit` — Text field with a leading inline Select (e.g. country code / unit) sharing one bordered control
+- **TimerView** — `./components/TimerView` — Countdown timer view
+- **Toggle** — `./components/Toggle` — Pressable icon/text toggle button holding an on/off state (switch semantics). For a labeled row switch, use Switch
+- **ToggleGroup** — `./components/ToggleGroup` — Group of Toggle buttons with single- or multiple-selection mode (type), sharing variant/size
+- **ToggleGroupItem** — `./components/ToggleGroup` — Group of Toggle buttons with single- or multiple-selection mode (type), sharing variant/size
+- **Tooltip** — `./components/Tooltip` — Hover/focus contextual help
+- **TraceTag** — `./components/ProcessingTrace` — Collapsible AI agent run trace with a status pill and composable body cards (Reasoning, TaskPlan, Sources, Timeline, etc.)
+- **Tree** — `./components/SideNavigation`
+- **UploadFile** — `./components/UploadFile` — Drag-and-drop file upload dropzone with browse button and per-file status/progress list (accept, maxFiles)
+- **UploadImage** — `./components/UploadImage` — Image upload tile
+- **useA11yScan** _(hook)_ — `./components/A11yDevAssertions`
+- **UserResponse** — `./components/UserResponse` — Chat bubble for the user's own message in a conversational/AI UI (themeable fill + text color, optional attachment)
+- **VisuallyHidden** — `./components/VisuallyHidden` — Screen-reader-only text
+
+## Patterns (113)
+
+- **Accordion** — `./patterns/Accordion` — Stacked expandable sections
+- **AccordionHeader** — `./patterns/Accordion` — Stacked expandable sections
+- **AccordionItem** — `./patterns/Accordion` — Stacked expandable sections
+- **AccordionPanel** — `./patterns/Accordion` — Stacked expandable sections
+- **AccountSideNav** — `./patterns/AccountSideNav` — Account-section side navigation
+- **ActiveCurbsideCard** — `./patterns/ActiveCurbsideCard` — Active curbside order card
+- **AgentChatSidebar** — `./patterns/AgentChatSidebar`
+- **AgentChatSidebarContent** — `./patterns/AgentChatSidebar`
+- **AgentChatSidebarFooter** — `./patterns/AgentChatSidebar`
+- **AgentChatSidebarHeader** — `./patterns/AgentChatSidebar`
+- **AgentChatSidebarItem** — `./patterns/AgentChatSidebar`
+- **AgentChatSidebarLockToggle** — `./patterns/AgentChatSidebar`
+- **AgentChatSidebarProvider** — `./patterns/AgentChatSidebar`
+- **AgentChatSidebarSection** — `./patterns/AgentChatSidebar`
+- **AgentChatSidebarSegment** — `./patterns/AgentChatSidebar`
+- **AgentChatSidebarSeparator** — `./patterns/AgentChatSidebar`
+- **AgentChatSidebarTextItem** — `./patterns/AgentChatSidebar`
+- **AgentChatSidebarTrigger** — `./patterns/AgentChatSidebar`
+- **AgentFrameworkWorkspace** — `./patterns/AgentFrameworkWorkspace` — Arrangeable group of AgentFramework cards — drag to split or stack, resize, maximize, animated open/close
+- **AppHeader** — `./patterns/AppHeader` — Mobile associate-app top bar with status bar, title, search, actions, and account menu (variant + platform)
+- **AutoCareModals** — `./patterns/AutoCareModals` — Auto Care demo modal set (check-in / reschedule / details) switched by openModal; built on DemoModal. Demo/prototype pattern
+- **AutoCareUpsellOfferCard** — `./patterns/AutoCareUpsellOfferCard` — AutoCare upsell offer card
+- **AxBottomNav** — `./patterns/AxBottomNav` — Mobile associate bottom tab bar (For you / Today's Plan / Your team) with optional floating AI agent button
+- **CarouselProductCard** — `./patterns/CarouselProductCard` — Product card sized for carousel rows
+- **CheckInModal** — `./patterns/CheckInModal` — Curbside-pickup check-in demo modal with confirmation state (assigns a bay). Demo/prototype pattern
+- **ClockingWidget** — `./patterns/ClockingWidget` — Associate clock-in/out summary card — status, role, shift/lunch/store, and Clock in + View timecard actions
+- **CombinedOrderCard** — `./patterns/CombinedOrderCard` — Two-column order card pairing an Auto Care side with a delivery/curbside side, each with progress tracker, plus a bundle total
+- **ContinueShopping** — `./patterns/ContinueShopping` — Continue-shopping carousel section
+- **DelayedDeliveryCard** — `./patterns/DelayedDeliveryCard` — Order card for a delayed delivery — warning banner, progress tracker, and reschedule/pickup/cancel actions
+- **DelayedDeliveryModals** — `./patterns/DelayedDeliveryModals` — Reschedule/pickup/cancel/details modal set for delayed orders (switch via openModal)
+- **DemoModal** — `./patterns/DemoModal` — Lightweight portal modal for demos/prototypes (controlled open). For production dialogs, use Modal
+- **DesktopFooter** — `./patterns/DesktopFooter` — Desktop footer
+- **FlashDealsCarousel** — `./patterns/FlashDealsCarousel` — Built-in flash-deals product row (writes to Store)
+- **FlashDealsItemTile** — `./patterns/FlashDealsItemTile` — Product tile for flash-deals grids — price, savings flag, heart, and add/options action
+- **Footer** — `./patterns/Footer` — Drop-in site footer that auto-picks desktop vs mobile-web layout by viewport (override with variant)
+- **Form** — `./patterns/SharedForm` — Form wrapper
+- **FormControl** — `./patterns/SharedForm`
+- **FormDescription** — `./patterns/SharedForm`
+- **FormField** — `./patterns/SharedForm`
+- **FormItem** — `./patterns/SharedForm`
+- **FormMessage** — `./patterns/SharedForm`
+- **GenericItemTile** — `./patterns/GenericItemTile` — Full-featured generic item tile — image, flag, heart, swatches, pack chips, sponsored, pricing, description, rating, and fulfillment attributes. Based on WCP Item tile (Figma node 89462:8140, breakpoint 0-899px vertical variant).
+- **GetItNowModal** — `./patterns/GetItNowModal` — Confirmation modal for switching curbside pickup to express delivery, with fee/total summary (controlled open)
+- **Header** — `./patterns/Header` — Full responsive site header (search / cart / account)
+- **IntelligentInsight** — `./patterns/IntelligentInsight` — Sidekick AI insight card — brand mark + insight label, optional title/description/attributes and action button
+- **IntelligentRecommendation** — `./patterns/IntelligentRecommendation` — AI recommendation card (eyebrow, attributes, alert, one to three buttons, collapsible sources)
+- **ItemRecommendation** — `./patterns/ItemRecommendation` — AI product recommendation card with item image/price, metrics, location chip, Sidekick insight and actions
+- **ItemTile** — `./patterns/ItemTile` — Product tile for carousels (~200px max width)
+- **ItemTileCondensed** — `./patterns/ItemTileCondensed` — Compact circular-image product tile for grocery/re-order grids with add-to-cart pill and edit-mode stepper
+- **JumpRightBackIn** — `./patterns/JumpRightBackIn` — Horizontal-scroll section of category cards, each a 2x2 ItemTile grid (self-contained demo data)
+- **ListAction** — `./patterns/ListAction` — List pattern for AI-assisted action queues (eyebrow, attributes, tag, insight, alert, button). Use ListActionList + ListActionItem
+- **ListActionItem** — `./patterns/ListAction` — List pattern for AI-assisted action queues (eyebrow, attributes, tag, insight, alert, button). Use ListActionList + ListActionItem
+- **ListActionList** — `./patterns/ListAction` — List pattern for AI-assisted action queues (eyebrow, attributes, tag, insight, alert, button). Use ListActionList + ListActionItem
+- **ListAssociate** — `./patterns/ListAssociate` — List pattern for associate/scheduling lists — adds avatar, monitoring section, attendance tags. Use ListAssociateList + ListAssociateItem
+- **ListAssociateItem** — `./patterns/ListAssociate` — List pattern for associate/scheduling lists — adds avatar, monitoring section, attendance tags. Use ListAssociateList + ListAssociateItem
+- **ListAssociateList** — `./patterns/ListAssociate` — List pattern for associate/scheduling lists — adds avatar, monitoring section, attendance tags. Use ListAssociateList + ListAssociateItem
+- **ListGoal** — `./patterns/ListGoal` — Goal list item with status tag, progress bar, AI insight, alert and navigation chevron
+- **ListMembers** — `./patterns/ListMembers` — List pattern for team-member/scheduling lists with monitoring section and shift tags. Use ListMembersList + ListMembersItem
+- **ListMembersItem** — `./patterns/ListMembers` — List pattern for team-member/scheduling lists with monitoring section and shift tags. Use ListMembersList + ListMembersItem
+- **ListMembersList** — `./patterns/ListMembers` — List pattern for team-member/scheduling lists with monitoring section and shift tags. Use ListMembersList + ListMembersItem
+- **MaintenanceHealthCard** — `./patterns/MaintenanceHealthCard` — Auto Care vehicle maintenance card — health-score ring, per-service status grid, bundle savings, schedule actions
+- **MegaNavActionButton** — `./patterns/MegaNavActionButton` — Vertical icon-over-label tile button for dark mega-nav strips
+- **MemberPrice** — `./patterns/ItemTile` — Product tile for carousels (~200px max width)
+- **MobileMenuPanel** — `./patterns/MobileMenuPanel` — Full-height mobile nav drawer with dark action header, section rail and scrollable link list (controlled isOpen)
+- **MwebFooter** — `./patterns/MwebFooter` — Mobile-web footer
+- **NewArrivalsCarousel** — `./patterns/NewArrivalsCarousel` — Auto-advancing full-bleed promo hero carousel (image + eyebrow/headline/CTA, prev/pause/next controls)
+- **OrderCard** — `./patterns/OrderCard` — Order status card — fulfillment type, progress tracker, product thumbnails, actions, delivered-order rating
+- **OrderCardSection** — `./patterns/OrderCardSection` — Renders a stack of order cards, picking the variant per entry via a kind tag. For one card, use OrderCard
+- **OrderStatusBanner** — `./patterns/OrderStatusBanner` — Order-status banner
+- **OrderStatusCard** — `./patterns/OrderStatusCard` — Dismissible order-status card (thumbnail + status/delivery lines + Track link)
+- **OrderStatusSection** — `./patterns/OrderStatusSection` — Stack of order-status notifications, each a full card or slim banner (asBanner). For one card, use OrderStatusCard
+- **PriceBlock** — `./patterns/ItemTile` — Product tile for carousels (~200px max width)
+- **ProductCardGrid** — `./patterns/ProductCardGrid` — Product card sized for responsive grid columns
+- **ProductCardList** — `./patterns/ProductCardList` — Product card sized for list layouts
+- **PromotionalItemTile** — `./patterns/PromotionalItemTile` — Compact promo product tile (image + price + Add button / QuantityStepper; name required as image alt)
+- **QueueBanner** — `./patterns/QueueBanner` — Sticky queue/reservation banner with countdown timer and four variants (line-joined/warning/checkout/error)
+- **QueueCard** — `./patterns/QueueCard` — Pickup-queue order card
+- **QueueItemCard** — `./patterns/QueueItemCard` — Queue reservation card for one held item (wait-time timer badge + product + View/Leave actions)
+- **QueueLanding** — `./patterns/QueueLanding` — Full waiting-room landing page for a queued item (authenticated in-line hero vs. unauthenticated sign-in prompt)
+- **QueuePanel** — `./patterns/QueuePanel` — Right-side slide-in Panel listing queued items as QueueItemCards (controlled isOpen)
+- **QueueSection** — `./patterns/QueueSection` — Dispatcher for queue/reservation flows, picking the primitive by state.kind (timer/card/banner/landing)
+- **ScheduleWidget** — `./patterns/ScheduleWidget` — Associate shift schedule list (date/role/lunch/store rows with optional Report-an-absence CTA)
+- **SearchFilterBar** — `./patterns/SearchFilterBar` — Search results filter bar
+- **SearchResults** — `./patterns/SearchResults` — Composed search results section (search header + filter bar + product list/grid)
+- **SearchResultsHeader** — `./patterns/SearchResultsHeader` — Search-results page top bar (back button + SearchBar) for a query-refinement view
+- **ServicesCard** — `./patterns/ServicesCard` — In-store services status card (pharmacy/auto/optical/bakery) with per-service ProgressTracker and actions
+- **SharedFormLabel** — `./patterns/SharedForm`
+- **Sidebar** — `./patterns/Sidebar` — App navigation sidebar — composable kit (SidebarProvider + parts) or data-driven SidebarShell with hover-expand, lock, resize
+- **SidebarContent** — `./patterns/Sidebar` — App navigation sidebar — composable kit (SidebarProvider + parts) or data-driven SidebarShell with hover-expand, lock, resize
+- **SidebarFooter** — `./patterns/Sidebar` — App navigation sidebar — composable kit (SidebarProvider + parts) or data-driven SidebarShell with hover-expand, lock, resize
+- **SidebarGroup** — `./patterns/Sidebar` — App navigation sidebar — composable kit (SidebarProvider + parts) or data-driven SidebarShell with hover-expand, lock, resize
+- **SidebarGroupContent** — `./patterns/Sidebar` — App navigation sidebar — composable kit (SidebarProvider + parts) or data-driven SidebarShell with hover-expand, lock, resize
+- **SidebarGroupLabel** — `./patterns/Sidebar` — App navigation sidebar — composable kit (SidebarProvider + parts) or data-driven SidebarShell with hover-expand, lock, resize
+- **SidebarHeader** — `./patterns/Sidebar` — App navigation sidebar — composable kit (SidebarProvider + parts) or data-driven SidebarShell with hover-expand, lock, resize
+- **SidebarInset** — `./patterns/Sidebar` — App navigation sidebar — composable kit (SidebarProvider + parts) or data-driven SidebarShell with hover-expand, lock, resize
+- **SidebarMenu** — `./patterns/Sidebar` — App navigation sidebar — composable kit (SidebarProvider + parts) or data-driven SidebarShell with hover-expand, lock, resize
+- **SidebarMenuButton** — `./patterns/Sidebar` — App navigation sidebar — composable kit (SidebarProvider + parts) or data-driven SidebarShell with hover-expand, lock, resize
+- **SidebarMenuItem** — `./patterns/Sidebar` — App navigation sidebar — composable kit (SidebarProvider + parts) or data-driven SidebarShell with hover-expand, lock, resize
+- **SidebarMenuSub** — `./patterns/Sidebar` — App navigation sidebar — composable kit (SidebarProvider + parts) or data-driven SidebarShell with hover-expand, lock, resize
+- **SidebarMenuSubButton** — `./patterns/Sidebar` — App navigation sidebar — composable kit (SidebarProvider + parts) or data-driven SidebarShell with hover-expand, lock, resize
+- **SidebarMenuSubItem** — `./patterns/Sidebar` — App navigation sidebar — composable kit (SidebarProvider + parts) or data-driven SidebarShell with hover-expand, lock, resize
+- **SidebarProvider** — `./patterns/Sidebar` — App navigation sidebar — composable kit (SidebarProvider + parts) or data-driven SidebarShell with hover-expand, lock, resize
+- **SidebarRail** — `./patterns/Sidebar` — App navigation sidebar — composable kit (SidebarProvider + parts) or data-driven SidebarShell with hover-expand, lock, resize
+- **SidebarSeparator** — `./patterns/Sidebar` — App navigation sidebar — composable kit (SidebarProvider + parts) or data-driven SidebarShell with hover-expand, lock, resize
+- **SidebarShell** — `./patterns/Sidebar` — App navigation sidebar — composable kit (SidebarProvider + parts) or data-driven SidebarShell with hover-expand, lock, resize
+- **SidebarTrigger** — `./patterns/Sidebar` — App navigation sidebar — composable kit (SidebarProvider + parts) or data-driven SidebarShell with hover-expand, lock, resize
+- **TablePagination** — `./patterns/TablePagination` — Data-table footer — items-per-page Select, numbered Pagination, and a Page N of M jump. For bare page nav, use Pagination
+- **useAgentChat** _(hook)_ — `./patterns/AgentChatCore` — Owns one conversation.
+- **useAgentChatEvent** _(hook)_ — `./patterns/AgentChatCore` — Typed subscription to an agent-chat topic.
+- **useChatAttachments** _(hook)_ — `./patterns/AgentChatCore` — Staged composer attachments.
+- **useChatDropOverlay** _(hook)_ — `./patterns/ChatDropOverlay` — Attach OS drag-and-drop listeners to a container element and expose a stable `isDragging` boolean.
+- **useFrameworkWorkspace** _(hook)_ — `./patterns/AgentChatCore` — Owns the list of open frameworks.
+- **usePublishAgentChatState** _(hook)_ — `./patterns/AgentChatCore` — Observes the given controllers and publishes on every meaningful change.
+
+## Utilities (12)
+
+- **focusFirstError** _(utility)_ — `./utils/focusFirstError` — Move focus to the first invalid field after a failed form submit — scrolls it into view respectin...
+- **iconManager** _(utility)_ — `./utils/iconManager` — Look up icon names available in the active theme icon font
+- **Illustration** _(utility)_ — `./utils/Illustration` — Render an inline-SVG Living Design illustration by type and name
+- **illustrationManager** _(utility)_ — `./utils/illustrationManager` — Look up available inline-SVG illustrations by type (mono-small, mono-large, spot) and name
+- **Layout** _(utility)_ — `./utils/Layout` — Layout primitives for page shells, stacks and responsive spacing wrappers
+- **mediaManager** _(utility)_ — `./utils/mediaManager` — Look up tenant-branded media — logos, wordmarks, card art and error-state imagery
+- **mediaTenant** _(utility)_ — `./utils/mediaTenant` — Resolve the active theme to its media tenant — the brand whose logos and wordmarks apply
+- **pictogramScale** _(utility)_ — `./utils/pictogramScale` — Size Lottie and pictogram marks off the Living Design pictogram scale instead of pixel values
+- **ProductService** _(utility)_ — `./utils/ProductService` — The product catalog — every product, category, hero banner and marketing tile in the app comes fr...
+- **store** _(utility)_ — `./utils/store` — Shared cross-component state via pub/sub — cart, favorites, header and search-query bindings
+- **themeManager** _(utility)_ — `./utils/themeManager` — Look up and switch brand themes — the list of supported themes and their metadata
+- **Theming** _(utility)_ — `./utils/Theming` — Theme runtime — initialize and switch the active brand theme for the whole app

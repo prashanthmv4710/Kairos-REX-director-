@@ -1,0 +1,79 @@
+/* LD Portable – CarouselProductCard */
+
+.ld-wcp-carousel-product-card-root {
+  background: var(--ld-semantic-color-surface, #fff);
+  border-radius: var(--ld-semantic-border-radius-large);
+  padding: var(--ld-primitive-scale-space-100);
+  display: flex;
+  flex-direction: column;
+}
+
+.ld-wcp-carousel-product-card-image-wrap {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: var(--ld-semantic-border-radius-medium);
+}
+
+.ld-wcp-carousel-product-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.ld-wcp-carousel-product-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 4px;
+  position: relative;
+  min-height: 32px;
+}
+
+.ld-wcp-carousel-product-card-price-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1px;
+}
+
+.ld-wcp-carousel-product-card-currency {
+  font-size: var(--ld-semantic-font-body-small-size);
+  font-weight: var(--ld-primitive-font-weight-700);
+  line-height: var(--ld-semantic-font-caption-line-height);
+  color: var(--ld-semantic-color-text, #2e2f32);
+  padding-bottom: 6px;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.ld-wcp-carousel-product-card-dollars {
+  font-size: 24px;
+  font-weight: var(--ld-primitive-font-weight-700);
+  color: var(--ld-semantic-color-text, #2e2f32);
+  line-height: var(--ld-semantic-font-body-small-line-height);
+}
+
+.ld-wcp-carousel-product-card-cents {
+  font-size: var(--ld-semantic-font-body-small-size);
+  font-weight: var(--ld-primitive-font-weight-700);
+  line-height: var(--ld-semantic-font-caption-line-height);
+  color: var(--ld-semantic-color-text, #2e2f32);
+  padding-bottom: 8px;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.ld-wcp-carousel-product-card-add-btn {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}

@@ -1,0 +1,53 @@
+.ax-date-range-picker {
+  display: inline-flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-200, 16px);
+  padding: var(--ld-primitive-scale-space-200, 16px);
+  font-family: var(--ld-semantic-font-family-sans, 'Everyday Sans UI');
+  border-radius: var(--ld-primitive-scale-borderRadius-100, 8px);
+  box-shadow: var(--ld-semantic-elevation-100);
+  background: var(--ld-semantic-color-surface, #fff);
+  width: fit-content;
+}
+
+.ax-date-range-picker__inputs {
+  display: flex;
+  gap: var(--ld-primitive-scale-space-300, 24px);
+}
+
+.ax-date-range-picker__input {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Keep the calendar icon from butting up against the container edge. */
+.ax-date-range-picker__input .ld-textfield-trailing {
+  margin-right: var(--ld-primitive-scale-space-200, 16px);
+}
+
+.ax-date-range-picker__calendars {
+  display: flex;
+  gap: var(--ld-primitive-scale-space-300, 24px);
+}
+
+.ax-date-range-picker__calendar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-200, 16px);
+}
+
+.ax-date-range-picker__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--ld-primitive-scale-space-150, 12px);
+  padding-top: var(--ld-primitive-scale-space-200, 16px);
+  border-top: 1px solid var(--ld-semantic-color-separator, #e3e4e5);
+}
+
+@media (max-width: 768px) {
+  .ax-date-range-picker__inputs,
+  .ax-date-range-picker__calendars {
+    flex-direction: column;
+    gap: var(--ld-primitive-scale-space-200, 16px);
+  }
+}

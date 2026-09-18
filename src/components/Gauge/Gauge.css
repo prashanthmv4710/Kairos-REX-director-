@@ -1,0 +1,53 @@
+/* LD Portable – Gauge (data viz) */
+
+.ld-gauge {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ld-gauge-svg {
+  display: block;
+}
+
+.ld-gauge-track {
+  stroke: var(--ld-semantic-color-progress-fill-subtle, #e3e4e5);
+}
+
+.ld-gauge-fill {
+  /* Animate value changes for a smooth fill sweep. */
+  transition: stroke-dasharray 0.4s ease, stroke 0.2s ease;
+}
+
+.ld-gauge-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ld-primitive-scale-space-25);
+  pointer-events: none;
+  text-align: center;
+}
+
+.ld-gauge-value {
+  color: var(--ld-semantic-color-text, #2e2f32);
+  font-family: var(--ld-semantic-font-display-small-family, 'Everyday Sans UI'), system-ui, sans-serif;
+  font-weight: var(--ld-semantic-font-display-small-weight-alt, 700);
+  line-height: 1.1;
+}
+
+.ld-gauge-label {
+  color: var(--ld-semantic-color-text, #2e2f32);
+  font-family: var(--ld-semantic-font-body-large-family, 'Everyday Sans UI'), system-ui, sans-serif;
+  font-weight: var(--ld-semantic-font-body-large-weight-default, 400);
+  line-height: 1.2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ld-gauge-fill {
+    transition: none;
+  }
+}

@@ -1,0 +1,50 @@
+.ld-feedback {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-100);
+  min-height: 24px;
+}
+
+.ld-feedback-divider {
+  align-self: stretch;
+  margin: 0 4px;
+}
+
+.ld-feedback-label {
+  line-height: var(--ld-semantic-font-body-small-line-height);
+}
+
+/* The thumbs up / down controls sit together with no extra gap. */
+.ld-feedback-actions {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* The static, filled icon shown once a rating is given. */
+.ld-feedback-confirmicon {
+  display: inline-flex;
+  font-size: var(--ld-semantic-font-body-medium-size);
+  color: var(--ld-semantic-color-text, #2e2f32);
+}
+
+/* "Share more" — an underlined affordance that opens a richer feedback flow.
+   Rendered as a Link (href) or a bare button (onShareMore); both share styling. */
+.ld-feedback-sharemore {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-50);
+  text-decoration: underline;
+  color: var(--ld-semantic-color-link-text, #2e2f32);
+}
+
+.ld-feedback-sharemore--button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-weight: var(--ld-semantic-font-body-small-weight-default, 400);
+  font-size: var(--ld-semantic-font-body-small-size, 0.875rem);
+  line-height: var(--ld-semantic-font-body-small-line-height, 1.25rem);
+  font-family: var(--ld-semantic-font-body-small-family, 'Everyday Sans UI', sans-serif);
+}

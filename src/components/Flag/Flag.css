@@ -1,0 +1,230 @@
+/* LD Portable – Flag */
+.ld-wcp-flag-flag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-50);
+  padding-block: var(--ld-primitive-scale-space-50);
+  padding-inline: var(--ld-primitive-scale-space-100);
+  border-radius: var(--ld-semantic-border-radius-medium);
+  box-sizing: border-box;
+  min-height: 28px;
+  width: max-content;
+  border: 1.5px solid var(--flag-border, transparent);
+  background-color: var(--flag-bg);
+  color: var(--flag-text);
+  font-size: 13px;
+  font-weight: var(--ld-primitive-font-weight-700);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.ld-wcp-flag-iconWrap {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  color: var(--flag-icon-color, var(--flag-text));
+}
+
+.ld-wcp-flag-label {
+  display: block;
+}
+
+/*
+ * Note on token naming: the LD + WCP themes expose text-color tokens as
+ * `text-onFill-*` (camelCase `onFill`), not `text-on-fill-*`. The kebab name
+ * doesn't exist in any theme — referencing it makes the rule fall through to
+ * its hard-coded fallback, which silently ignores theme overrides for
+ * Sam's, Walmart Business, Cashi-MX, etc. Every variant below references
+ * the real camelCase token first and keeps the kebab name as a secondary
+ * fallback for any consumer overriding via the legacy name. Hex fallbacks
+ * have been re-aligned with the actual base-theme token values.
+ */
+
+.ld-wcp-flag-holiday-restricted {
+  --flag-bg: var(--wcp-semantic-color-fill-holiday-restricted, #f1f1f2);
+  --flag-text: var(
+    --wcp-semantic-color-text-onFill-holiday-restricted,
+    var(--wcp-semantic-color-text-on-fill-holiday-restricted, #515357)
+  );
+  --flag-border: transparent;
+}
+
+.ld-wcp-flag-brand-subtle {
+  --flag-bg: var(--ld-semantic-color-fill-brand-subtle, #e9f1fe);
+  --flag-text: var(
+    --ld-semantic-color-text-onFill-brand-subtle,
+    var(--ld-semantic-color-text-onFill-brand-subtle, #114ab6)
+  );
+  --flag-border: transparent;
+}
+
+.ld-wcp-flag-scarcity {
+  --flag-bg: var(--wcp-semantic-color-fill-scarcity, #fef6de);
+  --flag-text: var(
+    --wcp-semantic-color-text-onFill-scarcity,
+    var(--wcp-semantic-color-text-on-fill-scarcity, #662b0d)
+  );
+  --flag-border: transparent;
+}
+
+.ld-wcp-flag-savings-bold {
+  --flag-bg: var(--wcp-semantic-color-fill-savings-bold, #ea1100);
+  --flag-text: var(
+    --wcp-semantic-color-text-onFill-savings-bold,
+    var(--wcp-semantic-color-text-on-fill-savings-bold, #ffffff)
+  );
+  --flag-border: transparent;
+}
+
+.ld-wcp-flag-savings-subtle {
+  --flag-bg: var(--wcp-semantic-color-fill-savings-subtle, #ffffff);
+  --flag-text: var(
+    --wcp-semantic-color-text-onFill-savings-subtle,
+    var(--wcp-semantic-color-text-on-fill-savings-subtle, #a20c00)
+  );
+  --flag-border: var(--wcp-semantic-color-border-savings-subtle, #a20c00);
+}
+
+.ld-wcp-flag-confidence-subtle {
+  --flag-bg: var(--wcp-semantic-color-fill-confidence-subtle, #e9f1fe);
+  --flag-text: var(
+    --wcp-semantic-color-text-onFill-confidence-subtle,
+    var(--wcp-semantic-color-text-on-fill-confidence-subtle, #002e99)
+  );
+  --flag-border: transparent;
+}
+
+.ld-wcp-flag-confidence-bold {
+  --flag-bg: var(--wcp-semantic-color-fill-confidence-bold, #0e002e);
+  --flag-text: var(
+    --wcp-semantic-color-text-onFill-confidence-bold,
+    var(--wcp-semantic-color-text-on-fill-confidence-bold, #ffffff)
+  );
+  --flag-border: transparent;
+}
+
+.ld-wcp-flag-confidence-alt {
+  /*
+   * No theme exposes `fill-confidence-alt` or `icon-onFill-confidence-alt` —
+   * the variant shares the confidence fill (deep navy) and uses the spark
+   * yellow from `text-onFill-confidence-alt` for the icon. Reference the
+   * real tokens so theme overrides actually apply.
+   */
+  --flag-bg: var(--wcp-semantic-color-fill-confidence, #001e60);
+  --flag-text: var(
+    --wcp-semantic-color-text-onFill-confidence-alt,
+    var(--wcp-semantic-color-text-on-fill-confidence-alt, #ffc220)
+  );
+  --flag-icon-color: var(
+    --wcp-semantic-color-text-onFill-confidence-alt,
+    var(--wcp-semantic-color-icon-on-fill-confidence-alt, #ffc220)
+  );
+  --flag-border: transparent;
+}
+
+.ld-wcp-flag-confidence {
+  --flag-bg: var(--wcp-semantic-color-fill-confidence, #001e60);
+  --flag-text: var(
+    --wcp-semantic-color-text-onFill-confidence,
+    var(--wcp-semantic-color-text-on-fill-confidence, #ffffff)
+  );
+  --flag-border: transparent;
+}
+
+.ld-wcp-flag-holiday-member {
+  --flag-bg: var(--wcp-semantic-color-fill-holiday-member, #ffc220);
+  --flag-text: var(
+    --wcp-semantic-color-text-onFill-holiday-member,
+    var(--wcp-semantic-color-text-on-fill-holiday-member, #0e002e)
+  );
+  --flag-border: transparent;
+}
+
+.ld-wcp-flag-social {
+  --flag-bg: var(--wcp-semantic-color-fill-social, #ffffff);
+  --flag-text: var(
+    --wcp-semantic-color-text-onFill-social,
+    var(--wcp-semantic-color-text-on-fill-social, #0053e2)
+  );
+  --flag-border: var(--wcp-semantic-color-border-social, #0053e2);
+}
+
+.ld-wcp-flag-urgent {
+  --flag-bg: var(--wcp-semantic-color-fill-urgent, #fff200);
+  --flag-text: var(
+    --wcp-semantic-color-text-onFill-urgent,
+    var(--wcp-semantic-color-text-on-fill-urgent, #2e2f32)
+  );
+  --flag-border: transparent;
+}
+
+/* ---- size="small": 18px mobile → 22px desktop ---- */
+.ld-wcp-flag-small {
+  min-height: 18px;
+  padding: 2px var(--ld-primitive-scale-space-50, 4px);
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: var(--ld-primitive-scale-borderradius-25, 2px);
+  gap: 3px;
+}
+
+/* SVG icons from common/icons hardcode font-size: 1rem; override so they
+   scale with the flag's font-size instead of bloating the small variant. */
+.ld-wcp-flag-small .ld-wcp-flag-iconWrap svg {
+  font-size: 1em !important;
+}
+
+/* Responsive: desktop viewport */
+@media (min-width: 900px) {
+  .ld-wcp-flag-small {
+    min-height: 22px;
+    padding: 3px var(--ld-primitive-scale-space-50, 4px);
+    font-size: 12px;
+  }
+}
+
+/* Preview overrides: force breakpoint via data attribute (configurator only) */
+[data-flag-breakpoint="mobile"] .ld-wcp-flag-small {
+  min-height: 18px !important;
+  padding: 2px var(--ld-primitive-scale-space-50, 4px) !important;
+  font-size: 11px !important;
+}
+
+[data-flag-breakpoint="desktop"] .ld-wcp-flag-small {
+  min-height: 22px !important;
+  padding: 3px var(--ld-primitive-scale-space-50, 4px) !important;
+  font-size: 12px !important;
+}
+
+/* ---- express: W+ Express delivery — brand-bold navy fill, spark-yellow icon, white text ---- */
+.ld-wcp-flag-express {
+  --flag-bg: var(--wcp-semantic-color-surface-overlay-brand-bold, #002e99);
+  --flag-text: var(--ld-semantic-color-text-inverse, #ffffff);
+  --flag-icon-color: var(--wcp-semantic-color-text-onFill-confidence-alt, #ffc220);
+  --flag-border: transparent;
+}
+
+/* ---- drone-delivery: brand-subtle fill — drone delivery fulfillment label ---- */
+.ld-wcp-flag-drone-delivery {
+  --flag-bg: var(--ld-semantic-color-fill-brand-subtle, #e9f1fe);
+  --flag-text: var(--ld-semantic-color-text-onFill, #2e2f32);
+  --flag-icon-color: var(--ld-semantic-color-text-onFill, #2e2f32);
+  --flag-border: transparent;
+}
+
+/* ---- neutral: grey informational — standard delivery / non-promotional ---- */
+.ld-wcp-flag-neutral {
+  --flag-bg: var(--ld-semantic-color-surface-subtle, #f2f4f7);
+  --flag-text: var(--ld-semantic-color-text-subtle, #515357);
+  --flag-icon-color: var(--ld-semantic-color-text-subtle, #515357);
+  --flag-border: var(--ld-semantic-color-border-subtle, #c4c7cc);
+}
+
+/* ---- positive: positive-subtle fill — free delivery / eco / positive state ---- */
+/* Token source: Figma node 87324:16125 bg=fill-positive-subtle, text=text-positive-bold */
+.ld-wcp-flag-positive {
+  --flag-bg: var(--ld-semantic-color-fill-positive-subtle, #eaf3e6);
+  --flag-text: var(--ld-semantic-color-text-positive-bold, #1d5f02);
+  --flag-icon-color: var(--ld-semantic-color-text-positive-bold, #1d5f02);
+  --flag-border: transparent;
+}

@@ -1,0 +1,175 @@
+/* LD Portable – AutoCareUpsellOfferCard */
+.ld-wcp-auto-care-upsell-offer-card-root {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--ld-semantic-color-separator, #e3e4e5);
+  border-radius: var(--ld-semantic-border-radius-large);
+  overflow: hidden;
+  background: var(--ld-semantic-color-surface, #fff);
+}
+
+/* Offer header */
+.ld-wcp-auto-care-upsell-offer-card-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: var(--ld-primitive-scale-space-200);
+  padding-inline: var(--ld-primitive-scale-space-250);
+  background: linear-gradient(135deg, var(--ld-autocarecard-gradient-start, #004f9a) 0%, var(--ld-autocarecard-gradient-end, #0071dc) 100%);
+  color: var(--ld-semantic-color-text-inverse);
+  overflow: hidden;
+}
+.ld-wcp-auto-care-upsell-offer-card-header-illustration {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: auto;
+  opacity: 0.12;
+  object-fit: cover;
+}
+.ld-wcp-auto-care-upsell-offer-card-header-text {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-25);
+}
+.ld-wcp-auto-care-upsell-offer-card-header-eyebrow {
+  font-size: 11px;
+  font-weight: var(--ld-primitive-font-weight-600);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0;
+  opacity: 0.8;
+}
+.ld-wcp-auto-care-upsell-offer-card-header-title {
+  font-size: var(--ld-semantic-font-body-medium-size);
+  font-weight: var(--ld-primitive-font-weight-700);
+  margin: 0;
+}
+.ld-wcp-auto-care-upsell-offer-card-header-subtitle {
+  font-size: var(--ld-semantic-font-caption-size);
+  margin: 0;
+  opacity: 0.85;
+}
+.ld-wcp-auto-care-upsell-offer-card-badge {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: var(--ld-semantic-border-radius-large);
+  padding: 8px 14px;
+  gap: var(--ld-primitive-scale-space-25);
+}
+.ld-wcp-auto-care-upsell-offer-card-badge-pct {
+  font-size: 22px;
+  font-weight: var(--ld-primitive-font-weight-800);
+  line-height: 1;
+}
+.ld-wcp-auto-care-upsell-offer-card-badge-off {
+  font-size: 10px;
+  font-weight: var(--ld-primitive-font-weight-600);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Pricing section */
+.ld-wcp-auto-care-upsell-offer-card-pricing {
+  padding-block: var(--ld-primitive-scale-space-200);
+  padding-inline: var(--ld-primitive-scale-space-250);
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-150);
+}
+.ld-wcp-auto-care-upsell-offer-card-price-row {
+  display: flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-150);
+}
+.ld-wcp-auto-care-upsell-offer-card-price-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-25);
+}
+.ld-wcp-auto-care-upsell-offer-card-regular-price {
+  font-size: var(--ld-semantic-font-caption-size);
+  color: var(--ld-semantic-color-text-subtle);
+  text-decoration: line-through;
+}
+.ld-wcp-auto-care-upsell-offer-card-member-price {
+  font-size: 20px;
+  font-weight: var(--ld-primitive-font-weight-700);
+  color: var(--ld-semantic-color-text);
+}
+.ld-wcp-auto-care-upsell-offer-card-expires {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--ld-semantic-color-text-warning, #b35c00);
+}
+.ld-wcp-auto-care-upsell-offer-card-expires-text {
+  font-weight: var(--ld-primitive-font-weight-600);
+}
+
+/* Value bullets */
+.ld-wcp-auto-care-upsell-offer-card-bullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.ld-wcp-auto-care-upsell-offer-card-bullet {
+  font-size: 13px;
+  color: var(--ld-semantic-color-text-subtle);
+  display: flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-100);
+}
+.ld-wcp-auto-care-upsell-offer-card-bullet-icon {
+  flex-shrink: 0;
+}
+
+/* Terms toggle */
+.ld-wcp-auto-care-upsell-offer-card-terms-wrap {
+  padding-block-start: 0;
+  padding-block-end: var(--ld-primitive-scale-space-150);
+  padding-inline: var(--ld-primitive-scale-space-250);
+}
+.ld-wcp-auto-care-upsell-offer-card-terms-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: var(--ld-semantic-font-caption-size);
+  color: var(--ld-semantic-color-text-subtle);
+  display: flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-50);
+}
+.ld-wcp-auto-care-upsell-offer-card-terms-chevron {
+  transition: transform 0.15s;
+}
+.ld-wcp-auto-care-upsell-offer-card-terms-chevron-open {
+  transform: rotate(180deg);
+}
+.ld-wcp-auto-care-upsell-offer-card-terms-text {
+  font-size: 11px;
+  color: var(--ld-semantic-color-text-subtle);
+  margin: 6px 0 0;
+  line-height: 1.5;
+}
+
+/* Footer */
+.ld-wcp-auto-care-upsell-offer-card-footer {
+  display: flex;
+  gap: var(--ld-primitive-scale-space-100);
+  padding-block: var(--ld-primitive-scale-space-150);
+  padding-inline: var(--ld-primitive-scale-space-250);
+  border-top: 1px solid var(--ld-semantic-color-separator, #e3e4e5);
+  background: var(--ld-semantic-color-background-subtle, #f2f3f3);
+}

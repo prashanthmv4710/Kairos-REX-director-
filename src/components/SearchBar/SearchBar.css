@@ -1,0 +1,310 @@
+/* LD Portable – SearchBar */
+.ld-wcp-searchbar-wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-250, 20px);
+  flex: 1 0 0;
+  width: 100%;
+}
+
+.ld-wcp-searchbar-pill {
+  display: flex;
+  box-sizing: border-box;
+  min-height: 48px;
+  padding: var(--ld-primitive-scale-space-150, 12px);
+  justify-content: space-between;
+  align-items: center;
+  flex: 1 0 0;
+  border-radius: var(--ld-primitive-scale-borderRadius-round, 9999px);
+  border: var(--ld-primitive-scale-borderWidth-100, 1px) solid var(--ld-semantic-color-field-border, #B8BABC);
+  background: var(--ld-semantic-color-field-fill, #FFFFFF);
+  overflow: hidden;
+  cursor: text;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+@media (min-width: 56.25rem) {
+  .ld-wcp-searchbar-pill:not(.ld-wcp-searchbar-pillDisabled):not(.ld-wcp-searchbar-pillActivated):hover {
+    border-color: var(--ld-semantic-color-field-border-hovered, #8E9093);
+    background: var(--ld-semantic-color-field-fill-hovered, #FFFFFF);
+  }
+}
+
+.ld-wcp-searchbar-pillActivated {
+  min-height: 48px;
+  padding: var(--ld-primitive-scale-space-50, 4px) var(--ld-primitive-scale-space-50, 4px) var(--ld-primitive-scale-space-50, 4px) var(--ld-primitive-scale-space-150, 12px);
+  border-width: var(--ld-primitive-scale-borderWidth-200, 2px);
+  border-color: var(--ld-semantic-color-field-border-focused, #2E2F32);
+  background: var(--ld-semantic-color-field-fill-focused, #FFFFFF);
+}
+
+.ld-wcp-searchbar-pillDisabled {
+  border-color: var(--ld-semantic-color-field-border-disabled, #E3E4E5);
+  background: var(--ld-semantic-color-field-fill-disabled, #FFFFFF);
+  cursor: not-allowed;
+}
+
+@media (min-width: 56.25rem) {
+  .ld-wcp-searchbar-pill {
+    min-height: 56px;
+    padding: var(--ld-primitive-scale-space-100, 8px) var(--ld-primitive-scale-space-200, 16px);
+  }
+  .ld-wcp-searchbar-pillActivated {
+    min-height: 56px;
+    padding: var(--ld-primitive-scale-space-100, 8px) var(--ld-primitive-scale-space-100, 8px) var(--ld-primitive-scale-space-100, 8px) var(--ld-primitive-scale-space-200, 16px);
+  }
+}
+
+.ld-wcp-searchbar-iconWrapper {
+  display: flex;
+  align-items: center;
+  width: var(--ld-semantic-scale-icon-medium, 24px);
+  height: var(--ld-semantic-scale-icon-medium, 24px);
+  flex-shrink: 0;
+}
+
+.ld-wcp-searchbar-searchIcon {
+  width: 24px;
+  height: 24px;
+  color: var(--ld-semantic-color-field-text-subtle-onFill, #515357);
+}
+
+.ld-wcp-searchbar-pillActivated .ld-wcp-searchbar-searchIcon {
+  color: var(--ld-semantic-color-field-text-onFill, #2e2f32);
+}
+
+.ld-wcp-searchbar-pillDisabled .ld-wcp-searchbar-searchIcon {
+  color: var(--ld-semantic-color-field-text-subtle-onFill-disabled, #babbbe);
+}
+
+.ld-wcp-searchbar-inputArea {
+  display: flex;
+  align-items: center;
+  flex: 1 0 0;
+  position: relative;
+  gap: var(--ld-primitive-scale-space-100, 8px);
+  overflow: hidden;
+}
+
+.ld-wcp-searchbar-input {
+  flex: 1 0 0;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  font-size: var(--ld-semantic-font-body-medium-size, 16px);
+  font-weight: var(--ld-semantic-font-body-medium-weight-default, 400);
+  line-height: var(--ld-semantic-font-body-medium-line-height, 1.5);
+  color: var(--ld-semantic-color-field-text-onFill, #2e2f32);
+  -webkit-appearance: none;
+  appearance: none;
+  outline: none;
+}
+
+.ld-wcp-searchbar-input::-webkit-search-cancel-button,
+.ld-wcp-searchbar-input::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+.ld-wcp-searchbar-input:disabled {
+  cursor: not-allowed;
+  color: var(--ld-semantic-color-field-text-subtle-onFill-disabled, #babbbe);
+}
+
+.ld-wcp-searchbar-input::placeholder {
+  color: var(--ld-semantic-color-field-text-subtle-onFill, #515357);
+}
+
+.ld-wcp-searchbar-placeholder {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  flex: 1 0 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--ld-semantic-color-field-text-subtle-onFill, #515357);
+  font-size: var(--ld-semantic-font-body-medium-size, 16px);
+  font-weight: var(--ld-semantic-font-body-medium-weight-default, 400);
+  line-height: var(--ld-semantic-font-body-medium-line-height, 1.5);
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+}
+
+.ld-wcp-searchbar-pillDisabled .ld-wcp-searchbar-placeholder {
+  color: var(--ld-semantic-color-field-text-subtle-onFill-disabled, #babbbe);
+}
+
+.ld-wcp-searchbar-clearBtn {
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  padding: var(--ld-primitive-scale-space-75, 6px);
+  border: none;
+  border-radius: var(--ld-primitive-scale-borderRadius-round, 9999px);
+  background: transparent;
+  cursor: pointer;
+  color: var(--ld-semantic-color-text, #2E2F32);
+  flex-shrink: 0;
+  transition: background 0.15s ease;
+}
+
+.ld-wcp-searchbar-clearBtn:hover {
+  background: var(--ld-semantic-color-surface-hovered, #F0F0F0);
+}
+
+.ld-wcp-searchbar-clearBtn svg {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.ld-wcp-searchbar-cancelBtn {
+  display: flex;
+  align-items: flex-start;
+  flex-shrink: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: var(--ld-semantic-color-link-text, #2E2F32);
+  font-size: var(--ld-semantic-font-body-small-size, 14px);
+  font-weight: var(--ld-semantic-font-body-small-weight-default, 400);
+  line-height: var(--ld-semantic-font-body-small-line-height, 1.4286);
+  text-decoration: underline;
+  white-space: nowrap;
+}
+
+.ld-wcp-searchbar-cancelBtn:hover {
+  opacity: 0.8;
+}
+
+/* ── Inline variant ─────────────────────────────────────────────────────
+   Compact, rounded-rectangle field for searching within a section of a
+   page. Comes in small (32px) and large (40px) sizes. Unlike the pill
+   variant it has no Cancel affordance and uses the native placeholder. */
+.ld-wcp-searchbar-inlineWrapper {
+  gap: var(--ld-primitive-scale-space-100, 8px);
+}
+
+.ld-wcp-searchbar-inline {
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+  flex: 1 0 0;
+  gap: var(--ld-primitive-scale-space-100, 8px);
+  border-radius: var(--ld-primitive-scale-borderRadius-100, 8px);
+  border: var(--ld-primitive-scale-borderWidth-100, 1px) solid var(--ld-semantic-color-field-border, #909196);
+  background: var(--ld-semantic-color-field-fill, #FFFFFF);
+  overflow: hidden;
+  cursor: text;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+/* Fixed heights (with border-box + centered content) lock the field to its
+   spec size so it never grows when text/clear button appear. Vertical padding
+   is intentionally omitted — content is centered — and only horizontal padding
+   is applied. */
+.ld-wcp-searchbar-inlineSmall {
+  height: 32px;
+  padding: 0 var(--ld-primitive-scale-space-100, 8px);
+}
+
+.ld-wcp-searchbar-inlineLarge {
+  height: 40px;
+  padding: 0 var(--ld-primitive-scale-space-200, 16px);
+}
+
+@media (min-width: 56.25rem) {
+  .ld-wcp-searchbar-inline:not(.ld-wcp-searchbar-inlineDisabled):not(.ld-wcp-searchbar-inlineActivated):hover {
+    border-color: var(--ld-semantic-color-field-border-hovered, #2E2F32);
+    background: var(--ld-semantic-color-field-fill-hovered, #FFFFFF);
+  }
+}
+
+.ld-wcp-searchbar-inlineActivated {
+  border-width: var(--ld-primitive-scale-borderWidth-200, 2px);
+  border-color: var(--ld-semantic-color-field-border-focused, #2E2F32);
+  background: var(--ld-semantic-color-field-fill-focused, #FFFFFF);
+}
+
+/* Compensate the horizontal padding for the 2px focus border (vs 1px resting)
+   so content doesn't shift sideways on focus. Height is already locked by the
+   fixed height + border-box above. */
+.ld-wcp-searchbar-inlineActivated.ld-wcp-searchbar-inlineSmall {
+  padding: 0 calc(var(--ld-primitive-scale-space-100, 8px) - 1px);
+}
+
+.ld-wcp-searchbar-inlineActivated.ld-wcp-searchbar-inlineLarge {
+  padding: 0 calc(var(--ld-primitive-scale-space-200, 16px) - 1px);
+}
+
+.ld-wcp-searchbar-inlineDisabled {
+  border-color: var(--ld-semantic-color-field-border-disabled, #babbbe);
+  background: var(--ld-semantic-color-field-fill-disabled, #FFFFFF);
+  cursor: not-allowed;
+}
+
+.ld-wcp-searchbar-inlineLeadingIcon,
+.ld-wcp-searchbar-inlineTrailingIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--ld-semantic-color-field-text-subtle-onFill, #515357);
+}
+
+.ld-wcp-searchbar-inlineSmall .ld-wcp-searchbar-inlineLeadingIcon,
+.ld-wcp-searchbar-inlineSmall .ld-wcp-searchbar-inlineTrailingIcon {
+  font-size: var(--ld-semantic-scale-icon-small, 16px);
+}
+
+.ld-wcp-searchbar-inlineLarge .ld-wcp-searchbar-inlineLeadingIcon,
+.ld-wcp-searchbar-inlineLarge .ld-wcp-searchbar-inlineTrailingIcon {
+  font-size: var(--ld-semantic-scale-icon-medium, 24px);
+}
+
+.ld-wcp-searchbar-inlineActivated .ld-wcp-searchbar-inlineLeadingIcon {
+  color: var(--ld-semantic-color-field-text-onFill, #2e2f32);
+}
+
+.ld-wcp-searchbar-inlineDisabled .ld-wcp-searchbar-inlineLeadingIcon,
+.ld-wcp-searchbar-inlineDisabled .ld-wcp-searchbar-inlineTrailingIcon {
+  color: var(--ld-semantic-color-field-text-subtle-onFill-disabled, #babbbe);
+}
+
+.ld-wcp-searchbar-inlineInput {
+  font-size: var(--ld-semantic-font-body-small-size, 14px);
+  line-height: var(--ld-semantic-font-body-small-line-height, 1.4286);
+}
+
+/* Size the clear button to exactly match the leading icon's box so it never
+   makes the row taller than the resting (icon-only) state — i.e. the field
+   height stays constant when text is entered. */
+.ld-wcp-searchbar-inlineClearBtn {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.ld-wcp-searchbar-inlineSmall .ld-wcp-searchbar-inlineClearBtn {
+  width: var(--ld-semantic-scale-icon-small, 16px);
+  height: var(--ld-semantic-scale-icon-small, 16px);
+}
+
+.ld-wcp-searchbar-inlineLarge .ld-wcp-searchbar-inlineClearBtn {
+  width: var(--ld-semantic-scale-icon-medium, 24px);
+  height: var(--ld-semantic-scale-icon-medium, 24px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ld-wcp-searchbar-pill,
+  .ld-wcp-searchbar-inline,
+  .ld-wcp-searchbar-clearBtn {
+    transition: none;
+  }
+}

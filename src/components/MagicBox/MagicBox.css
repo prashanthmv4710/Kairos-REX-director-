@@ -1,0 +1,196 @@
+/* LD Portable - MagicBox */
+
+/*
+ * Magic gradient color tokens — defined here because MagicBox is the
+ * source-of-truth for the magic gradient visual. Other components that use
+ * the magic gradient (FAB, AgentCanvas, etc.) wire in from these tokens.
+ */
+:root {
+  --ld-semantic-color-border-magic-start: var(--ld-primitive-color-blue-100);
+  --ld-semantic-color-border-magic-middle: var(--ld-primitive-color-blue-70);
+  --ld-semantic-color-border-magic-stop: var(--ld-primitive-color-cyan-40);
+}
+
+.ld-magicbox-magicBox {
+  /*
+   * Local motion tokens — duration + timing pulled from LD semantic tokens so
+   * the animations respect theme overrides. Fall back to sensible defaults
+   * when running outside a themed surface (kept inline so the component is
+   * portable). These also keep the four animations consistent without
+   * sprinkling cubic-bezier literals across the file.
+   */
+  /*
+   * Local motion tokens. Explicit ambient durations (the LD semantic
+   * `duration-*` tokens top out at ~0.7s — built for transitions, not for
+   * looped magic-box ambient motion). Durations are long enough that the
+   * breathing reads as a gentle ambient effect, never a strobe.
+   */
+  --ld-magicbox-duration-idle: 8s;
+  --ld-magicbox-duration-loading: 4s;
+  --ld-magicbox-duration-active: 6s;
+  --ld-magicbox-timing: var(
+    --ld-semantic-timing-ease-in-out,
+    cubic-bezier(0.77, 0, 0.175, 1)
+  );
+
+  /*
+   * Default radius = `border-radius-100` (8px) — kept as a token so consumers
+   * who pass `borderRadius="100"` get the same value the theme defines. Every
+   * variant below references its matching primitive radius token so the
+   * MagicBox and the content it borders can resolve to the same value
+   * (consumers should mirror these tokens on the inner container so the
+   * stroke aligns with the inner border).
+   */
+  border-radius: var(--ld-primitive-scale-borderRadius-100, 0.5rem);
+  display: inline-block;
+  isolation: isolate;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.ld-magicbox-magicBox.ld-magicbox-borderRadius25 {
+  border-radius: var(--ld-primitive-scale-borderRadius-25, 0.125rem);
+}
+
+.ld-magicbox-magicBox.ld-magicbox-borderRadius50 {
+  border-radius: var(--ld-primitive-scale-borderRadius-50, 0.25rem);
+}
+
+.ld-magicbox-magicBox.ld-magicbox-borderRadius100 {
+  border-radius: var(--ld-primitive-scale-borderRadius-100, 0.5rem);
+}
+
+.ld-magicbox-magicBox.ld-magicbox-borderRadius200 {
+  border-radius: var(--ld-primitive-scale-borderRadius-200, 1rem);
+}
+
+.ld-magicbox-magicBox.ld-magicbox-borderRadiusRound {
+  border-radius: var(--ld-primitive-scale-borderRadius-round, 62.5rem);
+}
+
+.ld-magicbox-magicBox .ld-magicbox-magicGlowContainer {
+  border-radius: inherit;
+  /*
+   * Push the glow container outward by the stroke width so the magic gradient
+   * renders as a ring AROUND the inner content (a real border) instead of
+   * sitting underneath it. The SVG `<rect>`s stay at their inset coordinates,
+   * but the container edge is now 2px outside the MagicBox edge — so the
+   * stroke lands on / just outside the inner content card's border line.
+   */
+  inset: -2px;
+  pointer-events: none;
+  position: absolute;
+  z-index: 2;
+}
+
+.ld-magicbox-magicBox .ld-magicbox-magicBoxGradientContainer1,
+.ld-magicbox-magicBox .ld-magicbox-magicBoxGradientContainer2,
+.ld-magicbox-magicBox .ld-magicbox-magicBoxGradientContainer3,
+.ld-magicbox-magicBox .ld-magicbox-magicBoxGradientContainer4 {
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 0;
+}
+
+.ld-magicbox-magicBox .ld-magicbox-magicGlowSvg {
+  height: 100%;
+  inset: 0;
+  overflow: visible;
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+}
+
+/*
+ * The full gradient ring is always visible — no `stroke-dasharray` here
+ * intentionally, so the magic border reads as a continuous line around the
+ * box instead of a single segment chasing the perimeter (i.e., not a snake).
+ * Motion lives on the glow container's opacity instead, below.
+ */
+
+/*
+ * Layered blurs build the gradient ring — keep them tight so the magic effect
+ * reads as a border, not as a wide haze around the box. The outer-most layer
+ * stays small enough that the visible glow terminates within a few pixels of
+ * the stroke.
+ */
+.ld-magicbox-magicBox .ld-magicbox-magicBoxGradientContainer1 {
+  filter: blur(0.5px);
+}
+
+.ld-magicbox-magicBox .ld-magicbox-magicBoxGradientContainer2 {
+  filter: blur(1px);
+}
+
+.ld-magicbox-magicBox .ld-magicbox-magicBoxGradientContainer3 {
+  filter: blur(1.5px);
+}
+
+.ld-magicbox-magicBox .ld-magicbox-magicBoxGradientContainer4 {
+  filter: blur(0.5px);
+  mix-blend-mode: hard-light;
+}
+
+/*
+ * State-specific motion lives on the glow container's opacity. The whole
+ * ring fades up and down together — idle is a slow, narrow breath; loading
+ * is a wider pulse signalling AI work; active is a moderate shimmer for
+ * sustained AI presence. All three share the same easing token so they
+ * feel like one family; only the cadence and opacity envelope vary.
+ */
+.ld-magicbox-stateIdle .ld-magicbox-magicGlowContainer {
+  animation: ld-magicbox-breathe var(--ld-magicbox-duration-idle)
+    var(--ld-magicbox-timing) infinite;
+}
+
+.ld-magicbox-stateLoading .ld-magicbox-magicGlowContainer {
+  animation: ld-magicbox-pulse-glow var(--ld-magicbox-duration-loading)
+    var(--ld-magicbox-timing) infinite;
+}
+
+.ld-magicbox-stateActive .ld-magicbox-magicGlowContainer {
+  animation: ld-magicbox-shimmer var(--ld-magicbox-duration-active)
+    var(--ld-magicbox-timing) infinite;
+}
+
+.ld-magicbox-magicBoxContentWrapper {
+  position: relative;
+  z-index: 1;
+}
+
+/*
+ * Every envelope is intentionally narrow — the magic-border effect should
+ * register as a faint living glow, not a pulsing alarm. Loading has the
+ * widest range of the three because it signals active AI work; active is a
+ * sustained mid-state; idle is the calmest. All deltas stay ≤ 0.20 so the
+ * ambient motion never competes with surrounding content.
+ */
+
+/* Loading: AI is working — slightly wider envelope. */
+@keyframes ld-magicbox-pulse-glow {
+  0%, 100% { opacity: 0.8; }
+  50%      { opacity: 1; }
+}
+
+/* Active: sustained AI presence — the narrowest envelope. */
+@keyframes ld-magicbox-shimmer {
+  0%, 100% { opacity: 0.88; }
+  50%      { opacity: 1; }
+}
+
+/* Idle: ready AI content — gentle breath, never distracting. */
+@keyframes ld-magicbox-breathe {
+  0%, 100% { opacity: 0.82; }
+  50%      { opacity: 0.95; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ld-magicbox-stateIdle .ld-magicbox-magicGlowContainer,
+  .ld-magicbox-stateLoading .ld-magicbox-magicGlowContainer,
+  .ld-magicbox-stateActive .ld-magicbox-magicGlowContainer {
+    animation: none;
+    opacity: 0.7;
+  }
+}

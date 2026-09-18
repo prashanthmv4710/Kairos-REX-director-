@@ -1,0 +1,90 @@
+/* LD Portable – Card */
+/* Card */
+.ld-card-card {
+  background: var(--ld-semantic-color-surface, #ffffff);
+  border-radius: var(--ld-semantic-border-radius-large);
+  box-shadow: var(--ld-semantic-elevation-100);
+  box-sizing: border-box;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* CardActions */
+.ld-card-cardactions-cardActions {
+  display: flex;
+  flex: none;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.ld-card-cardactions-large {
+  margin: 1.5rem 0;
+  padding-block: 0;
+  padding-inline: var(--ld-primitive-scale-space-300);
+}
+
+.ld-card-cardactions-small {
+  margin: 1rem 0;
+  padding-block: 0;
+  padding-inline: var(--ld-primitive-scale-space-200);
+}
+
+.ld-card-cardactions-cardActionsSeparator {
+  border-top: 0.0625rem solid var(--ld-semantic-color-separator, #e3e4e5);
+  width: 100%;
+}
+.ld-card-cardactions-small .ld-card-cardactions-cardActionsSeparator {
+  margin-bottom: 1rem;
+}
+.ld-card-cardactions-large .ld-card-cardactions-cardActionsSeparator {
+  margin-bottom: 1.5rem;
+}
+
+/* CardContent */
+.ld-card-cardcontent-large {
+  margin: 1.5rem 0;
+  padding-block: 0;
+  padding-inline: var(--ld-primitive-scale-space-300);
+}
+
+.ld-card-cardcontent-small {
+  margin: 1rem 0;
+  padding-block: 0;
+  padding-inline: var(--ld-primitive-scale-space-200);
+}
+
+/* CardHeader */
+.ld-card-cardheader-container {
+  align-items: center;
+  display: flex;
+  gap: var(--ld-primitive-scale-space-50);
+  min-width: 0;
+  width: 100%;
+}
+
+.ld-card-cardheader-large {
+  margin: 1.5rem 0;
+  padding-block: 0;
+  padding-inline: var(--ld-primitive-scale-space-300);
+}
+
+.ld-card-cardheader-small {
+  margin: 1rem 0;
+  padding-block: 0;
+  padding-inline: var(--ld-primitive-scale-space-200);
+}
+
+.ld-card-cardheader-leadingIcon {
+  margin-right: 0.5rem;
+}
+
+.ld-card-cardheader-title {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.ld-card-cardheader-trailing {
+  flex-shrink: 0;
+  margin-left: auto;
+  white-space: nowrap;
+}

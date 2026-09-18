@@ -1,0 +1,28 @@
+{
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "test -f scripts/ld/hook.mjs && node scripts/ld/hook.mjs --agent wibey || true",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "npm run a11y:endhook -- --agent wibey",
+            "timeout": 55
+          }
+        ]
+      }
+    ]
+  }
+}

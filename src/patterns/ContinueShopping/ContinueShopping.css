@@ -1,0 +1,84 @@
+/* LD Portable – ContinueShopping */
+
+.ld-wcp-continue-shopping-root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-150);
+}
+
+.ld-wcp-continue-shopping-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.ld-wcp-continue-shopping-title {
+  font-size: 20px;
+  font-weight: var(--ld-primitive-font-weight-700);
+  color: var(--ld-semantic-color-text);
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* Layout only — typography/color from LD LinkButton */
+.ld-wcp-continue-shopping-see-all {
+  flex-shrink: 0;
+}
+
+.ld-wcp-continue-shopping-scroll-row {
+  display: flex;
+  gap: var(--ld-primitive-scale-space-150);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-block-start: 0;
+  padding-block-end: var(--ld-primitive-scale-space-50);
+  padding-inline: 0;
+  cursor: grab;
+}
+
+.ld-wcp-continue-shopping-scroll-row::-webkit-scrollbar {
+  display: none;
+}
+
+.ld-wcp-continue-shopping-category-card {
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  background: var(--ld-primitive-color-gray-5);
+  border-radius: var(--ld-semantic-border-radius-large);
+  padding: var(--ld-primitive-scale-space-150);
+  gap: var(--ld-primitive-scale-space-100);
+  width: 340px;
+}
+
+.ld-wcp-continue-shopping-category-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ld-primitive-scale-space-100);
+  padding-bottom: 4px;
+}
+
+.ld-wcp-continue-shopping-category-title {
+  font-size: var(--ld-semantic-font-body-medium-size);
+  font-weight: var(--ld-primitive-font-weight-700);
+  color: var(--ld-semantic-color-text);
+  line-height: 1.3;
+  flex: 1;
+  min-width: 0;
+}
+
+/* Layout only — typography/color from LD LinkButton */
+.ld-wcp-continue-shopping-shop-all {
+  flex-shrink: 0;
+}
+
+.ld-wcp-continue-shopping-product-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--ld-primitive-scale-space-100);
+}

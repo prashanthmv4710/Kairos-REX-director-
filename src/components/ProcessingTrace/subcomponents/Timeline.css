@@ -1,0 +1,97 @@
+.ld-processingtrace-timeline-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.ld-processingtrace-step {
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--ld-primitive-scale-space-200, 1rem) 1fr;
+  column-gap: 12px;
+  padding: 6px 0;
+}
+
+.ld-processingtrace-step:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 22px;
+  bottom: -2px;
+  width: 2px;
+  background: var(--ld-semantic-color-separator, #e3e4e5);
+}
+
+.ld-processingtrace-step-glyph {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--ld-primitive-scale-space-200, 1rem);
+  height: var(--ld-primitive-scale-space-200, 1rem);
+  margin-top: 2px;
+  background: var(--ld-semantic-color-background, #ffffff);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* The Spinner component's smallest built-in size is 24px and it has no
+   style/className override, so scope-resize it to match the 16px checkmark. */
+.ld-processingtrace-step-glyph .ld-spinner-container {
+  width: var(--ld-primitive-scale-space-200, 1rem);
+  height: var(--ld-primitive-scale-space-200, 1rem);
+}
+
+.ld-processingtrace-step--success .ld-processingtrace-step-glyph {
+  color: var(--ld-semantic-color-fill-positive, #2a8703);
+}
+
+.ld-processingtrace-step--failure .ld-processingtrace-step-glyph {
+  color: var(--ld-semantic-color-fill-negative, #ea1100);
+}
+
+.ld-processingtrace-step--processing .ld-processingtrace-step-glyph {
+  color: var(--ld-semantic-color-fill-info, #0053e2);
+}
+
+/* Completed steps read as "done": strike + mute the label (prototype pattern).
+   Target the label (first child) directly — text-decoration does NOT propagate
+   from the flex header to its blockified children, and this keeps the strike off
+   any trailing pill. */
+.ld-processingtrace-step--success .ld-processingtrace-step-header > :first-child {
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  color: var(--ld-semantic-color-text-subtle, #515357);
+}
+
+/* Failed steps keep an emphasized, non-struck label. */
+.ld-processingtrace-step--failure .ld-processingtrace-step-header > :first-child {
+  color: var(--ld-semantic-color-text, #2e2f32);
+}
+
+.ld-processingtrace-step-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-25);
+  min-width: 0;
+}
+
+.ld-processingtrace-step-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--ld-primitive-scale-space-150);
+  min-width: 0;
+}
+
+.ld-processingtrace-step-trailing {
+  display: inline-flex;
+  align-items: center;
+  flex: none;
+}
+
+.ld-processingtrace-step-children {
+  margin-top: 6px;
+}

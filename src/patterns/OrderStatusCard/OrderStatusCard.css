@@ -1,0 +1,49 @@
+/* LD Portable – OrderStatusCard */
+
+.ld-wcp-order-status-card-root {
+  display: flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-150);
+  padding: var(--ld-primitive-scale-space-150);
+  border-radius: var(--ld-semantic-border-radius-large);
+  background: var(--ld-semantic-color-surface, #fff);
+  box-shadow: 0 -1px 2px 0 rgba(0, 0, 0, 0.10), 0 1px 2px 1px rgba(0, 0, 0, 0.15);
+}
+
+.ld-wcp-order-status-card-image {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+.ld-wcp-order-status-card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-25);
+}
+
+.ld-wcp-order-status-card-status {
+  font-size: var(--ld-semantic-font-body-small-size);
+  color: var(--ld-semantic-color-text, #2e2f32);
+}
+
+.ld-wcp-order-status-card-delivery {
+  font-size: var(--ld-semantic-font-body-small-size);
+  font-weight: var(--ld-primitive-font-weight-700);
+  color: var(--ld-semantic-color-text, #2e2f32);
+}
+
+.ld-wcp-order-status-card-dismiss {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  padding: var(--ld-primitive-scale-space-50);
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ld-semantic-color-text-subtle, #46474a);
+}

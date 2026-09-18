@@ -1,0 +1,207 @@
+/* LD Portable – PriceBlock */
+.ld-wcp-priceblock-root {
+  --ld-wcp-priceblock-space: var(--ld-primitive-scale-space-50, 0.25rem);
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-wcp-priceblock-space);
+  min-width: 0;
+}
+
+/*
+ * Attribute keeps its label group on one line, which overflows the 164px tile.
+ * Inside the price block the subscribed row owns the full width and wraps.
+ */
+.ld-wcp-priceblock-subscribed {
+  min-width: 0;
+  width: 100%;
+  /* Attribute color="brand" sets `color` to the brand token; the W+ SVG "W"
+     uses currentColor so it inherits automatically. Spark ray gets the
+     W+-specific accent from the same token used by Flag confidence-alt. */
+  --wplus-icon-spark: var(--wcp-semantic-color-text-onFill-confidence-alt, #FFC220);
+}
+.ld-wcp-priceblock-subscribed .ax-attribute__composite-label-group {
+  white-space: normal;
+  min-width: 0;
+}
+.ld-wcp-priceblock-subscribed .ax-attribute__composite-label {
+  overflow-wrap: anywhere;
+}
+
+.ld-wcp-priceblock-priceRow {
+  display: flex;
+  align-items: flex-start;
+  column-gap: 0;
+  /* Only applies when the row wraps; matches the gap between the block's rows. */
+  row-gap: var(--ld-wcp-priceblock-space);
+  flex-wrap: wrap;
+  /* 24px minimum keeps the row stable when prefix/savings text is absent.
+     No LD scale token at exactly 1.5rem for a row min-height; using the
+     primitive lineHeight-300 (1.5rem = 24px) as the closest equivalent. */
+  min-height: var(--ld-primitive-font-lineHeight-300, 1.5rem);
+}
+
+.ld-wcp-priceblock-primaryPrice {
+  display: inline-flex;
+  align-items: flex-start;
+  white-space: nowrap;
+  padding-inline-end: var(--ld-wcp-priceblock-space);
+}
+
+.ld-wcp-priceblock-priceRowSavings {
+  color: var(--ld-semantic-color-text-positive, #2a8703);
+}
+
+.ld-wcp-priceblock-priceRowSavings .ld-wcp-priceblock-price,
+.ld-wcp-priceblock-priceRowSavings .ld-wcp-priceblock-dollarSign,
+.ld-wcp-priceblock-priceRowSavings .ld-wcp-priceblock-cents,
+.ld-wcp-priceblock-priceRowSavings .ld-wcp-priceblock-suffix {
+  color: inherit;
+}
+
+.ld-wcp-priceblock-prefix {
+  /* 20px "Now" prefix — sits between body-small (14px) and body-medium (16px)
+     in the type scale. No exact semantic token; using primitive font-size-200
+     (1.25rem = 20px) which maps to heading-small at larger breakpoints. */
+  font-size: var(--ld-primitive-font-size-200, 1.25rem);
+  font-weight: 700;
+  color: var(--ld-semantic-color-text, #2e2f32);
+  line-height: var(--ld-primitive-font-lineHeight-300, 1.5rem);
+  align-self: flex-end;
+  /* Optical nudge: aligns the prefix baseline with the dollar glyph.
+     No LD token for sub-pixel optical adjustments — approved exception. */
+  position: relative;
+  top: -1px;
+  padding-inline-end: var(--ld-primitive-scale-space-50, 0.25rem);
+}
+
+.ld-wcp-priceblock-priceRowSavings .ld-wcp-priceblock-prefix {
+  color: var(--ld-semantic-color-text-positive, #2a8703);
+}
+
+.ld-wcp-priceblock-dollarSign {
+  font-size: var(--ld-semantic-font-body-small-size, 0.875rem);
+  font-weight: 700;
+  line-height: var(--ld-semantic-font-caption-line-height, 1rem);
+  color: var(--ld-semantic-color-text, #2e2f32);
+  align-self: flex-start;
+  /* Optical nudge to align superscript glyph — no LD token. */
+  margin-top: -1px;
+}
+
+/* The 0-nudge anchor: every other price piece's margin is a delta off this
+   element's top/bottom edge, in every layout/breakpoint. Never give this
+   element its own margin-top/bottom — adjust the sibling instead. */
+.ld-wcp-priceblock-price {
+  /* 24px main price figure — primitive font-size-300 (1.5rem = 24px). */
+  font-size: var(--ld-primitive-font-size-300, 1.5rem);
+  font-weight: 700;
+  color: var(--ld-semantic-color-text, #2e2f32);
+  line-height: var(--ld-semantic-font-body-small-line-height, 1.25rem);
+  align-self: flex-start;
+}
+
+.ld-wcp-priceblock-cents {
+  font-size: var(--ld-semantic-font-body-small-size, 0.875rem);
+  font-weight: 700;
+  line-height: var(--ld-semantic-font-caption-line-height, 1rem);
+  color: var(--ld-semantic-color-text, #2e2f32);
+  align-self: flex-start;
+  /* Optical nudge — no LD token. */
+  margin-top: -1px;
+}
+
+.ld-wcp-priceblock-suffix {
+  font-size: var(--ld-semantic-font-body-small-size, 0.875rem);
+  font-weight: 700;
+  color: var(--ld-semantic-color-text, #2e2f32);
+  /* 12px leading for the suffix sub-label — no LD lineHeight token below
+     caption (1rem = 16px). Approved exception for sub-caption leading. */
+  line-height: 12px;
+  align-self: flex-start;
+  margin-top: var(--ld-primitive-scale-space-50, 0.25rem);
+}
+
+.ld-wcp-priceblock-originalPrice {
+  font-size: var(--ld-semantic-font-body-small-size, 0.875rem);
+  font-weight: 400;
+  color: var(--ld-semantic-color-text-subtle, #515357);
+  text-decoration: line-through;
+  line-height: var(--ld-semantic-font-body-small-line-height, 1.25rem);
+  align-self: flex-end;
+  padding-inline-end: var(--ld-wcp-priceblock-space);
+  white-space: nowrap;
+}
+
+.ld-wcp-priceblock-unitPrice {
+  font-size: var(--ld-semantic-font-caption-size, 0.75rem);
+  font-weight: var(--ld-semantic-font-caption-weight-default);
+  color: var(--ld-semantic-color-text-subtle, #515357);
+  line-height: var(--ld-semantic-font-caption-line-height, 1rem);
+  align-self: flex-end;
+  margin-top: var(--ld-primitive-scale-space-25, 0.125rem);
+  overflow-wrap: anywhere;
+}
+
+.ld-wcp-priceblock-captionLabel {
+  font-family: var(--ld-semantic-font-caption-family, 'Everyday Sans UI', sans-serif);
+  font-size: var(--ld-semantic-font-caption-size, 0.75rem);
+  font-weight: var(--ld-semantic-font-caption-weight-default);
+  color: var(--ld-semantic-color-text-subtle, #515357);
+  line-height: var(--ld-semantic-font-caption-line-height, 1rem);
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+/*
+ * Plain inline flow, not flex: flex items wrap as whole units, which was
+ * moving all of "Early Access" to the next line together. Inline text wraps
+ * word-by-word instead, so only "Access" drops down when space is tight.
+ */
+.ld-wcp-priceblock-earlyAccess {
+  display: inline;
+  /* 13px early-access label — Flag.css uses 13px for its medium variant with
+     no LD token at this size; treated as the same approved exception. */
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ld-semantic-color-text-brand, #0071dc);
+  line-height: var(--ld-semantic-font-body-small-line-height, 1.25rem);
+}
+/* Logo wrapper: constrains the media-system SVG to a consistent icon size. */
+.ld-wcp-priceblock-earlyAccessLogo {
+  display: inline-block;
+  /* 4px optical baseline nudge — no LD token for sub-pixel vertical-align. */
+  vertical-align: -4px;
+  /* 16px icon slot — same exception as memberprice-logo (space-200 = 1rem). */
+  width: var(--ld-primitive-scale-space-200, 1rem);
+  height: var(--ld-primitive-scale-space-200, 1rem);
+  margin-inline: var(--ld-primitive-scale-space-25, 0.125rem);
+  overflow: hidden;
+}
+.ld-wcp-priceblock-earlyAccessLogo > svg {
+  width: 100%;
+  height: 100%;
+}
+
+.ld-wcp-priceblock-savingsRow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ld-wcp-priceblock-space);
+}
+
+.ld-wcp-priceblock-savingsAmount {
+  font-size: var(--ld-semantic-font-body-small-size, 0.875rem);
+  font-weight: var(--ld-semantic-font-body-small-weight-alt);
+  color: var(--ld-semantic-color-text-positive, #2a8703);
+  line-height: var(--ld-semantic-font-body-small-line-height, 1.25rem);
+}
+
+.ld-wcp-priceblock-strikethroughCaption {
+  font-family: var(--ld-semantic-font-caption-family, 'Everyday Sans UI', sans-serif);
+  font-size: var(--ld-semantic-font-caption-size, 0.75rem);
+  font-weight: var(--ld-semantic-font-caption-weight-default);
+  color: var(--ld-semantic-color-text-subtle, #515357);
+  line-height: var(--ld-semantic-font-caption-line-height, 1rem);
+  align-self: flex-end;
+  padding-inline-end: var(--ld-wcp-priceblock-space);
+  white-space: nowrap;
+}

@@ -1,0 +1,29 @@
+/* ToggleGroup - Living Design 3.5 */
+
+.px-toggle-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ld-primitive-scale-space-50, 4px);
+  flex-wrap: wrap;
+}
+
+.px-toggle-group .ld-toggle-root--text {
+  width: auto;
+  min-width: 0;
+  padding-inline: var(--ld-primitive-scale-space-150, 12px);
+  font-weight: var(--ld-semantic-font-body-small-weight-alt, 700);
+  white-space: nowrap;
+}
+
+.px-toggle-group .ld-toggle-root--size-small.ld-toggle-root--text {
+  min-height: var(--ld-primitive-scale-space-300, 24px);
+}
+
+.px-toggle-group .ld-toggle-root--size-medium.ld-toggle-root--text {
+  min-height: 32px;
+}
+
+.px-toggle-group .ld-toggle-root--size-large.ld-toggle-root--text {
+  min-height: 40px;
+}

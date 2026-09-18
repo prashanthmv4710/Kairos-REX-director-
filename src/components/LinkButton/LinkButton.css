@@ -1,0 +1,91 @@
+/* LD Portable – LinkButton */
+/* LinkButton */
+.ld-linkbutton-linkButton {
+  align-items: center;
+  appearance: none;
+  background: transparent;
+  border: 0;
+  color: var(--ld-semantic-color-link-text, #2e2f32);
+  cursor: pointer;
+  display: inline-flex;
+  gap: var(--ld-primitive-scale-space-100);
+  justify-content: center;
+  padding: 0;
+  text-decoration: underline;
+  text-wrap: nowrap;
+}
+.ld-linkbutton-linkButton.hovered, .ld-linkbutton-linkButton:hover {
+  color: var(--ld-semantic-color-link-text-hovered, #2e2f32);
+  text-decoration: none;
+}
+.ld-linkbutton-linkButton.focused, .ld-linkbutton-linkButton:focus {
+  color: var(--ld-semantic-color-link-text-focused, #2e2f32);
+  text-decoration: none;
+}
+.ld-linkbutton-linkButton.pressed, .ld-linkbutton-linkButton:active {
+  color: var(--ld-semantic-color-link-text-pressed, #171819);
+  text-decoration: none;
+}
+.ld-linkbutton-linkButton[disabled] {
+  color: var(--ld-semantic-color-link-text-disabled, #babbbe);
+  cursor: default;
+  text-decoration: underline;
+}
+
+.ld-linkbutton-isFullWidth {
+  display: flex;
+  width: 100%;
+}
+
+.ld-linkbutton-subtle {
+  color: var(--ld-semantic-color-link-text-subtle, #515357);
+}
+.ld-linkbutton-subtle:hover, .ld-linkbutton-subtle.hover {
+  color: var(--ld-semantic-color-link-text-subtle, #515357);
+}
+.ld-linkbutton-subtle:focus, .ld-linkbutton-subtle.focus {
+  color: var(--ld-semantic-color-link-text-subtle, #515357);
+}
+.ld-linkbutton-subtle:active, .ld-linkbutton-subtle.active {
+  color: var(--ld-semantic-color-link-text-subtle-pressed, #3a3b3e);
+}
+.ld-linkbutton-subtle[disabled] {
+  color: var(--ld-semantic-color-link-text-disabled, #babbbe);
+}
+
+.ld-linkbutton-white {
+  color: var(--ld-semantic-color-link-text-accent-white, #ffffff);
+}
+.ld-linkbutton-white:hover, .ld-linkbutton-white.hover {
+  color: var(--ld-semantic-color-link-text-accent-white, #ffffff);
+}
+.ld-linkbutton-white:focus, .ld-linkbutton-white.focus {
+  color: var(--ld-semantic-color-link-text-accent-white, #ffffff);
+}
+.ld-linkbutton-white:active, .ld-linkbutton-white.active {
+  color: var(--ld-semantic-color-link-text-accent-white-pressed, #e3e4e5);
+}
+.ld-linkbutton-white[disabled] {
+  color: var(--ld-semantic-color-link-text-disabled, #babbbe);
+}
+
+.ld-linkbutton-large {
+  font-size: var(--ld-semantic-font-body-large-size, 1.125rem);
+  font-weight: var(--ld-semantic-font-body-large-weight-default, 400);
+  line-height: var(--ld-semantic-font-body-medium-line-height);
+  height: 3rem;
+}
+
+.ld-linkbutton-medium {
+  font-size: var(--ld-semantic-font-body-medium-size, 1rem);
+  font-weight: var(--ld-semantic-font-body-medium-weight-default, 400);
+  line-height: var(--ld-semantic-font-body-medium-line-height);
+  height: 2.5rem;
+}
+
+.ld-linkbutton-small {
+  font-size: var(--ld-semantic-font-body-small-size, 0.875rem);
+  font-weight: var(--ld-semantic-font-body-small-weight-default, 400);
+  line-height: var(--ld-semantic-font-body-small-line-height);
+  height: 2rem;
+}

@@ -1,0 +1,162 @@
+/* ------------------------------------------------------------------
+ * ProcessingTrace — flat, timeline-scoped status shell (NOT a card).
+ *
+ * It is deliberately inline: a hairline border and tokenized spacing, no
+ * elevation/shadow, so it reads as a system status element inside the agent
+ * chat timeline rather than a content/prompt/recommendation card.
+ *
+ * Only .ld-processingtrace-header is the interactive element (button).
+ * The body region is plain markup so nested children can be interactive
+ * without competing with a parent button.
+ * ------------------------------------------------------------------ */
+
+.ld-processingtrace {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-100, 8px);
+  padding: var(--ld-primitive-scale-space-150, 12px)
+    var(--ld-primitive-scale-space-200, 16px);
+  border-radius: var(--ld-semantic-border-radius-xlarge, 1rem);
+  background: var(--ld-semantic-color-surface, #ffffff);
+  border: 1px solid var(--ld-semantic-color-separator, #e3e4e5);
+  box-sizing: border-box;
+}
+
+/* Fully inline variant — drops the hairline border. */
+.ld-processingtrace--noborder {
+  border-color: transparent;
+}
+
+/* Interactive header: optional avatar + stacked [Tag / Title] column +
+   top-aligned chevron. */
+.ld-processingtrace-header {
+  display: flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-150, 12px);
+  width: 100%;
+  margin: 0;
+  padding: var(--ld-primitive-scale-space-50, 4px);
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  border-radius: var(--ld-semantic-border-radius-large, 0.5rem);
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Small variant: single-line, non-interactive status readout. */
+.ld-processingtrace--small {
+  padding: var(--ld-primitive-scale-space-100, 8px)
+    var(--ld-primitive-scale-space-150, 12px);
+}
+
+.ld-processingtrace-header--small {
+  cursor: default;
+}
+
+.ld-processingtrace-header--small:hover,
+.ld-processingtrace-header--small:active {
+  background: transparent;
+}
+
+/* Decorative avatar leading the header status. */
+.ld-processingtrace-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  align-self: flex-start;
+  width: var(--ld-semantic-scale-icon-large, 32px);
+  height: var(--ld-semantic-scale-icon-large, 32px);
+  margin-top: 2px;
+}
+
+.ld-processingtrace-avatar > * {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.ld-processingtrace-header:hover {
+  background: var(--ld-semantic-color-surface-hovered, #f1f1f2);
+}
+
+.ld-processingtrace-header:active {
+  background: var(--ld-semantic-color-surface-pressed, #e3e4e5);
+}
+
+.ld-processingtrace-header:focus-visible {
+  outline: 2px solid var(--ld-semantic-color-border-activated, #0053e2);
+  outline-offset: 2px;
+}
+
+.ld-processingtrace-header-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
+}
+
+.ld-processingtrace-header-title {
+  margin: 0;
+  min-width: 0;
+  word-break: break-word;
+}
+
+/* Processing header: two tight text lines (headline over dynamic step). */
+.ld-processingtrace-header-stack--processing {
+  gap: var(--ld-primitive-scale-space-25, 2px);
+}
+
+.ld-processingtrace-status-headline {
+  margin: 0;
+  color: var(--ld-semantic-color-text-subtle, #515357);
+}
+
+.ld-processingtrace-status-step {
+  margin: 0;
+  min-width: 0;
+  color: var(--ld-semantic-color-text, #2e2f32);
+  word-break: break-word;
+}
+
+.ld-processingtrace-chevron {
+  flex: none;
+  transition: transform 0.18s ease-out;
+  color: var(--ld-semantic-color-text-subtlest, #74767c);
+}
+
+.ld-processingtrace--open .ld-processingtrace-chevron {
+  transform: rotate(90deg);
+}
+
+/* Non-interactive body — free for any nested interactive children. */
+.ld-processingtrace-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-100, 8px);
+  padding: 0 var(--ld-primitive-scale-space-50, 4px)
+    var(--ld-primitive-scale-space-50, 4px);
+}
+
+/* Optional determinate progress bar (rendered when `progress` is set). */
+.ld-processingtrace-progress {
+  position: relative;
+  width: 100%;
+  height: 4px;
+  border-radius: var(--ld-semantic-border-radius-round, 62.5rem);
+  background: var(--ld-semantic-color-separator, #e3e4e5);
+  overflow: hidden;
+}
+
+.ld-processingtrace-progress-fill {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--ld-semantic-color-fill-info, #0053e2);
+  transition: width 0.3s var(--ld-semantic-timing-ease-out, ease-out);
+}

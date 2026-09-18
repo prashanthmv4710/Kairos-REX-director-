@@ -1,0 +1,216 @@
+/* LD Portable -- Avatar */
+
+.ld-avatar-root {
+  align-items: center;
+  display: inline-flex;
+  flex-shrink: 0;
+  font-weight: var(--ld-primitive-font-weight-600);
+  justify-content: center;
+  position: relative;
+  user-select: none;
+  vertical-align: middle;
+}
+
+/* Inner surface holds the visual; indicators sit outside on the root. */
+.ld-avatar-surface {
+  align-items: center;
+  display: inline-flex;
+  flex-shrink: 0;
+  height: 100%;
+  justify-content: center;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* Shapes */
+.ld-avatar-circular,
+.ld-avatar-circular .ld-avatar-surface {
+  border-radius: 50%;
+}
+
+.ld-avatar-square,
+.ld-avatar-square .ld-avatar-surface {
+  border-radius: var(--ld-semantic-border-radius-medium);
+}
+
+/* Colors */
+.ld-avatar-brand .ld-avatar-surface {
+  background-color: var(--ld-semantic-color-fill-brand, #0053e2);
+  color: var(--ld-semantic-color-text-inverse, #ffffff);
+}
+
+.ld-avatar-brand-subtle .ld-avatar-surface {
+  background-color: var(--ld-semantic-color-fill-brand-subtle, #e9f1fe);
+  color: var(
+    --ld-semantic-color-text-onFill-brand-subtle,
+    var(--ld-semantic-color-text-onFill-brand-subtle, #114ab6)
+  );
+}
+
+.ld-avatar-neutral .ld-avatar-surface {
+  background-color: var(--ld-semantic-color-field-fill-readonly, #e3e4e5);
+  color: var(--ld-semantic-color-text, #2e2f32);
+}
+
+/* Tracks the current data-agent-theme (see src/themes/index.css) instead of
+   the brand theme — e.g. sidebar avatars in agent-themed surfaces. */
+.ld-avatar-agent .ld-avatar-surface {
+  background-color: var(--ld-semantic-color-fill-agent, #001e60);
+  color: var(--ld-semantic-color-text-onFill-agent, #ffffff);
+}
+
+/* The "Magic Fill Bold" diagonal gradient (see MagicFill.css) — marks an
+   avatar as AI-driven. Tracks data-agent-theme via the same tokens. */
+.ld-avatar-magic .ld-avatar-surface {
+  background: linear-gradient(
+    166deg,
+    var(--ld-semantic-color-fill-magic-bold-start, #001e60) 10%,
+    var(--ld-semantic-color-fill-magic-bold-stop, #0053e2) 118%
+  );
+  color: var(--ld-semantic-color-text-inverse, #ffffff);
+}
+
+/* Disabled */
+.ld-avatar-disabled .ld-avatar-surface {
+  background-color: var(--ld-semantic-color-fill-subtle, #f5f5f6);
+  color: var(--ld-semantic-color-text-disabled, #9e9fa3);
+}
+
+.ld-avatar-disabled {
+  cursor: not-allowed;
+}
+
+/* Sizes */
+.ld-avatar-xs {
+  height: 1.5rem;
+  width: 1.5rem;
+  font-size: 0.625rem;
+}
+.ld-avatar-small {
+  height: 2rem;
+  width: 2rem;
+  font-size: var(--ld-semantic-font-caption-size);
+}
+.ld-avatar-medium {
+  height: 2.5rem;
+  width: 2.5rem;
+  font-size: var(--ld-semantic-font-body-small-size);
+}
+.ld-avatar-large {
+  height: 3rem;
+  width: 3rem;
+  font-size: 1.25rem;
+}
+.ld-avatar-xl {
+  height: 4rem;
+  width: 4rem;
+  font-size: 1.5rem;
+}
+
+/* Image */
+.ld-avatar-image {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+/* Initials & Icon */
+.ld-avatar-initials {
+  line-height: 1;
+}
+
+.ld-avatar-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2em;
+}
+
+.ld-avatar-defaultIcon {
+  font-size: 1.2em;
+}
+
+/* ------------------------------------------------------------------ */
+/* Badge indicator overlay                                            */
+/* ------------------------------------------------------------------ */
+
+.ld-avatar-badge {
+  position: absolute;
+  display: inline-flex;
+  width: fit-content;
+  outline: 2px solid var(--ld-semantic-color-surface, #ffffff);
+  outline-offset: 0;
+}
+
+.ld-avatar-badge-xs { top: -0.5rem; right: -0.5rem; }
+.ld-avatar-badge-small { top: -0.375rem; right: -0.375rem; }
+.ld-avatar-badge-medium { top: -0.25rem; right: -0.25rem; }
+.ld-avatar-badge-large { top: -0.125rem; right: -0.125rem; }
+.ld-avatar-badge-xl { top: 0.125rem; right: 0.125rem; }
+
+/* ------------------------------------------------------------------ */
+/* Clock dot indicator overlay                                        */
+/* ------------------------------------------------------------------ */
+
+.ld-avatar-clock {
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ld-avatar-clock-xs { top: -0.5rem; right: -0.5rem; }
+.ld-avatar-clock-small { top: -0.375rem; right: -0.375rem; }
+.ld-avatar-clock-medium { top: -0.25rem; right: -0.25rem; }
+.ld-avatar-clock-large { top: -0.125rem; right: -0.125rem; }
+.ld-avatar-clock-xl { top: 0.125rem; right: 0.125rem; }
+
+.ld-avatar-clock > svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* ------------------------------------------------------------------ */
+/* AvatarButton                                                       */
+/* ------------------------------------------------------------------ */
+
+.ld-avatar-button {
+  all: unset;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: opacity 0.15s ease;
+}
+
+.ld-avatar-button--hit-slot {
+  min-width: 3rem;
+  min-height: 3rem;
+}
+
+.ld-avatar-button:hover:not(.ld-avatar-button--disabled) {
+  opacity: 0.85;
+}
+
+.ld-avatar-button--state-hover:not(.ld-avatar-button--disabled) {
+  opacity: 0.85;
+}
+
+.ld-avatar-button:focus-visible .ld-avatar-root {
+  box-shadow: 0 0 0 0.125rem
+    var(--ld-semantic-color-border-activated, #0053e2);
+}
+
+.ld-avatar-button--state-focus .ld-avatar-root {
+  box-shadow: 0 0 0 0.125rem
+    var(--ld-semantic-color-border-activated, #0053e2);
+}
+
+.ld-avatar-button--disabled {
+  cursor: not-allowed;
+}

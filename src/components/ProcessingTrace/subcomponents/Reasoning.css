@@ -1,0 +1,33 @@
+.ld-processingtrace-reasoning-body {
+  white-space: pre-wrap;
+  color: var(--ld-semantic-color-text, #2e2f32);
+}
+
+.ld-processingtrace-reasoning-body--clamped {
+  display: -webkit-box;
+  -webkit-line-clamp: var(--ld-processingtrace-reasoning-clamp, 3);
+  line-clamp: var(--ld-processingtrace-reasoning-clamp, 3);
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.ld-processingtrace-reasoning-toggle {
+  margin-top: 8px;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  color: var(--ld-semantic-color-text-brand, #1a75cf);
+  font: inherit;
+  font-weight: var(--ld-primitive-font-weight-500);
+  cursor: pointer;
+}
+
+.ld-processingtrace-reasoning-toggle:hover {
+  text-decoration: underline;
+}
+
+.ld-processingtrace-reasoning-toggle:focus-visible {
+  outline: 2px solid var(--ld-semantic-color-border-activated, #1a75cf);
+  outline-offset: 2px;
+  border-radius: var(--ld-semantic-border-radius-small);
+}

@@ -1,0 +1,1374 @@
+/**
+ * Living Design Theme – Base (Light)
+ * Combined primitive + semantic tokens
+ * Auto-generated from LD-CX-Starter-Kit V1 theme files
+ */
+
+:root {
+  /* === AUTO-GENERATED: COLOR TOKENS START === */
+  /* Base colors */
+  --ld-primitive-color-black: #000000;
+  --ld-primitive-color-white: #ffffff;
+
+  /* Blue color scale */
+  --ld-primitive-color-blue-5: #f0f5ff;
+  --ld-primitive-color-blue-10: #e9f1fe;
+  --ld-primitive-color-blue-20: #c9dcfd;
+  --ld-primitive-color-blue-30: #acc8fb;
+  --ld-primitive-color-blue-40: #90b5f9;
+  --ld-primitive-color-blue-50: #7aa5f6;
+  --ld-primitive-color-blue-60: #5e93f3;
+  --ld-primitive-color-blue-70: #4380ef;
+  --ld-primitive-color-blue-80: #2e70eb;
+  --ld-primitive-color-blue-90: #175ee2;
+  --ld-primitive-color-blue-100: #0053e2;
+  --ld-primitive-color-blue-110: #114ab6;
+  --ld-primitive-color-blue-120: #003fb2;
+  --ld-primitive-color-blue-130: #002e99;
+  --ld-primitive-color-blue-140: #002185;
+  --ld-primitive-color-blue-150: #001270;
+  --ld-primitive-color-blue-160: #001e60;
+  --ld-primitive-color-blue-170: #080042;
+  --ld-primitive-color-blue-180: #0e002e;
+
+  /* Cyan color scale */
+  --ld-primitive-color-cyan-5: #f0faff;
+  --ld-primitive-color-cyan-10: #e7f6fe;
+  --ld-primitive-color-cyan-20: #c9ebfd;
+  --ld-primitive-color-cyan-30: #90d6f9;
+  --ld-primitive-color-cyan-40: #79cdf6;
+  --ld-primitive-color-cyan-50: #4dbdf5;
+  --ld-primitive-color-cyan-60: #2eacea;
+  --ld-primitive-color-cyan-70: #189ee2;
+  --ld-primitive-color-cyan-80: #0092db;
+  --ld-primitive-color-cyan-90: #0083c7;
+  --ld-primitive-color-cyan-100: #0076b3;
+  --ld-primitive-color-cyan-110: #006599;
+  --ld-primitive-color-cyan-120: #005985;
+  --ld-primitive-color-cyan-130: #004a70;
+  --ld-primitive-color-cyan-140: #003857;
+  --ld-primitive-color-cyan-150: #002e42;
+  --ld-primitive-color-cyan-160: #001e2e;
+  --ld-primitive-color-cyan-170: #00101a;
+  --ld-primitive-color-cyan-180: #000c16;
+
+  /* Gray color scale */
+  --ld-primitive-color-gray-5: #f8f8f8;
+  --ld-primitive-color-gray-10: #f1f1f2;
+  --ld-primitive-color-gray-20: #e3e4e5;
+  --ld-primitive-color-gray-30: #d5d6d8;
+  --ld-primitive-color-gray-40: #c7c8cb;
+  --ld-primitive-color-gray-50: #babbbe;
+  --ld-primitive-color-gray-60: #acadb0;
+  --ld-primitive-color-gray-70: #9e9fa3;
+  --ld-primitive-color-gray-80: #909196;
+  --ld-primitive-color-gray-90: #828489;
+  --ld-primitive-color-gray-100: #74767c;
+  --ld-primitive-color-gray-110: #686a70;
+  --ld-primitive-color-gray-120: #5d5e63;
+  --ld-primitive-color-gray-130: #515357;
+  --ld-primitive-color-gray-140: #46474a;
+  --ld-primitive-color-gray-150: #3a3b3e;
+  --ld-primitive-color-gray-160: #2e2f32;
+  --ld-primitive-color-gray-170: #232325;
+  --ld-primitive-color-gray-180: #171819;
+
+  /* Green color scale */
+  --ld-primitive-color-green-5: #f4f9f2;
+  --ld-primitive-color-green-10: #eaf3e6;
+  --ld-primitive-color-green-20: #d4e7cd;
+  --ld-primitive-color-green-30: #bfdbb3;
+  --ld-primitive-color-green-40: #aacf9a;
+  --ld-primitive-color-green-50: #95c381;
+  --ld-primitive-color-green-60: #7fb768;
+  --ld-primitive-color-green-70: #6aab4f;
+  --ld-primitive-color-green-80: #559f35;
+  --ld-primitive-color-green-90: #3f931c;
+  --ld-primitive-color-green-100: #2a8703;
+  --ld-primitive-color-green-110: #267a03;
+  --ld-primitive-color-green-120: #226c02;
+  --ld-primitive-color-green-130: #1d5f02;
+  --ld-primitive-color-green-140: #195102;
+  --ld-primitive-color-green-150: #154402;
+  --ld-primitive-color-green-160: #113601;
+  --ld-primitive-color-green-170: #0d2901;
+  --ld-primitive-color-green-180: #081b01;
+
+  /* Orange color scale */
+  --ld-primitive-color-orange-5: #fff7f2;
+  --ld-primitive-color-orange-10: #fff0e6;
+  --ld-primitive-color-orange-20: #fee0cc;
+  --ld-primitive-color-orange-30: #fed1b3;
+  --ld-primitive-color-orange-40: #fdc199;
+  --ld-primitive-color-orange-50: #fdb280;
+  --ld-primitive-color-orange-60: #fca266;
+  --ld-primitive-color-orange-70: #fc934d;
+  --ld-primitive-color-orange-80: #fb8333;
+  --ld-primitive-color-orange-90: #fb741a;
+  --ld-primitive-color-orange-100: #fa6400;
+  --ld-primitive-color-orange-110: #e15300;
+  --ld-primitive-color-orange-120: #c83c00;
+  --ld-primitive-color-orange-130: #af2f00;
+  --ld-primitive-color-orange-140: #962300;
+  --ld-primitive-color-orange-150: #7d1900;
+  --ld-primitive-color-orange-160: #641100;
+  --ld-primitive-color-orange-170: #4b0a00;
+  --ld-primitive-color-orange-180: #320500;
+
+  /* Other color scale */
+  --ld-primitive-color-transparentDark-0: rgba(0, 0, 0, 0.0000);
+  --ld-primitive-color-transparentDark-10: rgba(0, 0, 0, 0.1000);
+  --ld-primitive-color-transparentDark-20: rgba(0, 0, 0, 0.2000);
+  --ld-primitive-color-transparentDark-30: rgba(0, 0, 0, 0.3000);
+  --ld-primitive-color-transparentDark-40: rgba(0, 0, 0, 0.4000);
+  --ld-primitive-color-transparentDark-50: rgba(0, 0, 0, 0.5000);
+  --ld-primitive-color-transparentDark-60: rgba(0, 0, 0, 0.6000);
+  --ld-primitive-color-transparentDark-70: rgba(0, 0, 0, 0.7000);
+  --ld-primitive-color-transparentDark-80: rgba(0, 0, 0, 0.8000);
+  --ld-primitive-color-transparentDark-90: rgba(0, 0, 0, 0.9000);
+  --ld-primitive-color-transparentLight-0: rgba(255, 255, 255, 0.0000);
+  --ld-primitive-color-transparentLight-10: rgba(255, 255, 255, 0.1000);
+  --ld-primitive-color-transparentLight-20: rgba(255, 255, 255, 0.2000);
+  --ld-primitive-color-transparentLight-30: rgba(255, 255, 255, 0.3000);
+  --ld-primitive-color-transparentLight-40: rgba(255, 255, 255, 0.4000);
+  --ld-primitive-color-transparentLight-50: rgba(255, 255, 255, 0.5000);
+  --ld-primitive-color-transparentLight-60: rgba(255, 255, 255, 0.6000);
+  --ld-primitive-color-transparentLight-70: rgba(255, 255, 255, 0.7000);
+  --ld-primitive-color-transparentLight-80: rgba(255, 255, 255, 0.8000);
+  --ld-primitive-color-transparentLight-90: rgba(255, 255, 255, 0.9000);
+
+  /* Pink color scale */
+  --ld-primitive-color-pink-5: #fef6fb;
+  --ld-primitive-color-pink-10: #fce9f5;
+  --ld-primitive-color-pink-20: #f8d2e3;
+  --ld-primitive-color-pink-30: #f4bdd3;
+  --ld-primitive-color-pink-40: #f0adcc;
+  --ld-primitive-color-pink-50: #ea9ac3;
+  --ld-primitive-color-pink-60: #e587ba;
+  --ld-primitive-color-pink-70: #df74b1;
+  --ld-primitive-color-pink-80: #d95fa7;
+  --ld-primitive-color-pink-90: #d3479d;
+  --ld-primitive-color-pink-100: #cb2c90;
+  --ld-primitive-color-pink-110: #b62781;
+  --ld-primitive-color-pink-120: #b1267d;
+  --ld-primitive-color-pink-130: #8c1e64;
+  --ld-primitive-color-pink-140: #781a55;
+  --ld-primitive-color-pink-150: #651648;
+  --ld-primitive-color-pink-160: #51123a;
+  --ld-primitive-color-pink-170: #3e0e2c;
+  --ld-primitive-color-pink-180: #2e0a21;
+
+  /* Purple color scale */
+  --ld-primitive-color-purple-5: #f7f5f9;
+  --ld-primitive-color-purple-10: #efebf2;
+  --ld-primitive-color-purple-20: #e0d6e5;
+  --ld-primitive-color-purple-30: #d0c2d8;
+  --ld-primitive-color-purple-40: #c1adcb;
+  --ld-primitive-color-purple-50: #b199bf;
+  --ld-primitive-color-purple-60: #a184b2;
+  --ld-primitive-color-purple-70: #9270a5;
+  --ld-primitive-color-purple-80: #825b98;
+  --ld-primitive-color-purple-90: #73478b;
+  --ld-primitive-color-purple-100: #63327e;
+  --ld-primitive-color-purple-110: #592d71;
+  --ld-primitive-color-purple-120: #4f2865;
+  --ld-primitive-color-purple-130: #452358;
+  --ld-primitive-color-purple-140: #3b1e4c;
+  --ld-primitive-color-purple-150: #32193f;
+  --ld-primitive-color-purple-160: #281432;
+  --ld-primitive-color-purple-170: #1e0f26;
+  --ld-primitive-color-purple-180: #140a19;
+
+  /* Red color scale */
+  --ld-primitive-color-red-5: #fef2f1;
+  --ld-primitive-color-red-10: #fde9e8;
+  --ld-primitive-color-red-20: #fbd0cc;
+  --ld-primitive-color-red-30: #f9bdb8;
+  --ld-primitive-color-red-40: #f8aca6;
+  --ld-primitive-color-red-50: #f69991;
+  --ld-primitive-color-red-60: #f4857c;
+  --ld-primitive-color-red-70: #f27066;
+  --ld-primitive-color-red-80: #f0594d;
+  --ld-primitive-color-red-90: #ee392b;
+  --ld-primitive-color-red-100: #ea1100;
+  --ld-primitive-color-red-110: #ce0f00;
+  --ld-primitive-color-red-120: #b70d00;
+  --ld-primitive-color-red-130: #a20c00;
+  --ld-primitive-color-red-140: #8d0a00;
+  --ld-primitive-color-red-150: #780900;
+  --ld-primitive-color-red-160: #630700;
+  --ld-primitive-color-red-170: #500600;
+  --ld-primitive-color-red-180: #3d0400;
+
+  /* Spark color scale */
+  --ld-primitive-color-spark-5: #fffcf4;
+  --ld-primitive-color-spark-10: #fef6de;
+  --ld-primitive-color-spark-20: #fff3d2;
+  --ld-primitive-color-spark-30: #ffedbc;
+  --ld-primitive-color-spark-40: #ffe7a6;
+  --ld-primitive-color-spark-50: #fbe298;
+  --ld-primitive-color-spark-60: #ffda79;
+  --ld-primitive-color-spark-70: #ffd463;
+  --ld-primitive-color-spark-80: #ffce4d;
+  --ld-primitive-color-spark-90: #ffc836;
+  --ld-primitive-color-spark-100: #ffc220;
+  --ld-primitive-color-spark-110: #e6a31d;
+  --ld-primitive-color-spark-120: #cc851a;
+  --ld-primitive-color-spark-130: #b36a16;
+  --ld-primitive-color-spark-140: #995213;
+  --ld-primitive-color-spark-150: #803d10;
+  --ld-primitive-color-spark-160: #662b0d;
+  --ld-primitive-color-spark-170: #4d1c0a;
+  --ld-primitive-color-spark-180: #330f06;
+
+  /* Teal color scale */
+  --ld-primitive-color-teal-5: #f0f9fb;
+  --ld-primitive-color-teal-10: #e1f3f8;
+  --ld-primitive-color-teal-20: #c3e7ef;
+  --ld-primitive-color-teal-30: #a3dbe9;
+  --ld-primitive-color-teal-40: #82cfe1;
+  --ld-primitive-color-teal-50: #5dc3da;
+  --ld-primitive-color-teal-60: #25b6d3;
+  --ld-primitive-color-teal-70: #00a9c6;
+  --ld-primitive-color-teal-80: #009ab7;
+  --ld-primitive-color-teal-90: #008daa;
+  --ld-primitive-color-teal-100: #00809e;
+  --ld-primitive-color-teal-110: #00748f;
+  --ld-primitive-color-teal-120: #00667f;
+  --ld-primitive-color-teal-130: #005a6f;
+  --ld-primitive-color-teal-140: #004d5f;
+  --ld-primitive-color-teal-150: #00404f;
+  --ld-primitive-color-teal-160: #00333f;
+  --ld-primitive-color-teal-170: #00262f;
+  --ld-primitive-color-teal-180: #001a1f;
+
+  /* Yellow color scale */
+  --ld-primitive-color-yellow-5: #fffef2;
+  --ld-primitive-color-yellow-10: #fffee6;
+  --ld-primitive-color-yellow-20: #fffccc;
+  --ld-primitive-color-yellow-30: #fffbb3;
+  --ld-primitive-color-yellow-40: #fffa99;
+  --ld-primitive-color-yellow-50: #fff980;
+  --ld-primitive-color-yellow-60: #fff766;
+  --ld-primitive-color-yellow-70: #fff64d;
+  --ld-primitive-color-yellow-80: #fff533;
+  --ld-primitive-color-yellow-90: #fff31a;
+  --ld-primitive-color-yellow-100: #fff200;
+  --ld-primitive-color-yellow-110: #e6cb00;
+  --ld-primitive-color-yellow-120: #cca700;
+  --ld-primitive-color-yellow-130: #b38600;
+  --ld-primitive-color-yellow-140: #996900;
+  --ld-primitive-color-yellow-150: #804f00;
+  --ld-primitive-color-yellow-160: #663800;
+  --ld-primitive-color-yellow-170: #4d2500;
+  --ld-primitive-color-yellow-180: #331500;
+
+  /* ========================================
+     ACTION COLORS
+     ======================================== */
+  --ld-semantic-color-action-border-secondary: var(--ld-primitive-color-gray-160, #2e2f32);
+  --ld-semantic-color-action-border-secondary-disabled: var(--ld-primitive-color-gray-50, #babbbe);
+  --ld-semantic-color-action-border-secondary-focused: var(--ld-primitive-color-gray-160, #2e2f32);
+  --ld-semantic-color-action-border-secondary-hovered: var(--ld-primitive-color-gray-160, #2e2f32);
+  --ld-semantic-color-action-border-secondary-pressed: var(--ld-primitive-color-gray-160, #2e2f32);
+  --ld-semantic-color-action-border-tertiary: var(--ld-primitive-color-gray-50, #babbbe);
+  --ld-semantic-color-action-border-tertiary-disabled: var(--ld-primitive-color-gray-50, #babbbe);
+  --ld-semantic-color-action-border-tertiary-focused: var(--ld-primitive-color-gray-50, #babbbe);
+  --ld-semantic-color-action-border-tertiary-hovered: var(--ld-primitive-color-gray-50, #babbbe);
+  --ld-semantic-color-action-border-tertiary-pressed: var(--ld-primitive-color-gray-50, #babbbe);
+  --ld-semantic-color-action-border-transparent: var(--ld-primitive-color-transparentDark-0, rgba(0, 0, 0, 0.0000));
+  --ld-semantic-color-action-border-transparent-disabled: var(--ld-primitive-color-transparentDark-0, rgba(0, 0, 0, 0.0000));
+  --ld-semantic-color-action-border-transparent-focused: var(--ld-primitive-color-transparentDark-0, rgba(0, 0, 0, 0.0000));
+  --ld-semantic-color-action-border-transparent-hovered: var(--ld-primitive-color-transparentDark-0, rgba(0, 0, 0, 0.0000));
+  --ld-semantic-color-action-border-transparent-pressed: var(--ld-primitive-color-transparentDark-0, rgba(0, 0, 0, 0.0000));
+  --ld-semantic-color-action-fill-accent-white: var(--ld-primitive-color-transparentLight-0, rgba(255, 255, 255, 0.0000));
+  --ld-semantic-color-action-fill-accent-white-disabled: var(--ld-primitive-color-transparentLight-0, rgba(255, 255, 255, 0.0000));
+  --ld-semantic-color-action-fill-accent-white-focused: var(--ld-primitive-color-transparentLight-10, rgba(255, 255, 255, 0.1000));
+  --ld-semantic-color-action-fill-accent-white-hovered: var(--ld-primitive-color-transparentLight-10, rgba(255, 255, 255, 0.1000));
+  --ld-semantic-color-action-fill-accent-white-pressed: var(--ld-primitive-color-transparentLight-20, rgba(255, 255, 255, 0.2000));
+  --ld-semantic-color-action-fill-negative: var(--ld-primitive-color-red-100, #ea1100);
+  --ld-semantic-color-action-fill-negative-disabled: var(--ld-primitive-color-gray-50, #babbbe);
+  --ld-semantic-color-action-fill-negative-focused: var(--ld-primitive-color-red-110, #ce0f00);
+  --ld-semantic-color-action-fill-negative-hovered: var(--ld-primitive-color-red-110, #ce0f00);
+  --ld-semantic-color-action-fill-negative-pressed: var(--ld-primitive-color-red-130, #a20c00);
+  --ld-semantic-color-action-fill-primary: var(--ld-primitive-color-blue-100, #0053e2);
+  --ld-semantic-color-action-fill-primary-disabled: var(--ld-primitive-color-gray-50, #babbbe);
+  --ld-semantic-color-action-fill-primary-focused: var(--ld-primitive-color-blue-110, #114ab6);
+  --ld-semantic-color-action-fill-primary-hovered: var(--ld-primitive-color-blue-110, #114ab6);
+  --ld-semantic-color-action-fill-primary-pressed: var(--ld-primitive-color-blue-130, #002e99);
+  --ld-semantic-color-action-fill-secondary: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-action-fill-secondary-disabled: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-action-fill-secondary-focused: var(--ld-primitive-color-gray-10, #f1f1f2);
+  --ld-semantic-color-action-fill-secondary-hovered: var(--ld-primitive-color-gray-10, #f1f1f2);
+  --ld-semantic-color-action-fill-secondary-pressed: var(--ld-primitive-color-gray-20, #e3e4e5);
+  --ld-semantic-color-action-fill-tertiary: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-action-fill-tertiary-disabled: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-action-fill-tertiary-focused: var(--ld-primitive-color-gray-10, #f1f1f2);
+  --ld-semantic-color-action-fill-tertiary-hovered: var(--ld-primitive-color-gray-10, #f1f1f2);
+  --ld-semantic-color-action-fill-tertiary-pressed: var(--ld-primitive-color-gray-20, #e3e4e5);
+  --ld-semantic-color-action-fill-transparent: var(--ld-primitive-color-transparentDark-0, rgba(0, 0, 0, 0.0000));
+  --ld-semantic-color-action-fill-transparent-disabled: var(--ld-primitive-color-transparentDark-0, rgba(0, 0, 0, 0.0000));
+  --ld-semantic-color-action-fill-transparent-focused: var(--ld-primitive-color-transparentDark-10, rgba(0, 0, 0, 0.1000));
+  --ld-semantic-color-action-fill-transparent-hovered: var(--ld-primitive-color-transparentDark-10, rgba(0, 0, 0, 0.1000));
+  --ld-semantic-color-action-fill-transparent-pressed: var(--ld-primitive-color-transparentDark-20, rgba(0, 0, 0, 0.2000));
+  --ld-semantic-color-action-text-onFill-accent-white: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-action-text-onFill-accent-white-disabled: var(--ld-primitive-color-gray-50, #babbbe);
+  --ld-semantic-color-action-text-onFill-accent-white-focused: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-action-text-onFill-accent-white-hovered: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-action-text-onFill-accent-white-pressed: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-action-text-onFill-negative: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-action-text-onFill-negative-disabled: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-action-text-onFill-negative-focused: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-action-text-onFill-negative-hovered: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-action-text-onFill-negative-pressed: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-action-text-onFill-primary: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-action-text-onFill-primary-disabled: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-action-text-onFill-primary-focused: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-action-text-onFill-primary-hovered: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-action-text-onFill-primary-pressed: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-action-text-onFill-secondary: var(--ld-primitive-color-gray-160, #2e2f32);
+  --ld-semantic-color-action-text-onFill-secondary-disabled: var(--ld-primitive-color-gray-50, #babbbe);
+  --ld-semantic-color-action-text-onFill-secondary-focused: var(--ld-primitive-color-gray-160, #2e2f32);
+  --ld-semantic-color-action-text-onFill-secondary-hovered: var(--ld-primitive-color-gray-160, #2e2f32);
+  --ld-semantic-color-action-text-onFill-secondary-pressed: var(--ld-primitive-color-gray-160, #2e2f32);
+  --ld-semantic-color-action-text-onFill-tertiary: var(--ld-primitive-color-gray-160, #2e2f32);
+  --ld-semantic-color-action-text-onFill-tertiary-disabled: var(--ld-primitive-color-gray-50, #babbbe);
+  --ld-semantic-color-action-text-onFill-tertiary-focused: var(--ld-primitive-color-gray-160, #2e2f32);
+  --ld-semantic-color-action-text-onFill-tertiary-hovered: var(--ld-primitive-color-gray-160, #2e2f32);
+  --ld-semantic-color-action-text-onFill-tertiary-pressed: var(--ld-primitive-color-gray-160, #2e2f32);
+  --ld-semantic-color-action-text-onFill-transparent: var(--ld-primitive-color-gray-160, #2e2f32);
+  --ld-semantic-color-action-text-onFill-transparent-disabled: var(--ld-primitive-color-gray-50, #babbbe);
+  --ld-semantic-color-action-text-onFill-transparent-focused: var(--ld-primitive-color-gray-160, #2e2f32);
+  --ld-semantic-color-action-text-onFill-transparent-hovered: var(--ld-primitive-color-gray-160, #2e2f32);
+  --ld-semantic-color-action-text-onFill-transparent-pressed: var(--ld-primitive-color-gray-160, #2e2f32);
+
+  /* ========================================
+     BACKGROUND COLORS
+     ======================================== */
+  --ld-semantic-color-background: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-background-inverse: var(--ld-primitive-color-gray-160, #2e2f32);
+  --ld-semantic-color-background-subtle: var(--ld-primitive-color-gray-5, #f8f8f8);
+
+  /* ========================================
+     BORDER COLORS
+     ======================================== */
+  --ld-semantic-color-border: var(--ld-primitive-color-gray-160, #2e2f32);
+  --ld-semantic-color-border-accent-blue: var(--ld-primitive-color-blue-100, #0053e2);
+  --ld-semantic-color-border-accent-blue-bold: var(--ld-primitive-color-blue-130, #002e99);
+  --ld-semantic-color-border-accent-cyan: var(--ld-primitive-color-cyan-100, #0076b3);
+  --ld-semantic-color-border-accent-cyan-bold: var(--ld-primitive-color-cyan-130, #004a70);
+  --ld-semantic-color-border-accent-gray: var(--ld-primitive-color-gray-100, #74767c);
+  --ld-semantic-color-border-accent-gray-bold: var(--ld-primitive-color-gray-130, #515357);
+  --ld-semantic-color-border-accent-green: var(--ld-primitive-color-green-100, #2a8703);
+  --ld-semantic-color-border-accent-green-bold: var(--ld-primitive-color-green-130, #1d5f02);
+  --ld-semantic-color-border-accent-orange: var(--ld-primitive-color-orange-120, #c83c00);
+  --ld-semantic-color-border-accent-orange-bold: var(--ld-primitive-color-orange-130, #af2f00);
+  --ld-semantic-color-border-accent-pink: var(--ld-primitive-color-pink-100, #cb2c90);
+  --ld-semantic-color-border-accent-pink-bold: var(--ld-primitive-color-pink-130, #8c1e64);
+  --ld-semantic-color-border-accent-purple: var(--ld-primitive-color-purple-100, #63327e);
+  --ld-semantic-color-border-accent-purple-bold: var(--ld-primitive-color-purple-130, #452358);
+  --ld-semantic-color-border-accent-red: var(--ld-primitive-color-red-100, #ea1100);
+  --ld-semantic-color-border-accent-red-bold: var(--ld-primitive-color-red-130, #a20c00);
+  --ld-semantic-color-border-accent-spark: var(--ld-primitive-color-spark-140, #995213);
+  --ld-semantic-color-border-accent-spark-bold: var(--ld-primitive-color-spark-160, #662b0d);
+  --ld-semantic-color-border-accent-teal: var(--ld-primitive-color-teal-100, #00809e);
+  --ld-semantic-color-border-accent-teal-bold: var(--ld-primitive-color-teal-130, #005a6f);
+  --ld-semantic-color-border-accent-yellow: var(--ld-primitive-color-yellow-140, #996900);
+  --ld-semantic-color-border-accent-yellow-bold: var(--ld-primitive-color-yellow-160, #663800);
+  --ld-semantic-color-border-activated: var(--ld-primitive-color-blue-100, #0053e2);
+  --ld-semantic-color-border-brand: var(--ld-primitive-color-blue-100, #0053e2);
+  --ld-semantic-color-border-brand-bold: var(--ld-primitive-color-blue-160, #001e60);
+  --ld-semantic-color-border-disabled: var(--ld-primitive-color-gray-50, #babbbe);
+  --ld-semantic-color-border-edited: var(--ld-primitive-color-purple-100, #63327e);
+  --ld-semantic-color-border-edited-bold: var(--ld-primitive-color-purple-130, #452358);
+  --ld-semantic-color-border-info: var(--ld-primitive-color-blue-100, #0053e2);
+  --ld-semantic-color-border-info-bold: var(--ld-primitive-color-blue-130, #002e99);
+  --ld-semantic-color-border-inverse: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-border-negative: var(--ld-primitive-color-red-100, #ea1100);
+  --ld-semantic-color-border-negative-bold: var(--ld-primitive-color-red-130, #a20c00);
+  --ld-semantic-color-border-positive: var(--ld-primitive-color-green-100, #2a8703);
+  --ld-semantic-color-border-positive-bold: var(--ld-primitive-color-green-130, #1d5f02);
+  --ld-semantic-color-border-subtle: var(--ld-primitive-color-gray-130, #515357);
+  --ld-semantic-color-border-subtlest: var(--ld-primitive-color-gray-100, #74767c);
+  --ld-semantic-color-border-warning: var(--ld-primitive-color-spark-140, #995213);
+  --ld-semantic-color-border-warning-bold: var(--ld-primitive-color-spark-160, #662b0d);
+
+  /* ========================================
+     BOTTOM COLORS
+     ======================================== */
+  --ld-semantic-color-bottomNav-fill: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-bottomNav-fill-activated: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-bottomNav-separator: var(--ld-primitive-color-gray-20, #e3e4e5);
+  --ld-semantic-color-bottomNav-text-onFill: var(--ld-primitive-color-gray-100, #74767c);
+  --ld-semantic-color-bottomNav-text-onFill-activated: var(--ld-primitive-color-blue-100, #0053e2);
+  --ld-semantic-color-bottomNav-text-onFill-activated-focused: var(--ld-primitive-color-blue-100, #0053e2);
+  --ld-semantic-color-bottomNav-text-onFill-activated-hovered: var(--ld-primitive-color-blue-100, #0053e2);
+  --ld-semantic-color-bottomNav-text-onFill-activated-pressed: var(--ld-primitive-color-blue-100, #0053e2);
+  --ld-semantic-color-bottomNav-text-onFill-focused: var(--ld-primitive-color-gray-100, #74767c);
+  --ld-semantic-color-bottomNav-text-onFill-hovered: var(--ld-primitive-color-gray-100, #74767c);
+  --ld-semantic-color-bottomNav-text-onFill-pressed: var(--ld-primitive-color-gray-100, #74767c);
+
+  /* ========================================
+     CHART COLORS
+     ======================================== */
+  --ld-semantic-color-chart-categorical-1: var(--ld-primitive-color-blue-130, #002e99);
+  --ld-semantic-color-chart-categorical-2: var(--ld-primitive-color-pink-70, #df74b1);
+  --ld-semantic-color-chart-categorical-3: var(--ld-primitive-color-spark-120, #cc851a);
+  --ld-semantic-color-chart-categorical-4: var(--ld-primitive-color-cyan-80, #0092db);
+  --ld-semantic-color-chart-categorical-5: var(--ld-primitive-color-orange-130, #af2f00);
+  --ld-semantic-color-chart-categorical-6: var(--ld-primitive-color-purple-60, #a184b2);
+  --ld-semantic-color-chart-categorical-7: var(--ld-primitive-color-green-90, #3f931c);
+  --ld-semantic-color-chart-categorical-8: var(--ld-primitive-color-pink-120, #b1267d);
+
+  /* ========================================
+     FIELD COLORS
+     ======================================== */
+  --ld-semantic-color-field-border: var(--ld-primitive-color-gray-80, #909196);
+  --ld-semantic-color-field-border-disabled: var(--ld-primitive-color-gray-50, #babbbe);
+  --ld-semantic-color-field-border-focused: var(--ld-primitive-color-gray-160, #2e2f32);
+  --ld-semantic-color-field-border-hovered: var(--ld-primitive-color-gray-160, #2e2f32);
+  --ld-semantic-color-field-border-negative: var(--ld-primitive-color-red-100, #ea1100);
+  --ld-semantic-color-field-border-negative-disabled: var(--ld-primitive-color-gray-50, #babbbe);
+  --ld-semantic-color-field-border-negative-focused: var(--ld-primitive-color-red-100, #ea1100);
+  --ld-semantic-color-field-border-negative-hovered: var(--ld-primitive-color-red-100, #ea1100);
+  --ld-semantic-color-field-fill: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-field-fill-disabled: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-field-fill-focused: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-field-fill-hovered: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-field-fill-negative: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-field-fill-negative-disabled: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-field-fill-negative-focused: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-field-fill-negative-hovered: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-field-fill-readonly: var(--ld-primitive-color-gray-10, #f1f1f2);
+  --ld-semantic-color-field-text-onFill: var(--ld-primitive-color-gray-160, #2e2f32);
+  --ld-semantic-color-field-text-onFill-disabled: var(--ld-primitive-color-gray-50, #babbbe);
+  --ld-semantic-color-field-text-subtle-onFill: var(--ld-primitive-color-gray-130, #515357);
+  --ld-semantic-color-field-text-subtle-onFill-disabled: var(--ld-primitive-color-gray-50, #babbbe);
+
+  /* ========================================
+     FILL COLORS
+     ======================================== */
+  --ld-semantic-color-fill: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-fill-accent-blue: var(--ld-primitive-color-blue-100, #0053e2);
+  --ld-semantic-color-fill-accent-blue-subtle: var(--ld-primitive-color-blue-10, #e9f1fe);
+  --ld-semantic-color-fill-accent-cyan: var(--ld-primitive-color-cyan-100, #0076b3);
+  --ld-semantic-color-fill-accent-cyan-subtle: var(--ld-primitive-color-cyan-10, #e7f6fe);
+  --ld-semantic-color-fill-accent-gray: var(--ld-primitive-color-gray-100, #74767c);
+  --ld-semantic-color-fill-accent-gray-subtle: var(--ld-primitive-color-gray-10, #f1f1f2);
+  --ld-semantic-color-fill-accent-green: var(--ld-primitive-color-green-100, #2a8703);
+  --ld-semantic-color-fill-accent-green-subtle: var(--ld-primitive-color-green-10, #eaf3e6);
+  --ld-semantic-color-fill-accent-orange: var(--ld-primitive-color-orange-70, #fc934d);
+  --ld-semantic-color-fill-accent-orange-subtle: var(--ld-primitive-color-orange-10, #fff0e6);
+  --ld-semantic-color-fill-accent-pink: var(--ld-primitive-color-pink-100, #cb2c90);
+  --ld-semantic-color-fill-accent-pink-subtle: var(--ld-primitive-color-pink-10, #fce9f5);
+  --ld-semantic-color-fill-accent-purple: var(--ld-primitive-color-purple-100, #63327e);
+  --ld-semantic-color-fill-accent-purple-subtle: var(--ld-primitive-color-purple-10, #efebf2);
+  --ld-semantic-color-fill-accent-red: var(--ld-primitive-color-red-100, #ea1100);
+  --ld-semantic-color-fill-accent-red-subtle: var(--ld-primitive-color-red-10, #fde9e8);
+  --ld-semantic-color-fill-accent-spark: var(--ld-primitive-color-spark-100, #ffc220);
+  --ld-semantic-color-fill-accent-spark-subtle: var(--ld-primitive-color-spark-10, #fef6de);
+  --ld-semantic-color-fill-accent-teal: var(--ld-primitive-color-teal-100, #00809e);
+  --ld-semantic-color-fill-accent-teal-subtle: var(--ld-primitive-color-teal-10, #e1f3f8);
+  --ld-semantic-color-fill-accent-yellow: var(--ld-primitive-color-yellow-100, #fff200);
+  --ld-semantic-color-fill-accent-yellow-subtle: var(--ld-primitive-color-yellow-10, #fffee6);
+  --ld-semantic-color-fill-activated: var(--ld-primitive-color-blue-100, #0053e2);
+  --ld-semantic-color-fill-activated-disabled: var(--ld-primitive-color-gray-50, #babbbe);
+  --ld-semantic-color-fill-activated-focused: var(--ld-primitive-color-blue-110, #114ab6);
+  --ld-semantic-color-fill-activated-hovered: var(--ld-primitive-color-blue-110, #114ab6);
+  --ld-semantic-color-fill-activated-pressed: var(--ld-primitive-color-blue-130, #002e99);
+  --ld-semantic-color-fill-activated-subtle: var(--ld-primitive-color-blue-5, #f0f5ff);
+  --ld-semantic-color-fill-activated-subtle-disabled: var(--ld-primitive-color-gray-20, #e3e4e5);
+  --ld-semantic-color-fill-activated-subtle-focused: var(--ld-primitive-color-blue-10, #e9f1fe);
+  --ld-semantic-color-fill-activated-subtle-hovered: var(--ld-primitive-color-blue-10, #e9f1fe);
+  --ld-semantic-color-fill-activated-subtle-pressed: var(--ld-primitive-color-blue-20, #c9dcfd);
+  --ld-semantic-color-fill-brand: var(--ld-primitive-color-blue-100, #0053e2);
+  --ld-semantic-color-fill-brand-bold: var(--ld-primitive-color-blue-160, #001e60);
+  --ld-semantic-color-fill-brand-subtle: var(--ld-primitive-color-blue-10, #e9f1fe);
+  --ld-semantic-color-fill-brand-subtle-focused: var(--ld-primitive-color-blue-20, #c9dcfd);
+  --ld-semantic-color-fill-brand-subtle-hovered: var(--ld-primitive-color-blue-20, #c9dcfd);
+  --ld-semantic-color-fill-brand-subtle-pressed: var(--ld-primitive-color-blue-30, #acc8fb);
+  --ld-semantic-color-fill-disabled: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-fill-edited: var(--ld-primitive-color-purple-100, #63327e);
+  --ld-semantic-color-fill-edited-subtle: var(--ld-primitive-color-purple-10, #efebf2);
+  --ld-semantic-color-fill-focused: var(--ld-primitive-color-gray-10, #f1f1f2);
+  --ld-semantic-color-fill-hovered: var(--ld-primitive-color-gray-10, #f1f1f2);
+  --ld-semantic-color-fill-info: var(--ld-primitive-color-blue-100, #0053e2);
+  --ld-semantic-color-fill-info-subtle: var(--ld-primitive-color-blue-10, #e9f1fe);
+  --ld-semantic-color-fill-info-subtle-focused: var(--ld-primitive-color-blue-20, #c9dcfd);
+  --ld-semantic-color-fill-info-subtle-hovered: var(--ld-primitive-color-blue-20, #c9dcfd);
+  --ld-semantic-color-fill-info-subtle-pressed: var(--ld-primitive-color-blue-30, #acc8fb);
+  --ld-semantic-color-fill-inverse: var(--ld-primitive-color-gray-160, #2e2f32);
+  --ld-semantic-color-fill-negative: var(--ld-primitive-color-red-100, #ea1100);
+  --ld-semantic-color-fill-negative-subtle: var(--ld-primitive-color-red-10, #fde9e8);
+  --ld-semantic-color-fill-negative-subtle-focused: var(--ld-primitive-color-red-20, #fbd0cc);
+  --ld-semantic-color-fill-negative-subtle-hovered: var(--ld-primitive-color-red-20, #fbd0cc);
+  --ld-semantic-color-fill-negative-subtle-pressed: var(--ld-primitive-color-red-30, #f9bdb8);
+  --ld-semantic-color-fill-positive: var(--ld-primitive-color-green-100, #2a8703);
+  --ld-semantic-color-fill-positive-subtle: var(--ld-primitive-color-green-10, #eaf3e6);
+  --ld-semantic-color-fill-positive-subtle-focused: var(--ld-primitive-color-green-20, #d4e7cd);
+  --ld-semantic-color-fill-positive-subtle-hovered: var(--ld-primitive-color-green-20, #d4e7cd);
+  --ld-semantic-color-fill-positive-subtle-pressed: var(--ld-primitive-color-green-30, #bfdbb3);
+  --ld-semantic-color-fill-pressed: var(--ld-primitive-color-gray-20, #e3e4e5);
+  --ld-semantic-color-fill-subtle: var(--ld-primitive-color-gray-5, #f8f8f8);
+  --ld-semantic-color-fill-transparent: var(--ld-primitive-color-transparentDark-0, rgba(0, 0, 0, 0.0000));
+  --ld-semantic-color-fill-warning: var(--ld-primitive-color-spark-100, #ffc220);
+  --ld-semantic-color-fill-warning-subtle: var(--ld-primitive-color-spark-10, #fef6de);
+  --ld-semantic-color-fill-warning-subtle-focused: var(--ld-primitive-color-spark-20, #fff3d2);
+  --ld-semantic-color-fill-warning-subtle-hovered: var(--ld-primitive-color-spark-20, #fff3d2);
+  --ld-semantic-color-fill-warning-subtle-pressed: var(--ld-primitive-color-spark-30, #ffedbc);
+
+  /* ========================================
+     FILTER COLORS
+     ======================================== */
+  --ld-semantic-color-filter-border: var(--ld-primitive-color-gray-160, #2e2f32);
+  --ld-semantic-color-filter-border-activated: var(--ld-primitive-color-blue-100, #0053e2);
+  --ld-semantic-color-filter-border-activated-disabled: var(--ld-primitive-color-gray-50, #babbbe);
+  --ld-semantic-color-filter-border-activated-focused: var(--ld-primitive-color-blue-100, #0053e2);
+  --ld-semantic-color-filter-border-activated-hovered: var(--ld-primitive-color-blue-100, #0053e2);
+  --ld-semantic-color-filter-border-activated-pressed: var(--ld-primitive-color-blue-140, #002185);
+  --ld-semantic-color-filter-border-disabled: var(--ld-primitive-color-gray-50, #babbbe);
+  --ld-semantic-color-filter-border-focused: var(--ld-primitive-color-gray-160, #2e2f32);
+  --ld-semantic-color-filter-border-hovered: var(--ld-primitive-color-gray-160, #2e2f32);
+  --ld-semantic-color-filter-border-pressed: var(--ld-primitive-color-gray-160, #2e2f32);
+  --ld-semantic-color-filter-fill: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-filter-fill-activated: var(--ld-primitive-color-blue-10, #e9f1fe);
+  --ld-semantic-color-filter-fill-activated-focused: var(--ld-primitive-color-blue-10, #e9f1fe);
+  --ld-semantic-color-filter-fill-activated-hovered: var(--ld-primitive-color-blue-10, #e9f1fe);
+  --ld-semantic-color-filter-fill-activated-pressed: var(--ld-primitive-color-blue-20, #c9dcfd);
+  --ld-semantic-color-filter-fill-disabled: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-filter-fill-focused: var(--ld-primitive-color-gray-10, #f1f1f2);
+  --ld-semantic-color-filter-fill-hovered: var(--ld-primitive-color-gray-10, #f1f1f2);
+  --ld-semantic-color-filter-fill-pressed: var(--ld-primitive-color-gray-20, #e3e4e5);
+  --ld-semantic-color-filter-text-onFill: var(--ld-primitive-color-gray-160, #2e2f32);
+  --ld-semantic-color-filter-text-onFill-disabled: var(--ld-primitive-color-gray-50, #babbbe);
+
+  /* ========================================
+     INPUT COLORS
+     ======================================== */
+  --ld-semantic-color-input-border: var(--ld-primitive-color-gray-160, #2e2f32);
+  --ld-semantic-color-input-border-accent-white: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-input-border-accent-white-activated: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-input-border-accent-white-activated-disabled: var(--ld-primitive-color-transparentLight-0, rgba(255, 255, 255, 0.0000));
+  --ld-semantic-color-input-border-accent-white-activated-focused: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-input-border-accent-white-activated-hovered: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-input-border-accent-white-activated-pressed: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-input-border-accent-white-disabled: var(--ld-primitive-color-transparentLight-50, rgba(255, 255, 255, 0.5000));
+  --ld-semantic-color-input-border-accent-white-focused: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-input-border-accent-white-hovered: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-input-border-accent-white-pressed: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-input-border-activated: var(--ld-primitive-color-gray-160, #2e2f32);
+  --ld-semantic-color-input-border-activated-disabled: var(--ld-primitive-color-gray-50, #babbbe);
+  --ld-semantic-color-input-border-activated-focused: var(--ld-primitive-color-gray-160, #2e2f32);
+  --ld-semantic-color-input-border-activated-hovered: var(--ld-primitive-color-gray-160, #2e2f32);
+  --ld-semantic-color-input-border-activated-pressed: var(--ld-primitive-color-gray-160, #2e2f32);
+  --ld-semantic-color-input-border-disabled: var(--ld-primitive-color-gray-50, #babbbe);
+  --ld-semantic-color-input-border-focused: var(--ld-primitive-color-gray-160, #2e2f32);
+  --ld-semantic-color-input-border-hovered: var(--ld-primitive-color-gray-160, #2e2f32);
+  --ld-semantic-color-input-border-pressed: var(--ld-primitive-color-gray-160, #2e2f32);
+  --ld-semantic-color-input-fill: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-input-fill-accent-white: var(--ld-primitive-color-transparentLight-0, rgba(255, 255, 255, 0.0000));
+  --ld-semantic-color-input-fill-accent-white-activated: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-input-fill-accent-white-activated-disabled: var(--ld-primitive-color-transparentLight-50, rgba(255, 255, 255, 0.5000));
+  --ld-semantic-color-input-fill-accent-white-activated-focused: var(--ld-primitive-color-transparentLight-80, rgba(255, 255, 255, 0.8000));
+  --ld-semantic-color-input-fill-accent-white-activated-hovered: var(--ld-primitive-color-transparentLight-80, rgba(255, 255, 255, 0.8000));
+  --ld-semantic-color-input-fill-accent-white-activated-pressed: var(--ld-primitive-color-transparentLight-70, rgba(255, 255, 255, 0.7000));
+  --ld-semantic-color-input-fill-accent-white-disabled: var(--ld-primitive-color-transparentLight-0, rgba(255, 255, 255, 0.0000));
+  --ld-semantic-color-input-fill-accent-white-focused: var(--ld-primitive-color-transparentLight-10, rgba(255, 255, 255, 0.1000));
+  --ld-semantic-color-input-fill-accent-white-hovered: var(--ld-primitive-color-transparentLight-10, rgba(255, 255, 255, 0.1000));
+  --ld-semantic-color-input-fill-accent-white-pressed: var(--ld-primitive-color-transparentLight-20, rgba(255, 255, 255, 0.2000));
+  --ld-semantic-color-input-fill-activated: var(--ld-primitive-color-gray-160, #2e2f32);
+  --ld-semantic-color-input-fill-activated-disabled: var(--ld-primitive-color-gray-50, #babbbe);
+  --ld-semantic-color-input-fill-activated-focused: var(--ld-primitive-color-gray-150, #3a3b3e);
+  --ld-semantic-color-input-fill-activated-hovered: var(--ld-primitive-color-gray-150, #3a3b3e);
+  --ld-semantic-color-input-fill-activated-pressed: var(--ld-primitive-color-gray-140, #46474a);
+  --ld-semantic-color-input-fill-disabled: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-input-fill-focused: var(--ld-primitive-color-gray-10, #f1f1f2);
+  --ld-semantic-color-input-fill-hovered: var(--ld-primitive-color-gray-10, #f1f1f2);
+  --ld-semantic-color-input-fill-pressed: var(--ld-primitive-color-gray-20, #e3e4e5);
+  --ld-semantic-color-input-indicator-accent-white-activated: var(--ld-primitive-color-gray-160, #2e2f32);
+  --ld-semantic-color-input-indicator-accent-white-activated-disabled: var(--ld-primitive-color-gray-160, #2e2f32);
+  --ld-semantic-color-input-indicator-activated: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-input-indicator-activated-disabled: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-input-text-onFill: var(--ld-primitive-color-gray-160, #2e2f32);
+  --ld-semantic-color-input-text-onFill-disabled: var(--ld-primitive-color-gray-50, #babbbe);
+
+  /* ========================================
+     LINK COLORS
+     ======================================== */
+  --ld-semantic-color-link-legal: var(--ld-primitive-color-blue-100, #0053e2);
+  --ld-semantic-color-link-legal-disabled: var(--ld-primitive-color-gray-50, #babbbe);
+  --ld-semantic-color-link-legal-focused: var(--ld-primitive-color-blue-110, #114ab6);
+  --ld-semantic-color-link-legal-hovered: var(--ld-primitive-color-blue-110, #114ab6);
+  --ld-semantic-color-link-legal-pressed: var(--ld-primitive-color-blue-140, #002185);
+  --ld-semantic-color-link-text: var(--ld-primitive-color-gray-160, #2e2f32);
+  --ld-semantic-color-link-text-accent-white: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-link-text-accent-white-disabled: var(--ld-primitive-color-gray-50, #babbbe);
+  --ld-semantic-color-link-text-accent-white-focused: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-link-text-accent-white-hovered: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-link-text-accent-white-pressed: var(--ld-primitive-color-gray-20, #e3e4e5);
+  --ld-semantic-color-link-text-disabled: var(--ld-primitive-color-gray-50, #babbbe);
+  --ld-semantic-color-link-text-focused: var(--ld-primitive-color-gray-160, #2e2f32);
+  --ld-semantic-color-link-text-hovered: var(--ld-primitive-color-gray-160, #2e2f32);
+  --ld-semantic-color-link-text-pressed: var(--ld-primitive-color-gray-180, #171819);
+  --ld-semantic-color-link-text-subtle: var(--ld-primitive-color-gray-130, #515357);
+  --ld-semantic-color-link-text-subtle-disabled: var(--ld-primitive-color-gray-50, #babbbe);
+  --ld-semantic-color-link-text-subtle-focused: var(--ld-primitive-color-gray-130, #515357);
+  --ld-semantic-color-link-text-subtle-hovered: var(--ld-primitive-color-gray-130, #515357);
+  --ld-semantic-color-link-text-subtle-pressed: var(--ld-primitive-color-gray-150, #3a3b3e);
+
+  /* ========================================
+     LOADING COLORS
+     ======================================== */
+  --ld-semantic-color-loading: var(--ld-primitive-color-gray-100, #74767c);
+  --ld-semantic-color-loading-subtle: var(--ld-primitive-color-gray-20, #e3e4e5);
+  --ld-semantic-color-loading-subtlest: var(--ld-primitive-color-gray-5, #f8f8f8);
+  --ld-semantic-color-loading-white: var(--ld-primitive-color-white, #ffffff);
+
+  /* ========================================
+     NOTICE COLORS
+     ======================================== */
+  --ld-semantic-color-notice-fill-info: var(--ld-primitive-color-blue-100, #0053e2);
+  --ld-semantic-color-notice-fill-negative: var(--ld-primitive-color-red-100, #ea1100);
+  --ld-semantic-color-notice-fill-positive: var(--ld-primitive-color-green-100, #2a8703);
+  --ld-semantic-color-notice-fill-warning: var(--ld-primitive-color-spark-100, #ffc220);
+  --ld-semantic-color-notice-text-onFill-info: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-notice-text-onFill-negative: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-notice-text-onFill-positive: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-notice-text-onFill-warning: var(--ld-primitive-color-gray-160, #2e2f32);
+
+  /* ========================================
+     PAGE COLORS
+     ======================================== */
+  --ld-semantic-color-pageNav-fill: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-pageNav-fill-activated: var(--ld-primitive-color-blue-5, #f0f5ff);
+  --ld-semantic-color-pageNav-fill-activated-focused: var(--ld-primitive-color-blue-10, #e9f1fe);
+  --ld-semantic-color-pageNav-fill-activated-hovered: var(--ld-primitive-color-blue-10, #e9f1fe);
+  --ld-semantic-color-pageNav-fill-activated-pressed: var(--ld-primitive-color-blue-20, #c9dcfd);
+  --ld-semantic-color-pageNav-fill-focused: var(--ld-primitive-color-blue-5, #f0f5ff);
+  --ld-semantic-color-pageNav-fill-hovered: var(--ld-primitive-color-blue-5, #f0f5ff);
+  --ld-semantic-color-pageNav-fill-pressed: var(--ld-primitive-color-blue-10, #e9f1fe);
+  --ld-semantic-color-pageNav-indicator: var(--ld-primitive-color-transparentDark-0, rgba(0, 0, 0, 0.0000));
+  --ld-semantic-color-pageNav-indicator-activated: var(--ld-primitive-color-blue-100, #0053e2);
+  --ld-semantic-color-pageNav-indicator-activated-focused: var(--ld-primitive-color-blue-100, #0053e2);
+  --ld-semantic-color-pageNav-indicator-activated-hovered: var(--ld-primitive-color-blue-100, #0053e2);
+  --ld-semantic-color-pageNav-indicator-activated-pressed: var(--ld-primitive-color-blue-100, #0053e2);
+  --ld-semantic-color-pageNav-indicator-focused: var(--ld-primitive-color-blue-20, #c9dcfd);
+  --ld-semantic-color-pageNav-indicator-hovered: var(--ld-primitive-color-blue-20, #c9dcfd);
+  --ld-semantic-color-pageNav-indicator-pressed: var(--ld-primitive-color-blue-30, #acc8fb);
+  --ld-semantic-color-pageNav-text-onFill: var(--ld-primitive-color-gray-160, #2e2f32);
+  --ld-semantic-color-pageNav-text-onFill-activated: var(--ld-primitive-color-gray-160, #2e2f32);
+
+  /* ========================================
+     PROGRESS COLORS
+     ======================================== */
+  --ld-semantic-color-progress-fill: var(--ld-primitive-color-gray-80, #909196);
+  --ld-semantic-color-progress-fill-info: var(--ld-primitive-color-blue-100, #0053e2);
+  --ld-semantic-color-progress-fill-negative: var(--ld-primitive-color-red-100, #ea1100);
+  --ld-semantic-color-progress-fill-positive: var(--ld-primitive-color-green-100, #2a8703);
+  --ld-semantic-color-progress-fill-subtle: var(--ld-primitive-color-gray-20, #e3e4e5);
+  --ld-semantic-color-progress-fill-warning: var(--ld-primitive-color-spark-140, #995213);
+
+  /* ========================================
+     RATING COLORS
+     ======================================== */
+  --ld-semantic-color-rating-border: var(--ld-primitive-color-spark-120, #cc851a);
+  --ld-semantic-color-rating-fill: var(--ld-primitive-color-spark-100, #ffc220);
+
+  /* ========================================
+     SCRIM COLORS
+     ======================================== */
+  --ld-semantic-color-scrim: var(--ld-primitive-color-transparentDark-60, rgba(0, 0, 0, 0.6000));
+  --ld-semantic-color-scrim-inverse: var(--ld-primitive-color-transparentLight-60, rgba(255, 255, 255, 0.6000));
+
+  /* ========================================
+     SEPARATOR COLORS
+     ======================================== */
+  --ld-semantic-color-separator: var(--ld-primitive-color-gray-20, #e3e4e5);
+
+  /* ========================================
+     SURFACE COLORS
+     ======================================== */
+  --ld-semantic-color-surface: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-surface-activated: var(--ld-primitive-color-blue-5, #f0f5ff);
+  --ld-semantic-color-surface-activated-focused: var(--ld-primitive-color-blue-10, #e9f1fe);
+  --ld-semantic-color-surface-activated-hovered: var(--ld-primitive-color-blue-10, #e9f1fe);
+  --ld-semantic-color-surface-activated-pressed: var(--ld-primitive-color-blue-20, #c9dcfd);
+  --ld-semantic-color-surface-brand: var(--ld-primitive-color-blue-10, #e9f1fe);
+  --ld-semantic-color-surface-focused: var(--ld-primitive-color-gray-10, #f1f1f2);
+  --ld-semantic-color-surface-hovered: var(--ld-primitive-color-gray-10, #f1f1f2);
+  --ld-semantic-color-surface-overlay: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-surface-overlay-brand-subtle: var(--ld-primitive-color-cyan-20, #c9ebfd);
+  --ld-semantic-color-surface-overlay-inverse: var(--ld-primitive-color-blue-160, #001e60);
+  --ld-semantic-color-surface-pressed: var(--ld-primitive-color-gray-20, #e3e4e5);
+  --ld-semantic-color-surface-subtle: var(--ld-primitive-color-gray-5, #f8f8f8);
+  --ld-semantic-color-surface-subtle-focused: var(--ld-primitive-color-gray-10, #f1f1f2);
+  --ld-semantic-color-surface-subtle-hovered: var(--ld-primitive-color-gray-10, #f1f1f2);
+  --ld-semantic-color-surface-subtle-pressed: var(--ld-primitive-color-gray-20, #e3e4e5);
+
+  /* ========================================
+     SWITCH COLORS
+     ======================================== */
+  --ld-semantic-color-switch-fill: var(--ld-primitive-color-gray-100, #74767c);
+  --ld-semantic-color-switch-fill-activated: var(--ld-primitive-color-blue-100, #0053e2);
+  --ld-semantic-color-switch-fill-activated-disabled: var(--ld-primitive-color-gray-20, #e3e4e5);
+  --ld-semantic-color-switch-fill-activated-focused: var(--ld-primitive-color-blue-130, #002e99);
+  --ld-semantic-color-switch-fill-activated-hovered: var(--ld-primitive-color-blue-130, #002e99);
+  --ld-semantic-color-switch-fill-activated-pressed: var(--ld-primitive-color-blue-160, #001e60);
+  --ld-semantic-color-switch-fill-disabled: var(--ld-primitive-color-gray-20, #e3e4e5);
+  --ld-semantic-color-switch-fill-focused: var(--ld-primitive-color-gray-130, #515357);
+  --ld-semantic-color-switch-fill-hovered: var(--ld-primitive-color-gray-130, #515357);
+  --ld-semantic-color-switch-fill-pressed: var(--ld-primitive-color-gray-160, #2e2f32);
+  --ld-semantic-color-switch-indicator: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-switch-indicator-disabled: var(--ld-primitive-color-gray-50, #babbbe);
+
+  /* ========================================
+     TEXT COLORS
+     ======================================== */
+  --ld-semantic-color-text: var(--ld-primitive-color-gray-160, #2e2f32);
+  --ld-semantic-color-text-accent-blue: var(--ld-primitive-color-blue-100, #0053e2);
+  --ld-semantic-color-text-accent-blue-bold: var(--ld-primitive-color-blue-130, #002e99);
+  --ld-semantic-color-text-accent-cyan: var(--ld-primitive-color-cyan-100, #0076b3);
+  --ld-semantic-color-text-accent-cyan-bold: var(--ld-primitive-color-cyan-130, #004a70);
+  --ld-semantic-color-text-accent-gray: var(--ld-primitive-color-gray-100, #74767c);
+  --ld-semantic-color-text-accent-gray-bold: var(--ld-primitive-color-gray-130, #515357);
+  --ld-semantic-color-text-accent-green: var(--ld-primitive-color-green-100, #2a8703);
+  --ld-semantic-color-text-accent-green-bold: var(--ld-primitive-color-green-130, #1d5f02);
+  --ld-semantic-color-text-accent-orange: var(--ld-primitive-color-orange-120, #c83c00);
+  --ld-semantic-color-text-accent-orange-bold: var(--ld-primitive-color-orange-130, #af2f00);
+  --ld-semantic-color-text-accent-pink: var(--ld-primitive-color-pink-100, #cb2c90);
+  --ld-semantic-color-text-accent-pink-bold: var(--ld-primitive-color-pink-130, #8c1e64);
+  --ld-semantic-color-text-accent-purple: var(--ld-primitive-color-purple-100, #63327e);
+  --ld-semantic-color-text-accent-purple-bold: var(--ld-primitive-color-purple-130, #452358);
+  --ld-semantic-color-text-accent-red: var(--ld-primitive-color-red-100, #ea1100);
+  --ld-semantic-color-text-accent-red-bold: var(--ld-primitive-color-red-130, #a20c00);
+  --ld-semantic-color-text-accent-spark: var(--ld-primitive-color-spark-140, #995213);
+  --ld-semantic-color-text-accent-spark-bold: var(--ld-primitive-color-spark-160, #662b0d);
+  --ld-semantic-color-text-accent-teal: var(--ld-primitive-color-teal-100, #00809e);
+  --ld-semantic-color-text-accent-teal-bold: var(--ld-primitive-color-teal-130, #005a6f);
+  --ld-semantic-color-text-accent-white: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-text-accent-yellow: var(--ld-primitive-color-yellow-140, #996900);
+  --ld-semantic-color-text-accent-yellow-bold: var(--ld-primitive-color-yellow-160, #663800);
+  --ld-semantic-color-text-activated: var(--ld-primitive-color-blue-110, #114ab6);
+  --ld-semantic-color-text-brand: var(--ld-primitive-color-blue-100, #0053e2);
+  --ld-semantic-color-text-brand-bold: var(--ld-primitive-color-blue-160, #001e60);
+  --ld-semantic-color-text-disabled: var(--ld-primitive-color-gray-50, #babbbe);
+  --ld-semantic-color-text-edited: var(--ld-primitive-color-purple-100, #63327e);
+  --ld-semantic-color-text-edited-bold: var(--ld-primitive-color-purple-130, #452358);
+  --ld-semantic-color-text-info: var(--ld-primitive-color-blue-100, #0053e2);
+  --ld-semantic-color-text-info-bold: var(--ld-primitive-color-blue-130, #002e99);
+  --ld-semantic-color-text-info-inverse: var(--ld-primitive-color-blue-20, #c9dcfd);
+  --ld-semantic-color-text-inverse: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-text-magic-brand: var(--ld-primitive-color-blue-160, #001e60);
+  --ld-semantic-color-text-negative: var(--ld-primitive-color-red-100, #ea1100);
+  --ld-semantic-color-text-negative-bold: var(--ld-primitive-color-red-130, #a20c00);
+  --ld-semantic-color-text-negative-inverse: var(--ld-primitive-color-red-50, #f69991);
+  --ld-semantic-color-text-onFill: var(--ld-primitive-color-gray-160, #2e2f32);
+  --ld-semantic-color-text-onFill-accent-blue: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-text-onFill-accent-blue-subtle: var(--ld-primitive-color-blue-130, #002e99);
+  --ld-semantic-color-text-onFill-accent-cyan: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-text-onFill-accent-cyan-subtle: var(--ld-primitive-color-cyan-130, #004a70);
+  --ld-semantic-color-text-onFill-accent-gray: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-text-onFill-accent-gray-subtle: var(--ld-primitive-color-gray-130, #515357);
+  --ld-semantic-color-text-onFill-accent-green: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-text-onFill-accent-green-subtle: var(--ld-primitive-color-green-130, #1d5f02);
+  --ld-semantic-color-text-onFill-accent-orange: var(--ld-primitive-color-gray-160, #2e2f32);
+  --ld-semantic-color-text-onFill-accent-orange-subtle: var(--ld-primitive-color-orange-130, #af2f00);
+  --ld-semantic-color-text-onFill-accent-pink: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-text-onFill-accent-pink-subtle: var(--ld-primitive-color-pink-130, #8c1e64);
+  --ld-semantic-color-text-onFill-accent-purple: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-text-onFill-accent-purple-subtle: var(--ld-primitive-color-purple-130, #452358);
+  --ld-semantic-color-text-onFill-accent-red: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-text-onFill-accent-red-subtle: var(--ld-primitive-color-red-130, #a20c00);
+  --ld-semantic-color-text-onFill-accent-spark: var(--ld-primitive-color-gray-160, #2e2f32);
+  --ld-semantic-color-text-onFill-accent-spark-subtle: var(--ld-primitive-color-spark-160, #662b0d);
+  --ld-semantic-color-text-onFill-accent-teal: var(--ld-primitive-color-gray-180, #171819);
+  --ld-semantic-color-text-onFill-accent-teal-subtle: var(--ld-primitive-color-teal-130, #005a6f);
+  --ld-semantic-color-text-onFill-accent-yellow: var(--ld-primitive-color-gray-160, #2e2f32);
+  --ld-semantic-color-text-onFill-accent-yellow-subtle: var(--ld-primitive-color-yellow-160, #663800);
+  --ld-semantic-color-text-onFill-activated: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-text-onFill-activated-disabled: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-text-onFill-activated-subtle: var(--ld-primitive-color-gray-160, #2e2f32);
+  --ld-semantic-color-text-onFill-activated-subtle-disabled: var(--ld-primitive-color-gray-50, #babbbe);
+  --ld-semantic-color-text-onFill-brand: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-text-onFill-brand-bold: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-text-onFill-brand-subtle: var(--ld-primitive-color-blue-110, #114ab6);
+  --ld-semantic-color-text-onFill-brand-subtle-focused: var(--ld-primitive-color-blue-140, #002185);
+  --ld-semantic-color-text-onFill-brand-subtle-hovered: var(--ld-primitive-color-blue-140, #002185);
+  --ld-semantic-color-text-onFill-brand-subtle-pressed: var(--ld-primitive-color-blue-160, #001e60);
+  --ld-semantic-color-text-onFill-disabled: var(--ld-primitive-color-gray-50, #babbbe);
+  --ld-semantic-color-text-onFill-edited: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-text-onFill-edited-subtle: var(--ld-primitive-color-purple-130, #452358);
+  --ld-semantic-color-text-onFill-info: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-text-onFill-info-subtle: var(--ld-primitive-color-blue-130, #002e99);
+  --ld-semantic-color-text-onFill-info-subtle-focused: var(--ld-primitive-color-blue-140, #002185);
+  --ld-semantic-color-text-onFill-info-subtle-hovered: var(--ld-primitive-color-blue-140, #002185);
+  --ld-semantic-color-text-onFill-info-subtle-pressed: var(--ld-primitive-color-blue-160, #001e60);
+  --ld-semantic-color-text-onFill-inverse: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-text-onFill-negative: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-text-onFill-negative-subtle: var(--ld-primitive-color-red-130, #a20c00);
+  --ld-semantic-color-text-onFill-negative-subtle-focused: var(--ld-primitive-color-red-140, #8d0a00);
+  --ld-semantic-color-text-onFill-negative-subtle-hovered: var(--ld-primitive-color-red-140, #8d0a00);
+  --ld-semantic-color-text-onFill-negative-subtle-pressed: var(--ld-primitive-color-red-160, #630700);
+  --ld-semantic-color-text-onFill-positive: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-text-onFill-positive-subtle: var(--ld-primitive-color-green-130, #1d5f02);
+  --ld-semantic-color-text-onFill-positive-subtle-focused: var(--ld-primitive-color-green-140, #195102);
+  --ld-semantic-color-text-onFill-positive-subtle-hovered: var(--ld-primitive-color-green-140, #195102);
+  --ld-semantic-color-text-onFill-positive-subtle-pressed: var(--ld-primitive-color-green-160, #113601);
+  --ld-semantic-color-text-onFill-transparent: var(--ld-primitive-color-gray-160, #2e2f32);
+  --ld-semantic-color-text-onFill-warning: var(--ld-primitive-color-gray-160, #2e2f32);
+  --ld-semantic-color-text-onFill-warning-subtle: var(--ld-primitive-color-spark-170, #4d1c0a);
+  --ld-semantic-color-text-onFill-warning-subtle-focused: var(--ld-primitive-color-spark-170, #4d1c0a);
+  --ld-semantic-color-text-onFill-warning-subtle-hovered: var(--ld-primitive-color-spark-170, #4d1c0a);
+  --ld-semantic-color-text-onFill-warning-subtle-pressed: var(--ld-primitive-color-spark-180, #330f06);
+  --ld-semantic-color-text-positive: var(--ld-primitive-color-green-100, #2a8703);
+  --ld-semantic-color-text-positive-bold: var(--ld-primitive-color-green-130, #1d5f02);
+  --ld-semantic-color-text-positive-inverse: var(--ld-primitive-color-green-50, #95c381);
+  --ld-semantic-color-text-subtle: var(--ld-primitive-color-gray-130, #515357);
+  --ld-semantic-color-text-subtlest: var(--ld-primitive-color-gray-100, #74767c);
+  --ld-semantic-color-text-warning: var(--ld-primitive-color-spark-140, #995213);
+  --ld-semantic-color-text-warning-bold: var(--ld-primitive-color-spark-160, #662b0d);
+  --ld-semantic-color-text-warning-inverse: var(--ld-primitive-color-spark-30, #ffedbc);
+
+  /* ========================================
+     TOP COLORS
+     ======================================== */
+  --ld-semantic-color-topNav-fill: var(--ld-primitive-color-blue-100, #0053e2);
+  --ld-semantic-color-topNav-fill-alt: var(--ld-primitive-color-transparentDark-30, rgba(0, 0, 0, 0.3000));
+  --ld-semantic-color-topNav-fill-alt-focused: var(--ld-primitive-color-transparentDark-40, rgba(0, 0, 0, 0.4000));
+  --ld-semantic-color-topNav-fill-alt-hovered: var(--ld-primitive-color-transparentDark-40, rgba(0, 0, 0, 0.4000));
+  --ld-semantic-color-topNav-fill-alt-pressed: var(--ld-primitive-color-transparentDark-50, rgba(0, 0, 0, 0.5000));
+  --ld-semantic-color-topNav-fill-focused: var(--ld-primitive-color-transparentDark-60, rgba(0, 0, 0, 0.6000));
+  --ld-semantic-color-topNav-fill-hovered: var(--ld-primitive-color-transparentDark-60, rgba(0, 0, 0, 0.6000));
+  --ld-semantic-color-topNav-fill-pressed: var(--ld-primitive-color-transparentDark-80, rgba(0, 0, 0, 0.8000));
+  --ld-semantic-color-topNav-separator: var(--ld-primitive-color-transparentDark-0, rgba(0, 0, 0, 0.0000));
+  --ld-semantic-color-topNav-text-onFill: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-topNav-text-onFill-alt: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-topNav-text-onFill-alt-focused: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-topNav-text-onFill-alt-hovered: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-topNav-text-onFill-alt-pressed: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-topNav-text-onFill-focused: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-topNav-text-onFill-hovered: var(--ld-primitive-color-white, #ffffff);
+  --ld-semantic-color-topNav-text-onFill-pressed: var(--ld-primitive-color-white, #ffffff);
+  /* === AUTO-GENERATED: COLOR TOKENS END === */
+
+  /* === AUTO-GENERATED: BREAKPOINTS START === */
+  /* Canonical responsive breakpoints. The pixel values are the source of
+     truth (see Airtable view viw3aImoD7tLBVm7S). CSS @media queries cannot
+     read var() — keep media-query literals (37.5rem/56.25rem/75rem)
+     numerically aligned with these tokens. No other breakpoints allowed. */
+  --ld-primitive-scale-breakpoint-small: 0px;
+  --ld-primitive-scale-breakpoint-medium: 600px;
+  --ld-primitive-scale-breakpoint-large: 900px;
+  --ld-primitive-scale-breakpoint-xLarge: 1200px;
+  --ld-primitive-scale-breakpoint-xxLarge: 1920px;
+  /* === AUTO-GENERATED: BREAKPOINTS END === */
+
+  /* === AUTO-GENERATED: SCALE & MOTION TOKENS START === */
+  /* Space tokens (source of truth: Airtable) */
+  --ld-primitive-scale-space-25: 0.125rem;
+  --ld-primitive-scale-space-50: 0.25rem;
+  --ld-primitive-scale-space-100: 0.5rem;
+  --ld-primitive-scale-space-150: 0.75rem;
+  --ld-primitive-scale-space-200: 1rem;
+  --ld-primitive-scale-space-250: 1.25rem;
+  --ld-primitive-scale-space-300: 1.5rem;
+  --ld-primitive-scale-space-400: 2rem;
+  --ld-primitive-scale-space-500: 2.5rem;
+  --ld-primitive-scale-space-600: 3rem;
+  --ld-primitive-scale-space-700: 3.5rem;
+  --ld-primitive-scale-space-800: 4rem;
+  --ld-primitive-scale-space-900: 4.5rem;
+  --ld-primitive-scale-space-1000: 5rem;
+
+  /* BorderRadius tokens (source of truth: Airtable) */
+  --ld-primitive-scale-borderRadius-25: 0.125rem;
+  --ld-primitive-scale-borderRadius-50: 0.25rem;
+  --ld-primitive-scale-borderRadius-100: 0.5rem;
+  --ld-primitive-scale-borderRadius-200: 1rem;
+  --ld-primitive-scale-borderRadius-300: 1.5rem;
+  --ld-primitive-scale-borderRadius-400: 2rem;
+  --ld-primitive-scale-borderRadius-round: 62.5rem;
+
+  /* Font Weight tokens (source of truth: Airtable) */
+  --ld-primitive-font-weight-100: 100;
+  --ld-primitive-font-weight-200: 200;
+  --ld-primitive-font-weight-300: 300;
+  --ld-primitive-font-weight-400: 400;
+  --ld-primitive-font-weight-500: 500;
+  --ld-primitive-font-weight-600: 600;
+  --ld-primitive-font-weight-700: 700;
+  --ld-primitive-font-weight-800: 800;
+  --ld-primitive-font-weight-900: 900;
+
+  /* Font Size tokens (source of truth: Airtable) */
+  --ld-primitive-font-size-25: 0.75rem;
+  --ld-primitive-font-size-50: 0.875rem;
+  --ld-primitive-font-size-100: 1rem;
+  --ld-primitive-font-size-150: 1.125rem;
+  --ld-primitive-font-size-200: 1.25rem;
+  --ld-primitive-font-size-300: 1.5rem;
+  --ld-primitive-font-size-400: 1.75rem;
+  --ld-primitive-font-size-500: 2rem;
+  --ld-primitive-font-size-600: 2.25rem;
+  --ld-primitive-font-size-700: 2.625rem;
+
+  /* Font LineHeight tokens (source of truth: Airtable) */
+  --ld-primitive-font-lineHeight-200: 1rem;
+  --ld-primitive-font-lineHeight-250: 1.25rem;
+  --ld-primitive-font-lineHeight-300: 1.5rem;
+  --ld-primitive-font-lineHeight-350: 1.75rem;
+  --ld-primitive-font-lineHeight-400: 2rem;
+  --ld-primitive-font-lineHeight-450: 2.25rem;
+  --ld-primitive-font-lineHeight-500: 2.5rem;
+  --ld-primitive-font-lineHeight-550: 2.75rem;
+  --ld-primitive-font-lineHeight-600: 3rem;
+  --ld-primitive-font-lineHeight-650: 3.25rem;
+
+  /* Duration tokens (source of truth: Airtable) */
+  --ld-primitive-duration-100: 0.1s;
+  --ld-primitive-duration-200: 0.2s;
+  --ld-primitive-duration-300: 0.3s;
+  --ld-primitive-duration-400: 0.4s;
+  --ld-primitive-duration-500: 0.5s;
+  --ld-primitive-duration-600: 0.6s;
+  --ld-primitive-duration-700: 0.7s;
+
+  /* Timing tokens (source of truth: Airtable) */
+  --ld-primitive-timing-easeIn-100: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  --ld-primitive-timing-easeInOut-100: cubic-bezier(0.77, 0, 0.175, 1);
+  --ld-primitive-timing-easeOut-100: cubic-bezier(0.165, 0.84, 0.44, 1);
+  --ld-primitive-timing-linear-100: linear;
+
+  /* Elevation tokens (source of truth: Airtable) */
+  --ld-primitive-elevation-100: 0 1px 2px 1px rgba(0, 0, 0, 0.15), 0 -1px 2px 0px rgba(0, 0, 0, 0.10);
+  --ld-primitive-elevation-200: 0 3px 5px 2px rgba(0, 0, 0, 0.15), 0 -1px 3px 0px rgba(0, 0, 0, 0.10);
+  --ld-primitive-elevation-300: 0 5px 10px 3px rgba(0, 0, 0, 0.15), 0 -1px 4px 0px rgba(0, 0, 0, 0.10);
+
+  /* BorderWidth tokens (source of truth: Airtable) */
+  --ld-primitive-scale-borderWidth-100: 0.0625rem;
+  --ld-primitive-scale-borderWidth-200: 0.125rem;
+  /* === AUTO-GENERATED: SCALE & MOTION TOKENS END === */
+
+  /* ========================================
+     ELEVATION/SHADOW TOKENS
+     ======================================== */
+  --ld-semantic-elevation-100: 0 0.0625rem 0.125rem 0.0625rem #00000026, 0 -0.0625rem 0.125rem 0 #0000001a;
+  --ld-semantic-elevation-200: 0 0.1875rem 0.3125rem 0.125rem #00000026, 0 -0.0625rem 0.1875rem 0 #0000001a;
+  --ld-semantic-elevation-300: 0 0.3125rem 0.625rem 0.1875rem #00000026, 0 -0.0625rem 0.25rem 0 #0000001a;
+
+  /* ========================================
+     TYPOGRAPHY TOKENS
+     ======================================== */
+  /* Font families */
+  --ld-semantic-font-family-sans: var(--ld-primitive-font-family-sans, 'Everyday Sans UI', -apple-system, Roboto, sans-serif);
+  --ld-semantic-font-family-mono: var(--ld-primitive-font-family-mono, EverydaySansMono, 'Courier New', 'monospace');
+
+  /* Action text (buttons, links) */
+  --ld-semantic-font-action-weight: var(--ld-primitive-font-weight-700, 700);
+
+  /* Body text styles */
+  --ld-semantic-font-body-large-family: var(--ld-primitive-font-family-sans, 'Everyday Sans UI', -apple-system, Roboto, sans-serif);
+  --ld-semantic-font-body-large-line-height: var(--ld-primitive-font-lineHeight-300, 1.5rem);
+  --ld-semantic-font-body-large-size: var(--ld-primitive-font-size-150, 1.125rem);
+  --ld-semantic-font-body-large-weight-alt: var(--ld-primitive-font-weight-700, 700);
+  --ld-semantic-font-body-large-weight-default: var(--ld-primitive-font-weight-400, 400);
+
+  --ld-semantic-font-body-medium-family: var(--ld-primitive-font-family-sans, 'Everyday Sans UI', -apple-system, Roboto, sans-serif);
+  --ld-semantic-font-body-medium-line-height: var(--ld-primitive-font-lineHeight-300, 1.5rem);
+  --ld-semantic-font-body-medium-size: var(--ld-primitive-font-size-100, 1rem);
+  --ld-semantic-font-body-medium-weight-alt: var(--ld-primitive-font-weight-700, 700);
+  --ld-semantic-font-body-medium-weight-default: var(--ld-primitive-font-weight-400, 400);
+
+  --ld-semantic-font-body-small-family: var(--ld-primitive-font-family-sans, 'Everyday Sans UI', -apple-system, Roboto, sans-serif);
+  --ld-semantic-font-body-small-line-height: var(--ld-primitive-font-lineHeight-250, 1.25rem);
+  --ld-semantic-font-body-small-size: var(--ld-primitive-font-size-50, 0.875rem);
+  --ld-semantic-font-body-small-weight-alt: var(--ld-primitive-font-weight-700, 700);
+  --ld-semantic-font-body-small-weight-default: var(--ld-primitive-font-weight-400, 400);
+
+  /* Monospace body text */
+  --ld-semantic-font-body-mono-large-family: var(--ld-primitive-font-family-mono, EverydaySansMono, 'Courier New', 'monospace');
+  --ld-semantic-font-body-mono-medium-family: var(--ld-primitive-font-family-mono, EverydaySansMono, 'Courier New', 'monospace');
+  --ld-semantic-font-body-mono-small-family: var(--ld-primitive-font-family-mono, EverydaySansMono, 'Courier New', 'monospace');
+
+  /* Caption text */
+  --ld-semantic-font-caption-family: var(--ld-primitive-font-family-sans, 'Everyday Sans UI', -apple-system, Roboto, sans-serif);
+  --ld-semantic-font-caption-line-height: var(--ld-primitive-font-lineHeight-200, 1rem);
+  --ld-semantic-font-caption-mono-family: var(--ld-primitive-font-family-mono, EverydaySansMono, 'Courier New', 'monospace');
+  --ld-semantic-font-caption-size: var(--ld-primitive-font-size-25, 0.75rem);
+  --ld-semantic-font-caption-weight-alt: var(--ld-primitive-font-weight-700, 700);
+  --ld-semantic-font-caption-weight-default: var(--ld-primitive-font-weight-400, 400);
+
+  /* Display text (largest headings) */
+  --ld-semantic-font-display-large-family: var(--ld-primitive-font-family-sans, 'Everyday Sans UI', -apple-system, Roboto, sans-serif);
+  --ld-semantic-font-display-large-line-height-b-s: var(--ld-primitive-font-lineHeight-500, 2.5rem);
+  --ld-semantic-font-display-large-line-height-b-l: var(--ld-primitive-font-lineHeight-650, 3.25rem);
+  --ld-semantic-font-display-large-size-b-s: var(--ld-primitive-font-size-500, 2rem);
+  --ld-semantic-font-display-large-size-b-l: var(--ld-primitive-font-size-700, 2.625rem);
+  --ld-semantic-font-display-large-weight-alt: var(--ld-primitive-font-weight-700, 700);
+  --ld-semantic-font-display-large-weight-default: var(--ld-primitive-font-weight-400, 400);
+
+  --ld-semantic-font-display-small-family: var(--ld-primitive-font-family-sans, 'Everyday Sans UI', -apple-system, Roboto, sans-serif);
+  --ld-semantic-font-display-small-line-height-b-s: var(--ld-primitive-font-lineHeight-450, 2.25rem);
+  --ld-semantic-font-display-small-line-height-b-l: var(--ld-primitive-font-lineHeight-600, 3rem);
+  --ld-semantic-font-display-small-size-b-s: var(--ld-primitive-font-size-400, 1.75rem);
+  --ld-semantic-font-display-small-size-b-l: var(--ld-primitive-font-size-600, 2.25rem);
+  --ld-semantic-font-display-small-weight-alt: var(--ld-primitive-font-weight-700, 700);
+  --ld-semantic-font-display-small-weight-default: var(--ld-primitive-font-weight-400, 400);
+
+  /* Heading text */
+  --ld-semantic-font-heading-large-family: var(--ld-primitive-font-family-sans, 'Everyday Sans UI', -apple-system, Roboto, sans-serif);
+  --ld-semantic-font-heading-large-line-height-b-s: var(--ld-primitive-font-lineHeight-400, 2rem);
+  --ld-semantic-font-heading-large-line-height-b-l: var(--ld-primitive-font-lineHeight-500, 2.5rem);
+  --ld-semantic-font-heading-large-size-b-s: var(--ld-primitive-font-size-300, 1.5rem);
+  --ld-semantic-font-heading-large-size-b-l: var(--ld-primitive-font-size-500, 2rem);
+  --ld-semantic-font-heading-large-weight-alt: var(--ld-primitive-font-weight-400, 400);
+  --ld-semantic-font-heading-large-weight-default: var(--ld-primitive-font-weight-700, 700);
+
+  --ld-semantic-font-heading-medium-family: var(--ld-primitive-font-family-sans, 'Everyday Sans UI', -apple-system, Roboto, sans-serif);
+  --ld-semantic-font-heading-medium-line-height-b-s: var(--ld-primitive-font-lineHeight-350, 1.75rem);
+  --ld-semantic-font-heading-medium-line-height-b-l: var(--ld-primitive-font-lineHeight-450, 2.25rem);
+  --ld-semantic-font-heading-medium-size-b-s: var(--ld-primitive-font-size-200, 1.25rem);
+  --ld-semantic-font-heading-medium-size-b-l: var(--ld-primitive-font-size-300, 1.5rem);
+  --ld-semantic-font-heading-medium-weight-alt: var(--ld-primitive-font-weight-400, 400);
+  --ld-semantic-font-heading-medium-weight-default: var(--ld-primitive-font-weight-700, 700);
+
+  --ld-semantic-font-heading-small-family: var(--ld-primitive-font-family-sans, 'Everyday Sans UI', -apple-system, Roboto, sans-serif);
+  --ld-semantic-font-heading-small-line-height-b-s: var(--ld-primitive-font-lineHeight-300, 1.5rem);
+  --ld-semantic-font-heading-small-line-height-b-l: var(--ld-primitive-font-lineHeight-350, 1.75rem);
+  --ld-semantic-font-heading-small-size-b-s: var(--ld-primitive-font-size-150, 1.125rem);
+  --ld-semantic-font-heading-small-size-b-l: var(--ld-primitive-font-size-200, 1.25rem);
+  --ld-semantic-font-heading-small-weight-alt: var(--ld-primitive-font-weight-400, 400);
+  --ld-semantic-font-heading-small-weight-default: var(--ld-primitive-font-weight-700, 700);
+
+  /* ========================================
+     SCALE TOKENS
+     ======================================== */
+  /* Border width */
+  --ld-semantic-scale-border-width-interactive: var(--ld-primitive-scale-borderWidth-100, 0.0625rem);
+  --ld-semantic-scale-border-width-interactive-focused: var(--ld-primitive-scale-borderWidth-200, 0.125rem);
+  --ld-semantic-scale-border-width-interactive-hovered: var(--ld-primitive-scale-borderWidth-200, 0.125rem);
+  --ld-semantic-scale-border-width-interactive-pressed: var(--ld-primitive-scale-borderWidth-200, 0.125rem);
+  --ld-semantic-scale-border-width-interactive-activated: var(--ld-primitive-scale-borderWidth-200, 0.125rem);
+  --ld-semantic-scale-border-width-interactive-activated-focused: var(--ld-primitive-scale-borderWidth-200, 0.125rem);
+  --ld-semantic-scale-border-width-interactive-activated-hovered: var(--ld-primitive-scale-borderWidth-200, 0.125rem);
+  --ld-semantic-scale-border-width-interactive-activated-pressed: var(--ld-primitive-scale-borderWidth-200, 0.125rem);
+
+  /* Border width aliases (without dashes for Figma compatibility) */
+  --ld-semantic-scale-borderwidth-interactive: var(--ld-semantic-scale-border-width-interactive);
+  --ld-semantic-scale-borderwidth-interactive-focused: var(--ld-semantic-scale-border-width-interactive-focused);
+  --ld-semantic-scale-borderwidth-interactive-hovered: var(--ld-semantic-scale-border-width-interactive-hovered);
+  --ld-semantic-scale-borderwidth-interactive-pressed: var(--ld-semantic-scale-border-width-interactive-pressed);
+  --ld-semantic-scale-borderwidth-interactive-activated: var(--ld-semantic-scale-border-width-interactive-activated);
+  --ld-semantic-scale-borderwidth-interactive-activated-focused: var(--ld-semantic-scale-border-width-interactive-activated-focused);
+  --ld-semantic-scale-borderwidth-interactive-activated-hovered: var(--ld-semantic-scale-border-width-interactive-activated-hovered);
+  --ld-semantic-scale-borderwidth-interactive-activated-pressed: var(--ld-semantic-scale-border-width-interactive-activated-pressed);
+
+  /* Icon sizes */
+  --ld-semantic-scale-icon-large: 2rem;
+  --ld-semantic-scale-icon-medium: 1.5rem;
+  --ld-semantic-scale-icon-small: 1rem;
+
+  /* Pictogram sizes */
+  --ld-semantic-scale-pictogram-large: 4rem;
+  --ld-semantic-scale-pictogram-medium: 3.5rem;
+  --ld-semantic-scale-pictogram-small: 3rem;
+  --ld-semantic-scale-pictogram-x-large: 4.5rem;
+
+  /* ========================================
+     SPACING TOKENS
+     ======================================== */
+  --ld-semantic-spacing-25: var(--ld-primitive-scale-space-25, 0.125rem); /* 2px */
+  --ld-semantic-spacing-50: var(--ld-primitive-scale-space-50, 0.25rem); /* 4px */
+  --ld-semantic-spacing-100: var(--ld-primitive-scale-space-100, 0.5rem); /* 8px */
+  --ld-semantic-spacing-150: var(--ld-primitive-scale-space-150, 0.75rem); /* 12px */
+  --ld-semantic-spacing-200: var(--ld-primitive-scale-space-200, 1rem); /* 16px */
+  --ld-semantic-spacing-250: var(--ld-primitive-scale-space-250, 1.25rem); /* 20px */
+  --ld-semantic-spacing-300: var(--ld-primitive-scale-space-300, 1.5rem); /* 24px */
+  --ld-semantic-spacing-400: var(--ld-primitive-scale-space-400, 2rem); /* 32px */
+  --ld-semantic-spacing-500: var(--ld-primitive-scale-space-500, 2.5rem); /* 40px */
+  --ld-semantic-spacing-600: var(--ld-primitive-scale-space-600, 3rem); /* 48px */
+  --ld-semantic-spacing-700: var(--ld-primitive-scale-space-700, 3.5rem); /* 56px */
+  --ld-semantic-spacing-800: var(--ld-primitive-scale-space-800, 4rem); /* 64px */
+  --ld-semantic-spacing-900: var(--ld-primitive-scale-space-900, 4.5rem); /* 72px */
+  --ld-semantic-spacing-1000: var(--ld-primitive-scale-space-1000, 5rem); /* 80px */
+
+  /* Component-specific spacing */
+  --ld-semantic-spacing-component-padding-small: var(--ld-primitive-scale-space-100, 0.5rem);
+  --ld-semantic-spacing-component-padding-medium: var(--ld-primitive-scale-space-150, 0.75rem);
+  --ld-semantic-spacing-component-padding-large: var(--ld-primitive-scale-space-200, 1rem);
+  --ld-semantic-spacing-component-gap-small: var(--ld-primitive-scale-space-100, 0.5rem);
+  --ld-semantic-spacing-component-gap-medium: var(--ld-primitive-scale-space-150, 0.75rem);
+  --ld-semantic-spacing-component-gap-large: var(--ld-primitive-scale-space-200, 1rem);
+  --ld-semantic-spacing-layout-margin-small: var(--ld-primitive-scale-space-200, 1rem);
+  --ld-semantic-spacing-layout-margin-medium: var(--ld-primitive-scale-space-300, 1.5rem);
+  --ld-semantic-spacing-layout-margin-large: var(--ld-primitive-scale-space-400, 2rem);
+  --ld-semantic-spacing-layout-padding-small: var(--ld-primitive-scale-space-200, 1rem);
+  --ld-semantic-spacing-layout-padding-medium: var(--ld-primitive-scale-space-300, 1.5rem);
+  --ld-semantic-spacing-layout-padding-large: var(--ld-primitive-scale-space-400, 2rem);
+  --ld-semantic-spacing-section-gap-small: var(--ld-primitive-scale-space-300, 1.5rem);
+  --ld-semantic-spacing-section-gap-medium: var(--ld-primitive-scale-space-400, 2rem);
+  --ld-semantic-spacing-section-gap-large: var(--ld-primitive-scale-space-600, 3rem);
+
+  /* ========================================
+     BORDER RADIUS TOKENS
+     ======================================== */
+  --ld-semantic-border-radius-small: var(--ld-primitive-scale-borderRadius-25, 0.125rem); /* 2px */
+  --ld-semantic-border-radius-medium: var(--ld-primitive-scale-borderRadius-50, 0.25rem); /* 4px */
+  --ld-semantic-border-radius-large: var(--ld-primitive-scale-borderRadius-100, 0.5rem); /* 8px */
+  --ld-semantic-border-radius-xlarge: var(--ld-primitive-scale-borderRadius-200, 1rem); /* 16px */
+  --ld-semantic-border-radius-xxlarge: var(--ld-primitive-scale-borderRadius-300, 1.5rem); /* 24px */
+  --ld-semantic-border-radius-xxxlarge: var(--ld-primitive-scale-borderRadius-400, 2rem); /* 32px */
+  --ld-semantic-border-radius-round: var(--ld-primitive-scale-borderRadius-round, 62.5rem); /* Full round/pill */
+  --ld-semantic-border-radius-button: var(--ld-primitive-scale-borderRadius-round, 62.5rem); /* Button radius - pill shape */
+  --ld-semantic-border-radius-card: var(--ld-primitive-scale-borderRadius-100, 0.5rem); /* Card radius */
+  --ld-semantic-border-radius-input: var(--ld-primitive-scale-borderRadius-50, 0.25rem); /* Input field radius */
+  --ld-semantic-border-radius-modal: var(--ld-primitive-scale-borderRadius-100, 0.5rem); /* Modal radius */
+  --ld-semantic-border-radius-popover: var(--ld-primitive-scale-borderRadius-100, 0.5rem); /* Popover radius */
+  --ld-semantic-border-radius-tag: var(--ld-primitive-scale-borderRadius-50, 0.25rem); /* Tag radius */
+  --ld-semantic-border-radius-badge: var(--ld-primitive-scale-borderRadius-round, 62.5rem); /* Badge radius - pill shape */
+
+  /* ========================================
+     DURATION/TIMING TOKENS
+     ======================================== */
+  --ld-semantic-duration-instant: var(--ld-primitive-duration-100, 0.10s); /* Instant feedback */
+  --ld-semantic-duration-fast: var(--ld-primitive-duration-200, 0.20s); /* Fast transitions */
+  --ld-semantic-duration-medium: var(--ld-primitive-duration-300, 0.30s); /* Medium transitions */
+  --ld-semantic-duration-slow: var(--ld-primitive-duration-400, 0.40s); /* Slow transitions */
+  --ld-semantic-duration-slower: var(--ld-primitive-duration-500, 0.50s); /* Slower animations */
+  --ld-semantic-duration-slowest: var(--ld-primitive-duration-600, 0.60s); /* Slowest animations */
+  --ld-semantic-duration-glacial: var(--ld-primitive-duration-700, 0.70s); /* Very slow animations */
+
+  /* Component-specific durations */
+  --ld-semantic-duration-button-hover: var(--ld-primitive-duration-200, 0.20s);
+  --ld-semantic-duration-button-press: var(--ld-primitive-duration-100, 0.10s);
+  --ld-semantic-duration-modal-open: var(--ld-primitive-duration-300, 0.30s);
+  --ld-semantic-duration-modal-close: var(--ld-primitive-duration-200, 0.20s);
+  --ld-semantic-duration-popover-open: var(--ld-primitive-duration-200, 0.20s);
+  --ld-semantic-duration-popover-close: var(--ld-primitive-duration-100, 0.10s);
+  --ld-semantic-duration-tooltip-show: var(--ld-primitive-duration-200, 0.20s);
+  --ld-semantic-duration-tooltip-hide: var(--ld-primitive-duration-100, 0.10s);
+  --ld-semantic-duration-dropdown-open: var(--ld-primitive-duration-200, 0.20s);
+  --ld-semantic-duration-dropdown-close: var(--ld-primitive-duration-100, 0.10s);
+  --ld-semantic-duration-fade-in: var(--ld-primitive-duration-300, 0.30s);
+  --ld-semantic-duration-fade-out: var(--ld-primitive-duration-200, 0.20s);
+  --ld-semantic-duration-slide-in: var(--ld-primitive-duration-300, 0.30s);
+  --ld-semantic-duration-slide-out: var(--ld-primitive-duration-200, 0.20s);
+
+  /* ========================================
+     TIMING FUNCTION TOKENS
+     ======================================== */
+  --ld-semantic-timing-ease-in: var(--ld-primitive-timing-easeIn-100, cubic-bezier(0.55, 0.055, 0.675, 0.19));
+  --ld-semantic-timing-ease-out: var(--ld-primitive-timing-easeOut-100, cubic-bezier(0.165, 0.84, 0.44, 1));
+  --ld-semantic-timing-ease-in-out: var(--ld-primitive-timing-easeInOut-100, cubic-bezier(0.77, 0, 0.175, 1));
+  --ld-semantic-timing-linear: var(--ld-primitive-timing-linear-100, linear);
+
+  /* Component-specific timing functions */
+  --ld-semantic-timing-button: var(--ld-primitive-timing-easeOut-100, cubic-bezier(0.165, 0.84, 0.44, 1));
+  --ld-semantic-timing-modal: var(--ld-primitive-timing-easeInOut-100, cubic-bezier(0.77, 0, 0.175, 1));
+  --ld-semantic-timing-popover: var(--ld-primitive-timing-easeOut-100, cubic-bezier(0.165, 0.84, 0.44, 1));
+  --ld-semantic-timing-dropdown: var(--ld-primitive-timing-easeOut-100, cubic-bezier(0.165, 0.84, 0.44, 1));
+  --ld-semantic-timing-fade: var(--ld-primitive-timing-easeInOut-100, cubic-bezier(0.77, 0, 0.175, 1));
+  --ld-semantic-timing-slide: var(--ld-primitive-timing-easeOut-100, cubic-bezier(0.165, 0.84, 0.44, 1));
+
+  /* ========================================
+     BREAKPOINT TOKENS
+     ======================================== */
+  --ld-semantic-breakpoint-small: var(--ld-primitive-scale-breakpoint-small, 0); /* 0px - Mobile */
+  --ld-semantic-breakpoint-medium: var(--ld-primitive-scale-breakpoint-medium, 37.5rem); /* 600px - Tablet */
+  --ld-semantic-breakpoint-large: var(--ld-primitive-scale-breakpoint-large, 56.25rem); /* 900px - Desktop */
+  --ld-semantic-breakpoint-xlarge: var(--ld-primitive-scale-breakpoint-xLarge, 75rem); /* 1200px - Large desktop */
+  --ld-semantic-breakpoint-xxlarge: var(--ld-primitive-scale-breakpoint-xxLarge, 120rem); /* 1920px - Extra large desktop */
+
+  /* ========================================
+     FOCUS RING/OUTLINE TOKENS
+     ======================================== */
+  --ld-semantic-focus-ring-color: var(--ld-primitive-color-blue-100, #0053e2); /* Focus ring color */
+  --ld-semantic-focus-ring-color-inverse: var(--ld-primitive-color-white, #ffffff); /* Focus ring on dark backgrounds */
+  --ld-semantic-focus-ring-color-negative: var(--ld-primitive-color-red-100, #ea1100); /* Focus ring for error states */
+  --ld-semantic-focus-ring-width: 0.125rem; /* 2px focus ring width */
+  --ld-semantic-focus-ring-width-thick: 0.25rem; /* 4px thick focus ring */
+  --ld-semantic-focus-ring-offset: 0.125rem; /* 2px offset from element */
+  --ld-semantic-focus-ring-offset-large: 0.25rem; /* 4px larger offset */
+  --ld-semantic-focus-ring-style: solid; /* Focus ring style */
+
+  /* ========================================
+     Z-INDEX TOKENS
+     ======================================== */
+  --ld-semantic-z-index-base: 0; /* Base level */
+  --ld-semantic-z-index-dropdown: 1000; /* Dropdowns */
+  --ld-semantic-z-index-sticky: 1020; /* Sticky headers */
+  --ld-semantic-z-index-fixed: 1030; /* Fixed elements */
+  --ld-semantic-z-index-modal-backdrop: 1040; /* Modal backdrop */
+  --ld-semantic-z-index-modal: 1050; /* Modal dialogs */
+  --ld-semantic-z-index-popover: 1060; /* Popovers */
+  --ld-semantic-z-index-tooltip: 1070; /* Tooltips */
+  --ld-semantic-z-index-notification: 1080; /* Toast notifications */
+  --ld-semantic-z-index-overlay: 1090; /* Full-screen overlays */
+  --ld-semantic-z-index-top: 1100; /* Highest level */
+
+  /* ========================================
+     OPACITY TOKENS
+     ======================================== */
+  --ld-semantic-opacity-0: 0; /* Fully transparent */
+  --ld-semantic-opacity-10: 0.1; /* 10% opacity */
+  --ld-semantic-opacity-20: 0.2; /* 20% opacity */
+  --ld-semantic-opacity-30: 0.3; /* 30% opacity */
+  --ld-semantic-opacity-40: 0.4; /* 40% opacity */
+  --ld-semantic-opacity-50: 0.5; /* 50% opacity */
+  --ld-semantic-opacity-60: 0.6; /* 60% opacity */
+  --ld-semantic-opacity-70: 0.7; /* 70% opacity */
+  --ld-semantic-opacity-80: 0.8; /* 80% opacity */
+  --ld-semantic-opacity-90: 0.9; /* 90% opacity */
+  --ld-semantic-opacity-100: 1; /* Fully opaque */
+
+  /* Component-specific opacity */
+  --ld-semantic-opacity-disabled: 0.4; /* Disabled state opacity */
+  --ld-semantic-opacity-hover-overlay: 0.08; /* Hover overlay opacity */
+  --ld-semantic-opacity-pressed-overlay: 0.12; /* Pressed overlay opacity */
+  --ld-semantic-opacity-skeleton: 0.12; /* Loading skeleton opacity */
+  --ld-semantic-opacity-backdrop: 0.4; /* Modal backdrop opacity */
+  --ld-semantic-opacity-tooltip: 0.95; /* Tooltip opacity */
+
+  /* ========================================
+     BORDER WIDTH TOKENS
+     ======================================== */
+  --ld-semantic-border-width-thin: var(--ld-primitive-scale-borderWidth-100, 0.0625rem); /* 1px */
+  --ld-semantic-border-width-medium: var(--ld-primitive-scale-borderWidth-200, 0.125rem); /* 2px */
+  --ld-semantic-border-width-thick: 0.1875rem; /* 3px */
+  --ld-semantic-border-width-thicker: 0.25rem; /* 4px */
+  --ld-semantic-border-width-none: 0; /* No border */
+
+  /* === AUTO-GENERATED: WCP TOKENS START === */
+
+  /* ═══════════════════════════════════════════════════ */
+  /* WCP (Walmart Connect Platform) Extended Tokens     */
+  /* ═══════════════════════════════════════════════════ */
+
+  --wcp-semantic-color-action-fill-primary-alt: var(--ld-primitive-color-spark-100, #ffc220);
+  --wcp-semantic-color-action-fill-primary-alt-disabled: var(--ld-primitive-color-gray-50, #babbbe);
+  --wcp-semantic-color-action-fill-primary-alt-focused: var(--ld-primitive-color-spark-110, #e6a31d);
+  --wcp-semantic-color-action-fill-primary-alt-hovered: var(--ld-primitive-color-spark-90, #ffc836);
+  --wcp-semantic-color-action-fill-primary-alt-pressed: var(--ld-primitive-color-spark-110, #e6a31d);
+  --wcp-semantic-color-action-text-onFill-primary-alt: var(--ld-primitive-color-blue-160, #001e60);
+  --wcp-semantic-color-action-text-onFill-primary-alt-disabled: var(--ld-primitive-color-white, #ffffff);
+  --wcp-semantic-color-action-text-onFill-primary-alt-focused: var(--ld-primitive-color-blue-160, #001e60);
+  --wcp-semantic-color-action-text-onFill-primary-alt-hovered: var(--ld-primitive-color-blue-160, #001e60);
+  --wcp-semantic-color-action-text-onFill-primary-alt-pressed: var(--ld-primitive-color-blue-160, #001e60);
+  --wcp-semantic-color-border-savings-subtle: var(--ld-primitive-color-red-130, #a20c00);
+  --wcp-semantic-color-border-social: var(--ld-primitive-color-blue-100, #0053e2);
+  --wcp-semantic-color-bottomNav-fill-brand: var(--ld-primitive-color-blue-130, #002e99);
+  --wcp-semantic-color-bottomNav-text-onFill-brand: var(--ld-primitive-color-white, #ffffff);
+  --wcp-semantic-color-fill-confidence: var(--ld-primitive-color-blue-160, #001e60);
+  --wcp-semantic-color-fill-confidence-bold: var(--ld-primitive-color-blue-180, #0e002e);
+  --wcp-semantic-color-fill-confidence-subtle: var(--ld-primitive-color-blue-10, #e9f1fe);
+  --wcp-semantic-color-fill-holiday-member: var(--ld-primitive-color-spark-100, #ffc220);
+  --wcp-semantic-color-fill-holiday-restricted: var(--ld-primitive-color-gray-10, #f1f1f2);
+  --wcp-semantic-color-fill-savings-bold: var(--ld-primitive-color-red-100, #ea1100);
+  --wcp-semantic-color-fill-savings-subtle: var(--ld-primitive-color-white, #ffffff);
+  --wcp-semantic-color-fill-scarcity: var(--ld-primitive-color-spark-10, #fef6de);
+  --wcp-semantic-color-fill-social: var(--ld-primitive-color-white, #ffffff);
+  --wcp-semantic-color-fill-status: var(--ld-primitive-color-spark-50, #fbe298);
+  --wcp-semantic-color-fill-urgent: var(--ld-primitive-color-yellow-100, #fff200);
+  --wcp-semantic-color-input-fill-activated-brand: var(--ld-primitive-color-white, #ffffff);
+  --wcp-semantic-color-input-fill-activated-brand-disabled: var(--ld-primitive-color-white, #ffffff);
+  --wcp-semantic-color-input-fill-activated-brand-focused: var(--ld-primitive-color-gray-10, #f1f1f2);
+  --wcp-semantic-color-input-fill-activated-brand-hovered: var(--ld-primitive-color-gray-10, #f1f1f2);
+  --wcp-semantic-color-input-fill-activated-brand-pressed: var(--ld-primitive-color-gray-20, #e3e4e5);
+  --wcp-semantic-color-input-text-onFill-activated-brand: var(--ld-primitive-color-blue-100, #0053e2);
+  --wcp-semantic-color-notice-fill-brand: var(--ld-primitive-color-blue-100, #0053e2);
+  --wcp-semantic-color-notice-fill-inverse: var(--ld-primitive-color-gray-160, #2e2f32);
+  --wcp-semantic-color-notice-fill-primary: var(--ld-primitive-color-blue-10, #e9f1fe);
+  --wcp-semantic-color-notice-text-onFill-brand: var(--ld-primitive-color-white, #ffffff);
+  --wcp-semantic-color-notice-text-onFill-inverse: var(--ld-primitive-color-white, #ffffff);
+  --wcp-semantic-color-notice-text-onFill-primary: var(--ld-primitive-color-blue-130, #002e99);
+  --wcp-semantic-color-rating-fill-activated: var(--ld-primitive-color-spark-100, #ffc220);
+  --wcp-semantic-color-rating-fill-focused: var(--ld-primitive-color-spark-50, #fbe298);
+  --wcp-semantic-color-rating-fill-hovered: var(--ld-primitive-color-spark-50, #fbe298);
+  --wcp-semantic-color-rating-fill-pressed: var(--ld-primitive-color-spark-110, #e6a31d);
+  --wcp-semantic-color-surface-express: var(--ld-primitive-color-yellow-10, #fffee6);
+  --wcp-semantic-color-surface-overlay-brand-bold: var(--ld-primitive-color-blue-130, #002e99);
+  --wcp-semantic-color-surface-overlay-brand-subtle: var(--ld-primitive-color-blue-5, #f0f5ff);
+  --wcp-semantic-color-surface-overlay-subtle: var(--ld-primitive-color-gray-5, #f8f8f8);
+  --wcp-semantic-color-text-onFill-confidence: var(--ld-primitive-color-white, #ffffff);
+  --wcp-semantic-color-text-onFill-confidence-alt: var(--ld-primitive-color-spark-100, #ffc220);
+  --wcp-semantic-color-text-onFill-confidence-bold: var(--ld-primitive-color-white, #ffffff);
+  --wcp-semantic-color-text-onFill-confidence-subtle: var(--ld-primitive-color-blue-130, #002e99);
+  --wcp-semantic-color-text-onFill-holiday-member: var(--ld-primitive-color-blue-180, #0e002e);
+  --wcp-semantic-color-text-onFill-holiday-restricted: var(--ld-primitive-color-gray-130, #515357);
+  --wcp-semantic-color-text-onFill-savings-bold: var(--ld-primitive-color-white, #ffffff);
+  --wcp-semantic-color-text-onFill-savings-subtle: var(--ld-primitive-color-red-130, #a20c00);
+  --wcp-semantic-color-text-onFill-scarcity: var(--ld-primitive-color-spark-160, #662b0d);
+  --wcp-semantic-color-text-onFill-social: var(--ld-primitive-color-blue-100, #0053e2);
+  --wcp-semantic-color-text-onFill-status: var(--ld-primitive-color-gray-150, #3a3b3e);
+  --wcp-semantic-color-text-onFill-urgent: var(--ld-primitive-color-gray-160, #2e2f32);
+  --wcp-semantic-media-topNav-logo-compact: var(--wcp-primitive-media-logo);
+  /* === AUTO-GENERATED: WCP TOKENS END === */
+
+}
+
+
+
+
+
+
+/* ── Density modes ───────────────────────────────────────────────
+ * "mega" scales the root font-size to 150%. Because every token in
+ * this file is expressed in `rem`, every spacing/sizing/font/radius
+ * value scales proportionally — no per-component edits required.
+ * Using a percentage (not a fixed px) preserves any user-set browser
+ * font-size preference.
+ *
+ * Media-query breakpoints in `rem` are resolved against the user's
+ * root font-size, not this override, so layout breakpoints stay
+ * anchored to viewport width — intentional for kiosk/touch use. */
+:root[data-ld-density="mega"] {
+  font-size: 150%;
+}
+
+
+/* ── Base Styles ─────────────────────────────────────────────── */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  font-family: var(--ld-primitive-font-family-sans, 'Everyday Sans UI', -apple-system, Roboto, sans-serif);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body { color: var(--ld-semantic-color-text, #2e2f32); }
+
+button, input, select, textarea {
+  font-family: inherit;
+  background-color: transparent;
+}
+
+/* Container max-width: match walmart.com responsive approach */
+.ld-container-container { max-width: min(1660px, calc(100% - 48px)); }
+
+/* Grid row-gap: prevent cards from stacking without vertical spacing */
+.ld-grid-grid { row-gap: 1rem; }
+
+/* ---------------------------------------------------------------------------
+ * Accessibility — prefers-reduced-motion
+ * -------------------------------------------------------------------------
+ * Global safety net: when the user has indicated they prefer reduced motion
+ * at the OS level, neutralize all animations and transitions across the
+ * design system. Individual components can still opt into specific motion
+ * if they genuinely require it, but the default is "respect the user".
+ * This applies to Modal, BottomSheet, Collapse, Carousel, Snackbar, and
+ * every other LD component with transitions or keyframe animations. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+

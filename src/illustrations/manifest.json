@@ -1,0 +1,770 @@
+{
+  "mono-small": {
+    "label": "Mono Small",
+    "count": 88,
+    "items": [
+      {
+        "name": "3rdPartyStorefront",
+        "width": 72,
+        "height": 72
+      },
+      {
+        "name": "Arts&Crafts",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "Auto",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "AutoCare",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "AutoCareSavings",
+        "width": 64,
+        "height": 64
+      },
+      {
+        "name": "Baby",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "Backpack",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "Beauty",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "Books",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "BurgerKing",
+        "width": 64,
+        "height": 64
+      },
+      {
+        "name": "CakesCustom",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "CalendarWithClock",
+        "width": 72,
+        "height": 72
+      },
+      {
+        "name": "CashBack",
+        "width": 72,
+        "height": 72
+      },
+      {
+        "name": "CheckoutCart",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "Clothing",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "Community&Giving",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "Coupons",
+        "width": 73,
+        "height": 72
+      },
+      {
+        "name": "Delivery",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "DormSupplies",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "Drone",
+        "width": 72,
+        "height": 72
+      },
+      {
+        "name": "EarlyAccess",
+        "width": 64,
+        "height": 64
+      },
+      {
+        "name": "Electronics",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "EVCharging",
+        "width": 73,
+        "height": 72
+      },
+      {
+        "name": "Featured",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "FreeDelivery",
+        "width": 56,
+        "height": 56
+      },
+      {
+        "name": "FreeReturns",
+        "width": 72,
+        "height": 72
+      },
+      {
+        "name": "Fuel",
+        "width": 72,
+        "height": 72
+      },
+      {
+        "name": "Gas",
+        "width": 73,
+        "height": 72
+      },
+      {
+        "name": "GiftCard",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "Glasses",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "Graduation",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "Groceries",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "Grocery",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "Home",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "HomeImprovement",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "HouseholdEssentials",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "InHome",
+        "width": 72,
+        "height": 72
+      },
+      {
+        "name": "KidsDrawing",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "LimitedTimeOffer",
+        "width": 72,
+        "height": 72
+      },
+      {
+        "name": "LiquorPickup",
+        "width": 73,
+        "height": 72
+      },
+      {
+        "name": "MoneyServices",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "Movies&TV",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "Music&Vinyl",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "MyOrder",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "OilChange",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "Patio&Garden",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "PersonalCare",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "PetCare",
+        "width": 72,
+        "height": 72
+      },
+      {
+        "name": "PetRX",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "Pets",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "Pharmacy",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "PharmacyDelivery",
+        "width": 72,
+        "height": 72
+      },
+      {
+        "name": "Photo",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "Pickup",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "Plant",
+        "width": 73,
+        "height": 72
+      },
+      {
+        "name": "PreScheduled",
+        "width": 73,
+        "height": 72
+      },
+      {
+        "name": "ProgressTracker",
+        "width": 72,
+        "height": 72
+      },
+      {
+        "name": "ProtectionHome&Tech",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "Registry&Gifts",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "Reorder",
+        "width": 73,
+        "height": 72
+      },
+      {
+        "name": "Reorder1",
+        "width": 73,
+        "height": 72
+      },
+      {
+        "name": "ReorderGroceries",
+        "width": 73,
+        "height": 72
+      },
+      {
+        "name": "Returns",
+        "width": 73,
+        "height": 73
+      },
+      {
+        "name": "Scan",
+        "width": 72,
+        "height": 72
+      },
+      {
+        "name": "Scan&Go",
+        "width": 56,
+        "height": 56
+      },
+      {
+        "name": "ScanAndGo",
+        "width": 72,
+        "height": 72
+      },
+      {
+        "name": "School",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "SchoolSupplies",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "SchoolSupplyLists",
+        "width": 72,
+        "height": 72
+      },
+      {
+        "name": "Search",
+        "width": 72,
+        "height": 72
+      },
+      {
+        "name": "Seasonal",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "ShapesKindergarten",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "Shipping",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "ShoppingList",
+        "width": 72,
+        "height": 72
+      },
+      {
+        "name": "Sports&Outdoors",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "StoreFront",
+        "width": 73,
+        "height": 72
+      },
+      {
+        "name": "StoreMap",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "StoreSavings",
+        "width": 72,
+        "height": 72
+      },
+      {
+        "name": "Streaming",
+        "width": 72,
+        "height": 72
+      },
+      {
+        "name": "SubscriptionManagement",
+        "width": 73,
+        "height": 72
+      },
+      {
+        "name": "Tire",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "Toys",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "VideoGames",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "W+Delivery",
+        "width": 73,
+        "height": 72
+      },
+      {
+        "name": "WalmartBenefits",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "WalmartBusiness",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "WalmartCashTravel",
+        "width": 72,
+        "height": 72
+      },
+      {
+        "name": "WalmartPay",
+        "width": 72,
+        "height": 73
+      }
+    ]
+  },
+  "mono-large": {
+    "label": "Mono Large",
+    "count": 59,
+    "items": [
+      {
+        "name": "3rdPartyStorefront",
+        "width": 72,
+        "height": 72
+      },
+      {
+        "name": "Accessories",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "Arts&Crafts",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "AssociateWithDelivery",
+        "width": 72,
+        "height": 72
+      },
+      {
+        "name": "Baby",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "BackCar",
+        "width": 72,
+        "height": 72
+      },
+      {
+        "name": "Bathroom",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "Beauty",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "Bedding",
+        "width": 72,
+        "height": 72
+      },
+      {
+        "name": "CakesCustom",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "CheckoutBasket",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "CheckoutCart",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "DeliveryComplete",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "DeliveryUnited",
+        "width": 73,
+        "height": 72
+      },
+      {
+        "name": "Devices",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "DigitalDelivery",
+        "width": 73,
+        "height": 72
+      },
+      {
+        "name": "Discounts",
+        "width": 73,
+        "height": 72
+      },
+      {
+        "name": "DroneDelivery",
+        "width": 73,
+        "height": 72
+      },
+      {
+        "name": "Envelope",
+        "width": 72,
+        "height": 72
+      },
+      {
+        "name": "EVCharging",
+        "width": 73,
+        "height": 72
+      },
+      {
+        "name": "FreshDeli",
+        "width": 72,
+        "height": 72
+      },
+      {
+        "name": "FreshMeat",
+        "width": 72,
+        "height": 72
+      },
+      {
+        "name": "FrontCar",
+        "width": 72,
+        "height": 72
+      },
+      {
+        "name": "FrontendRegister",
+        "width": 72,
+        "height": 72
+      },
+      {
+        "name": "FuelLarge",
+        "width": 73,
+        "height": 72
+      },
+      {
+        "name": "GroceryReorder",
+        "width": 73,
+        "height": 72
+      },
+      {
+        "name": "HomeDecor",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "HomeElectronics",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "HomeGoods",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "HomeImprovement",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "Kitchen",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "Laundry",
+        "width": 72,
+        "height": 72
+      },
+      {
+        "name": "Music&Movies",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "Paint",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "PartySupplies",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "PatioGarden",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "PersonalCare",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "PetsCatsFish",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "PetsDogs",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "Pharmacy",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "Photo",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "PlantLarge",
+        "width": 73,
+        "height": 72
+      },
+      {
+        "name": "PrescheduledLarge",
+        "width": 73,
+        "height": 72
+      },
+      {
+        "name": "Registry&Gifts",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "Reorder",
+        "width": 73,
+        "height": 72
+      },
+      {
+        "name": "Seasonal",
+        "width": 72,
+        "height": 72
+      },
+      {
+        "name": "Shipping",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "Sports&Outdoors",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "Stationery",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "StoreFont",
+        "width": 73,
+        "height": 72
+      },
+      {
+        "name": "StoreMap",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "Toys",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "Tree",
+        "width": 73,
+        "height": 72
+      },
+      {
+        "name": "TV&Audio",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "UPSDropOff",
+        "width": 73,
+        "height": 72
+      },
+      {
+        "name": "Vision",
+        "width": 72,
+        "height": 73
+      },
+      {
+        "name": "W+Delivery",
+        "width": 73,
+        "height": 72
+      },
+      {
+        "name": "WineBottle",
+        "width": 73,
+        "height": 72
+      },
+      {
+        "name": "Wrench",
+        "width": 72,
+        "height": 72
+      }
+    ]
+  },
+  "spot": {
+    "label": "Spot",
+    "count": 3,
+    "items": [
+      {
+        "name": "AssociateOnTheWay",
+        "width": 240,
+        "height": 250
+      },
+      {
+        "name": "Couldn'tFindWhat",
+        "width": 240,
+        "height": 250
+      },
+      {
+        "name": "NoInternetConnection",
+        "width": 240,
+        "height": 250
+      }
+    ]
+  }
+}

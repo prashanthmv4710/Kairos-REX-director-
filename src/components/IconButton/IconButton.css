@@ -1,0 +1,174 @@
+/* LD Portable – IconButton */
+/* IconButton */
+.ld-iconbutton-iconButton {
+  --_ld-iconbutton-icon-size: var(--ld-semantic-scale-icon-small, 1rem);
+  border: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--ld-primitive-scale-space-100);
+  box-sizing: border-box;
+}
+
+.ld-iconbutton-iconButton > svg,
+.ld-iconbutton-iconButton > span > svg {
+  width: var(--_ld-iconbutton-icon-size);
+  height: var(--_ld-iconbutton-icon-size);
+}
+
+.ld-iconbutton-iconButton > i {
+  font-size: var(--_ld-iconbutton-icon-size);
+}
+
+.ld-iconbutton-small {
+  --_ld-iconbutton-icon-size: var(--ld-semantic-scale-icon-small, 1rem);
+}
+
+.ld-iconbutton-medium {
+  --_ld-iconbutton-icon-size: var(--ld-semantic-scale-icon-medium, 1.5rem);
+}
+
+.ld-iconbutton-large {
+  --_ld-iconbutton-icon-size: var(--ld-semantic-scale-icon-large, 2rem);
+}
+
+.ld-iconbutton-xsmall {
+  --_ld-iconbutton-icon-size: var(--ld-semantic-scale-icon-small, 1rem);
+  padding: var(--ld-primitive-scale-space-50);
+}
+
+.ld-iconbutton-defaultColor {
+  background: var(--ld-semantic-color-action-fill-transparent, #00000000);
+  color: var(--ld-semantic-color-action-text-onFill-transparent, #2e2f32);
+}
+.ld-iconbutton-defaultColor:hover, .ld-iconbutton-defaultColor.hover {
+  background: var(--ld-semantic-color-action-fill-transparent-hovered, #0000001a);
+  color: var(--ld-semantic-color-action-text-onFill-transparent, #2e2f32);
+}
+.ld-iconbutton-defaultColor:focus, .ld-iconbutton-defaultColor.focus {
+  background: var(--ld-semantic-color-action-fill-transparent-hovered, #0000001a);
+  color: var(--ld-semantic-color-action-text-onFill-transparent, #2e2f32);
+}
+.ld-iconbutton-defaultColor:active, .ld-iconbutton-defaultColor.active {
+  background: var(--ld-semantic-color-action-fill-transparent-pressed, #00000033);
+  color: var(--ld-semantic-color-action-text-onFill-transparent, #2e2f32);
+}
+.ld-iconbutton-defaultColor:disabled {
+  background: var(--ld-semantic-color-action-fill-transparent-disabled, #00000000);
+  color: var(--ld-semantic-color-action-text-onFill-transparent-disabled, #babbbe);
+  cursor: default;
+}
+
+.ld-iconbutton-white {
+  background: var(--ld-semantic-color-action-fill-accent-white, #ffffff00);
+  color: var(--ld-semantic-color-action-text-onFill-accent-white, #ffffff);
+}
+.ld-iconbutton-white:hover, .ld-iconbutton-white.hover {
+  background: var(--ld-semantic-color-action-fill-accent-white-hovered, #ffffff1a);
+  color: var(--ld-semantic-color-action-text-onFill-accent-white, #ffffff);
+}
+.ld-iconbutton-white:focus, .ld-iconbutton-white.focus {
+  background: var(--ld-semantic-color-action-fill-accent-white-hovered, #ffffff1a);
+  color: var(--ld-semantic-color-action-text-onFill-accent-white, #ffffff);
+}
+.ld-iconbutton-white:active, .ld-iconbutton-white.active {
+  background: var(--ld-semantic-color-action-fill-accent-white-pressed, #ffffff33);
+  color: var(--ld-semantic-color-action-text-onFill-accent-white-pressed, #e3e4e5);
+}
+.ld-iconbutton-white:disabled {
+  background: var(--ld-semantic-color-action-fill-accent-white, #ffffff00);
+  color: var(--ld-semantic-color-action-text-onFill-transparent-disabled, #babbbe);
+  cursor: default;
+}
+
+/* Emphasis variants (mirrors Button: primary, secondary, tertiary) */
+.ld-iconbutton-primary {
+  background: var(--ld-semantic-color-action-fill-primary, #0053e2);
+  border-color: var(--ld-semantic-color-action-fill-primary, #0053e2);
+  color: var(--ld-semantic-color-action-text-onFill-primary, #ffffff);
+}
+.ld-iconbutton-primary:hover, .ld-iconbutton-primary.hover {
+  background: var(--ld-semantic-color-action-fill-primary-hovered, #114ab6);
+  border-color: var(--ld-semantic-color-action-fill-primary-hovered, #114ab6);
+  color: var(--ld-semantic-color-action-text-onFill-primary-hovered, #ffffff);
+}
+.ld-iconbutton-primary:focus, .ld-iconbutton-primary.focus {
+  background: var(--ld-semantic-color-action-fill-primary-focused, #114ab6);
+  border-color: var(--ld-semantic-color-action-fill-primary-focused, #114ab6);
+  color: var(--ld-semantic-color-action-text-onFill-primary-focused, #ffffff);
+}
+.ld-iconbutton-primary:active, .ld-iconbutton-primary.active {
+  background: var(--ld-semantic-color-action-fill-primary-pressed, #002e99);
+  border-color: var(--ld-semantic-color-action-fill-primary-pressed, #002e99);
+  color: var(--ld-semantic-color-action-text-onFill-primary-pressed, #ffffff);
+}
+.ld-iconbutton-primary:disabled {
+  background: var(--ld-semantic-color-action-fill-primary-disabled, #babbbe);
+  border-color: var(--ld-semantic-color-action-fill-primary-disabled, #babbbe);
+  color: var(--ld-semantic-color-action-text-onFill-primary-disabled, #ffffff);
+  cursor: default;
+}
+
+.ld-iconbutton-secondary {
+  background: var(--ld-semantic-color-action-fill-secondary, #ffffff);
+  border-style: solid;
+  border-width: var(--ld-semantic-scale-borderwidth-interactive, 0.0625rem);
+  border-color: var(--ld-semantic-color-action-border-secondary, #2e2f32);
+  color: var(--ld-semantic-color-action-text-onFill-secondary, #2e2f32);
+}
+.ld-iconbutton-secondary:hover, .ld-iconbutton-secondary.hover {
+  background: var(--ld-semantic-color-action-fill-secondary-hovered, #f1f1f2);
+  border-color: var(--ld-semantic-color-action-border-secondary-hovered, #2e2f32);
+  box-shadow: inset 0 0 0 0.0625rem var(--ld-semantic-color-action-border-secondary-hovered, #2e2f32);
+  color: var(--ld-semantic-color-action-text-onFill-secondary-hovered, #2e2f32);
+}
+.ld-iconbutton-secondary:focus, .ld-iconbutton-secondary.focus {
+  background: var(--ld-semantic-color-action-fill-secondary-focused, #f1f1f2);
+  border-color: var(--ld-semantic-color-action-border-secondary-focused, #2e2f32);
+  box-shadow: inset 0 0 0 0.0625rem var(--ld-semantic-color-action-border-secondary-focused, #2e2f32);
+  color: var(--ld-semantic-color-action-text-onFill-secondary-focused, #2e2f32);
+}
+.ld-iconbutton-secondary:active, .ld-iconbutton-secondary.active {
+  background: var(--ld-semantic-color-action-fill-secondary-pressed, #e3e4e5);
+  border-color: var(--ld-semantic-color-action-border-secondary-pressed, #2e2f32);
+  box-shadow: inset 0 0 0 0.0625rem var(--ld-semantic-color-action-border-secondary-pressed, #2e2f32);
+  color: var(--ld-semantic-color-action-text-onFill-secondary-pressed, #2e2f32);
+}
+.ld-iconbutton-secondary:disabled {
+  background: var(--ld-semantic-color-action-fill-secondary-disabled, #ffffff);
+  border-color: var(--ld-semantic-color-action-border-secondary-disabled, #babbbe);
+  color: var(--ld-semantic-color-action-text-onFill-secondary-disabled, #babbbe);
+  cursor: default;
+}
+
+/* Tertiary intentionally uses no border tokens */
+.ld-iconbutton-tertiary {
+  background: var(--ld-semantic-color-action-fill-tertiary, #ffffff);
+  color: var(--ld-semantic-color-action-text-onFill-tertiary, #2e2f32);
+}
+.ld-iconbutton-tertiary:hover, .ld-iconbutton-tertiary.hover {
+  background: var(--ld-semantic-color-action-fill-tertiary-hovered, #f1f1f2);
+  color: var(--ld-semantic-color-action-text-onFill-tertiary-hovered, #2e2f32);
+}
+.ld-iconbutton-tertiary:focus, .ld-iconbutton-tertiary.focus {
+  background: var(--ld-semantic-color-action-fill-tertiary-focused, #f1f1f2);
+  color: var(--ld-semantic-color-action-text-onFill-tertiary-focused, #2e2f32);
+}
+.ld-iconbutton-tertiary:active, .ld-iconbutton-tertiary.active {
+  background: var(--ld-semantic-color-action-fill-tertiary-pressed, #e3e4e5);
+  color: var(--ld-semantic-color-action-text-onFill-tertiary-pressed, #2e2f32);
+}
+.ld-iconbutton-tertiary:disabled {
+  background: var(--ld-semantic-color-action-fill-tertiary-disabled, #ffffff);
+  color: var(--ld-semantic-color-action-text-onFill-tertiary-disabled, #babbbe);
+  cursor: default;
+}
+
+.ld-iconbutton-round {
+  border-radius: var(--ld-semantic-border-radius-round);
+}
+
+.ld-iconbutton-full {
+  border-radius: var(--ld-semantic-border-radius-medium);
+}

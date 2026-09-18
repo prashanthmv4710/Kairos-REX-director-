@@ -1,0 +1,80 @@
+.ld-sources {
+  list-style: none;
+  margin: 0;
+  margin-top: var(--ld-primitive-scale-space-50, 0.25rem);
+  padding: 0;
+  display: grid;
+  gap: var(--ld-primitive-scale-space-150);
+  min-width: 0;
+}
+
+.ld-sources-item {
+  min-width: 0;
+}
+
+/* Each row: favicon + a stacked title / snippet. Links get a hover affordance. */
+.ld-sources-link {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--ld-primitive-scale-space-100);
+  min-width: 0;
+  padding: var(--ld-primitive-scale-space-50);
+  margin: -4px;
+  border-radius: var(--ld-semantic-border-radius-large);
+  text-decoration: none;
+  color: inherit;
+}
+
+a.ld-sources-link:hover {
+  background: var(--ld-semantic-color-fill-subtle, #f0f1f2);
+}
+
+a.ld-sources-link:focus-visible {
+  outline: 2px solid var(--ld-semantic-color-border-activated, #0053e2);
+  outline-offset: 1px;
+}
+
+.ld-sources-link--static {
+  cursor: default;
+}
+
+.ld-sources-favicon {
+  flex: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ld-sources-favicon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ld-sources-favicon--fallback {
+  background: var(--ld-semantic-color-fill-subtle, #f0f1f2);
+  color: var(--ld-semantic-color-text-subtle, #515357);
+}
+
+.ld-sources-text {
+  display: grid;
+  min-width: 0;
+}
+
+.ld-sources-title {
+  color: var(--ld-semantic-color-text, #2e2f32);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* The snippet truncates to a single line. */
+.ld-sources-desc {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

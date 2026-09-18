@@ -1,0 +1,118 @@
+/* LD Portable – Action Tile */
+
+/* ── Base ────────────────────────────────────────────────────────────────
+   A selectable button tile. The enabled (not activated) state reads as a white
+   surface lifted by elevation/100; hover/focus/pressed tint the surface. The
+   border stays a stable 2px so the activated state can swap a transparent edge
+   for the 2px activated-blue border without shifting layout. */
+.ld-actiontile-tile {
+  appearance: none;
+  background: var(--ld-semantic-color-surface, #ffffff);
+  border: var(--ld-semantic-scale-borderwidth-interactive-activated, 0.125rem)
+    solid transparent;
+  border-radius: var(--ld-semantic-border-radius-large, 0.5rem);
+  box-shadow: var(--ld-semantic-elevation-100, 0 0.0625rem 0.125rem 0.0625rem #00000026, 0 -0.0625rem 0.125rem 0 #0000001a);
+  box-sizing: border-box;
+  color: var(--ld-semantic-color-text, #2e2f32);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: inherit;
+  text-align: left;
+  transition: background 0.1s cubic-bezier(0.77, 0, 0.175, 1),
+              border-color 0.1s cubic-bezier(0.77, 0, 0.175, 1),
+              color 0.1s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.ld-actiontile-tile:hover {
+  background: var(--ld-semantic-color-surface-hovered, #f1f1f2);
+}
+.ld-actiontile-tile:focus-visible {
+  background: var(--ld-semantic-color-surface-focused, #f1f1f2);
+  outline: var(--ld-semantic-scale-borderwidth-interactive-focused, 0.125rem)
+    solid var(--ld-semantic-color-border-activated, #0053e2);
+  outline-offset: 0.125rem;
+}
+.ld-actiontile-tile:active {
+  background: var(--ld-semantic-color-surface-pressed, #e3e4e5);
+}
+.ld-actiontile-tile:disabled {
+  box-shadow: none;
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+/* ── Activated (selected) ──────────────────────────────────────────────────
+   2px activated-blue border over the same neutral surface fills. */
+.ld-actiontile-selected {
+  border-color: var(--ld-semantic-color-border-activated, #0053e2);
+}
+
+/* ── Parts ───────────────────────────────────────────────────────────────── */
+.ld-actiontile-leading {
+  align-items: center;
+  display: inline-flex;
+  flex-shrink: 0;
+  line-height: 1;
+}
+.ld-actiontile-title {
+  font-weight: var(--ld-semantic-font-body-small-weight-alt, 700);
+}
+.ld-actiontile-titleRegular .ld-actiontile-title {
+  font-weight: var(--ld-semantic-font-body-small-weight-default, 400);
+}
+
+/* ── Vertical variants (full / tall / short) ───────────────────────────────
+   Icon over title, centered horizontally. Title uses Body Small (14px / 20px). */
+.ld-actiontile-full,
+.ld-actiontile-tall,
+.ld-actiontile-short {
+  flex-direction: column;
+  align-items: center;
+  padding: var(--ld-primitive-scale-space-200, 1rem);
+}
+.ld-actiontile-full .ld-actiontile-title,
+.ld-actiontile-tall .ld-actiontile-title,
+.ld-actiontile-short .ld-actiontile-title {
+  font-size: var(--ld-semantic-font-body-small-size, 0.875rem);
+  line-height: var(--ld-semantic-font-body-small-line-height, 1.25rem);
+  text-align: center;
+}
+
+/* Full — 130×124, icon and title centered. */
+.ld-actiontile-full {
+  justify-content: center;
+  gap: var(--ld-primitive-scale-space-100, 0.5rem);
+  width: 8.125rem; /* 130px */
+  min-height: 7.75rem; /* 124px */
+}
+
+/* Tall — 96×124, narrower; icon and title centered. */
+.ld-actiontile-tall {
+  justify-content: center;
+  gap: var(--ld-primitive-scale-space-100, 0.5rem);
+  width: 6rem; /* 96px */
+  min-height: 7.75rem; /* 124px */
+}
+
+/* Short — 130×100, compact; icon and title stacked at the top. */
+.ld-actiontile-short {
+  justify-content: flex-start;
+  gap: var(--ld-primitive-scale-space-100, 0.5rem);
+  width: 8.125rem; /* 130px */
+  min-height: 6.25rem; /* 100px */
+}
+
+/* ── Horizontal variant — 130×56 ───────────────────────────────────────────
+   Icon leads, title to its right. Title uses Body Medium (16px / 24px). */
+.ld-actiontile-horizontal {
+  flex-direction: row;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-100, 0.5rem);
+  padding: var(--ld-primitive-scale-space-200, 1rem);
+  min-width: 8.125rem; /* 130px */
+  min-height: 3.5rem; /* 56px */
+}
+.ld-actiontile-horizontal .ld-actiontile-title {
+  font-size: var(--ld-semantic-font-body-medium-size, 1rem);
+  line-height: var(--ld-semantic-font-body-medium-line-height, 1.5rem);
+}

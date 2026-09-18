@@ -1,0 +1,65 @@
+/* LD Portable – Link */
+/* Link */
+.ld-link-link {
+  color: var(--ld-semantic-color-link-text, #2e2f32);
+  font-size: 100%;
+  line-height: inherit;
+  text-decoration: underline;
+}
+.ld-link-link:hover, .ld-link-link.hover {
+  color: var(--ld-semantic-color-link-text-hovered, #2e2f32);
+  text-decoration: none;
+}
+.ld-link-link:focus, .ld-link-link.focus {
+  color: var(--ld-semantic-color-link-text-focused, #2e2f32);
+  text-decoration: none;
+}
+.ld-link-link:active, .ld-link-link.active {
+  color: var(--ld-semantic-color-link-text-pressed, #171819);
+  text-decoration: none;
+}
+
+.ld-link-subtle {
+  color: var(--ld-semantic-color-link-text-subtle, #515357);
+}
+.ld-link-subtle:hover, .ld-link-subtle.hover {
+  color: var(--ld-semantic-color-link-text-subtle, #515357);
+}
+.ld-link-subtle:focus, .ld-link-subtle.focus {
+  color: var(--ld-semantic-color-link-text-subtle, #515357);
+}
+.ld-link-subtle:active, .ld-link-subtle.active {
+  color: var(--ld-semantic-color-link-text-subtle-pressed, #3a3b3e);
+}
+
+.ld-link-info {
+  color: var(--ld-semantic-color-text-info, #0053e2);
+  text-decoration-color: currentColor;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.08em;
+}
+.ld-link-info:hover, .ld-link-info.hover {
+  color: var(--ld-semantic-color-text-onFill-info-subtle-hovered, #002185);
+  text-decoration: none;
+}
+.ld-link-info:focus, .ld-link-info.focus {
+  color: var(--ld-semantic-color-text-onFill-info-subtle-focused, #002185);
+  text-decoration: none;
+}
+.ld-link-info:active, .ld-link-info.active {
+  color: var(--ld-semantic-color-text-onFill-info-subtle-pressed, #001e60);
+  text-decoration: none;
+}
+
+.ld-link-white {
+  color: var(--ld-semantic-color-link-text-accent-white, #ffffff);
+}
+.ld-link-white:hover, .ld-link-white.hover {
+  color: var(--ld-semantic-color-link-text-accent-white, #ffffff);
+}
+.ld-link-white:focus, .ld-link-white.focus {
+  color: var(--ld-semantic-color-link-text-accent-white, #ffffff);
+}
+.ld-link-white:active, .ld-link-white.active {
+  color: var(--ld-semantic-color-link-text-accent-white-pressed, #e3e4e5);
+}

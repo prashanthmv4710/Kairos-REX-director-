@@ -1,0 +1,123 @@
+/* LD Portable – TextArea */
+/* TextArea */
+.ld-textarea-root {
+  width: 100%;
+}
+
+.ld-textarea-label {
+  margin-bottom: 0.25rem;
+}
+
+.ld-textarea-container {
+  background: var(--ld-semantic-color-field-fill, #ffffff);
+  border-radius: var(--ld-semantic-border-radius-medium);
+  box-shadow: inset 0 0 0 0.0625rem var(--ld-semantic-color-field-border, #909196);
+  position: relative;
+}
+.ld-textarea-container:hover, .hover .ld-textarea-container {
+  background: var(--ld-semantic-color-field-fill-hovered, #ffffff);
+  box-shadow: inset 0 0 0 0.125rem var(--ld-semantic-color-field-border-hovered, #2e2f32);
+}
+.ld-textarea-container:focus-within, .focus .ld-textarea-container {
+  background: var(--ld-semantic-color-field-fill-focused, #ffffff);
+  box-shadow: inset 0 0 0 0.125rem var(--ld-semantic-color-field-border-focused, #2e2f32);
+}
+.ld-textarea-readOnly .ld-textarea-container {
+  background: var(--ld-semantic-color-field-fill-readonly, #f1f1f2);
+  box-shadow: inset 0 0 0 0.0625rem var(--ld-semantic-color-field-border, #909196);
+}
+.ld-textarea-disabled .ld-textarea-container {
+  background: var(--ld-semantic-color-field-fill-disabled, #ffffff);
+  box-shadow: inset 0 0 0 0.0625rem var(--ld-semantic-color-field-border-disabled, #babbbe);
+}
+.ld-textarea-isMagic .ld-textarea-container {
+  box-shadow: inset 0 0 0 0.0625rem var(--ld-semantic-color-border-activated, #0053E2);
+}
+.ld-textarea-isMagic .ld-textarea-container:hover, .hover.ld-textarea-isMagic .ld-textarea-container {
+  box-shadow: inset 0 0 0 0.125rem var(--ld-semantic-color-border-activated, #0053E2);
+}
+.ld-textarea-isMagic .ld-textarea-container:focus-within, .focus.ld-textarea-isMagic .ld-textarea-container {
+  box-shadow: inset 0 0 0 0.125rem var(--ld-semantic-color-border-activated, #0053E2);
+}
+.ld-textarea-error .ld-textarea-container {
+  background: var(--ld-semantic-color-field-fill-negative, #ffffff);
+  box-shadow: inset 0 0 0 0.0625rem var(--ld-semantic-color-field-border-negative, #ea1100);
+}
+.ld-textarea-error .ld-textarea-container:hover, .hover.ld-textarea-error .ld-textarea-container {
+  background: var(--ld-semantic-color-field-fill-negative-hovered, #ffffff);
+  box-shadow: inset 0 0 0 0.125rem var(--ld-semantic-color-field-border-negative-hovered, #ea1100);
+}
+.ld-textarea-error .ld-textarea-container:focus-within, .focus.ld-textarea-error .ld-textarea-container {
+  background: var(--ld-semantic-color-field-fill-negative-focused, #ffffff);
+  box-shadow: inset 0 0 0 0.125rem var(--ld-semantic-color-field-border-negative-focused, #ea1100);
+}
+.ld-textarea-error.ld-textarea-readOnly .ld-textarea-container {
+  background: var(--ld-semantic-color-field-fill-readonly, #f1f1f2);
+  box-shadow: inset 0 0 0 0.0625rem var(--ld-semantic-color-field-border, #909196);
+}
+.ld-textarea-error.ld-textarea-disabled .ld-textarea-container {
+  background: var(--ld-semantic-color-field-fill-negative-disabled, #ffffff);
+  box-shadow: inset 0 0 0 0.0625rem var(--ld-semantic-color-field-border-negative-disabled, #babbbe);
+}
+.ld-textarea-isMagic.ld-textarea-readOnly .ld-textarea-container {
+  box-shadow: inset 0 0 0 0.0625rem var(--ld-semantic-color-border-activated, #0053E2);
+}
+.ld-textarea-isMagic.ld-textarea-disabled .ld-textarea-container {
+  box-shadow: inset 0 0 0 0.0625rem var(--ld-semantic-color-field-border-disabled, #babbbe);
+}
+
+.ld-textarea-value {
+
+  -webkit-appearance: none;
+  background: transparent;
+  border: 0;
+  box-sizing: border-box;
+  color: var(--ld-semantic-color-field-text-onFill, #2e2f32);
+  display: block;
+  margin: 0;
+  resize: none;
+  width: 100%;
+  outline: none;
+}
+.ld-textarea-disabled .ld-textarea-value, .ld-textarea-readOnly .ld-textarea-value {
+  cursor: default;
+}
+.ld-textarea-disabled .ld-textarea-value {
+  color: var(--ld-semantic-color-field-text-onFill-disabled, #babbbe);
+  opacity: 1;
+  -webkit-text-fill-color: var(--ld-semantic-color-field-text-onFill-disabled, #babbbe);
+}
+.ld-textarea-large .ld-textarea-value {
+  font-size: var(--ld-semantic-font-body-medium-size, 1rem);
+  font-weight: var(--ld-semantic-font-body-medium-weight-default, 400);
+  line-height: var(--ld-semantic-font-body-medium-line-height);
+  min-height: 8rem;
+  padding: var(--ld-primitive-scale-space-200);
+}
+.ld-textarea-small .ld-textarea-value {
+  font-size: var(--ld-semantic-font-body-small-size, 0.875rem);
+  font-weight: var(--ld-semantic-font-body-small-weight-default, 400);
+  line-height: var(--ld-semantic-font-body-small-line-height);
+  min-height: 6.25rem;
+  padding-block: var(--ld-primitive-scale-space-100);
+  padding-inline: var(--ld-primitive-scale-space-150);
+}
+
+.ld-textarea-helperTextContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.25rem;
+}
+
+.ld-textarea-maxLength {
+  font-size: var(--ld-semantic-font-caption-size, 0.75rem);
+  font-weight: var(--ld-semantic-font-caption-weight-default, 400);
+  line-height: var(--ld-semantic-font-caption-line-height);
+  color: var(--ld-semantic-color-field-text-subtle-onFill, #515357);
+  margin-left: 1rem;
+  white-space: nowrap;
+}
+.ld-textarea-disabled .ld-textarea-maxLength {
+  color: var(--ld-semantic-color-field-text-onFill-disabled, #babbbe);
+  cursor: default;
+}

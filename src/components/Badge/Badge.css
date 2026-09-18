@@ -1,0 +1,141 @@
+/* LD Portable – Badge */
+
+/* Text-on-fill rule:
+   - Saturated/dark fills (blue, green, red, gray, etc.) → text-inverse (white)
+   - Light fills (yellow, spark, warning, neutral) → text (default dark)
+   The `--ld-semantic-color-text-on-fill-accent-*` tokens this file
+   previously referenced do not exist in the theme — they fell back
+   to inherited dark text on every color, which made "12" appear black
+   on every saturated background. */
+
+.ld-badge-badge {
+  border-radius: var(--ld-semantic-border-radius-round);
+  box-sizing: border-box;
+  display: inline-block;
+  height: 0.75rem;
+  width: 0.75rem;
+}
+
+.ld-badge-blue {
+  background: var(--ld-semantic-color-fill-accent-blue);
+  color: var(--ld-semantic-color-text-inverse);
+}
+
+.ld-badge-brand {
+  background: var(--ld-semantic-color-fill-accent-blue);
+  color: var(--ld-semantic-color-text-inverse);
+}
+
+.ld-badge-brandBold {
+  background: var(--ld-semantic-color-fill-accent-blue);
+  color: var(--ld-semantic-color-text-inverse);
+}
+
+.ld-badge-cyan {
+  background: var(--ld-semantic-color-fill-accent-cyan);
+  color: var(--ld-semantic-color-text-inverse);
+}
+
+.ld-badge-edited {
+  background: var(--ld-semantic-color-fill-accent-purple);
+  color: var(--ld-semantic-color-text-inverse);
+}
+
+.ld-badge-info {
+  background: var(--ld-semantic-color-fill-accent-blue);
+  color: var(--ld-semantic-color-text-inverse);
+}
+
+.ld-badge-gray {
+  background: var(--ld-semantic-color-fill-accent-gray);
+  color: var(--ld-semantic-color-text-inverse);
+}
+
+.ld-badge-green {
+  background: var(--ld-semantic-color-fill-accent-green);
+  color: var(--ld-semantic-color-text-inverse);
+}
+
+.ld-badge-negative {
+  background: var(--ld-semantic-color-fill-accent-red);
+  color: var(--ld-semantic-color-text-inverse);
+}
+
+/* Neutral: light surface fill with a thin gray border and dark text.
+   The previously-referenced `fill-accent-neutral` token does not exist;
+   fall back to the system surface for a low-emphasis treatment. */
+.ld-badge-neutral {
+  background: var(--ld-semantic-color-fill);
+  box-shadow: inset 0 0 0 0.0625rem var(--ld-semantic-color-border-accent-gray);
+  color: var(--ld-semantic-color-text);
+}
+
+.ld-badge-orange {
+  background: var(--ld-semantic-color-fill-accent-orange);
+  color: var(--ld-semantic-color-text-inverse);
+}
+
+.ld-badge-pink {
+  background: var(--ld-semantic-color-fill-accent-pink);
+  color: var(--ld-semantic-color-text-inverse);
+}
+
+.ld-badge-positive {
+  background: var(--ld-semantic-color-fill-accent-green);
+  color: var(--ld-semantic-color-text-inverse);
+}
+
+.ld-badge-purple {
+  background: var(--ld-semantic-color-fill-accent-purple);
+  color: var(--ld-semantic-color-text-inverse);
+}
+
+.ld-badge-red {
+  background: var(--ld-semantic-color-fill-accent-red);
+  color: var(--ld-semantic-color-text-inverse);
+}
+
+/* Spark and warning use the spark gold fill — needs dark text for
+   contrast (white-on-gold fails WCAG AA). */
+.ld-badge-spark {
+  background: var(--ld-semantic-color-fill-accent-spark);
+  color: var(--ld-semantic-color-text-accent-spark-bold);
+}
+
+.ld-badge-teal {
+  background: var(--ld-semantic-color-fill-accent-teal);
+  color: var(--ld-semantic-color-text-inverse);
+}
+
+.ld-badge-warning {
+  background: var(--ld-semantic-color-fill-accent-spark);
+  color: var(--ld-semantic-color-text-accent-spark-bold);
+}
+
+/* Yellow fill needs dark text for the same reason as spark. */
+.ld-badge-yellow {
+  background: var(--ld-semantic-color-fill-accent-yellow);
+  color: var(--ld-semantic-color-text-accent-yellow-bold);
+}
+
+.ld-badge-dotSmall {
+  height: 0.5rem;
+  width: 0.5rem;
+}
+
+.ld-badge-hasTextLabel {
+  font-size: var(--ld-semantic-font-caption-size);
+  font-weight: var(--ld-primitive-font-weight-700);
+  line-height: var(--ld-semantic-font-caption-line-height);
+  border-radius: var(--ld-semantic-border-radius-round);
+  height: 1rem;
+  min-width: 1rem;
+  padding-block: 0;
+  padding-inline: var(--ld-primitive-scale-space-50);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  white-space: nowrap;
+  width: auto;
+}

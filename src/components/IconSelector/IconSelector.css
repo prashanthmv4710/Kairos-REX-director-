@@ -1,0 +1,118 @@
+/* LD Portable – IconSelector */
+/* Binary on/off icon control. Chrome mirrors IconButton; the selected state
+   adds an activated ring (Primary) per the Figma source. Default + White
+   colors rely on the icon swap to communicate selected state. */
+
+.ld-iconselector-iconSelector {
+  border: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--ld-primitive-scale-space-100);
+  box-sizing: border-box;
+  background: transparent;
+}
+
+.ld-iconselector-iconSelector:disabled {
+  cursor: default;
+}
+
+.ld-iconselector-xsmall {
+  padding: var(--ld-primitive-scale-space-50);
+}
+
+/* ─── Default color ─────────────────────────────────────────── */
+.ld-iconselector-defaultColor {
+  background: var(--ld-semantic-color-action-fill-transparent, #00000000);
+  color: var(--ld-semantic-color-action-text-onFill-transparent, #2e2f32);
+}
+.ld-iconselector-defaultColor:hover,
+.ld-iconselector-defaultColor.hover {
+  background: var(--ld-semantic-color-action-fill-transparent-hovered, #0000001a);
+  color: var(--ld-semantic-color-action-text-onFill-transparent, #2e2f32);
+}
+.ld-iconselector-defaultColor:focus,
+.ld-iconselector-defaultColor.focus {
+  background: var(--ld-semantic-color-action-fill-transparent-hovered, #0000001a);
+  color: var(--ld-semantic-color-action-text-onFill-transparent, #2e2f32);
+}
+.ld-iconselector-defaultColor:active,
+.ld-iconselector-defaultColor.active {
+  background: var(--ld-semantic-color-action-fill-transparent-pressed, #00000033);
+  color: var(--ld-semantic-color-action-text-onFill-transparent, #2e2f32);
+}
+.ld-iconselector-defaultColor:disabled {
+  background: var(--ld-semantic-color-action-fill-transparent-disabled, #00000000);
+  color: var(--ld-semantic-color-action-text-onFill-transparent-disabled, #babbbe);
+}
+
+/* ─── White color (use on bold/dark surfaces) ───────────────── */
+.ld-iconselector-white {
+  background: var(--ld-semantic-color-action-fill-accent-white, #ffffff00);
+  color: var(--ld-semantic-color-action-text-onFill-accent-white, #ffffff);
+}
+.ld-iconselector-white:hover,
+.ld-iconselector-white.hover {
+  background: var(--ld-semantic-color-action-fill-accent-white-hovered, #ffffff1a);
+  color: var(--ld-semantic-color-action-text-onFill-accent-white, #ffffff);
+}
+.ld-iconselector-white:focus,
+.ld-iconselector-white.focus {
+  background: var(--ld-semantic-color-action-fill-accent-white-hovered, #ffffff1a);
+  color: var(--ld-semantic-color-action-text-onFill-accent-white, #ffffff);
+}
+.ld-iconselector-white:active,
+.ld-iconselector-white.active {
+  background: var(--ld-semantic-color-action-fill-accent-white-pressed, #ffffff33);
+  color: var(--ld-semantic-color-action-text-onFill-accent-white-pressed, #e3e4e5);
+}
+.ld-iconselector-white:disabled {
+  background: var(--ld-semantic-color-action-fill-accent-white, #ffffff00);
+  color: var(--ld-semantic-color-action-text-onFill-transparent-disabled, #babbbe);
+}
+
+/* ─── Primary color (transparent chrome + activated ring) ───── */
+.ld-iconselector-primary {
+  background: var(--ld-semantic-color-action-fill-transparent, #00000000);
+  color: var(--ld-semantic-color-action-text-onFill-transparent, #2e2f32);
+}
+.ld-iconselector-primary:hover,
+.ld-iconselector-primary.hover {
+  background: var(--ld-semantic-color-action-fill-transparent-hovered, #0000001a);
+  color: var(--ld-semantic-color-action-text-onFill-transparent, #2e2f32);
+}
+.ld-iconselector-primary:focus,
+.ld-iconselector-primary.focus {
+  background: var(--ld-semantic-color-action-fill-transparent-focused, #0000001a);
+  color: var(--ld-semantic-color-action-text-onFill-transparent, #2e2f32);
+}
+.ld-iconselector-primary:active,
+.ld-iconselector-primary.active {
+  background: var(--ld-semantic-color-action-fill-transparent-pressed, #00000033);
+  color: var(--ld-semantic-color-action-text-onFill-transparent, #2e2f32);
+}
+.ld-iconselector-primary:disabled {
+  background: var(--ld-semantic-color-action-fill-transparent-disabled, #00000000);
+  color: var(--ld-semantic-color-action-text-onFill-transparent-disabled, #babbbe);
+}
+
+/* ─── Selected (activated) ring — Primary only per Figma ───── */
+/* Uses inset box-shadow so the ring doesn't change the rendered box size. */
+.ld-iconselector-primary.ld-iconselector-selected {
+  box-shadow: inset 0 0 0 var(--ld-semantic-scale-borderwidth-interactive-activated, 0.125rem)
+    var(--ld-semantic-color-border-activated, #0053e2);
+}
+.ld-iconselector-primary.ld-iconselector-selected:disabled {
+  box-shadow: inset 0 0 0 var(--ld-semantic-scale-borderwidth-interactive-activated, 0.125rem)
+    var(--ld-semantic-color-action-fill-primary-disabled, #babbbe);
+}
+
+/* ─── Shape ─────────────────────────────────────────────────── */
+.ld-iconselector-round {
+  border-radius: var(--ld-semantic-border-radius-round);
+}
+
+.ld-iconselector-full {
+  border-radius: var(--ld-semantic-border-radius-medium);
+}

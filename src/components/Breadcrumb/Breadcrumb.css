@@ -1,0 +1,60 @@
+/* LD Portable – Breadcrumb */
+/* Breadcrumb */
+.ld-breadcrumb-breadcrumb {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.ld-breadcrumb-item {
+  display: inline-block;
+}
+
+.ld-breadcrumb-separator {
+  font-size: var(--ld-semantic-font-body-small-size);
+  font-weight: var(--ld-semantic-font-body-small-weight-default);
+  line-height: var(--ld-semantic-font-body-small-line-height);
+  color: var(--ld-semantic-color-text-subtlest, #74767c);
+  margin: 0 0.5rem;
+}
+
+/* BreadcrumbItem */
+.ld-breadcrumb-breadcrumbitem-breadcrumbItem {
+  font-size: var(--ld-semantic-font-body-small-size);
+  font-weight: var(--ld-semantic-font-body-small-weight-default);
+  line-height: var(--ld-semantic-font-body-small-line-height);
+  color: var(--ld-semantic-color-link-text-subtle, #515357);
+  text-decoration: underline;
+}
+.ld-breadcrumb-breadcrumbitem-breadcrumbItem:link, .ld-breadcrumb-breadcrumbitem-breadcrumbItem:visited {
+  color: var(--ld-semantic-color-link-text-subtle, #515357);
+  text-decoration: underline;
+}
+.ld-breadcrumb-breadcrumbitem-breadcrumbItem:hover, .ld-breadcrumb-breadcrumbitem-breadcrumbItem.hover {
+  color: var(--ld-semantic-color-link-text-subtle, #515357);
+}
+.ld-breadcrumb-breadcrumbitem-breadcrumbItem:focus, .ld-breadcrumb-breadcrumbitem-breadcrumbItem.focus {
+  color: var(--ld-semantic-color-link-text-subtle, #515357);
+}
+.ld-breadcrumb-breadcrumbitem-breadcrumbItem:active, .ld-breadcrumb-breadcrumbitem-breadcrumbItem.active {
+  color: var(--ld-semantic-color-link-text-subtle-pressed, #3a3b3e);
+}
+
+.ld-breadcrumb-breadcrumbitem-current {
+  color: var(--ld-semantic-color-text, #2e2f32);
+  text-decoration: none;
+}
+.ld-breadcrumb-breadcrumbitem-current:link, .ld-breadcrumb-breadcrumbitem-current:visited {
+  color: var(--ld-semantic-color-text, #2e2f32);
+  text-decoration: none;
+}
+.ld-breadcrumb-breadcrumbitem-current:hover, .ld-breadcrumb-breadcrumbitem-current.hover {
+  color: var(--ld-semantic-color-text, #2e2f32);
+}
+.ld-breadcrumb-breadcrumbitem-current:focus, .ld-breadcrumb-breadcrumbitem-current.focus {
+  color: var(--ld-semantic-color-text, #2e2f32);
+}
+.ld-breadcrumb-breadcrumbitem-current:active, .ld-breadcrumb-breadcrumbitem-current.active {
+  color: var(--ld-semantic-color-link-text-pressed, #171819);
+}

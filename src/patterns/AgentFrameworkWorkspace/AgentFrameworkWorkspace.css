@@ -1,0 +1,84 @@
+/* ── Framework close animation ──────────────────────────────────────────────── */
+/* The exiting framework card slides right and fades out before it is removed from
+ * `items`. Applied by AgentFrameworkWorkspace to the specific `.ld-agentframework`
+ * being closed; also exported as `AGENT_FRAMEWORK_EXIT_CLASS` so a surface that
+ * owns its own floating framework host animates it with the same motion.
+ * Duration/easing use the LD `slide-in` semantic token (300ms) so open and
+ * close run at the same pace — keep in sync with `FRAMEWORK_EXIT_MS`. */
+.ld-frameworkworkspace-frameworkExit {
+  transform: translateX(100%);
+  opacity: 0;
+  transition:
+    transform var(--ld-semantic-duration-slide-in, 0.3s)
+      var(--ld-semantic-timing-slide, cubic-bezier(0.165, 0.84, 0.44, 1)),
+    opacity var(--ld-semantic-duration-slide-in, 0.3s)
+      var(--ld-semantic-timing-slide, cubic-bezier(0.165, 0.84, 0.44, 1));
+  pointer-events: none;
+  /* Prevent the exit-shifted card from bleeding past its scroll container
+   * or triggering a horizontal scrollbar mid-animation. */
+  will-change: transform, opacity;
+}
+
+/* ── Framework open animation ───────────────────────────────────────────────── */
+/* The entering framework card slides in from the right and fades in. A CSS
+ * @keyframes avoids the two-frame commit trick a transition-based entry needs —
+ * the animation fires immediately on mount and is naturally one-directional. */
+@keyframes ld-frameworkworkspace-slide-in-from-right {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.ld-frameworkworkspace-frameworkEnter {
+  animation:
+    ld-frameworkworkspace-slide-in-from-right
+    var(--ld-semantic-duration-slide-in, 0.3s)
+    var(--ld-semantic-timing-slide, cubic-bezier(0.165, 0.84, 0.44, 1))
+    forwards;
+  will-change: transform, opacity;
+}
+
+/* Clip the sliding card so it doesn't bleed over an adjacent panel or a
+ * workspace sibling during the enter keyframe animation. */
+.ld-frameworkworkspace-enterHost {
+  overflow: hidden;
+}
+
+/* Applied to a container while one of its frameworks is opening or closing:
+ * `flex-grow` transitions on all direct children so neighbouring panes grow and
+ * shrink smoothly in sync with the framework instead of snapping when it mounts or
+ * unmounts. Also exported as `AGENT_FRAMEWORK_REFLOW_CLASS` for surfaces that own
+ * an outer dock around the workspace. */
+.ld-frameworkworkspace-reflow > *,
+.ld-frameworkworkspace-reflow > .ax-resizable__panel-group > * {
+  transition: flex-grow var(--ld-semantic-duration-slide-in, 0.3s)
+    var(--ld-semantic-timing-slide, cubic-bezier(0.165, 0.84, 0.44, 1));
+}
+
+/* Under `prefers-reduced-motion: reduce` we drop the translate (the
+ * a11y-sensitive part — large-motion transforms can trigger vestibular
+ * discomfort) and keep a brief opacity fade instead. The state change is still
+ * communicated visually; no transform is applied. Neighbour flex-grow
+ * transitions are disabled too so nothing else glides. */
+@media (prefers-reduced-motion: reduce) {
+  .ld-frameworkworkspace-frameworkExit {
+    transform: none;
+    transition: opacity 100ms ease-out;
+  }
+
+  .ld-frameworkworkspace-frameworkEnter {
+    animation: none;
+    opacity: 1;
+  }
+
+  .ld-frameworkworkspace-reflow > *,
+  .ld-frameworkworkspace-reflow > .ax-resizable__panel-group > * {
+    transition: none;
+  }
+}

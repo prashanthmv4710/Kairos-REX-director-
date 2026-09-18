@@ -1,0 +1,82 @@
+.ld-wcp-queuecard-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: var(--ld-primitive-scale-borderRadius-100, 8px);
+  background: var(--ld-semantic-color-surface, #fff);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+.ld-wcp-queuecard-content {
+  display: flex;
+  flex-direction: column;
+  padding: var(--ld-primitive-scale-space-200);
+  gap: var(--ld-primitive-scale-space-100);
+  width: 100%;
+  box-sizing: border-box;
+}
+.ld-wcp-queuecard-timerRow {
+  display: flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-100);
+}
+.ld-wcp-queuecard-timerLabel {
+  flex: 1;
+  font-size: var(--ld-semantic-font-body-small-size);
+  line-height: var(--ld-semantic-font-body-small-line-height);
+  color: var(--ld-semantic-color-text, #2e2f32);
+}
+.ld-wcp-queuecard-productRow {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--ld-primitive-scale-space-150);
+}
+.ld-wcp-queuecard-productImage {
+  width: 40px;
+  height: 40px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: var(--ld-semantic-border-radius-medium);
+  flex-shrink: 0;
+}
+.ld-wcp-queuecard-productPlaceholder {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--ld-semantic-border-radius-medium);
+  flex-shrink: 0;
+  background: var(--ld-semantic-color-surface-subtle, #f2f4f7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ld-semantic-color-text-subtle, #515357);
+}
+.ld-wcp-queuecard-descriptionBlock {
+  display: flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-50);
+  flex: 1;
+}
+.ld-wcp-queuecard-description {
+  flex: 1;
+  font-size: var(--ld-semantic-font-body-small-size);
+  line-height: var(--ld-semantic-font-body-small-line-height);
+  color: var(--ld-semantic-color-text, #2e2f32);
+}
+.ld-wcp-queuecard-pricing {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex-shrink: 0;
+}
+.ld-wcp-queuecard-price {
+  font-size: var(--ld-semantic-font-body-medium-size);
+  font-weight: var(--ld-primitive-font-weight-700);
+  line-height: var(--ld-semantic-font-body-medium-line-height);
+  color: var(--ld-semantic-color-text, #2e2f32);
+}
+.ld-wcp-queuecard-originalPrice {
+  font-size: var(--ld-semantic-font-body-small-size);
+  line-height: var(--ld-semantic-font-body-small-line-height);
+  color: var(--ld-semantic-color-text-subtle, #515357);
+  text-decoration: line-through;
+}

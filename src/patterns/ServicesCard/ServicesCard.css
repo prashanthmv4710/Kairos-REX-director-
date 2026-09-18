@@ -1,0 +1,125 @@
+/* LD Portable – ServicesCard */
+.ld-wcp-services-card-root {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--ld-semantic-color-separator, #e3e4e5);
+  border-radius: var(--ld-semantic-border-radius-large);
+  overflow: hidden;
+  background: var(--ld-semantic-color-surface, #fff);
+}
+.ld-wcp-services-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--ld-semantic-color-separator, #e3e4e5);
+}
+.ld-wcp-services-card-heading {
+  font-size: var(--ld-semantic-font-body-medium-size);
+  font-weight: var(--ld-primitive-font-weight-700);
+  color: var(--ld-semantic-color-text, #2e2f32);
+  margin: 0;
+}
+.ld-wcp-services-card-active-count {
+  font-weight: var(--ld-primitive-font-weight-400);
+  color: var(--ld-semantic-color-text-subtle, #515357);
+}
+.ld-wcp-services-card-alerts {
+  padding-block: var(--ld-primitive-scale-space-100);
+  padding-inline: var(--ld-primitive-scale-space-200);
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-100);
+}
+.ld-wcp-services-card-footer {
+  padding: 10px 16px;
+}
+
+/* DetailRow */
+.ld-wcp-services-card-detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--ld-primitive-scale-space-200);
+}
+.ld-wcp-services-card-detail-label {
+  font-size: var(--ld-semantic-font-caption-size);
+  color: var(--ld-semantic-color-text-subtle, #515357);
+  flex-shrink: 0;
+}
+.ld-wcp-services-card-detail-value {
+  font-size: var(--ld-semantic-font-caption-size);
+  font-weight: var(--ld-primitive-font-weight-600);
+  color: var(--ld-semantic-color-text, #2e2f32);
+  text-align: right;
+}
+
+/* ServiceRowDetail */
+.ld-wcp-services-card-row-detail {
+  padding: 0 16px 16px 60px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-150);
+}
+.ld-wcp-services-card-detail-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-block: var(--ld-primitive-scale-space-50);
+  padding-inline: 0;
+}
+.ld-wcp-services-card-detail-note {
+  font-size: var(--ld-semantic-font-caption-size);
+  color: var(--ld-semantic-color-text-subtle);
+  margin: 0;
+  font-style: italic;
+}
+.ld-wcp-services-card-detail-actions {
+  display: flex;
+  gap: var(--ld-primitive-scale-space-100);
+  flex-wrap: wrap;
+}
+
+/* ServiceRow */
+.ld-wcp-services-card-row {
+  display: flex;
+  flex-direction: column;
+}
+.ld-wcp-services-card-row-button {
+  display: flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-150);
+  width: 100%;
+  padding-block: var(--ld-primitive-scale-space-150);
+  padding-inline: var(--ld-primitive-scale-space-200);
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  min-height: 44px;
+}
+.ld-wcp-services-card-row-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-25);
+  min-width: 0;
+}
+.ld-wcp-services-card-row-label {
+  font-size: var(--ld-semantic-font-body-small-size);
+  font-weight: var(--ld-primitive-font-weight-600);
+  color: var(--ld-semantic-color-text, #2e2f32);
+  line-height: var(--ld-semantic-font-body-small-line-height);
+}
+.ld-wcp-services-card-row-microcopy {
+  font-size: var(--ld-semantic-font-caption-size);
+  color: var(--ld-semantic-color-text-subtle, #515357);
+  line-height: var(--ld-semantic-font-caption-line-height);
+}
+.ld-wcp-services-card-chevron {
+  flex-shrink: 0;
+  transition: transform 0.15s ease;
+}
+.ld-wcp-services-card-chevron-expanded {
+  transform: rotate(180deg);
+}

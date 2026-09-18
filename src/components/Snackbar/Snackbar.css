@@ -1,0 +1,102 @@
+/* LD Portable – Snackbar */
+/* Snack */
+.ld-snackbar-snack-snack {
+  align-items: flex-start;
+  background: var(--ld-semantic-color-fill-inverse, #2e2f32);
+  border-radius: var(--ld-semantic-border-radius-medium);
+  box-shadow: var(--ld-semantic-elevation-300);
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 21.4375rem;
+}
+@media screen and (min-width: 37.5rem) {
+  .ld-snackbar-snack-snack {
+    max-width: none;
+  }
+}
+
+.ld-snackbar-snack-message {
+  font-size: var(--ld-semantic-font-body-small-size);
+  font-weight: var(--ld-primitive-font-weight-400);
+  line-height: var(--ld-semantic-font-body-small-line-height);
+  align-self: center;
+  color: var(--ld-semantic-color-text-onFill-inverse, #ffffff);
+  flex: 1;
+  padding: var(--ld-primitive-scale-space-200);
+}
+
+/* SnackActionButton */
+.ld-snackbar-snackactionbutton-action {
+  font-size: var(--ld-semantic-font-body-small-size);
+  font-weight: var(--ld-primitive-font-weight-400);
+  line-height: var(--ld-semantic-font-body-small-line-height);
+  background: transparent;
+  border: 0;
+  color: var(--ld-semantic-color-text-onFill-inverse, #ffffff);
+  cursor: pointer;
+  height: 3.25rem;
+  padding-block: 0;
+  padding-inline: var(--ld-primitive-scale-space-100);
+  text-decoration: underline;
+  white-space: nowrap;
+}
+
+/* SnackCloseButton */
+.ld-snackbar-snackclosebutton-closeButton {
+  background: transparent;
+  border: 0;
+  color: var(--ld-semantic-color-text-onFill-inverse, #ffffff);
+  cursor: pointer;
+  height: 3.25rem;
+  width: 3rem;
+}
+
+.ld-snackbar-snackclosebutton-icon {
+  vertical-align: bottom;
+}
+
+/* Snackbar */
+.ld-snackbar-snackbar {
+  z-index: 600;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 100%;
+}
+.ld-snackbar-snackbar.ld-snackbar-transitionEnter {
+  opacity: 0;
+}
+.ld-snackbar-snackbar.ld-snackbar-transitionEnterActive {
+  opacity: 1;
+  transition: opacity 0.5s ease-in;
+}
+.ld-snackbar-snackbar.ld-snackbar-transitionExit {
+  opacity: 1;
+}
+.ld-snackbar-snackbar.ld-snackbar-transitionExitActive {
+  opacity: 0;
+  transition: opacity 0.75s ease-in;
+}
+
+.ld-snackbar-snackContainer {
+  box-sizing: border-box;
+  padding-block: 0;
+  padding-inline: var(--ld-primitive-scale-space-200);
+}
+@media screen and (min-width: 37.5rem) {
+  .ld-snackbar-snackContainer {
+    display: flex;
+    padding-block: 0;
+    padding-inline: var(--ld-primitive-scale-space-200);
+  }
+}
+
+.ld-snackbar-snack {
+  transform: translateY(calc(-100% - 0.5rem));
+}
+@media screen and (min-width: 37.5rem) {
+  .ld-snackbar-snack {
+    transform: translateY(calc(-100% - 1rem));
+  }
+}

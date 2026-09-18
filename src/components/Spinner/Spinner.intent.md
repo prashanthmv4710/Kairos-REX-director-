@@ -1,0 +1,1 @@
+Indeterminate loading indicator

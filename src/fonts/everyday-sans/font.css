@@ -1,0 +1,15 @@
+/* Everyday Sans UI */
+
+@font-face {
+  font-display: swap;
+  font-family: 'Everyday Sans UI';
+  font-weight: 400;
+  src: url('./EverydaySansUI-400.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Everyday Sans UI';
+  font-weight: 700;
+  src: url('./EverydaySansUI-700.woff2') format('woff2');
+}

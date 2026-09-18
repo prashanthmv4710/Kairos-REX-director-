@@ -1,0 +1,137 @@
+/* LD Portable – HeartView */
+:root { --wcp-heart-activated-color: var(--ld-semantic-color-border-activated, #0053e2); }
+
+.ld-wcp-heartview-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.ld-wcp-heartview-heartButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: none;
+  border-radius: var(--ld-primitive-scale-borderRadius-round, 9999px);
+  background: var(--ld-semantic-color-action-fill-secondary, #fff);
+  color: var(--ld-semantic-color-input-text-onFill, #2e2f32);
+  cursor: pointer;
+  padding: 0;
+  box-shadow: var(--ld-primitive-elevation-100);
+  transition: background-color 0.15s ease, box-shadow 0.15s ease, color 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+  position: relative;
+}
+
+.ld-wcp-heartview-heartButton:hover:not(:disabled):not(.ld-wcp-heartview-activated) {
+  background: var(--ld-semantic-color-input-fill-hovered, #f2f2f2);
+  box-shadow: 0 -1px 4px 0 rgba(0,0,0,0.12), 0 2px 4px 1px rgba(0,0,0,0.18);
+}
+.ld-wcp-heartview-heartButton:hover:not(:disabled).ld-wcp-heartview-activated {
+  box-shadow: 0 -1px 4px 0 rgba(0,0,0,0.12), 0 2px 4px 1px rgba(0,0,0,0.18);
+}
+.ld-wcp-heartview-heartButton:focus-visible { outline: 2px solid var(--ld-semantic-color-border-activated, #0071dc); outline-offset: 2px; }
+.ld-wcp-heartview-heartButton:active:not(:disabled) { box-shadow: 0 0 1px 0 rgba(0,0,0,0.08), 0 1px 2px 0 rgba(0,0,0,0.12); transform: scale(0.96); }
+
+.ld-wcp-heartview-activated {
+  background: var(--ld-semantic-color-action-fill-secondary, #fff);
+  color: var(--wcp-heart-activated-color);
+}
+
+.ld-wcp-heartview-disabled { opacity: 0.4; cursor: not-allowed; pointer-events: none; }
+
+.ld-wcp-heartview-iconWrap { display: inline-flex; align-items: center; justify-content: center; pointer-events: none; }
+.ld-wcp-heartview-iconOutline { color: var(--ld-semantic-color-text, #2e2f32); }
+.ld-wcp-heartview-iconFill { color: var(--wcp-heart-activated-color); }
+
+/*
+ * Sizing the heart icon: the `Icon` component renders an `<i>` font glyph and
+ * picks up its dimensions from `font-size`. Setting `font-size` on the
+ * `iconWrap` lets the responsive variant (which doesn't pass an explicit
+ * iconSize to `Icon`, so the inline style falls back to `1em`) render at the
+ * correct dimension inside the circular button. The explicit small/medium
+ * cases still get their font-size from `Icon`'s inline style — the rule here
+ * is a redundant safety net so the icon stays in sync with the container.
+ */
+.ld-wcp-heartview-sizeSmall {
+  width: 32px;
+  height: 32px;
+}
+.ld-wcp-heartview-sizeSmall .ld-wcp-heartview-iconWrap {
+  font-size: var(--ld-semantic-scale-icon-small, 16px);
+}
+
+.ld-wcp-heartview-sizeMedium {
+  width: 40px;
+  height: 40px;
+}
+.ld-wcp-heartview-sizeMedium .ld-wcp-heartview-iconWrap {
+  font-size: var(--ld-semantic-scale-icon-medium, 24px);
+}
+
+.ld-wcp-heartview-sizeResponsive {
+  width: 32px;
+  height: 32px;
+}
+.ld-wcp-heartview-sizeResponsive .ld-wcp-heartview-iconWrap {
+  font-size: var(--ld-semantic-scale-icon-small, 16px);
+}
+
+@media (min-width: 56.25rem) {
+  .ld-wcp-heartview-sizeResponsive {
+    width: 40px;
+    height: 40px;
+  }
+  .ld-wcp-heartview-sizeResponsive .ld-wcp-heartview-iconWrap {
+    font-size: var(--ld-semantic-scale-icon-medium, 24px);
+  }
+}
+
+.ld-wcp-heartview-callout { display: none; }
+
+.ld-wcp-heartview-calloutText {
+  font-size: var(--ld-semantic-font-body-small-size, 14px);
+  font-weight: var(--ld-primitive-font-weight-700);
+  line-height: 1.4285;
+  color: var(--ld-semantic-color-text-inverse, #fff);
+  text-align: center;
+}
+.ld-wcp-heartview-calloutAction {
+  display: block; background: transparent; border: none; cursor: pointer;
+  font-size: var(--ld-semantic-font-body-small-size, 14px);
+  font-weight: 400; color: var(--ld-semantic-color-text-inverse, #fff);
+  text-decoration: underline; text-underline-offset: 2px; padding: 0; white-space: nowrap;
+  text-align: right; width: 100%;
+}
+.ld-wcp-heartview-calloutAction:hover { opacity: 0.85; }
+.ld-wcp-heartview-calloutAction:focus-visible { outline: 2px solid rgba(255,255,255,0.8); outline-offset: 2px; border-radius: 2px; }
+.ld-wcp-heartview-calloutArrow { position: absolute; width: 0; height: 0; flex-shrink: 0; }
+
+@keyframes ld-wcp-heartview-calloutFadeInLeft { from { opacity: 0; transform: translateY(-50%) translateX(4px); } to { opacity: 1; transform: translateY(-50%) translateX(0); } }
+@keyframes ld-wcp-heartview-calloutFadeInRight { from { opacity: 0; transform: translateY(-50%) translateX(-4px); } to { opacity: 1; transform: translateY(-50%) translateX(0); } }
+@keyframes ld-wcp-heartview-calloutFadeInBottom { from { opacity: 0; transform: translateX(-50%) translateY(-4px); } to { opacity: 1; transform: translateX(-50%) translateY(0); } }
+@keyframes ld-wcp-heartview-calloutFadeInTop { from { opacity: 0; transform: translateX(-50%) translateY(4px); } to { opacity: 1; transform: translateX(-50%) translateY(0); } }
+
+@media (min-width: 56.25rem) {
+  .ld-wcp-heartview-callout {
+    display: flex; flex-direction: column; gap: 4px; position: absolute;
+    background: var(--ld-semantic-color-fill-inverse, #2e2f32); color: var(--ld-semantic-color-text-inverse, #fff);
+    border-radius: var(--ld-semantic-border-radius-medium);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.20), 0 1px 3px rgba(0,0,0,0.12); pointer-events: auto;
+  }
+  .ld-wcp-heartview-calloutLeft { right: calc(100% + 8px); top: 50%; transform: translateY(-50%); animation: ld-wcp-heartview-calloutFadeInLeft 0.12s ease; }
+  .ld-wcp-heartview-calloutLeft .ld-wcp-heartview-calloutArrow { right: -6px; top: 50%; transform: translateY(-50%); border-top: 6px solid transparent; border-bottom: 6px solid transparent; border-left: 6px solid var(--ld-semantic-color-fill-inverse, #2e2f32); }
+  .ld-wcp-heartview-calloutRight { left: calc(100% + 8px); top: 50%; transform: translateY(-50%); animation: ld-wcp-heartview-calloutFadeInRight 0.12s ease; }
+  .ld-wcp-heartview-calloutRight .ld-wcp-heartview-calloutArrow { left: -6px; top: 50%; transform: translateY(-50%); border-top: 6px solid transparent; border-bottom: 6px solid transparent; border-right: 6px solid var(--ld-semantic-color-fill-inverse, #2e2f32); }
+  .ld-wcp-heartview-calloutBottom { top: calc(100% + 8px); left: 50%; transform: translateX(-50%); animation: ld-wcp-heartview-calloutFadeInBottom 0.12s ease; }
+  .ld-wcp-heartview-calloutBottom .ld-wcp-heartview-calloutArrow { top: -6px; left: 50%; transform: translateX(-50%); border-left: 6px solid transparent; border-right: 6px solid transparent; border-bottom: 6px solid var(--ld-semantic-color-fill-inverse, #2e2f32); }
+  .ld-wcp-heartview-calloutTop { bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%); animation: ld-wcp-heartview-calloutFadeInTop 0.12s ease; }
+  .ld-wcp-heartview-calloutTop .ld-wcp-heartview-calloutArrow { bottom: -6px; left: 50%; transform: translateX(-50%); border-left: 6px solid transparent; border-right: 6px solid transparent; border-top: 6px solid var(--ld-semantic-color-fill-inverse, #2e2f32); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ld-wcp-heartview-heartButton { transition: none; }
+  .ld-wcp-heartview-heartButton:active:not(:disabled) { transform: none; }
+}

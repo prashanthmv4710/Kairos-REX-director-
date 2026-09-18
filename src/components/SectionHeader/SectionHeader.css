@@ -1,0 +1,113 @@
+/* LD Portable – SectionHeader (AX) */
+
+.ld-section-header {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Horizontal padding wrapper */
+.ld-section-header__content {
+  display: flex;
+  padding: 0 var(--ld-primitive-scale-space-200, 16px);
+}
+
+.ld-section-header__inner {
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-50, 4px);
+  min-width: 0;
+}
+
+/* Title row: title+count on the left, trailing on the right */
+.ld-section-header__title-row {
+  display: flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-200, 16px);
+  width: 100%;
+}
+
+/* Title + count inline group */
+.ld-section-header__title-group {
+  display: flex;
+  flex: 1 1 0;
+  align-items: baseline;
+  gap: var(--ld-primitive-scale-space-50, 4px);
+  min-width: 0;
+}
+
+/* Title text — size set per variant below */
+.ld-section-header__title {
+  margin: 0;
+  flex: 0 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--ld-semantic-color-text, #2e2f32);
+  font-weight: var(--ld-semantic-font-heading-medium-weight-default, 700);
+}
+
+.ld-section-header--large .ld-section-header__title {
+  font-family: var(--ld-semantic-font-heading-medium-family, 'Everyday Sans UI', sans-serif);
+  font-size: var(--ld-semantic-font-heading-medium-size-b-s, 1.25rem);
+  line-height: var(--ld-semantic-font-heading-medium-line-height-b-s, 1.75rem);
+}
+
+.ld-section-header--small .ld-section-header__title {
+  font-family: var(--ld-semantic-font-heading-small-family, 'Everyday Sans UI', sans-serif);
+  font-size: var(--ld-semantic-font-heading-small-size-b-s, 1.125rem);
+  line-height: var(--ld-semantic-font-heading-small-line-height-b-s, 1.5rem);
+}
+
+/* Count "(5)" — heading/small/alt (Regular weight) */
+.ld-section-header__count {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  color: var(--ld-semantic-color-text, #2e2f32);
+  font-family: var(--ld-semantic-font-heading-small-family, 'Everyday Sans UI', sans-serif);
+  font-size: var(--ld-semantic-font-heading-small-size-b-s, 1.125rem);
+  font-weight: var(--ld-semantic-font-heading-small-weight-alt, 400);
+  line-height: var(--ld-semantic-font-heading-small-line-height-b-s, 1.5rem);
+}
+
+/* Description — body/medium */
+.ld-section-header__description {
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--ld-semantic-color-text, #2e2f32);
+  font-family: var(--ld-semantic-font-body-medium-family, 'Everyday Sans UI', sans-serif);
+  font-size: var(--ld-semantic-font-body-medium-size, 1rem);
+  font-weight: var(--ld-semantic-font-body-medium-weight-default, 400);
+  line-height: var(--ld-semantic-font-body-medium-line-height, 1.5rem);
+  width: 100%;
+}
+
+/* Chevron toggle button — unstyled, icon only */
+.ld-section-header__chevron-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: var(--ld-semantic-color-text, #2e2f32);
+  line-height: 0;
+}
+
+.ld-section-header__chevron-btn:focus-visible {
+  outline: 2px solid var(--ld-semantic-color-border-activated, #0053e2);
+  outline-offset: 2px;
+  border-radius: var(--ld-semantic-border-radius-small);
+}
+
+/* Bottom padding spacer */
+.ld-section-header__bottom-pad {
+  height: var(--ld-primitive-scale-space-200, 16px);
+  flex-shrink: 0;
+}

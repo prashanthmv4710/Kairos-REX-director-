@@ -1,0 +1,54 @@
+/* LD Portable – Skeleton */
+/* Skeleton */
+.ld-skeleton-skeleton {
+  animation: skeleton 0.75s var(--ld-semantic-timing-linear) infinite alternate;
+  background: var(--ld-semantic-color-loading-subtlest, #f8f8f8);
+  height: 2rem;
+  width: 100%;
+}
+@media screen and (forced-colors: active), screen and (prefers-contrast: more) {
+  .ld-skeleton-skeleton {
+    border: 1px solid var(--ld-semantic-color-text, #2e2f32);
+  }
+}
+
+.ld-skeleton-rectangle {
+  border-radius: var(--ld-semantic-border-radius-medium);
+}
+
+.ld-skeleton-rounded {
+  border-radius: var(--ld-semantic-border-radius-round);
+}
+
+@keyframes skeleton {
+  from {
+    background: var(--ld-semantic-color-loading-subtlest, #f8f8f8);
+  }
+  to {
+    background: var(--ld-semantic-color-loading-subtle, #e3e4e5);
+  }
+}
+.ld-skeleton-isMagic {
+  animation: magic-skeleton 1.6s var(--ld-semantic-timing-ease-out) infinite normal;
+  background-image: linear-gradient(to right, var(--ld-semantic-color-loading-magic-subtle, #E9F1FE) 25%, var(--ld-semantic-color-loading-magic, #3D90EC), var(--ld-semantic-color-loading-magic-subtle, #E9F1FE) 75%);
+  background-position: 150%;
+  background-size: 200%;
+}
+
+@keyframes magic-skeleton {
+  to {
+    background-position: -50%;
+  }
+}
+
+/* SkeletonText */
+.ld-skeleton-skeletontext-skeletonText {
+  width: 100%;
+}
+
+.ld-skeleton-skeletontext-skeleton {
+  margin-bottom: 0.5rem;
+}
+.ld-skeleton-skeletontext-skeleton:last-child {
+  margin-bottom: 0;
+}

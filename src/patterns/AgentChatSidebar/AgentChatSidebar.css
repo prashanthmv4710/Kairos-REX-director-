@@ -1,0 +1,961 @@
+/* ========================================================================
+   AgentChatSidebar — agent-framework ("[AK] Sidebar") left rail.
+   Reuses the core SideNavigation `pageNav` design tokens so individual nav
+   items match the Living Design Side Navigation component.
+   ======================================================================== */
+
+.ld-agentchatsidebar {
+  --ld-agentchatsidebar-width: 18.75rem; /* 300px expanded */
+  --ld-agentchatsidebar-width-icon: 3.5625rem; /* 57px collapsed */
+
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: var(--ld-agentchatsidebar-width);
+  background: var(--ld-semantic-color-pageNav-fill, #ffffff);
+  border-right: 0.0625rem solid var(--ld-semantic-color-separator, #e3e4e5);
+  overflow: hidden;
+  transition: width 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* No width animation while a drag-resize is in flight. */
+.ld-agentchatsidebar--resizing {
+  transition: none;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Resize handle (right edge, expanded only)                         */
+/* ------------------------------------------------------------------ */
+.ld-agentchatsidebar__resize-handle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0.375rem;
+  height: 100%;
+  z-index: 2;
+  cursor: col-resize;
+  background: transparent;
+  /* A centered hairline that brightens on hover/drag/focus. */
+  border-right: 0.0625rem solid transparent;
+  transition: border-color 0.15s ease;
+}
+
+.ld-agentchatsidebar__resize-handle:hover,
+.ld-agentchatsidebar--resizing .ld-agentchatsidebar__resize-handle {
+  border-right-color: var(--ld-semantic-color-pageNav-indicator-activated, #0053e2);
+}
+
+.ld-agentchatsidebar__resize-handle:focus-visible {
+  outline: 0.125rem solid var(--ld-semantic-color-action-focus-outline, #0053e2);
+  outline-offset: -0.125rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ld-agentchatsidebar__resize-handle {
+    transition: none;
+  }
+}
+
+.ld-agentchatsidebar[data-state='collapsed'] {
+  width: var(--ld-agentchatsidebar-width-icon);
+  overflow: visible;
+}
+
+.ld-agentchatsidebar__inner {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ld-agentchatsidebar {
+    transition: none;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Header                                                            */
+/* ------------------------------------------------------------------ */
+.ld-agentchatsidebar__header {
+  display: flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-100);
+  /* Locked to 56 px so the sidebar header always pixel-aligns with the
+     main-content top app bar (also 56 px). Don't use min-height: taller
+     children should not stretch the bar. */
+  height: 3.5rem;
+  flex: 0 0 3.5rem;
+  padding-block: 0;
+  padding-inline: var(--ld-primitive-scale-space-200);
+  box-sizing: border-box;
+}
+
+.ld-agentchatsidebar[data-state='collapsed'] .ld-agentchatsidebar__header {
+  justify-content: center;
+  padding: 0;
+}
+
+.ld-agentchatsidebar__logo {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.ld-agentchatsidebar__titlewrap {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.ld-agentchatsidebar__titlerow {
+  display: flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-100);
+  min-width: 0;
+}
+
+.ld-agentchatsidebar__title {
+  min-width: 0;
+  font-family: var(--ld-semantic-font-heading-small-family, inherit);
+  font-size: var(--ld-semantic-font-heading-small-size-b-s, 1.125rem);
+  font-weight: var(--ld-semantic-font-heading-small-weight-default, 700);
+  line-height: var(--ld-semantic-font-heading-small-line-height-b-s, 1.5rem);
+  color: var(--ld-semantic-color-text, #2e2f32);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ld-agentchatsidebar__title-tag {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* The "two lines" header caption beneath the app name. */
+.ld-agentchatsidebar__subtitle {
+  font-size: var(--ld-semantic-font-caption-size);
+  font-weight: var(--ld-primitive-font-weight-400);
+  line-height: var(--ld-semantic-font-caption-line-height);
+  color: var(--ld-semantic-color-text-subtle, #74767c);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Inline expanding search (header)                                   */
+/* ------------------------------------------------------------------ */
+.ld-agentchatsidebar__search {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--ld-primitive-scale-space-50);
+  flex-shrink: 0;
+}
+
+/* When open, the logo + app name collapse and this claims the whole header row
+   so the SearchBar takes the full width. */
+.ld-agentchatsidebar__searchOpen {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-50);
+  /* Grow from the right edge toward the left as it appears. */
+  transform-origin: right center;
+  animation: ld-agentchatsidebar-search-grow 180ms ease-out;
+}
+
+/* The SearchBar (inline) fills the collapsed header row. */
+.ld-agentchatsidebar__searchbar {
+  flex: 1;
+  min-width: 0;
+}
+
+@keyframes ld-agentchatsidebar-search-grow {
+  from {
+    transform: scaleX(0.4);
+    opacity: 0;
+  }
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Editable label (header title + text-item rename)                  */
+/* ------------------------------------------------------------------ */
+.ld-agentchatsidebar__edit-text {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: text;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  border-radius: var(--ld-semantic-border-radius-medium);
+}
+
+.ld-agentchatsidebar__edit-text:hover {
+  background: var(--ld-semantic-color-pageNav-fill-hovered, #f1f1f2);
+}
+
+.ld-agentchatsidebar__edit-input {
+  flex: 1;
+  min-width: 0;
+  font: inherit;
+  color: var(--ld-semantic-color-text, #2e2f32);
+  padding: 0.125rem 0.375rem;
+  border: 0.0625rem solid var(--ld-semantic-color-border-activated, #0053e2);
+  border-radius: 0.375rem;
+  outline: none;
+  background: var(--ld-semantic-color-surface, #ffffff);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Content + separator                                               */
+/* ------------------------------------------------------------------ */
+.ld-agentchatsidebar__content {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-semantic-spacing-25, 0.125rem);   /* 2 px between items/sections */
+  padding: var(--ld-semantic-spacing-100, 0.5rem) 0;
+}
+
+/* Collapsed rail tooltips render outside the sidebar width. */
+.ld-agentchatsidebar[data-state='collapsed'] .ld-agentchatsidebar__content {
+  overflow: visible;
+}
+
+.ld-agentchatsidebar__separator {
+  padding-block: var(--ld-primitive-scale-space-50);
+  padding-inline: var(--ld-primitive-scale-space-200);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Primary button item                                               */
+/* ------------------------------------------------------------------ */
+.ld-agentchatsidebar__item {
+  display: flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-150);
+  position: relative;
+  box-sizing: border-box;
+  /* No horizontal padding here — padding lives on the children (-control and
+     -trailing) so the entire highlighted row is also the click target.
+     Previously the row had inline padding but the button was narrower,
+     meaning the hover highlight extended beyond the clickable area. */
+  padding: 0;
+  /* Declared on the row (not `-control`) so the `--current` modifier below
+     can override it — a child's own `color` would otherwise always win over
+     an inherited value from its parent, no matter the modifier's specificity. */
+  color: var(--ld-semantic-color-pageNav-text-onFill, #2e2f32);
+}
+
+/* The row's real button/anchor — icon + label + tag only. `trailing` (an
+   independently-focusable edit/overflow control) is a sibling of this, not a
+   child, so the row is never a control nested inside another control. */
+.ld-agentchatsidebar__item-control {
+  display: flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-150);
+  flex: 1;
+  min-width: 0;
+  /* Owns the padding so the click target (the button) matches the hovered area. */
+  padding: var(--ld-semantic-spacing-25, 0.125rem) 0 var(--ld-semantic-spacing-25, 0.125rem) var(--ld-semantic-spacing-200, 1rem);
+  border: none;
+  background: transparent;
+  color: inherit;
+  font-family: var(--ld-semantic-font-body-small-family, inherit);
+  font-size: var(--ld-semantic-font-body-small-size, 0.875rem);
+  font-weight: var(--ld-semantic-font-body-small-weight-default, 400);
+  line-height: var(--ld-semantic-font-body-small-line-height, 1.25rem);
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Left-accent indicator bar — hidden until the item is current. */
+.ld-agentchatsidebar__item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: var(--ld-semantic-spacing-50, 0.25rem);
+  bottom: var(--ld-semantic-spacing-50, 0.25rem);
+  width: var(--ld-semantic-spacing-50, 0.25rem);
+  border-radius: 0 var(--ld-semantic-border-radius-round, 62.5rem) var(--ld-semantic-border-radius-round, 62.5rem) 0;
+  background: var(--ld-semantic-color-pageNav-indicator-activated, #0053e2);
+  opacity: 0;
+}
+
+.ld-agentchatsidebar[data-state='collapsed'] .ld-agentchatsidebar__item {
+  justify-content: center;
+  padding: var(--ld-primitive-scale-space-100);
+}
+
+/* Collapsed: `-control` still stretches to `flex: 1`, so it is the control's
+   own content (just the icon) that needs centering, not the row. Also reset
+   the expanded inline-start padding added above — on the 56px collapsed
+   rail that padding pushes the icon off-axis (22px from the left edge vs
+   6px from the right, should be ~14/14) instead of centering the icon in
+   the full width. */
+.ld-agentchatsidebar[data-state='collapsed'] .ld-agentchatsidebar__item-control {
+  justify-content: center;
+  padding-inline: 0;
+}
+
+.ld-agentchatsidebar[data-state='collapsed'] .ld-agentchatsidebar__item::before {
+  display: none;
+}
+
+.ld-agentchatsidebar__item:hover {
+  background: var(--ld-semantic-color-pageNav-fill-hovered, #f1f1f2);
+}
+
+.ld-agentchatsidebar__item:active {
+  background: var(--ld-semantic-color-pageNav-fill-pressed, #e3e4e5);
+}
+
+/* The row itself is never focused directly — the inner button/anchor (or the
+   sibling `trailing` control) is — so use `:focus-within` for the background
+   wash, like `.ld-agentchatsidebar__textitem` does, and put the actual
+   keyboard-focus outline on whichever inner control really has focus. */
+.ld-agentchatsidebar__item:focus-within {
+  background: var(--ld-semantic-color-pageNav-fill-focused, #f0f5ff);
+}
+
+.ld-agentchatsidebar__item-control:focus-visible {
+  outline: 0.125rem solid var(--ld-semantic-color-action-focus-outline, #0053e2);
+  outline-offset: -0.125rem;
+}
+
+/* Activated item — flush left-accent bar, matching core SideNavigationItem. */
+.ld-agentchatsidebar__item--current {
+  background: var(--ld-semantic-color-pageNav-fill-activated, #f0f5ff);
+  color: var(--ld-semantic-color-pageNav-text-onFill-activated, #2e2f32);
+}
+
+.ld-agentchatsidebar__item--current::before {
+  opacity: 1;
+}
+
+.ld-agentchatsidebar__item--current:hover {
+  background: var(--ld-semantic-color-pageNav-fill-activated-hovered, #e9f1fe);
+}
+
+.ld-agentchatsidebar__item--current:active {
+  background: var(--ld-semantic-color-pageNav-fill-activated-pressed, #c9dcfd);
+}
+
+.ld-agentchatsidebar__item--current:focus-within {
+  background: var(--ld-semantic-color-pageNav-fill-activated-focused, #e9f1fe);
+}
+
+.ld-agentchatsidebar__item-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+.ld-agentchatsidebar__item-icon svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.ld-agentchatsidebar__item-label {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  /* Inline-end breathing room. This lives on the label, not on `-control`,
+     so the button still fills the row (that is the whole point of moving
+     the padding down to `-control`/`-trailing`) while a truncated label's
+     ellipsis does not sit flush against the rail's right wall. When a
+     `trailing` control is present this stacks with the row `gap` — check
+     the "with trailing control" card in the viewer and trim if it reads
+     too loose. */
+  padding-inline-end: var(--ld-semantic-spacing-200, 1rem);
+}
+
+.ld-agentchatsidebar__item-tag {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.ld-agentchatsidebar__item-trailing {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  /* Trailing slot owns its own inline-end padding so the row's right edge
+     is fully clickable (via the -control) and the trailing control has
+     breathing room from the sidebar wall. */
+  padding-inline-end: var(--ld-semantic-spacing-200, 1rem);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Section                                                           */
+/* ------------------------------------------------------------------ */
+.ld-agentchatsidebar__section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-semantic-spacing-25, 0.125rem);   /* 2 px between text items */
+}
+
+.ld-agentchatsidebar__section-title {
+  padding: var(--ld-semantic-spacing-100, 0.5rem) var(--ld-semantic-spacing-200, 1rem) var(--ld-semantic-spacing-25, 0.125rem);
+  font-family: var(--ld-semantic-font-body-small-family, inherit);
+  font-size: var(--ld-semantic-font-body-small-size, 0.875rem);
+  font-weight: var(--ld-semantic-font-body-small-weight-alt, 700);
+  line-height: var(--ld-semantic-font-body-small-line-height, 1.25rem);
+  color: var(--ld-semantic-color-text, #2e2f32);
+}
+
+/* Collapsible section header — a full-width toggle with a trailing chevron. */
+.ld-agentchatsidebar__section-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ld-semantic-spacing-100, 0.5rem);
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+  /* Re-state the type since `font: inherit` resets it. */
+  font-size: var(--ld-semantic-font-body-small-size, 0.875rem);
+  font-weight: var(--ld-semantic-font-body-small-weight-alt, 700);
+  line-height: var(--ld-semantic-font-body-small-line-height, 1.25rem);
+}
+
+.ld-agentchatsidebar__section-toggle:hover {
+  color: var(--ld-semantic-color-text, #2e2f32);
+}
+
+.ld-agentchatsidebar__section-toggle:focus-visible {
+  outline: 0.125rem solid var(--ld-semantic-color-action-focus-outline, #0053e2);
+  outline-offset: -0.125rem;
+  border-radius: var(--ld-semantic-border-radius-medium);
+}
+
+.ld-agentchatsidebar__section-chevron {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  color: var(--ld-semantic-color-text-subtle, #74767c);
+  transition: transform var(--ld-semantic-duration-fast, 0.2s)
+    var(--ld-semantic-timing-ease-out, cubic-bezier(0.165, 0.84, 0.44, 1));
+}
+
+.ld-agentchatsidebar__section-chevron--open {
+  transform: rotate(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ld-agentchatsidebar__section-chevron {
+    transition: none;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Text item (secondary)                                             */
+/* ------------------------------------------------------------------ */
+.ld-agentchatsidebar__textitem {
+  display: flex;
+  align-items: center;
+  gap: var(--ld-semantic-spacing-100, 0.5rem);
+  position: relative;
+  box-sizing: border-box;
+  /* Full-bleed row (edge-to-edge), matching core SideNavigationItem — the
+     left-accent bar below sits flush against the rail's left edge. */
+  padding: var(--ld-semantic-spacing-25, 0.125rem) var(--ld-semantic-spacing-200, 1rem);
+  color: var(--ld-semantic-color-pageNav-text-onFill, #2e2f32);
+}
+
+/* Left-accent indicator bar — hidden until the item is current. */
+.ld-agentchatsidebar__textitem::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: var(--ld-semantic-spacing-50, 0.25rem);
+  bottom: var(--ld-semantic-spacing-50, 0.25rem);
+  width: var(--ld-semantic-spacing-50, 0.25rem);
+  border-radius: 0 var(--ld-semantic-border-radius-round, 62.5rem) var(--ld-semantic-border-radius-round, 62.5rem) 0;
+  background: var(--ld-semantic-color-pageNav-indicator-activated, #0053e2);
+  opacity: 0;
+}
+
+.ld-agentchatsidebar__textitem:hover {
+  background: var(--ld-semantic-color-pageNav-fill-hovered, #f1f1f2);
+}
+
+.ld-agentchatsidebar__textitem:active {
+  background: var(--ld-semantic-color-pageNav-fill-pressed, #e3e4e5);
+}
+
+/* The row itself is never focused directly — the inner label link / overflow
+   button are the focusable elements — so use :focus-within (like the
+   pin ↔ more crossfade below) rather than :focus-visible. */
+.ld-agentchatsidebar__textitem:focus-within {
+  background: var(--ld-semantic-color-pageNav-fill-focused, #f0f5ff);
+}
+
+/* Activated text item — flush left-accent bar, matching core SideNavigationItem. */
+.ld-agentchatsidebar__textitem--current {
+  background: var(--ld-semantic-color-pageNav-fill-activated, #f0f5ff);
+}
+
+.ld-agentchatsidebar__textitem--current::before {
+  opacity: 1;
+}
+
+.ld-agentchatsidebar__textitem--current:hover {
+  background: var(--ld-semantic-color-pageNav-fill-activated-hovered, #e9f1fe);
+}
+
+.ld-agentchatsidebar__textitem--current:active {
+  background: var(--ld-semantic-color-pageNav-fill-activated-pressed, #c9dcfd);
+}
+
+.ld-agentchatsidebar__textitem--current:focus-within {
+  background: var(--ld-semantic-color-pageNav-fill-activated-focused, #e9f1fe);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Overflow button in text items — hidden by default, shown on        */
+/*  row hover, keyboard focus, and while the menu is open.            */
+/* ------------------------------------------------------------------ */
+.ld-agentchatsidebar__textitem .ld-iconbutton-iconButton {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Pinned text item — the overflow trigger is always visible (shows pin icon
+   at rest, … on row hover/focus), so we override the default opacity: 0.
+   Placed after the default rule so equal-specificity cascade resolves correctly. */
+.ld-agentchatsidebar__textitem--pinned .ld-iconbutton-iconButton {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Show on row hover */
+.ld-agentchatsidebar__textitem:hover .ld-iconbutton-iconButton {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Show when the button itself receives keyboard focus */
+.ld-agentchatsidebar__textitem .ld-iconbutton-iconButton:focus-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Show while the overflow menu is open (trigger is expanded) */
+.ld-agentchatsidebar__textitem .ld-iconbutton-iconButton[aria-expanded='true'] {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Overflow button background tokens (inside text item rows)         */
+/* ------------------------------------------------------------------ */
+/* Row hover but pointer not over the button — fully transparent fill */
+.ld-agentchatsidebar__textitem:hover .ld-iconbutton-tertiary {
+  background: var(--ld-primitive-color-transparent-dark-0, transparent);
+}
+
+/* Hovering or focusing the button itself — 10 % black overlay */
+.ld-agentchatsidebar__textitem .ld-iconbutton-tertiary:hover,
+.ld-agentchatsidebar__textitem .ld-iconbutton-tertiary:focus-visible {
+  background: var(--ld-primitive-color-transparent-dark-10, rgba(0, 0, 0, 0.1));
+}
+
+/* Pressing the button — 20 % black overlay */
+.ld-agentchatsidebar__textitem .ld-iconbutton-tertiary:active {
+  background: var(--ld-primitive-color-transparent-dark-20, rgba(0, 0, 0, 0.2));
+}
+
+.ld-agentchatsidebar__textitem-label {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--ld-semantic-font-body-small-family, inherit);
+  font-size: var(--ld-semantic-font-body-small-size, 0.875rem);
+  font-weight: var(--ld-semantic-font-body-small-weight-default, 400);
+  line-height: var(--ld-semantic-font-body-small-line-height, 1.25rem);
+  color: inherit;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ld-agentchatsidebar__textitem-link {
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.ld-agentchatsidebar__textitem-link:focus-visible {
+  outline: 0.125rem solid var(--ld-semantic-color-action-focus-outline, #0053e2);
+  outline-offset: 0.125rem;
+  border-radius: var(--ld-semantic-border-radius-medium);
+}
+
+.ld-agentchatsidebar__textitem-input {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--ld-semantic-font-body-small-family, inherit);
+  font-size: var(--ld-semantic-font-body-small-size, 0.875rem);
+  font-weight: var(--ld-semantic-font-body-small-weight-default, 400);
+  line-height: var(--ld-semantic-font-body-small-line-height, 1.25rem);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Pin ↔ More crossfade (inside the overflow IconButton trigger)      */
+/*  Mirrors the logo-toggle pattern: both icons are stacked with       */
+/*  position:absolute inside a position:relative wrapper span.         */
+/* ------------------------------------------------------------------ */
+.ld-agentchatsidebar__textitem-toggle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1em;
+  height: 1em;
+}
+
+.ld-agentchatsidebar__textitem-pin-icon,
+.ld-agentchatsidebar__textitem-more-icon {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.15s ease;
+}
+
+/* Pin face: visible at rest */
+.ld-agentchatsidebar__textitem-pin-icon {
+  opacity: 1;
+  color: var(--ld-semantic-color-text-subtle, #74767c);
+}
+
+/* More face: hidden at rest */
+.ld-agentchatsidebar__textitem-more-icon {
+  opacity: 0;
+}
+
+/* On row hover or focus-within: pin fades out, More fades in */
+.ld-agentchatsidebar__textitem:hover .ld-agentchatsidebar__textitem-pin-icon,
+.ld-agentchatsidebar__textitem:focus-within .ld-agentchatsidebar__textitem-pin-icon {
+  opacity: 0;
+}
+
+.ld-agentchatsidebar__textitem:hover .ld-agentchatsidebar__textitem-more-icon,
+.ld-agentchatsidebar__textitem:focus-within .ld-agentchatsidebar__textitem-more-icon {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ld-agentchatsidebar__textitem-pin-icon,
+  .ld-agentchatsidebar__textitem-more-icon {
+    transition: none;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Segment control                                                  */
+/* ------------------------------------------------------------------ */
+.ld-agentchatsidebar__segment {
+  padding-block: var(--ld-primitive-scale-space-100);
+  padding-inline: var(--ld-primitive-scale-space-200);
+}
+
+.ld-agentchatsidebar[data-state='collapsed'] .ld-agentchatsidebar__segment {
+  padding: var(--ld-primitive-scale-space-100);
+  display: flex;
+  justify-content: center;
+}
+
+/* Collapsed single icon-only segment — round every corner since it stands
+   alone (the icon-only variant already supplies the square 8px padding). */
+.ld-agentchatsidebar__segment--collapsed .ld-segmented-control-segment {
+  border-radius: var(--ld-primitive-scale-border-radius-100, 0.5rem);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Footer                                                            */
+/* ------------------------------------------------------------------ */
+.ld-agentchatsidebar__footer {
+  border-top: 0.0625rem solid var(--ld-semantic-color-separator, #e3e4e5);
+  padding: var(--ld-semantic-spacing-100, 0.5rem) var(--ld-semantic-spacing-200, 1rem);
+  display: flex;
+  flex-direction: column;
+}
+
+.ld-agentchatsidebar[data-state='collapsed'] .ld-agentchatsidebar__footer {
+  padding: var(--ld-semantic-spacing-100, 0.5rem);
+  align-items: center;
+}
+
+.ld-agentchatsidebar__footer-button {
+  display: flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-100);
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  background: none;
+  padding: var(--ld-primitive-scale-space-50);
+  border-radius: var(--ld-semantic-border-radius-large);
+  font: inherit;
+  color: var(--ld-semantic-color-text, #2e2f32);
+  cursor: pointer;
+  text-align: left;
+}
+
+.ld-agentchatsidebar[data-state='collapsed'] .ld-agentchatsidebar__footer-button {
+  width: auto;
+  justify-content: center;
+}
+
+.ld-agentchatsidebar__footer-button:hover {
+  background: var(--ld-semantic-color-pageNav-fill-hovered, #f1f1f2);
+}
+
+.ld-agentchatsidebar__footer-button:focus-visible {
+  outline: 0.125rem solid var(--ld-semantic-color-action-focus-outline, #0053e2);
+  outline-offset: 0.125rem;
+}
+
+.ld-agentchatsidebar__footer-label {
+  flex: 1;
+  min-width: 0;
+  font-size: var(--ld-semantic-font-body-small-size);
+  font-weight: var(--ld-primitive-font-weight-700);
+  line-height: var(--ld-semantic-font-body-small-line-height);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ld-agentchatsidebar__footer-menu-segment {
+  padding-block: var(--ld-primitive-scale-space-100);
+  padding-inline: var(--ld-primitive-scale-space-150);
+}
+
+/* Accordion footer */
+.ld-agentchatsidebar__footer-accordion-row {
+  align-items: center;
+}
+
+.ld-agentchatsidebar__footer-accordion-text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.ld-agentchatsidebar__footer-accordion-title {
+  font-size: var(--ld-semantic-font-body-small-size);
+  font-weight: var(--ld-primitive-font-weight-700);
+  line-height: var(--ld-semantic-font-body-small-line-height);
+  color: var(--ld-semantic-color-text, #2e2f32);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ld-agentchatsidebar__footer-accordion-subtext {
+  font-size: var(--ld-semantic-font-caption-size);
+  font-weight: var(--ld-primitive-font-weight-400);
+  line-height: var(--ld-semantic-font-caption-line-height);
+  color: var(--ld-semantic-color-text-subtle, #74767c);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ld-agentchatsidebar__footer-accordion-chevron {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  color: var(--ld-semantic-color-text-subtle, #74767c);
+  transition: transform var(--ld-semantic-duration-fast, 0.2s)
+    var(--ld-semantic-timing-ease-out, cubic-bezier(0.165, 0.84, 0.44, 1));
+}
+
+.ld-agentchatsidebar__footer-accordion-chevron--open {
+  transform: rotate(180deg);
+}
+
+.ld-agentchatsidebar__footer-accordion-content {
+  padding-block-start: var(--ld-primitive-scale-space-100);
+  padding-block-end: var(--ld-primitive-scale-space-150);
+  padding-inline: var(--ld-primitive-scale-space-50);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ld-agentchatsidebar__footer-accordion-chevron {
+    transition: none;
+  }
+}
+
+/* ------------------------------------------------------------------ --
+   Logo toggle (header logo-as-collapse-button behavior)
+   ------------------------------------------------------------------- */
+.ld-agentchatsidebar__logo-toggle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  background: none;
+  padding: 0;
+  border-radius: var(--ld-primitive-scale-borderRadius-100, 0.5rem);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.ld-agentchatsidebar__logo-toggle:focus-visible {
+  outline: 0.125rem solid var(--ld-semantic-color-action-focus-outline, #0053e2);
+  outline-offset: 0.125rem;
+}
+
+/* The logo and the toggle icon are stacked in the same cell; exactly one
+   is visible at a time based on hover/focus. */
+.ld-agentchatsidebar__logo-toggle-logo,
+.ld-agentchatsidebar__logo-toggle-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  inset: 0;
+  transition: opacity 0.15s ease;
+}
+
+.ld-agentchatsidebar__logo-toggle-logo {
+  opacity: 1;
+  width: var(--ld-semantic-scale-icon-medium, 1.5rem);
+  height: var(--ld-semantic-scale-icon-medium, 1.5rem);
+  margin: auto;
+}
+
+/* DotLottieReact renders <div style="line-height:0"><canvas style="width:100%;height:100%">.
+   The div needs explicit dimensions; the canvas needs display:block so that
+   height:100% resolves against the div height rather than the inline line box. */
+.ld-agentchatsidebar__logo-toggle-logo div {
+  width: var(--ld-semantic-scale-icon-medium, 1.5rem);
+  height: var(--ld-semantic-scale-icon-medium, 1.5rem);
+}
+
+.ld-agentchatsidebar__logo-toggle-logo canvas {
+  display: block;
+}
+
+.ld-agentchatsidebar__logo-toggle-icon {
+  opacity: 0;
+  color: var(--ld-semantic-color-text-subtle, #74767c);
+}
+
+.ld-agentchatsidebar__logo-toggle:hover .ld-agentchatsidebar__logo-toggle-logo,
+.ld-agentchatsidebar__logo-toggle:focus-visible .ld-agentchatsidebar__logo-toggle-logo {
+  opacity: 0;
+}
+
+.ld-agentchatsidebar__logo-toggle:hover .ld-agentchatsidebar__logo-toggle-icon,
+.ld-agentchatsidebar__logo-toggle:focus-visible .ld-agentchatsidebar__logo-toggle-icon {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ld-agentchatsidebar__logo-toggle-logo,
+  .ld-agentchatsidebar__logo-toggle-icon {
+    transition: none;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Lock / expand toggle                                              */
+/* ------------------------------------------------------------------ */
+.ld-agentchatsidebar__lock {
+  padding-block: var(--ld-primitive-scale-space-100);
+  padding-inline: var(--ld-primitive-scale-space-150);
+}
+
+.ld-agentchatsidebar[data-state='collapsed'] .ld-agentchatsidebar__lock {
+  padding: var(--ld-primitive-scale-space-100);
+}
+
+.ld-agentchatsidebar__lock-toggle {
+  display: flex;
+  align-items: center;
+  height: 2.25rem;
+  border: none;
+  background: transparent;
+  border-radius: var(--ld-semantic-border-radius-large);
+  cursor: pointer;
+  font: inherit;
+  color: var(--ld-semantic-color-text, #2e2f32);
+  transition: background-color var(--ld-semantic-duration-fast, 0.2s)
+    var(--ld-semantic-timing-ease-out, cubic-bezier(0.165, 0.84, 0.44, 1));
+}
+
+.ld-agentchatsidebar__lock-toggle--expanded {
+  width: 100%;
+  padding-block: 0;
+  padding-inline: var(--ld-primitive-scale-space-100);
+  gap: var(--ld-primitive-scale-space-100);
+  justify-content: space-between;
+}
+
+.ld-agentchatsidebar__lock-toggle--collapsed {
+  width: 2.5rem;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.ld-agentchatsidebar__lock-toggle:hover {
+  background: var(--ld-semantic-color-pageNav-fill-hovered, #f1f1f2);
+}
+
+.ld-agentchatsidebar__lock-toggle:focus-visible {
+  outline: 0.125rem solid var(--ld-semantic-color-action-focus-outline, #0053e2);
+  outline-offset: -0.125rem;
+}
+
+.ld-agentchatsidebar__lock-label {
+  font-size: var(--ld-semantic-font-body-small-size);
+  font-weight: var(--ld-primitive-font-weight-400);
+  line-height: var(--ld-semantic-font-body-small-line-height);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

@@ -1,0 +1,13 @@
+.px-label {
+  display: inline-block;
+  line-height: 1;
+  font-family: var(--ld-semantic-font-family-sans);
+  font-size: var(--ld-semantic-font-body-small-size, 0.875rem);
+  font-weight: var(--ld-semantic-font-body-small-weight-alt, 700);
+  color: var(--ld-semantic-color-text, #2e2f32);
+}
+
+.px-label[data-disabled] {
+  cursor: not-allowed;
+  opacity: 0.7;
+}

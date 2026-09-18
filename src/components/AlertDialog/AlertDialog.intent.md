@@ -1,0 +1,1 @@
+Confirmation dialog (destructive flows)

@@ -1,0 +1,48 @@
+{
+  "$comment": "Theme-to-icon-font mapping. Designers: edit this file to change which icon font a theme uses. The 'ld' (Living Design) base icons are always loaded for every theme in addition to the primary font listed here.",
+  "themes": {
+    "Walmart": "wcp",
+    "Sam's Club": "sams-club",
+    "Sam's Club Maverick": "sams-club",
+    "Walmart B2B": "wcp",
+    "Bodega": "bodega",
+    "Cashi MX": "wcp",
+    "Data Ventures": "wcp",
+    "Walmart+": "wcp",
+    "Member's Mark": "wcp"
+  },
+  "fonts": {
+    "ld": {
+      "label": "Living Design",
+      "description": "Base icon set. Always loaded for every theme."
+    },
+    "wcp": {
+      "label": "Walmart Commerce Platform",
+      "description": "Full commerce icon set."
+    },
+    "sams-club": {
+      "label": "Sam's Club",
+      "description": "Sam's Club branded icon set."
+    },
+    "bodega": {
+      "label": "Bodega",
+      "description": "Bodega Aurrera icon set."
+    },
+    "ax": {
+      "label": "Accessibility",
+      "description": "Accessibility-specific icons."
+    },
+    "ax-sams-club": {
+      "label": "Accessibility (Sam's Club)",
+      "description": "Sam's Club accessibility icons."
+    },
+    "px": {
+      "label": "Patient Experience",
+      "description": "Healthcare/pharmacy icons."
+    },
+    "px-sams-club": {
+      "label": "Patient Experience (Sam's Club)",
+      "description": "Sam's Club patient experience icons."
+    }
+  }
+}

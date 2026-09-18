@@ -1,0 +1,236 @@
+/* LD Portable -- Slider (PX Component Library v2.2) */
+
+.ld-slider {
+  --ld-slider-track-height: 8px;
+  --ld-slider-thumb-size: 20px;
+  --ld-slider-control-padding: 12px;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-50, 4px);
+  width: 100%;
+  touch-action: none;
+  user-select: none;
+}
+
+.ld-slider--small {
+  --ld-slider-control-padding: 8px;
+}
+
+/* ---- Header (label + value) ---- */
+.ld-slider-header,
+.ld-slider-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ld-primitive-scale-space-150, 12px);
+}
+
+/* Label group — wraps label text, required marker, and info icon */
+.ld-slider-label-group {
+  display: flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-50, 4px);
+  min-width: 0;
+}
+
+/* Required asterisk */
+.ld-slider-required {
+  font-weight: var(--ld-semantic-font-body-small-weight-alt, 700);
+}
+
+/* Info icon button */
+.ld-slider-info-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: var(--ld-semantic-color-text-subtle, #515357);
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.ld-slider-info-btn:hover {
+  color: var(--ld-semantic-color-text, #2e2f32);
+}
+
+.ld-slider--disabled .ld-slider-info-btn {
+  cursor: not-allowed;
+  color: var(--ld-semantic-color-text-disabled, #babbbe);
+  pointer-events: none;
+}
+
+.ld-slider-label,
+.ld-slider-value {
+  color: var(--ld-semantic-color-text, #2e2f32);
+  font-family: var(--ld-semantic-font-body-small-family, 'Everyday Sans UI'), sans-serif;
+  font-size: var(--ld-semantic-font-body-small-size, 14px);
+  line-height: var(--ld-semantic-font-body-small-line-height, 20px);
+  font-weight: var(--ld-semantic-font-body-small-weight-alt, 700);
+}
+
+.ld-slider--small .ld-slider-label,
+.ld-slider--small .ld-slider-value {
+  font-size: var(--ld-semantic-font-caption-size, 12px);
+  line-height: var(--ld-semantic-font-caption-line-height, 16px);
+  font-weight: var(--ld-semantic-font-caption-weight-alt, 700);
+}
+
+.ld-slider-value {
+  text-align: right;
+}
+
+/* ---- Footer (min / max captions) ---- */
+.ld-slider-min,
+.ld-slider-max {
+  color: var(--ld-semantic-color-text-subtle, #515357);
+  font-family: var(--ld-semantic-font-caption-family, 'Everyday Sans UI'), sans-serif;
+  font-size: var(--ld-semantic-font-caption-size, 12px);
+  line-height: var(--ld-semantic-font-caption-line-height, 16px);
+  font-weight: var(--ld-semantic-font-caption-weight-default, 400);
+}
+
+.ld-slider-max {
+  text-align: right;
+}
+
+/* ---- Interactive control (track + thumbs) ---- */
+.ld-slider-control {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  /* Reserve room so thumbs at 0% / 100% are not clipped. */
+  padding-block: var(--ld-slider-control-padding);
+  margin-block: calc(var(--ld-slider-thumb-size) / -4);
+}
+
+/* Track */
+.ld-slider-track {
+  position: relative;
+  height: var(--ld-slider-track-height);
+  width: 100%;
+  flex-grow: 1;
+  overflow: hidden;
+  border-radius: var(--ld-semantic-border-radius-medium);
+  cursor: pointer;
+  background-color: var(--ld-semantic-color-progress-fill-subtle, #e3e4e5);
+}
+
+.ld-slider--disabled .ld-slider-track {
+  cursor: not-allowed;
+}
+
+/* Tick marks overlay — sits above the track, not inside it */
+.ld-slider-ticks {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: var(--ld-slider-track-height);
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.ld-slider-tick {
+  position: absolute;
+  top: 50%;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--ld-semantic-color-fill, #ffffff);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+/* First and last ticks flush against the track edges so they stay fully on
+   the gray/filled area and aren't half-clipped by border-radius. */
+.ld-slider-tick:first-child {
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.ld-slider-tick:last-child {
+  left: auto;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+/* Active (filled) portion of the track */
+.ld-slider-fill {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  background-color: var(--ld-semantic-color-fill-activated, #0053e2);
+  border-radius: var(--ld-semantic-border-radius-medium);
+}
+
+.ld-slider--disabled .ld-slider-fill {
+  background-color: var(--ld-semantic-color-fill-activated-disabled, #babbbe);
+}
+
+/* Thumb */
+.ld-slider-thumb {
+  position: absolute;
+  display: block;
+  width: var(--ld-slider-thumb-size);
+  height: var(--ld-slider-thumb-size);
+  border-radius: var(--ld-semantic-border-radius-round);
+  background-color: var(--ld-semantic-color-fill-activated, #0053e2);
+  box-shadow: var(--ld-semantic-elevation-100);
+  cursor: grab;
+  transition: box-shadow 0.15s ease;
+  box-sizing: border-box;
+}
+
+.ld-slider-thumb:active,
+.ld-slider--dragging .ld-slider-thumb {
+  cursor: grabbing;
+}
+
+.ld-slider--dragging,
+.ld-slider--dragging .ld-slider-control,
+.ld-slider--dragging .ld-slider-track {
+  cursor: grabbing;
+}
+
+.ld-slider-thumb:focus-visible {
+  outline: 2px solid var(--ld-semantic-color-border-activated, #0053e2);
+  outline-offset: 2px;
+}
+
+.ld-slider-thumb:hover {
+  box-shadow:
+    var(--ld-semantic-elevation-100),
+    0 0 0 6px var(--ld-semantic-color-fill-brand-subtle, rgba(0, 83, 226, 0.15));
+}
+
+/* ---- Disabled ---- */
+.ld-slider--disabled {
+  pointer-events: none;
+}
+
+.ld-slider--disabled .ld-slider-label,
+.ld-slider--disabled .ld-slider-value,
+.ld-slider--disabled .ld-slider-min,
+.ld-slider--disabled .ld-slider-max {
+  color: var(--ld-semantic-color-text-disabled, #babbbe);
+}
+
+.ld-slider--disabled .ld-slider-thumb {
+  background-color: var(--ld-semantic-color-fill-activated-disabled, #babbbe);
+  cursor: not-allowed;
+}
+
+.ld-slider--disabled .ld-slider-thumb:hover {
+  box-shadow: var(--ld-semantic-elevation-100);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ld-slider-thumb {
+    transition: none !important;
+  }
+}

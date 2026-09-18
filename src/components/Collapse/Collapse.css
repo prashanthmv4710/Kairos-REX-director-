@@ -1,0 +1,25 @@
+/* LD Portable – Collapse */
+/* Collapse */
+.ld-collapse-collapse {
+  width: 100%;
+}
+
+.ld-collapse-enter {
+  height: 0;
+  overflow-y: hidden;
+}
+
+.ld-collapse-enterActive {
+  overflow-y: hidden;
+  transition: height 0.3s linear;
+}
+
+.ld-collapse-exit {
+  height: 0;
+  overflow-y: hidden;
+}
+
+.ld-collapse-exitActive {
+  overflow-y: hidden;
+  transition: height 0.25s linear;
+}

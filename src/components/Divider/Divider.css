@@ -1,0 +1,18 @@
+/* LD Portable – Divider */
+/* Divider */
+.ld-divider-divider {
+  border: 0;
+  border-bottom: 0.0625rem solid var(--ld-semantic-color-separator, #e3e4e5);
+  margin: 0;
+  width: 100%;
+}
+
+.ld-divider-divider--vertical {
+  align-self: stretch;
+  border-bottom: 0;
+  border-left: 0.0625rem solid var(--ld-semantic-color-separator, #e3e4e5);
+  flex: 0 0 auto;
+  height: auto;
+  min-height: 1.5rem;
+  width: 0;
+}

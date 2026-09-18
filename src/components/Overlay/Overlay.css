@@ -1,0 +1,14 @@
+/* LD Portable – Overlay */
+/* Overlay */
+.ld-overlay-trap {
+  z-index: 500;
+  inset: 0;
+  position: fixed;
+}
+
+/* OverlayScrim */
+.ld-overlay-overlayscrim-scrim {
+  background: var(--ld-semantic-color-scrim, #00000066);
+  inset: 0;
+  position: fixed;
+}

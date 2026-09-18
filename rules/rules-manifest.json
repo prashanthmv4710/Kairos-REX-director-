@@ -1,0 +1,104 @@
+{
+  "version": 1,
+  "generated": "2026-09-01T16:11:28.632Z",
+  "counts": {
+    "rules": 7,
+    "alwaysApply": 2
+  },
+  "rules": [
+    {
+      "id": "a11y",
+      "title": "Accessibility — Binding Directive",
+      "description": "Accessibility is the default. Non-accessible patterns require an explicit, justified opt-out. Read this BEFORE writing any UI code.",
+      "alwaysApply": true,
+      "globs": "",
+      "files": {
+        "skill": ".cursor/rules/a11y.mdc",
+        "claude": ".claude/rules/a11y.md",
+        "copilot": ".github/instructions/a11y.instructions.md",
+        "rules": "rules/a11y.md"
+      }
+    },
+    {
+      "id": "component-communication",
+      "title": "Component Communication",
+      "description": "Component communication via store.ts — shared state, pub/sub events, and product binding patterns",
+      "alwaysApply": false,
+      "globs": "src/**/*.tsx,src/**/*.ts",
+      "files": {
+        "skill": ".cursor/rules/component-communication.mdc",
+        "claude": ".claude/rules/component-communication.md",
+        "copilot": ".github/instructions/component-communication.instructions.md",
+        "rules": "rules/component-communication.md"
+      }
+    },
+    {
+      "id": "icons",
+      "title": "Icon System Reference",
+      "description": "Icon font reference — available icons per theme, lookup instructions, and usage patterns",
+      "alwaysApply": false,
+      "globs": "src/**/*.tsx",
+      "files": {
+        "skill": ".cursor/rules/icons.mdc",
+        "claude": ".claude/rules/icons.md",
+        "copilot": ".github/instructions/icons.instructions.md",
+        "rules": "rules/icons.md"
+      }
+    },
+    {
+      "id": "living-design-guidelines",
+      "title": "Living Design Coding Agent Directive",
+      "description": "Use the Living Design component library for all UI — maps user intent to components, enforces imports and accessibility",
+      "alwaysApply": false,
+      "globs": "src/**/*.tsx",
+      "files": {
+        "skill": ".cursor/rules/living-design-guidelines.mdc",
+        "claude": ".claude/rules/living-design-guidelines.md",
+        "copilot": ".github/instructions/living-design-guidelines.instructions.md",
+        "rules": "rules/living-design-guidelines.md"
+      }
+    },
+    {
+      "id": "spacing",
+      "title": "Spacing",
+      "description": "Responsive layout guardrails, breakpoint usage, and page-composition spacing conventions — token VALUES live in the generated tokens-reference, not here",
+      "alwaysApply": false,
+      "globs": "src/**/*.tsx,src/**/*.css",
+      "files": {
+        "skill": ".cursor/rules/spacing.mdc",
+        "claude": ".claude/rules/spacing.md",
+        "copilot": ".github/instructions/spacing.instructions.md",
+        "rules": "rules/spacing.md"
+      }
+    },
+    {
+      "id": "theming",
+      "title": "Living Design Theming Guide ({{platform_name}})",
+      "description": "Living Design theming guide — theme selection, runtime API, and supported brand themes",
+      "alwaysApply": true,
+      "globs": "",
+      "files": {
+        "skill": ".cursor/rules/theming.mdc",
+        "claude": ".claude/rules/theming.md",
+        "copilot": ".github/instructions/theming.instructions.md",
+        "rules": "rules/theming.md"
+      }
+    },
+    {
+      "id": "utilities",
+      "title": "Runtime Utilities",
+      "description": "Runtime utilities in src/utils — how to discover them, and the hard rules for product data, media, icons and illustrations",
+      "alwaysApply": false,
+      "globs": "src/**/*.tsx,src/**/*.ts",
+      "files": {
+        "skill": ".cursor/rules/utilities.mdc",
+        "claude": ".claude/rules/utilities.md",
+        "copilot": ".github/instructions/utilities.instructions.md",
+        "rules": "rules/utilities.md"
+      }
+    }
+  ],
+  "optedOut": {
+    "agents.mdc": "rendered as the per-platform ENTRY file via `extras` (AGENTS.md / .claude/CLAUDE.md / .github/copilot-instructions.md), not as a rule in the rules dir"
+  }
+}

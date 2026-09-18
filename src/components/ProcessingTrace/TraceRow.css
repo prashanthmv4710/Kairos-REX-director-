@@ -1,0 +1,127 @@
+/* ------------------------------------------------------------------
+ * TraceRow — outlined card shell with a button-only header. Mirrors
+ * the ProcessingTrace root pattern: only the header is interactive;
+ * the body is free for nested interactive children.
+ * ------------------------------------------------------------------ */
+
+.ld-processingtrace-row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-50);
+  padding: var(--ld-primitive-scale-space-100);
+  border-radius: var(--ld-semantic-border-radius-large);
+  background: var(--ld-semantic-color-surface, #ffffff);
+  border: 1px solid var(--ld-semantic-color-separator, #e3e4e5);
+  box-sizing: border-box;
+}
+
+.ld-processingtrace-row + .ld-processingtrace-row {
+  margin-top: 8px;
+}
+
+/* Interactive header (only click target). */
+.ld-processingtrace-row-header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--ld-primitive-scale-space-150);
+  width: 100%;
+  margin: 0;
+  padding: var(--ld-primitive-scale-space-50);
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  border-radius: var(--ld-semantic-border-radius-medium);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.ld-processingtrace-row-header:hover {
+  background: var(--ld-semantic-color-surface-hovered, #f1f1f2);
+}
+
+.ld-processingtrace-row-header:active {
+  background: var(--ld-semantic-color-surface-pressed, #e3e4e5);
+}
+
+.ld-processingtrace-row-header:focus-visible {
+  outline: 2px solid var(--ld-semantic-color-border-activated, #0053e2);
+  outline-offset: 2px;
+}
+
+/* Static (non-collapsible) variant — no chevron, no hover/press affordance. */
+.ld-processingtrace-row--static .ld-processingtrace-row-header {
+  cursor: default;
+}
+
+.ld-processingtrace-row--static .ld-processingtrace-row-header:hover,
+.ld-processingtrace-row--static .ld-processingtrace-row-header:active {
+  background: transparent;
+}
+
+.ld-processingtrace-row-header-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--ld-primitive-scale-space-50);
+  flex: 1;
+  min-width: 0;
+}
+
+.ld-processingtrace-row-header-label-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.ld-processingtrace-row-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  color: var(--ld-semantic-color-text-subtle, #515357);
+  flex: none;
+}
+
+.ld-processingtrace-row-title {
+  margin: 0;
+  min-width: 0;
+  word-break: break-word;
+}
+
+.ld-processingtrace-row--mono .ld-processingtrace-row-title {
+  font-family: var(
+    --ld-semantic-font-family-mono,
+    ui-monospace, SFMono-Regular, Menlo, Consolas, monospace
+  );
+  font-size: 13px;
+  font-weight: var(--ld-primitive-font-weight-500);
+  letter-spacing: -0.005em;
+}
+
+.ld-processingtrace-row-chevron {
+  flex: none;
+  margin-top: 2px;
+  transition: transform 0.18s ease-out;
+  color: var(--ld-semantic-color-text-subtlest, #74767c);
+}
+
+.ld-processingtrace-row--open .ld-processingtrace-row-chevron {
+  transform: rotate(90deg);
+}
+
+/* Non-interactive body. */
+.ld-processingtrace-row-body {
+  margin: 0 -8px -8px;
+  padding-block-start: var(--ld-primitive-scale-space-100);
+  padding-block-end: var(--ld-primitive-scale-space-150);
+  padding-inline: var(--ld-primitive-scale-space-150);
+  color: var(--ld-semantic-color-text, #2e2f32);
+  font-size: var(--ld-semantic-font-body-small-size);
+  line-height: 1.5;
+  border-top: 1px solid var(--ld-semantic-color-separator, #e3e4e5);
+  border-radius: 0 0 8px 8px;
+}

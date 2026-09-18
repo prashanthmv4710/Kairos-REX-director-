@@ -1,0 +1,113 @@
+/* AppSidebar — mirrors the generated SidebarShell pattern's visual system
+   (src/patterns/Sidebar/Sidebar.css, .ld-sidebar-shell*) so the nav keeps
+   its original look. Authored locally because SidebarShell is generated/
+   read-only and exposes no prop to fix its Lock/Unlock toggle label. */
+
+.ld-app-sidebar-shell {
+  border-right: 1px solid var(--ld-semantic-color-separator, #e3e4e5);
+  background-color: var(--ld-semantic-color-surface, #ffffff);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--ld-primitive-scale-space-150, 12px);
+  align-self: stretch;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.ld-app-sidebar-shell__items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-50);
+}
+
+.ld-app-sidebar-shell__item,
+.ld-app-sidebar-shell__toggle {
+  display: flex;
+  align-items: center;
+  height: 36px;
+  border-radius: var(--ld-semantic-border-radius-small, 4px);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background-color 150ms;
+  color: var(--ld-semantic-color-text, #2e2f32);
+}
+
+.ld-app-sidebar-shell__item--expanded,
+.ld-app-sidebar-shell__toggle--expanded {
+  width: 100%;
+  padding-left: var(--ld-primitive-scale-space-150, 12px);
+  padding-right: var(--ld-primitive-scale-space-150, 12px);
+  gap: var(--ld-primitive-scale-space-150, 12px);
+  justify-content: space-between;
+}
+
+.ld-app-sidebar-shell__item--collapsed,
+.ld-app-sidebar-shell__toggle--collapsed {
+  width: 40px;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.ld-app-sidebar-shell__item:hover:not(.ld-app-sidebar-shell__item--active),
+.ld-app-sidebar-shell__toggle:hover {
+  background-color: var(--ld-semantic-color-surface-subtle, #f8f8f8);
+}
+
+.ld-app-sidebar-shell__item--active {
+  background-color: var(--ld-semantic-color-fill-brand-subtle, #e9f1fe);
+}
+
+.ld-app-sidebar-shell__item-content {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-150, 12px);
+}
+
+.ld-app-sidebar-shell__item-icon {
+  display: inline-flex;
+  color: var(--ld-semantic-color-text, #2e2f32);
+}
+
+.ld-app-sidebar-shell__item-icon--active {
+  color: var(--ld-semantic-color-action-fill-primary, #0053e2);
+}
+
+.ld-app-sidebar-shell__item-label,
+.ld-app-sidebar-shell__toggle-label {
+  font-size: var(--ld-semantic-font-body-small-size);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--ld-semantic-color-text, #2e2f32);
+}
+
+.ld-app-sidebar-shell__item-label--active {
+  color: var(--ld-semantic-color-action-fill-primary, #0053e2);
+}
+
+.ld-app-sidebar-shell__toggle-icon {
+  display: inline-flex;
+  align-items: center;
+  color: var(--ld-semantic-color-text, #2e2f32);
+}
+
+.ld-app-sidebar-shell__resize-handle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 4px;
+  height: 100%;
+  cursor: col-resize;
+  background-color: transparent;
+  transition: background-color 150ms;
+  z-index: 10;
+}
+
+.ld-app-sidebar-shell__resize-handle:hover {
+  background-color: var(--ld-semantic-color-action-fill-primary, #0053e2);
+}

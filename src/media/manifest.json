@@ -1,0 +1,3021 @@
+{
+  "customer": {
+    "label": "Agent — Customer",
+    "count": 2,
+    "assets": [
+      {
+        "name": "Agent",
+        "token": "ld-primitive-icon-agent",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "AgentAvatar",
+        "token": "ld-primitive-media-agentAvatar",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      }
+    ]
+  },
+  "partner": {
+    "label": "Agent — Partner",
+    "count": 2,
+    "assets": [
+      {
+        "name": "Agent",
+        "token": "ld-primitive-icon-agent",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "AgentAvatar",
+        "token": "ld-primitive-media-agentAvatar",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      }
+    ]
+  },
+  "associate": {
+    "label": "Agent — Associate",
+    "count": 2,
+    "assets": [
+      {
+        "name": "Agent",
+        "token": "ld-primitive-icon-agent",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "AgentAvatar",
+        "token": "ld-primitive-media-agentAvatar",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      }
+    ]
+  },
+  "developer": {
+    "label": "Agent — Developer",
+    "count": 2,
+    "assets": [
+      {
+        "name": "Agent",
+        "token": "ld-primitive-icon-agent",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "AgentAvatar",
+        "token": "ld-primitive-media-agentAvatar",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      }
+    ]
+  },
+  "wibey": {
+    "label": "Agent — Wibey",
+    "count": 2,
+    "assets": [
+      {
+        "name": "Agent",
+        "token": "ld-primitive-icon-agent",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "AgentAvatar",
+        "token": "ld-primitive-media-agentAvatar",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      }
+    ]
+  },
+  "wibey-light": {
+    "label": "Agent — Wibey Light",
+    "count": 2,
+    "assets": [
+      {
+        "name": "Agent",
+        "token": "ld-primitive-icon-agent",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "AgentAvatar",
+        "token": "ld-primitive-media-agentAvatar",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      }
+    ]
+  },
+  "my-walmart": {
+    "label": "Agent — My Walmart",
+    "count": 2,
+    "assets": [
+      {
+        "name": "Agent",
+        "token": "ld-primitive-icon-agent",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "AgentAvatar",
+        "token": "ld-primitive-media-agentAvatar",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      }
+    ]
+  },
+  "me-campus": {
+    "label": "Agent — Me@Campus",
+    "count": 2,
+    "assets": [
+      {
+        "name": "Agent",
+        "token": "ld-primitive-icon-agent",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "AgentAvatar",
+        "token": "ld-primitive-media-agentAvatar",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      }
+    ]
+  },
+  "wally": {
+    "label": "Agent — Wally",
+    "count": 2,
+    "assets": [
+      {
+        "name": "Agent",
+        "token": "ld-primitive-icon-agent",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "AgentAvatar",
+        "token": "ld-primitive-media-agentAvatar",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      }
+    ]
+  },
+  "wcp": {
+    "label": "WCP",
+    "count": 39,
+    "assets": [
+      {
+        "name": "CreditCardBrand",
+        "token": "wcp-primitive-media-creditCardBrand",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardBrand1",
+        "token": "wcp-primitive-media-creditCardBrand1",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardBrand2",
+        "token": "wcp-primitive-media-creditCardBrand2",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardBrand3",
+        "token": "wcp-primitive-media-creditCardBrand3",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardBrand4",
+        "token": "wcp-primitive-media-creditCardBrand4",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardBrand5",
+        "token": "wcp-primitive-media-creditCardBrand5",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardBrand6",
+        "token": "wcp-primitive-media-creditCardBrand6",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardGeneric",
+        "token": "wcp-primitive-media-creditCardGeneric",
+        "kind": "png",
+        "width": 136,
+        "height": 91
+      },
+      {
+        "name": "CreditCardGeneric1",
+        "token": "wcp-primitive-media-creditCardGeneric1",
+        "kind": "png",
+        "width": 136,
+        "height": 91
+      },
+      {
+        "name": "CreditCardGeneric2",
+        "token": "wcp-primitive-media-creditCardGeneric2",
+        "kind": "png",
+        "width": 136,
+        "height": 90
+      },
+      {
+        "name": "CreditCardGeneric3",
+        "token": "wcp-primitive-media-creditCardGeneric3",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardGeneric4",
+        "token": "wcp-primitive-media-creditCardGeneric4",
+        "kind": "png",
+        "width": 135,
+        "height": 91
+      },
+      {
+        "name": "CreditCardGeneric5",
+        "token": "wcp-primitive-media-creditCardGeneric5",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardGeneric6",
+        "token": "wcp-primitive-media-creditCardGeneric6",
+        "kind": "png",
+        "width": 135,
+        "height": 91
+      },
+      {
+        "name": "CreditCardLiderBci",
+        "token": "wcp-primitive-media-creditCardLiderBci",
+        "kind": "png",
+        "width": 142,
+        "height": 90
+      },
+      {
+        "name": "ErrorGeneric",
+        "token": "wcp-primitive-media-errorGeneric",
+        "kind": "svg",
+        "width": 230,
+        "height": 240
+      },
+      {
+        "name": "ErrorNetwork",
+        "token": "wcp-primitive-media-errorNetwork",
+        "kind": "svg",
+        "width": 240,
+        "height": 240
+      },
+      {
+        "name": "ErrorNotFound",
+        "token": "wcp-primitive-media-errorNotFound",
+        "kind": "svg",
+        "width": 231,
+        "height": 240
+      },
+      {
+        "name": "FlagCanada",
+        "token": "wcp-primitive-media-flagCanada",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "FlagChile",
+        "token": "wcp-primitive-media-flagChile",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "FlagColombia",
+        "token": "wcp-primitive-media-flagColombia",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "FlagMexico",
+        "token": "wcp-primitive-media-flagMexico",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "FlagUSA",
+        "token": "wcp-primitive-media-flagUSA",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "Gic",
+        "token": "wcp-primitive-media-gic",
+        "kind": "svg",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "name": "GicDelivery",
+        "token": "wcp-primitive-media-gicDelivery",
+        "kind": "svg",
+        "width": 50,
+        "height": 50
+      },
+      {
+        "name": "GicPickup",
+        "token": "wcp-primitive-media-gicPickup",
+        "kind": "svg",
+        "width": 50,
+        "height": 50
+      },
+      {
+        "name": "GicShipping",
+        "token": "wcp-primitive-media-gicShipping",
+        "kind": "svg",
+        "width": 50,
+        "height": 50
+      },
+      {
+        "name": "Logo",
+        "token": "wcp-primitive-media-logo",
+        "kind": "svg",
+        "width": 171,
+        "height": 191
+      },
+      {
+        "name": "LogoInverseMember",
+        "token": "wcp-primitive-media-logo-inverse-member",
+        "kind": "svg",
+        "width": 194,
+        "height": 144
+      },
+      {
+        "name": "LogoMember",
+        "token": "wcp-primitive-media-logo-member",
+        "kind": "svg",
+        "width": 194,
+        "height": 160
+      },
+      {
+        "name": "MembershipCard",
+        "token": "wcp-primitive-media-membershipCard",
+        "kind": "png",
+        "width": 133,
+        "height": 85
+      },
+      {
+        "name": "MembershipCardPlus",
+        "token": "wcp-primitive-media-membershipCardPlus",
+        "kind": "png",
+        "width": 133,
+        "height": 86
+      },
+      {
+        "name": "PrivacyChoice",
+        "token": "wcp-primitive-media-privacyChoice",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "PrivacyChoiceInverse",
+        "token": "wcp-primitive-media-privacyChoiceInverse",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "TopNavLogoCompact",
+        "token": "wcp-semantic-media-topNav-logo-compact",
+        "kind": "svg",
+        "width": 171,
+        "height": 191
+      },
+      {
+        "name": "Wordmark",
+        "token": "wcp-primitive-media-wordmark",
+        "kind": "svg",
+        "width": 540,
+        "height": 179
+      },
+      {
+        "name": "WordmarkInverse",
+        "token": "wcp-primitive-media-wordmark-inverse",
+        "kind": "svg",
+        "width": 538,
+        "height": 99
+      },
+      {
+        "name": "WordmarkInverseMember",
+        "token": "wcp-primitive-media-wordmark-inverse-member",
+        "kind": "svg",
+        "width": 539,
+        "height": 173
+      },
+      {
+        "name": "WordmarkMember",
+        "token": "wcp-primitive-media-wordmark-member",
+        "kind": "svg",
+        "width": 538,
+        "height": 182
+      }
+    ]
+  },
+  "walmart-business": {
+    "label": "Walmart Business",
+    "count": 40,
+    "assets": [
+      {
+        "name": "CreditCardBrand",
+        "token": "wcp-primitive-media-creditCardBrand",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardBrand1",
+        "token": "wcp-primitive-media-creditCardBrand1",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardBrand2",
+        "token": "wcp-primitive-media-creditCardBrand2",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardBrand3",
+        "token": "wcp-primitive-media-creditCardBrand3",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardBrand4",
+        "token": "wcp-primitive-media-creditCardBrand4",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardBrand5",
+        "token": "wcp-primitive-media-creditCardBrand5",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardBrand6",
+        "token": "wcp-primitive-media-creditCardBrand6",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardGeneric",
+        "token": "wcp-primitive-media-creditCardGeneric",
+        "kind": "png",
+        "width": 136,
+        "height": 91
+      },
+      {
+        "name": "CreditCardGeneric1",
+        "token": "wcp-primitive-media-creditCardGeneric1",
+        "kind": "png",
+        "width": 136,
+        "height": 91
+      },
+      {
+        "name": "CreditCardGeneric2",
+        "token": "wcp-primitive-media-creditCardGeneric2",
+        "kind": "png",
+        "width": 136,
+        "height": 90
+      },
+      {
+        "name": "CreditCardGeneric3",
+        "token": "wcp-primitive-media-creditCardGeneric3",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardGeneric4",
+        "token": "wcp-primitive-media-creditCardGeneric4",
+        "kind": "png",
+        "width": 135,
+        "height": 91
+      },
+      {
+        "name": "CreditCardGeneric5",
+        "token": "wcp-primitive-media-creditCardGeneric5",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardGeneric6",
+        "token": "wcp-primitive-media-creditCardGeneric6",
+        "kind": "png",
+        "width": 135,
+        "height": 91
+      },
+      {
+        "name": "CreditCardLiderBci",
+        "token": "wcp-primitive-media-creditCardLiderBci",
+        "kind": "png",
+        "width": 142,
+        "height": 90
+      },
+      {
+        "name": "ErrorGeneric",
+        "token": "wcp-primitive-media-errorGeneric",
+        "kind": "svg",
+        "width": 230,
+        "height": 240
+      },
+      {
+        "name": "ErrorNetwork",
+        "token": "wcp-primitive-media-errorNetwork",
+        "kind": "svg",
+        "width": 240,
+        "height": 240
+      },
+      {
+        "name": "ErrorNotFound",
+        "token": "wcp-primitive-media-errorNotFound",
+        "kind": "svg",
+        "width": 231,
+        "height": 240
+      },
+      {
+        "name": "FlagCanada",
+        "token": "wcp-primitive-media-flagCanada",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "FlagChile",
+        "token": "wcp-primitive-media-flagChile",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "FlagColombia",
+        "token": "wcp-primitive-media-flagColombia",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "FlagMexico",
+        "token": "wcp-primitive-media-flagMexico",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "FlagUSA",
+        "token": "wcp-primitive-media-flagUSA",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "Gic",
+        "token": "wcp-primitive-media-gic",
+        "kind": "svg",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "name": "GicDelivery",
+        "token": "wcp-primitive-media-gicDelivery",
+        "kind": "svg",
+        "width": 50,
+        "height": 50
+      },
+      {
+        "name": "GicPickup",
+        "token": "wcp-primitive-media-gicPickup",
+        "kind": "svg",
+        "width": 50,
+        "height": 50
+      },
+      {
+        "name": "GicShipping",
+        "token": "wcp-primitive-media-gicShipping",
+        "kind": "svg",
+        "width": 50,
+        "height": 50
+      },
+      {
+        "name": "Logo",
+        "token": "wcp-primitive-media-logo",
+        "kind": "svg",
+        "width": 193,
+        "height": 218
+      },
+      {
+        "name": "LogoInverse",
+        "token": "wcp-primitive-media-logo-inverse",
+        "kind": "svg",
+        "width": 193,
+        "height": 218
+      },
+      {
+        "name": "LogoInverseMember",
+        "token": "wcp-primitive-media-logo-inverse-member",
+        "kind": "svg",
+        "width": 538,
+        "height": 89
+      },
+      {
+        "name": "LogoMember",
+        "token": "wcp-primitive-media-logo-member",
+        "kind": "svg",
+        "width": 538,
+        "height": 89
+      },
+      {
+        "name": "MembershipCard",
+        "token": "wcp-primitive-media-membershipCard",
+        "kind": "png",
+        "width": 133,
+        "height": 85
+      },
+      {
+        "name": "MembershipCardPlus",
+        "token": "wcp-primitive-media-membershipCardPlus",
+        "kind": "png",
+        "width": 133,
+        "height": 86
+      },
+      {
+        "name": "PrivacyChoice",
+        "token": "wcp-primitive-media-privacyChoice",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "PrivacyChoiceInverse",
+        "token": "wcp-primitive-media-privacyChoiceInverse",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "TopNavLogoCompact",
+        "token": "wcp-semantic-media-topNav-logo-compact",
+        "kind": "svg",
+        "width": 193,
+        "height": 218
+      },
+      {
+        "name": "Wordmark",
+        "token": "wcp-primitive-media-wordmark",
+        "kind": "svg",
+        "width": 538,
+        "height": 54
+      },
+      {
+        "name": "WordmarkInverse",
+        "token": "wcp-primitive-media-wordmark-inverse",
+        "kind": "svg",
+        "width": 538,
+        "height": 55
+      },
+      {
+        "name": "WordmarkInverseMember",
+        "token": "wcp-primitive-media-wordmark-inverse-member",
+        "kind": "svg",
+        "width": 538,
+        "height": 65
+      },
+      {
+        "name": "WordmarkMember",
+        "token": "wcp-primitive-media-wordmark-member",
+        "kind": "svg",
+        "width": 538,
+        "height": 65
+      }
+    ]
+  },
+  "walmart-mx": {
+    "label": "Walmart MX",
+    "count": 39,
+    "assets": [
+      {
+        "name": "CreditCardBrand",
+        "token": "wcp-primitive-media-creditCardBrand",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardBrand1",
+        "token": "wcp-primitive-media-creditCardBrand1",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardBrand2",
+        "token": "wcp-primitive-media-creditCardBrand2",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardBrand3",
+        "token": "wcp-primitive-media-creditCardBrand3",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardBrand4",
+        "token": "wcp-primitive-media-creditCardBrand4",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardBrand5",
+        "token": "wcp-primitive-media-creditCardBrand5",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardBrand6",
+        "token": "wcp-primitive-media-creditCardBrand6",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardGeneric",
+        "token": "wcp-primitive-media-creditCardGeneric",
+        "kind": "png",
+        "width": 136,
+        "height": 91
+      },
+      {
+        "name": "CreditCardGeneric1",
+        "token": "wcp-primitive-media-creditCardGeneric1",
+        "kind": "png",
+        "width": 136,
+        "height": 91
+      },
+      {
+        "name": "CreditCardGeneric2",
+        "token": "wcp-primitive-media-creditCardGeneric2",
+        "kind": "png",
+        "width": 136,
+        "height": 90
+      },
+      {
+        "name": "CreditCardGeneric3",
+        "token": "wcp-primitive-media-creditCardGeneric3",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardGeneric4",
+        "token": "wcp-primitive-media-creditCardGeneric4",
+        "kind": "png",
+        "width": 135,
+        "height": 91
+      },
+      {
+        "name": "CreditCardGeneric5",
+        "token": "wcp-primitive-media-creditCardGeneric5",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardGeneric6",
+        "token": "wcp-primitive-media-creditCardGeneric6",
+        "kind": "png",
+        "width": 135,
+        "height": 91
+      },
+      {
+        "name": "CreditCardLiderBci",
+        "token": "wcp-primitive-media-creditCardLiderBci",
+        "kind": "png",
+        "width": 142,
+        "height": 90
+      },
+      {
+        "name": "ErrorGeneric",
+        "token": "wcp-primitive-media-errorGeneric",
+        "kind": "svg",
+        "width": 230,
+        "height": 240
+      },
+      {
+        "name": "ErrorNetwork",
+        "token": "wcp-primitive-media-errorNetwork",
+        "kind": "svg",
+        "width": 240,
+        "height": 240
+      },
+      {
+        "name": "ErrorNotFound",
+        "token": "wcp-primitive-media-errorNotFound",
+        "kind": "svg",
+        "width": 231,
+        "height": 240
+      },
+      {
+        "name": "FlagCanada",
+        "token": "wcp-primitive-media-flagCanada",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "FlagChile",
+        "token": "wcp-primitive-media-flagChile",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "FlagColombia",
+        "token": "wcp-primitive-media-flagColombia",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "FlagMexico",
+        "token": "wcp-primitive-media-flagMexico",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "FlagUSA",
+        "token": "wcp-primitive-media-flagUSA",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "Gic",
+        "token": "wcp-primitive-media-gic",
+        "kind": "svg",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "name": "GicDelivery",
+        "token": "wcp-primitive-media-gicDelivery",
+        "kind": "svg",
+        "width": 50,
+        "height": 50
+      },
+      {
+        "name": "GicPickup",
+        "token": "wcp-primitive-media-gicPickup",
+        "kind": "svg",
+        "width": 50,
+        "height": 50
+      },
+      {
+        "name": "GicShipping",
+        "token": "wcp-primitive-media-gicShipping",
+        "kind": "svg",
+        "width": 50,
+        "height": 50
+      },
+      {
+        "name": "Logo",
+        "token": "wcp-primitive-media-logo",
+        "kind": "svg",
+        "width": 171,
+        "height": 191
+      },
+      {
+        "name": "LogoInverseMember",
+        "token": "wcp-primitive-media-logo-inverse-member",
+        "kind": "svg",
+        "width": 259,
+        "height": 216
+      },
+      {
+        "name": "LogoMember",
+        "token": "wcp-primitive-media-logo-member",
+        "kind": "svg",
+        "width": 259,
+        "height": 216
+      },
+      {
+        "name": "MembershipCard",
+        "token": "wcp-primitive-media-membershipCard",
+        "kind": "png",
+        "width": 133,
+        "height": 85
+      },
+      {
+        "name": "MembershipCardPlus",
+        "token": "wcp-primitive-media-membershipCardPlus",
+        "kind": "png",
+        "width": 133,
+        "height": 86
+      },
+      {
+        "name": "PrivacyChoice",
+        "token": "wcp-primitive-media-privacyChoice",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "PrivacyChoiceInverse",
+        "token": "wcp-primitive-media-privacyChoiceInverse",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "TopNavLogoCompact",
+        "token": "wcp-semantic-media-topNav-logo-compact",
+        "kind": "svg",
+        "width": 171,
+        "height": 191
+      },
+      {
+        "name": "Wordmark",
+        "token": "wcp-primitive-media-wordmark",
+        "kind": "svg",
+        "width": 540,
+        "height": 179
+      },
+      {
+        "name": "WordmarkInverse",
+        "token": "wcp-primitive-media-wordmark-inverse",
+        "kind": "svg",
+        "width": 538,
+        "height": 99
+      },
+      {
+        "name": "WordmarkInverseMember",
+        "token": "wcp-primitive-media-wordmark-inverse-member",
+        "kind": "svg",
+        "width": 536,
+        "height": 232
+      },
+      {
+        "name": "WordmarkMember",
+        "token": "wcp-primitive-media-wordmark-member",
+        "kind": "svg",
+        "width": 536,
+        "height": 232
+      }
+    ]
+  },
+  "walmart-ca": {
+    "label": "Walmart CA",
+    "count": 39,
+    "assets": [
+      {
+        "name": "CreditCardBrand",
+        "token": "wcp-primitive-media-creditCardBrand",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardBrand1",
+        "token": "wcp-primitive-media-creditCardBrand1",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardBrand2",
+        "token": "wcp-primitive-media-creditCardBrand2",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardBrand3",
+        "token": "wcp-primitive-media-creditCardBrand3",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardBrand4",
+        "token": "wcp-primitive-media-creditCardBrand4",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardBrand5",
+        "token": "wcp-primitive-media-creditCardBrand5",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardBrand6",
+        "token": "wcp-primitive-media-creditCardBrand6",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardGeneric",
+        "token": "wcp-primitive-media-creditCardGeneric",
+        "kind": "png",
+        "width": 136,
+        "height": 91
+      },
+      {
+        "name": "CreditCardGeneric1",
+        "token": "wcp-primitive-media-creditCardGeneric1",
+        "kind": "png",
+        "width": 136,
+        "height": 91
+      },
+      {
+        "name": "CreditCardGeneric2",
+        "token": "wcp-primitive-media-creditCardGeneric2",
+        "kind": "png",
+        "width": 136,
+        "height": 90
+      },
+      {
+        "name": "CreditCardGeneric3",
+        "token": "wcp-primitive-media-creditCardGeneric3",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardGeneric4",
+        "token": "wcp-primitive-media-creditCardGeneric4",
+        "kind": "png",
+        "width": 135,
+        "height": 91
+      },
+      {
+        "name": "CreditCardGeneric5",
+        "token": "wcp-primitive-media-creditCardGeneric5",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardGeneric6",
+        "token": "wcp-primitive-media-creditCardGeneric6",
+        "kind": "png",
+        "width": 135,
+        "height": 91
+      },
+      {
+        "name": "CreditCardLiderBci",
+        "token": "wcp-primitive-media-creditCardLiderBci",
+        "kind": "png",
+        "width": 142,
+        "height": 90
+      },
+      {
+        "name": "ErrorGeneric",
+        "token": "wcp-primitive-media-errorGeneric",
+        "kind": "svg",
+        "width": 230,
+        "height": 240
+      },
+      {
+        "name": "ErrorNetwork",
+        "token": "wcp-primitive-media-errorNetwork",
+        "kind": "svg",
+        "width": 240,
+        "height": 240
+      },
+      {
+        "name": "ErrorNotFound",
+        "token": "wcp-primitive-media-errorNotFound",
+        "kind": "svg",
+        "width": 231,
+        "height": 240
+      },
+      {
+        "name": "FlagCanada",
+        "token": "wcp-primitive-media-flagCanada",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "FlagChile",
+        "token": "wcp-primitive-media-flagChile",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "FlagColombia",
+        "token": "wcp-primitive-media-flagColombia",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "FlagMexico",
+        "token": "wcp-primitive-media-flagMexico",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "FlagUSA",
+        "token": "wcp-primitive-media-flagUSA",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "Gic",
+        "token": "wcp-primitive-media-gic",
+        "kind": "svg",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "name": "GicDelivery",
+        "token": "wcp-primitive-media-gicDelivery",
+        "kind": "svg",
+        "width": 50,
+        "height": 50
+      },
+      {
+        "name": "GicPickup",
+        "token": "wcp-primitive-media-gicPickup",
+        "kind": "svg",
+        "width": 50,
+        "height": 50
+      },
+      {
+        "name": "GicShipping",
+        "token": "wcp-primitive-media-gicShipping",
+        "kind": "svg",
+        "width": 50,
+        "height": 50
+      },
+      {
+        "name": "Logo",
+        "token": "wcp-primitive-media-logo",
+        "kind": "svg",
+        "width": 171,
+        "height": 191
+      },
+      {
+        "name": "LogoInverseMember",
+        "token": "wcp-primitive-media-logo-inverse-member",
+        "kind": "svg",
+        "width": 259,
+        "height": 216
+      },
+      {
+        "name": "LogoMember",
+        "token": "wcp-primitive-media-logo-member",
+        "kind": "svg",
+        "width": 259,
+        "height": 216
+      },
+      {
+        "name": "MembershipCard",
+        "token": "wcp-primitive-media-membershipCard",
+        "kind": "png",
+        "width": 133,
+        "height": 85
+      },
+      {
+        "name": "MembershipCardPlus",
+        "token": "wcp-primitive-media-membershipCardPlus",
+        "kind": "png",
+        "width": 133,
+        "height": 86
+      },
+      {
+        "name": "PrivacyChoice",
+        "token": "wcp-primitive-media-privacyChoice",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "PrivacyChoiceInverse",
+        "token": "wcp-primitive-media-privacyChoiceInverse",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "TopNavLogoCompact",
+        "token": "wcp-semantic-media-topNav-logo-compact",
+        "kind": "svg",
+        "width": 171,
+        "height": 191
+      },
+      {
+        "name": "Wordmark",
+        "token": "wcp-primitive-media-wordmark",
+        "kind": "svg",
+        "width": 540,
+        "height": 179
+      },
+      {
+        "name": "WordmarkInverse",
+        "token": "wcp-primitive-media-wordmark-inverse",
+        "kind": "svg",
+        "width": 538,
+        "height": 99
+      },
+      {
+        "name": "WordmarkInverseMember",
+        "token": "wcp-primitive-media-wordmark-inverse-member",
+        "kind": "svg",
+        "width": 536,
+        "height": 216
+      },
+      {
+        "name": "WordmarkMember",
+        "token": "wcp-primitive-media-wordmark-member",
+        "kind": "svg",
+        "width": 536,
+        "height": 216
+      }
+    ]
+  },
+  "walmart-plus": {
+    "label": "Walmart+",
+    "count": 40,
+    "assets": [
+      {
+        "name": "CreditCardBrand",
+        "token": "wcp-primitive-media-creditCardBrand",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardBrand1",
+        "token": "wcp-primitive-media-creditCardBrand1",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardBrand2",
+        "token": "wcp-primitive-media-creditCardBrand2",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardBrand3",
+        "token": "wcp-primitive-media-creditCardBrand3",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardBrand4",
+        "token": "wcp-primitive-media-creditCardBrand4",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardBrand5",
+        "token": "wcp-primitive-media-creditCardBrand5",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardBrand6",
+        "token": "wcp-primitive-media-creditCardBrand6",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardGeneric",
+        "token": "wcp-primitive-media-creditCardGeneric",
+        "kind": "png",
+        "width": 136,
+        "height": 91
+      },
+      {
+        "name": "CreditCardGeneric1",
+        "token": "wcp-primitive-media-creditCardGeneric1",
+        "kind": "png",
+        "width": 136,
+        "height": 91
+      },
+      {
+        "name": "CreditCardGeneric2",
+        "token": "wcp-primitive-media-creditCardGeneric2",
+        "kind": "png",
+        "width": 136,
+        "height": 90
+      },
+      {
+        "name": "CreditCardGeneric3",
+        "token": "wcp-primitive-media-creditCardGeneric3",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardGeneric4",
+        "token": "wcp-primitive-media-creditCardGeneric4",
+        "kind": "png",
+        "width": 135,
+        "height": 91
+      },
+      {
+        "name": "CreditCardGeneric5",
+        "token": "wcp-primitive-media-creditCardGeneric5",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardGeneric6",
+        "token": "wcp-primitive-media-creditCardGeneric6",
+        "kind": "png",
+        "width": 135,
+        "height": 91
+      },
+      {
+        "name": "CreditCardLiderBci",
+        "token": "wcp-primitive-media-creditCardLiderBci",
+        "kind": "png",
+        "width": 142,
+        "height": 90
+      },
+      {
+        "name": "ErrorGeneric",
+        "token": "wcp-primitive-media-errorGeneric",
+        "kind": "svg",
+        "width": 230,
+        "height": 240
+      },
+      {
+        "name": "ErrorNetwork",
+        "token": "wcp-primitive-media-errorNetwork",
+        "kind": "svg",
+        "width": 240,
+        "height": 240
+      },
+      {
+        "name": "ErrorNotFound",
+        "token": "wcp-primitive-media-errorNotFound",
+        "kind": "svg",
+        "width": 231,
+        "height": 240
+      },
+      {
+        "name": "FlagCanada",
+        "token": "wcp-primitive-media-flagCanada",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "FlagChile",
+        "token": "wcp-primitive-media-flagChile",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "FlagColombia",
+        "token": "wcp-primitive-media-flagColombia",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "FlagMexico",
+        "token": "wcp-primitive-media-flagMexico",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "FlagUSA",
+        "token": "wcp-primitive-media-flagUSA",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "Gic",
+        "token": "wcp-primitive-media-gic",
+        "kind": "svg",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "name": "GicDelivery",
+        "token": "wcp-primitive-media-gicDelivery",
+        "kind": "svg",
+        "width": 50,
+        "height": 50
+      },
+      {
+        "name": "GicPickup",
+        "token": "wcp-primitive-media-gicPickup",
+        "kind": "svg",
+        "width": 50,
+        "height": 50
+      },
+      {
+        "name": "GicShipping",
+        "token": "wcp-primitive-media-gicShipping",
+        "kind": "svg",
+        "width": 50,
+        "height": 50
+      },
+      {
+        "name": "Logo",
+        "token": "wcp-primitive-media-logo",
+        "kind": "svg",
+        "width": 194,
+        "height": 160
+      },
+      {
+        "name": "LogoInverse",
+        "token": "wcp-primitive-media-logo-inverse",
+        "kind": "svg",
+        "width": 194,
+        "height": 144
+      },
+      {
+        "name": "LogoInverseMember",
+        "token": "wcp-primitive-media-logo-inverse-member",
+        "kind": "svg",
+        "width": 194,
+        "height": 144
+      },
+      {
+        "name": "LogoMember",
+        "token": "wcp-primitive-media-logo-member",
+        "kind": "svg",
+        "width": 194,
+        "height": 160
+      },
+      {
+        "name": "MembershipCard",
+        "token": "wcp-primitive-media-membershipCard",
+        "kind": "png",
+        "width": 133,
+        "height": 85
+      },
+      {
+        "name": "MembershipCardPlus",
+        "token": "wcp-primitive-media-membershipCardPlus",
+        "kind": "png",
+        "width": 133,
+        "height": 86
+      },
+      {
+        "name": "PrivacyChoice",
+        "token": "wcp-primitive-media-privacyChoice",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "PrivacyChoiceInverse",
+        "token": "wcp-primitive-media-privacyChoiceInverse",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "TopNavLogoCompact",
+        "token": "wcp-semantic-media-topNav-logo-compact",
+        "kind": "svg",
+        "width": 194,
+        "height": 144
+      },
+      {
+        "name": "Wordmark",
+        "token": "wcp-primitive-media-wordmark",
+        "kind": "svg",
+        "width": 538,
+        "height": 182
+      },
+      {
+        "name": "WordmarkInverse",
+        "token": "wcp-primitive-media-wordmark-inverse",
+        "kind": "svg",
+        "width": 538,
+        "height": 99
+      },
+      {
+        "name": "WordmarkInverseMember",
+        "token": "wcp-primitive-media-wordmark-inverse-member",
+        "kind": "svg",
+        "width": 539,
+        "height": 173
+      },
+      {
+        "name": "WordmarkMember",
+        "token": "wcp-primitive-media-wordmark-member",
+        "kind": "svg",
+        "width": 538,
+        "height": 182
+      }
+    ]
+  },
+  "sams-club": {
+    "label": "Sam's Club",
+    "count": 40,
+    "assets": [
+      {
+        "name": "CreditCardBrand",
+        "token": "wcp-primitive-media-creditCardBrand",
+        "kind": "png",
+        "width": 135,
+        "height": 84
+      },
+      {
+        "name": "CreditCardBrand1",
+        "token": "wcp-primitive-media-creditCardBrand1",
+        "kind": "png",
+        "width": 135,
+        "height": 85
+      },
+      {
+        "name": "CreditCardBrand2",
+        "token": "wcp-primitive-media-creditCardBrand2",
+        "kind": "png",
+        "width": 135,
+        "height": 85
+      },
+      {
+        "name": "CreditCardBrand3",
+        "token": "wcp-primitive-media-creditCardBrand3",
+        "kind": "png",
+        "width": 135,
+        "height": 85
+      },
+      {
+        "name": "CreditCardBrand4",
+        "token": "wcp-primitive-media-creditCardBrand4",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardBrand5",
+        "token": "wcp-primitive-media-creditCardBrand5",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardBrand6",
+        "token": "wcp-primitive-media-creditCardBrand6",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardGeneric",
+        "token": "wcp-primitive-media-creditCardGeneric",
+        "kind": "png",
+        "width": 136,
+        "height": 91
+      },
+      {
+        "name": "CreditCardGeneric1",
+        "token": "wcp-primitive-media-creditCardGeneric1",
+        "kind": "png",
+        "width": 136,
+        "height": 91
+      },
+      {
+        "name": "CreditCardGeneric2",
+        "token": "wcp-primitive-media-creditCardGeneric2",
+        "kind": "png",
+        "width": 136,
+        "height": 90
+      },
+      {
+        "name": "CreditCardGeneric3",
+        "token": "wcp-primitive-media-creditCardGeneric3",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardGeneric4",
+        "token": "wcp-primitive-media-creditCardGeneric4",
+        "kind": "png",
+        "width": 135,
+        "height": 91
+      },
+      {
+        "name": "CreditCardGeneric5",
+        "token": "wcp-primitive-media-creditCardGeneric5",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardGeneric6",
+        "token": "wcp-primitive-media-creditCardGeneric6",
+        "kind": "png",
+        "width": 135,
+        "height": 91
+      },
+      {
+        "name": "CreditCardLiderBci",
+        "token": "wcp-primitive-media-creditCardLiderBci",
+        "kind": "png",
+        "width": 142,
+        "height": 90
+      },
+      {
+        "name": "ErrorGeneric",
+        "token": "wcp-primitive-media-errorGeneric",
+        "kind": "svg",
+        "width": 240,
+        "height": 240
+      },
+      {
+        "name": "ErrorNetwork",
+        "token": "wcp-primitive-media-errorNetwork",
+        "kind": "svg",
+        "width": 240,
+        "height": 240
+      },
+      {
+        "name": "ErrorNotFound",
+        "token": "wcp-primitive-media-errorNotFound",
+        "kind": "svg",
+        "width": 240,
+        "height": 240
+      },
+      {
+        "name": "FlagCanada",
+        "token": "wcp-primitive-media-flagCanada",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "FlagChile",
+        "token": "wcp-primitive-media-flagChile",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "FlagColombia",
+        "token": "wcp-primitive-media-flagColombia",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "FlagMexico",
+        "token": "wcp-primitive-media-flagMexico",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "FlagUSA",
+        "token": "wcp-primitive-media-flagUSA",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "Gic",
+        "token": "wcp-primitive-media-gic",
+        "kind": "svg",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "name": "GicDelivery",
+        "token": "wcp-primitive-media-gicDelivery",
+        "kind": "svg",
+        "width": 50,
+        "height": 50
+      },
+      {
+        "name": "GicPickup",
+        "token": "wcp-primitive-media-gicPickup",
+        "kind": "svg",
+        "width": 50,
+        "height": 50
+      },
+      {
+        "name": "GicShipping",
+        "token": "wcp-primitive-media-gicShipping",
+        "kind": "svg",
+        "width": 50,
+        "height": 50
+      },
+      {
+        "name": "Logo",
+        "token": "wcp-primitive-media-logo",
+        "kind": "svg",
+        "width": 193,
+        "height": 153
+      },
+      {
+        "name": "LogoInverse",
+        "token": "wcp-primitive-media-logo-inverse",
+        "kind": "svg",
+        "width": 193,
+        "height": 153
+      },
+      {
+        "name": "LogoInverseMember",
+        "token": "wcp-primitive-media-logo-inverse-member",
+        "kind": "svg",
+        "width": 194,
+        "height": 144
+      },
+      {
+        "name": "LogoMember",
+        "token": "wcp-primitive-media-logo-member",
+        "kind": "svg",
+        "width": 194,
+        "height": 160
+      },
+      {
+        "name": "MembershipCard",
+        "token": "wcp-primitive-media-membershipCard",
+        "kind": "png",
+        "width": 133,
+        "height": 85
+      },
+      {
+        "name": "MembershipCardPlus",
+        "token": "wcp-primitive-media-membershipCardPlus",
+        "kind": "png",
+        "width": 133,
+        "height": 86
+      },
+      {
+        "name": "PrivacyChoice",
+        "token": "wcp-primitive-media-privacyChoice",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "PrivacyChoiceInverse",
+        "token": "wcp-primitive-media-privacyChoiceInverse",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "TopNavLogoCompact",
+        "token": "wcp-semantic-media-topNav-logo-compact",
+        "kind": "svg",
+        "width": 193,
+        "height": 153
+      },
+      {
+        "name": "Wordmark",
+        "token": "wcp-primitive-media-wordmark",
+        "kind": "svg",
+        "width": 538,
+        "height": 91
+      },
+      {
+        "name": "WordmarkInverse",
+        "token": "wcp-primitive-media-wordmark-inverse",
+        "kind": "svg",
+        "width": 538,
+        "height": 91
+      },
+      {
+        "name": "WordmarkInverseMember",
+        "token": "wcp-primitive-media-wordmark-inverse-member",
+        "kind": "svg",
+        "width": 539,
+        "height": 173
+      },
+      {
+        "name": "WordmarkMember",
+        "token": "wcp-primitive-media-wordmark-member",
+        "kind": "svg",
+        "width": 538,
+        "height": 182
+      }
+    ]
+  },
+  "sams-club-maverick": {
+    "label": "Sam's Club Maverick",
+    "count": 40,
+    "assets": [
+      {
+        "name": "CreditCardBrand",
+        "token": "wcp-primitive-media-creditCardBrand",
+        "kind": "png",
+        "width": 135,
+        "height": 84
+      },
+      {
+        "name": "CreditCardBrand1",
+        "token": "wcp-primitive-media-creditCardBrand1",
+        "kind": "png",
+        "width": 135,
+        "height": 85
+      },
+      {
+        "name": "CreditCardBrand2",
+        "token": "wcp-primitive-media-creditCardBrand2",
+        "kind": "png",
+        "width": 135,
+        "height": 85
+      },
+      {
+        "name": "CreditCardBrand3",
+        "token": "wcp-primitive-media-creditCardBrand3",
+        "kind": "png",
+        "width": 135,
+        "height": 85
+      },
+      {
+        "name": "CreditCardBrand4",
+        "token": "wcp-primitive-media-creditCardBrand4",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardBrand5",
+        "token": "wcp-primitive-media-creditCardBrand5",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardBrand6",
+        "token": "wcp-primitive-media-creditCardBrand6",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardGeneric",
+        "token": "wcp-primitive-media-creditCardGeneric",
+        "kind": "png",
+        "width": 136,
+        "height": 91
+      },
+      {
+        "name": "CreditCardGeneric1",
+        "token": "wcp-primitive-media-creditCardGeneric1",
+        "kind": "png",
+        "width": 136,
+        "height": 91
+      },
+      {
+        "name": "CreditCardGeneric2",
+        "token": "wcp-primitive-media-creditCardGeneric2",
+        "kind": "png",
+        "width": 136,
+        "height": 90
+      },
+      {
+        "name": "CreditCardGeneric3",
+        "token": "wcp-primitive-media-creditCardGeneric3",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardGeneric4",
+        "token": "wcp-primitive-media-creditCardGeneric4",
+        "kind": "png",
+        "width": 135,
+        "height": 91
+      },
+      {
+        "name": "CreditCardGeneric5",
+        "token": "wcp-primitive-media-creditCardGeneric5",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardGeneric6",
+        "token": "wcp-primitive-media-creditCardGeneric6",
+        "kind": "png",
+        "width": 135,
+        "height": 91
+      },
+      {
+        "name": "CreditCardLiderBci",
+        "token": "wcp-primitive-media-creditCardLiderBci",
+        "kind": "png",
+        "width": 142,
+        "height": 90
+      },
+      {
+        "name": "ErrorGeneric",
+        "token": "wcp-primitive-media-errorGeneric",
+        "kind": "svg",
+        "width": 256,
+        "height": 256
+      },
+      {
+        "name": "ErrorNetwork",
+        "token": "wcp-primitive-media-errorNetwork",
+        "kind": "svg",
+        "width": 256,
+        "height": 256
+      },
+      {
+        "name": "ErrorNotFound",
+        "token": "wcp-primitive-media-errorNotFound",
+        "kind": "svg",
+        "width": 256,
+        "height": 256
+      },
+      {
+        "name": "FlagCanada",
+        "token": "wcp-primitive-media-flagCanada",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "FlagChile",
+        "token": "wcp-primitive-media-flagChile",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "FlagColombia",
+        "token": "wcp-primitive-media-flagColombia",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "FlagMexico",
+        "token": "wcp-primitive-media-flagMexico",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "FlagUSA",
+        "token": "wcp-primitive-media-flagUSA",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "Gic",
+        "token": "wcp-primitive-media-gic",
+        "kind": "svg",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "name": "GicDelivery",
+        "token": "wcp-primitive-media-gicDelivery",
+        "kind": "svg",
+        "width": 50,
+        "height": 50
+      },
+      {
+        "name": "GicPickup",
+        "token": "wcp-primitive-media-gicPickup",
+        "kind": "svg",
+        "width": 50,
+        "height": 50
+      },
+      {
+        "name": "GicShipping",
+        "token": "wcp-primitive-media-gicShipping",
+        "kind": "svg",
+        "width": 50,
+        "height": 50
+      },
+      {
+        "name": "Logo",
+        "token": "wcp-primitive-media-logo",
+        "kind": "svg",
+        "width": 148,
+        "height": 153
+      },
+      {
+        "name": "LogoInverse",
+        "token": "wcp-primitive-media-logo-inverse",
+        "kind": "svg",
+        "width": 148,
+        "height": 153
+      },
+      {
+        "name": "LogoInverseMember",
+        "token": "wcp-primitive-media-logo-inverse-member",
+        "kind": "svg",
+        "width": 194,
+        "height": 144
+      },
+      {
+        "name": "LogoMember",
+        "token": "wcp-primitive-media-logo-member",
+        "kind": "svg",
+        "width": 194,
+        "height": 160
+      },
+      {
+        "name": "MembershipCard",
+        "token": "wcp-primitive-media-membershipCard",
+        "kind": "png",
+        "width": 133,
+        "height": 85
+      },
+      {
+        "name": "MembershipCardPlus",
+        "token": "wcp-primitive-media-membershipCardPlus",
+        "kind": "png",
+        "width": 133,
+        "height": 86
+      },
+      {
+        "name": "PrivacyChoice",
+        "token": "wcp-primitive-media-privacyChoice",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "PrivacyChoiceInverse",
+        "token": "wcp-primitive-media-privacyChoiceInverse",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "TopNavLogoCompact",
+        "token": "wcp-semantic-media-topNav-logo-compact",
+        "kind": "svg",
+        "width": 193,
+        "height": 153
+      },
+      {
+        "name": "Wordmark",
+        "token": "wcp-primitive-media-wordmark",
+        "kind": "svg",
+        "width": 474,
+        "height": 90
+      },
+      {
+        "name": "WordmarkInverse",
+        "token": "wcp-primitive-media-wordmark-inverse",
+        "kind": "svg",
+        "width": 480,
+        "height": 90
+      },
+      {
+        "name": "WordmarkInverseMember",
+        "token": "wcp-primitive-media-wordmark-inverse-member",
+        "kind": "svg",
+        "width": 539,
+        "height": 173
+      },
+      {
+        "name": "WordmarkMember",
+        "token": "wcp-primitive-media-wordmark-member",
+        "kind": "svg",
+        "width": 538,
+        "height": 182
+      }
+    ]
+  },
+  "members-mark": {
+    "label": "Member's Mark",
+    "count": 40,
+    "assets": [
+      {
+        "name": "CreditCardBrand",
+        "token": "wcp-primitive-media-creditCardBrand",
+        "kind": "png",
+        "width": 135,
+        "height": 84
+      },
+      {
+        "name": "CreditCardBrand1",
+        "token": "wcp-primitive-media-creditCardBrand1",
+        "kind": "png",
+        "width": 135,
+        "height": 85
+      },
+      {
+        "name": "CreditCardBrand2",
+        "token": "wcp-primitive-media-creditCardBrand2",
+        "kind": "png",
+        "width": 135,
+        "height": 85
+      },
+      {
+        "name": "CreditCardBrand3",
+        "token": "wcp-primitive-media-creditCardBrand3",
+        "kind": "png",
+        "width": 135,
+        "height": 85
+      },
+      {
+        "name": "CreditCardBrand4",
+        "token": "wcp-primitive-media-creditCardBrand4",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardBrand5",
+        "token": "wcp-primitive-media-creditCardBrand5",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardBrand6",
+        "token": "wcp-primitive-media-creditCardBrand6",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardGeneric",
+        "token": "wcp-primitive-media-creditCardGeneric",
+        "kind": "png",
+        "width": 136,
+        "height": 91
+      },
+      {
+        "name": "CreditCardGeneric1",
+        "token": "wcp-primitive-media-creditCardGeneric1",
+        "kind": "png",
+        "width": 136,
+        "height": 91
+      },
+      {
+        "name": "CreditCardGeneric2",
+        "token": "wcp-primitive-media-creditCardGeneric2",
+        "kind": "png",
+        "width": 136,
+        "height": 90
+      },
+      {
+        "name": "CreditCardGeneric3",
+        "token": "wcp-primitive-media-creditCardGeneric3",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardGeneric4",
+        "token": "wcp-primitive-media-creditCardGeneric4",
+        "kind": "png",
+        "width": 135,
+        "height": 91
+      },
+      {
+        "name": "CreditCardGeneric5",
+        "token": "wcp-primitive-media-creditCardGeneric5",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardGeneric6",
+        "token": "wcp-primitive-media-creditCardGeneric6",
+        "kind": "png",
+        "width": 135,
+        "height": 91
+      },
+      {
+        "name": "CreditCardLiderBci",
+        "token": "wcp-primitive-media-creditCardLiderBci",
+        "kind": "png",
+        "width": 142,
+        "height": 90
+      },
+      {
+        "name": "ErrorGeneric",
+        "token": "wcp-primitive-media-errorGeneric",
+        "kind": "svg",
+        "width": 240,
+        "height": 240
+      },
+      {
+        "name": "ErrorNetwork",
+        "token": "wcp-primitive-media-errorNetwork",
+        "kind": "svg",
+        "width": 240,
+        "height": 240
+      },
+      {
+        "name": "ErrorNotFound",
+        "token": "wcp-primitive-media-errorNotFound",
+        "kind": "svg",
+        "width": 240,
+        "height": 240
+      },
+      {
+        "name": "FlagCanada",
+        "token": "wcp-primitive-media-flagCanada",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "FlagChile",
+        "token": "wcp-primitive-media-flagChile",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "FlagColombia",
+        "token": "wcp-primitive-media-flagColombia",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "FlagMexico",
+        "token": "wcp-primitive-media-flagMexico",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "FlagUSA",
+        "token": "wcp-primitive-media-flagUSA",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "Gic",
+        "token": "wcp-primitive-media-gic",
+        "kind": "svg",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "name": "GicDelivery",
+        "token": "wcp-primitive-media-gicDelivery",
+        "kind": "svg",
+        "width": 50,
+        "height": 50
+      },
+      {
+        "name": "GicPickup",
+        "token": "wcp-primitive-media-gicPickup",
+        "kind": "svg",
+        "width": 50,
+        "height": 50
+      },
+      {
+        "name": "GicShipping",
+        "token": "wcp-primitive-media-gicShipping",
+        "kind": "svg",
+        "width": 50,
+        "height": 50
+      },
+      {
+        "name": "Logo",
+        "token": "wcp-primitive-media-logo",
+        "kind": "svg",
+        "width": 193,
+        "height": 153
+      },
+      {
+        "name": "LogoInverse",
+        "token": "wcp-primitive-media-logo-inverse",
+        "kind": "svg",
+        "width": 193,
+        "height": 153
+      },
+      {
+        "name": "LogoInverseMember",
+        "token": "wcp-primitive-media-logo-inverse-member",
+        "kind": "svg",
+        "width": 194,
+        "height": 254
+      },
+      {
+        "name": "LogoMember",
+        "token": "wcp-primitive-media-logo-member",
+        "kind": "svg",
+        "width": 194,
+        "height": 254
+      },
+      {
+        "name": "MembershipCard",
+        "token": "wcp-primitive-media-membershipCard",
+        "kind": "png",
+        "width": 133,
+        "height": 85
+      },
+      {
+        "name": "MembershipCardPlus",
+        "token": "wcp-primitive-media-membershipCardPlus",
+        "kind": "png",
+        "width": 133,
+        "height": 86
+      },
+      {
+        "name": "PrivacyChoice",
+        "token": "wcp-primitive-media-privacyChoice",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "PrivacyChoiceInverse",
+        "token": "wcp-primitive-media-privacyChoiceInverse",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "TopNavLogoCompact",
+        "token": "wcp-semantic-media-topNav-logo-compact",
+        "kind": "svg",
+        "width": 193,
+        "height": 153
+      },
+      {
+        "name": "Wordmark",
+        "token": "wcp-primitive-media-wordmark",
+        "kind": "svg",
+        "width": 538,
+        "height": 91
+      },
+      {
+        "name": "WordmarkInverse",
+        "token": "wcp-primitive-media-wordmark-inverse",
+        "kind": "svg",
+        "width": 538,
+        "height": 91
+      },
+      {
+        "name": "WordmarkInverseMember",
+        "token": "wcp-primitive-media-wordmark-inverse-member",
+        "kind": "svg",
+        "width": 578,
+        "height": 96
+      },
+      {
+        "name": "WordmarkMember",
+        "token": "wcp-primitive-media-wordmark-member",
+        "kind": "svg",
+        "width": 578,
+        "height": 96
+      }
+    ]
+  },
+  "bodega": {
+    "label": "Bodega",
+    "count": 40,
+    "assets": [
+      {
+        "name": "CreditCardBrand",
+        "token": "wcp-primitive-media-creditCardBrand",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardBrand1",
+        "token": "wcp-primitive-media-creditCardBrand1",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardBrand2",
+        "token": "wcp-primitive-media-creditCardBrand2",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardBrand3",
+        "token": "wcp-primitive-media-creditCardBrand3",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardBrand4",
+        "token": "wcp-primitive-media-creditCardBrand4",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardBrand5",
+        "token": "wcp-primitive-media-creditCardBrand5",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardBrand6",
+        "token": "wcp-primitive-media-creditCardBrand6",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardGeneric",
+        "token": "wcp-primitive-media-creditCardGeneric",
+        "kind": "png",
+        "width": 136,
+        "height": 91
+      },
+      {
+        "name": "CreditCardGeneric1",
+        "token": "wcp-primitive-media-creditCardGeneric1",
+        "kind": "png",
+        "width": 136,
+        "height": 91
+      },
+      {
+        "name": "CreditCardGeneric2",
+        "token": "wcp-primitive-media-creditCardGeneric2",
+        "kind": "png",
+        "width": 136,
+        "height": 90
+      },
+      {
+        "name": "CreditCardGeneric3",
+        "token": "wcp-primitive-media-creditCardGeneric3",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardGeneric4",
+        "token": "wcp-primitive-media-creditCardGeneric4",
+        "kind": "png",
+        "width": 135,
+        "height": 91
+      },
+      {
+        "name": "CreditCardGeneric5",
+        "token": "wcp-primitive-media-creditCardGeneric5",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardGeneric6",
+        "token": "wcp-primitive-media-creditCardGeneric6",
+        "kind": "png",
+        "width": 135,
+        "height": 91
+      },
+      {
+        "name": "CreditCardLiderBci",
+        "token": "wcp-primitive-media-creditCardLiderBci",
+        "kind": "png",
+        "width": 142,
+        "height": 90
+      },
+      {
+        "name": "ErrorGeneric",
+        "token": "wcp-primitive-media-errorGeneric",
+        "kind": "svg",
+        "width": 230,
+        "height": 240
+      },
+      {
+        "name": "ErrorNetwork",
+        "token": "wcp-primitive-media-errorNetwork",
+        "kind": "svg",
+        "width": 230,
+        "height": 240
+      },
+      {
+        "name": "ErrorNotFound",
+        "token": "wcp-primitive-media-errorNotFound",
+        "kind": "svg",
+        "width": 230,
+        "height": 240
+      },
+      {
+        "name": "FlagCanada",
+        "token": "wcp-primitive-media-flagCanada",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "FlagChile",
+        "token": "wcp-primitive-media-flagChile",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "FlagColombia",
+        "token": "wcp-primitive-media-flagColombia",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "FlagMexico",
+        "token": "wcp-primitive-media-flagMexico",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "FlagUSA",
+        "token": "wcp-primitive-media-flagUSA",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "Gic",
+        "token": "wcp-primitive-media-gic",
+        "kind": "svg",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "name": "GicDelivery",
+        "token": "wcp-primitive-media-gicDelivery",
+        "kind": "svg",
+        "width": 50,
+        "height": 50
+      },
+      {
+        "name": "GicPickup",
+        "token": "wcp-primitive-media-gicPickup",
+        "kind": "svg",
+        "width": 50,
+        "height": 50
+      },
+      {
+        "name": "GicShipping",
+        "token": "wcp-primitive-media-gicShipping",
+        "kind": "svg",
+        "width": 50,
+        "height": 50
+      },
+      {
+        "name": "Logo",
+        "token": "wcp-primitive-media-logo",
+        "kind": "svg",
+        "width": 191,
+        "height": 200
+      },
+      {
+        "name": "LogoInverse",
+        "token": "wcp-primitive-media-logo-inverse",
+        "kind": "svg",
+        "width": 191,
+        "height": 199
+      },
+      {
+        "name": "LogoInverseMember",
+        "token": "wcp-primitive-media-logo-inverse-member",
+        "kind": "svg",
+        "width": 194,
+        "height": 144
+      },
+      {
+        "name": "LogoMember",
+        "token": "wcp-primitive-media-logo-member",
+        "kind": "svg",
+        "width": 194,
+        "height": 160
+      },
+      {
+        "name": "MembershipCard",
+        "token": "wcp-primitive-media-membershipCard",
+        "kind": "png",
+        "width": 133,
+        "height": 85
+      },
+      {
+        "name": "MembershipCardPlus",
+        "token": "wcp-primitive-media-membershipCardPlus",
+        "kind": "png",
+        "width": 133,
+        "height": 86
+      },
+      {
+        "name": "PrivacyChoice",
+        "token": "wcp-primitive-media-privacyChoice",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "PrivacyChoiceInverse",
+        "token": "wcp-primitive-media-privacyChoiceInverse",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "TopNavLogoCompact",
+        "token": "wcp-semantic-media-topNav-logo-compact",
+        "kind": "svg",
+        "width": 191,
+        "height": 200
+      },
+      {
+        "name": "Wordmark",
+        "token": "wcp-primitive-media-wordmark",
+        "kind": "svg",
+        "width": 420,
+        "height": 80
+      },
+      {
+        "name": "WordmarkInverse",
+        "token": "wcp-primitive-media-wordmark-inverse",
+        "kind": "svg",
+        "width": 420,
+        "height": 80
+      },
+      {
+        "name": "WordmarkInverseMember",
+        "token": "wcp-primitive-media-wordmark-inverse-member",
+        "kind": "svg",
+        "width": 539,
+        "height": 173
+      },
+      {
+        "name": "WordmarkMember",
+        "token": "wcp-primitive-media-wordmark-member",
+        "kind": "svg",
+        "width": 538,
+        "height": 182
+      }
+    ]
+  },
+  "walmart-legacy": {
+    "label": "Walmart Legacy",
+    "count": 40,
+    "assets": [
+      {
+        "name": "CreditCardBrand",
+        "token": "wcp-primitive-media-creditCardBrand",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardBrand1",
+        "token": "wcp-primitive-media-creditCardBrand1",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardBrand2",
+        "token": "wcp-primitive-media-creditCardBrand2",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardBrand3",
+        "token": "wcp-primitive-media-creditCardBrand3",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardBrand4",
+        "token": "wcp-primitive-media-creditCardBrand4",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardBrand5",
+        "token": "wcp-primitive-media-creditCardBrand5",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardBrand6",
+        "token": "wcp-primitive-media-creditCardBrand6",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardGeneric",
+        "token": "wcp-primitive-media-creditCardGeneric",
+        "kind": "png",
+        "width": 136,
+        "height": 91
+      },
+      {
+        "name": "CreditCardGeneric1",
+        "token": "wcp-primitive-media-creditCardGeneric1",
+        "kind": "png",
+        "width": 136,
+        "height": 91
+      },
+      {
+        "name": "CreditCardGeneric2",
+        "token": "wcp-primitive-media-creditCardGeneric2",
+        "kind": "png",
+        "width": 136,
+        "height": 90
+      },
+      {
+        "name": "CreditCardGeneric3",
+        "token": "wcp-primitive-media-creditCardGeneric3",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardGeneric4",
+        "token": "wcp-primitive-media-creditCardGeneric4",
+        "kind": "png",
+        "width": 135,
+        "height": 91
+      },
+      {
+        "name": "CreditCardGeneric5",
+        "token": "wcp-primitive-media-creditCardGeneric5",
+        "kind": "png",
+        "width": 135,
+        "height": 90
+      },
+      {
+        "name": "CreditCardGeneric6",
+        "token": "wcp-primitive-media-creditCardGeneric6",
+        "kind": "png",
+        "width": 135,
+        "height": 91
+      },
+      {
+        "name": "CreditCardLiderBci",
+        "token": "wcp-primitive-media-creditCardLiderBci",
+        "kind": "png",
+        "width": 142,
+        "height": 90
+      },
+      {
+        "name": "ErrorGeneric",
+        "token": "wcp-primitive-media-errorGeneric",
+        "kind": "svg",
+        "width": 230,
+        "height": 240
+      },
+      {
+        "name": "ErrorNetwork",
+        "token": "wcp-primitive-media-errorNetwork",
+        "kind": "svg",
+        "width": 240,
+        "height": 240
+      },
+      {
+        "name": "ErrorNotFound",
+        "token": "wcp-primitive-media-errorNotFound",
+        "kind": "svg",
+        "width": 231,
+        "height": 240
+      },
+      {
+        "name": "FlagCanada",
+        "token": "wcp-primitive-media-flagCanada",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "FlagChile",
+        "token": "wcp-primitive-media-flagChile",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "FlagColombia",
+        "token": "wcp-primitive-media-flagColombia",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "FlagMexico",
+        "token": "wcp-primitive-media-flagMexico",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "FlagUSA",
+        "token": "wcp-primitive-media-flagUSA",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "Gic",
+        "token": "wcp-primitive-media-gic",
+        "kind": "svg",
+        "width": 40,
+        "height": 40
+      },
+      {
+        "name": "GicDelivery",
+        "token": "wcp-primitive-media-gicDelivery",
+        "kind": "svg",
+        "width": 51,
+        "height": 51
+      },
+      {
+        "name": "GicPickup",
+        "token": "wcp-primitive-media-gicPickup",
+        "kind": "svg",
+        "width": 50,
+        "height": 50
+      },
+      {
+        "name": "GicShipping",
+        "token": "wcp-primitive-media-gicShipping",
+        "kind": "svg",
+        "width": 50,
+        "height": 50
+      },
+      {
+        "name": "Logo",
+        "token": "wcp-primitive-media-logo",
+        "kind": "svg",
+        "width": 195,
+        "height": 218
+      },
+      {
+        "name": "LogoInverse",
+        "token": "wcp-primitive-media-logo-inverse",
+        "kind": "svg",
+        "width": 195,
+        "height": 219
+      },
+      {
+        "name": "LogoInverseMember",
+        "token": "wcp-primitive-media-logo-inverse-member",
+        "kind": "svg",
+        "width": 194,
+        "height": 161
+      },
+      {
+        "name": "LogoMember",
+        "token": "wcp-primitive-media-logo-member",
+        "kind": "svg",
+        "width": 194,
+        "height": 161
+      },
+      {
+        "name": "MembershipCard",
+        "token": "wcp-primitive-media-membershipCard",
+        "kind": "png",
+        "width": 133,
+        "height": 85
+      },
+      {
+        "name": "MembershipCardPlus",
+        "token": "wcp-primitive-media-membershipCardPlus",
+        "kind": "png",
+        "width": 133,
+        "height": 86
+      },
+      {
+        "name": "PrivacyChoice",
+        "token": "wcp-primitive-media-privacyChoice",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "PrivacyChoiceInverse",
+        "token": "wcp-primitive-media-privacyChoiceInverse",
+        "kind": "svg",
+        "width": 32,
+        "height": 32
+      },
+      {
+        "name": "TopNavLogoCompact",
+        "token": "wcp-semantic-media-topNav-logo-compact",
+        "kind": "svg",
+        "width": 195,
+        "height": 218
+      },
+      {
+        "name": "Wordmark",
+        "token": "wcp-primitive-media-wordmark",
+        "kind": "svg",
+        "width": 539,
+        "height": 131
+      },
+      {
+        "name": "WordmarkInverse",
+        "token": "wcp-primitive-media-wordmark-inverse",
+        "kind": "svg",
+        "width": 538,
+        "height": 131
+      },
+      {
+        "name": "WordmarkInverseMember",
+        "token": "wcp-primitive-media-wordmark-inverse-member",
+        "kind": "svg",
+        "width": 538,
+        "height": 131
+      },
+      {
+        "name": "WordmarkMember",
+        "token": "wcp-primitive-media-wordmark-member",
+        "kind": "svg",
+        "width": 539,
+        "height": 131
+      }
+    ]
+  }
+}

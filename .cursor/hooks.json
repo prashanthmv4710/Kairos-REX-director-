@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "hooks": {
+    "stop": [
+      {
+        "command": "node scripts/a11y/run-endhook.mjs --agent cursor"
+      }
+    ]
+  }
+}

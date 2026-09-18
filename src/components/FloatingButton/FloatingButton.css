@@ -1,0 +1,101 @@
+/* LD Portable – FloatingButton */
+.ld-wcp-floatingbutton-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: var(--ld-primitive-scale-borderRadius-round, 9999px);
+  /* No border — this is a floating button defined by elevation alone. A single,
+     diffuse downward shadow reads as "floating above" rather than the tight
+     ring an outline/border-like shadow would create. */
+  border: none;
+  background: var(--ld-semantic-color-action-fill-secondary);
+  color: var(--ld-semantic-color-action-text-onFill-secondary);
+  cursor: pointer;
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.16);
+  transition: background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease, color 0.15s ease;
+  box-sizing: border-box;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+  position: relative;
+}
+
+.ld-wcp-floatingbutton-button:hover:not(:disabled) {
+  background: var(--ld-semantic-color-action-fill-secondary-hovered);
+  color: var(--ld-semantic-color-action-text-onFill-secondary-hovered);
+  box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.18);
+}
+
+.ld-wcp-floatingbutton-button:focus-visible {
+  color: var(--ld-semantic-color-action-text-onFill-secondary-focused);
+}
+
+.ld-wcp-floatingbutton-button:active:not(:disabled) {
+  background: var(--ld-semantic-color-action-fill-secondary-pressed);
+  color: var(--ld-semantic-color-action-text-onFill-secondary-pressed);
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.14);
+}
+
+.ld-wcp-floatingbutton-button:disabled {
+  background: var(--ld-semantic-color-action-fill-secondary-disabled);
+  color: var(--ld-semantic-color-action-text-onFill-transparent-disabled);
+  box-shadow: none;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.ld-wcp-floatingbutton-iconWrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.ld-wcp-floatingbutton-iconWrap svg {
+  display: block;
+  flex-shrink: 0;
+}
+
+.ld-wcp-floatingbutton-xsmall {
+  width: 28px;
+  height: 28px;
+}
+.ld-wcp-floatingbutton-xsmall .ld-wcp-floatingbutton-iconWrap svg {
+  width: var(--ld-semantic-scale-icon-small, 16px);
+  height: var(--ld-semantic-scale-icon-small, 16px);
+}
+
+.ld-wcp-floatingbutton-small {
+  width: 32px;
+  height: 32px;
+}
+.ld-wcp-floatingbutton-small .ld-wcp-floatingbutton-iconWrap svg {
+  width: var(--ld-semantic-scale-icon-small, 16px);
+  height: var(--ld-semantic-scale-icon-small, 16px);
+}
+
+.ld-wcp-floatingbutton-medium {
+  width: 40px;
+  height: 40px;
+}
+.ld-wcp-floatingbutton-medium .ld-wcp-floatingbutton-iconWrap svg {
+  width: var(--ld-semantic-scale-icon-medium, 24px);
+  height: var(--ld-semantic-scale-icon-medium, 24px);
+}
+
+.ld-wcp-floatingbutton-large {
+  width: 52px;
+  height: 52px;
+}
+.ld-wcp-floatingbutton-large .ld-wcp-floatingbutton-iconWrap svg {
+  width: var(--ld-semantic-scale-icon-large, 32px);
+  height: var(--ld-semantic-scale-icon-large, 32px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ld-wcp-floatingbutton-button {
+    transition: none;
+  }
+}

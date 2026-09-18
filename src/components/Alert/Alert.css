@@ -1,0 +1,121 @@
+/* LD Portable – Alert */
+/* Alert */
+.ld-alert-alert {
+  font-family: var(--ld-semantic-font-body-small-family, 'Everyday Sans UI', sans-serif);
+  font-size: var(--ld-semantic-font-body-small-size, 0.875rem);
+  font-weight: var(--ld-semantic-font-body-small-weight-default, 400);
+  line-height: var(--ld-semantic-font-body-small-line-height, 1.25rem);
+  border-radius: var(--ld-primitive-scale-borderRadius-50, 0.25rem);
+  border-style: solid;
+  border-width: var(--ld-primitive-scale-borderWidth-100, 0.0625rem);
+  box-sizing: border-box;
+  display: flex;
+  gap: var(--ld-primitive-scale-space-100, 0.5rem);
+  align-items: flex-start;
+  padding: var(--ld-primitive-scale-space-100, 0.5rem) var(--ld-primitive-scale-space-150, 0.75rem);
+  position: relative;
+  width: 100%;
+}
+
+.ld-alert-content {
+  display: flex;
+  flex: 1 0 0;
+  flex-wrap: wrap;
+  gap: var(--ld-primitive-scale-space-100, 0.5rem);
+  align-items: start;
+  min-height: 1px;
+  min-width: 1px;
+}
+
+.ld-alert-content > div {
+  display: flex;
+  flex: 1 0 0;
+  flex-wrap: wrap;
+  gap: var(--ld-primitive-scale-space-50, 0.25rem) var(--ld-primitive-scale-space-200, 1rem);
+  align-items: center;
+  min-height: 1px;
+  min-width: 1px;
+}
+
+.ld-alert-leading {
+  display: flex;
+  align-items: flex-start;
+  padding: var(--ld-primitive-scale-space-25, 0.125rem) 0;
+  flex-shrink: 0;
+}
+
+/* Left accent tab */
+.ld-alert-alert::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  bottom: -1px;
+  left: -1px;
+  width: var(--ld-primitive-scale-space-50, 0.25rem);
+  border-top-left-radius: var(--ld-primitive-scale-borderRadius-50, 0.25rem);
+  border-bottom-left-radius: var(--ld-primitive-scale-borderRadius-50, 0.25rem);
+}
+
+.ld-alert-error {
+  background: var(--ld-semantic-color-fill-negative-subtle, #fde9e8);
+  border-color: var(--ld-semantic-color-border-negative, #ea1100);
+  color: var(--ld-semantic-color-text-onFill-negative-subtle, #a20c00);
+}
+
+.ld-alert-error::before {
+  background-color: var(--ld-semantic-color-border-negative, #ea1100);
+}
+
+.ld-alert-info {
+  background: var(--ld-semantic-color-fill-info-subtle, #e9f1fe);
+  border-color: var(--ld-semantic-color-border-info, #0053e2);
+  color: var(--ld-semantic-color-text-onFill-info-subtle, #002e99);
+}
+
+.ld-alert-info::before {
+  background-color: var(--ld-semantic-color-border-info, #0053e2);
+}
+
+.ld-alert-success {
+  background: var(--ld-semantic-color-fill-positive-subtle, #eaf3e6);
+  border-color: var(--ld-semantic-color-border-positive, #2a8703);
+  color: var(--ld-semantic-color-text-onFill-positive-subtle, #1d5f02);
+}
+
+.ld-alert-success::before {
+  background-color: var(--ld-semantic-color-border-positive, #2a8703);
+}
+
+.ld-alert-warning {
+  background: var(--ld-semantic-color-fill-warning-subtle, #fef6de);
+  border-color: var(--ld-semantic-color-border-warning, #995213);
+  color: var(--ld-semantic-color-text-onFill-warning-subtle, #4d1c0a);
+}
+
+.ld-alert-warning::before {
+  background-color: var(--ld-semantic-color-border-warning, #995213);
+}
+
+/* AlertActionButton */
+.ld-alert-alertactionbutton-action {
+  font-family: inherit;
+  font-size: var(--ld-semantic-font-body-small-size, 0.875rem);
+  font-weight: var(--ld-semantic-font-body-small-weight-default, 400);
+  line-height: var(--ld-semantic-font-body-small-line-height, 1.25rem);
+  background: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+  white-space: nowrap;
+}
+.ld-alert-alertactionbutton-action:hover {
+  text-decoration: none;
+}
+.ld-alert-alertactionbutton-action:focus {
+  text-decoration: none;
+}
+.ld-alert-alertactionbutton-action:active {
+  text-decoration: none;
+}

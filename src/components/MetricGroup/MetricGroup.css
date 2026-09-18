@@ -1,0 +1,13 @@
+.ax-metric-group {
+  display: flex;
+  align-items: stretch;
+  gap: var(--ld-primitive-scale-space-300, 24px);
+}
+
+.ax-metric-group__divider {
+  display: inline-block;
+  width: 1px;
+  align-self: stretch;
+  background: var(--ld-semantic-color-separator, #E3E4E5);
+  flex-shrink: 0;
+}

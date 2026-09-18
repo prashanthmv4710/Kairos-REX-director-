@@ -1,0 +1,473 @@
+.px-data-table-config-panel__overlay {}
+
+.px-data-table-config-panel {}
+
+.px-data-table-config-panel__header {
+  display: flex;
+  padding-block: var(--ld-primitive-scale-space-100);
+  padding-inline-end: var(--ld-primitive-scale-space-100);
+  padding-inline-start: var(--ld-primitive-scale-space-300);
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-100);
+  flex-shrink: 0;
+}
+
+.px-data-table-config-panel__title:focus {
+  outline: none;
+}
+
+.px-data-table-config-panel__title {
+  flex: 1;
+  margin: 0;
+  padding: 6px 0;
+  font-family: var(
+    --ld-semantic-font-heading-small-family,
+    'Everyday Sans UI',
+    -apple-system,
+    Roboto,
+    sans-serif
+  );
+  font-size: var(--ld-semantic-font-heading-small-size-b-s, 20px);
+  font-weight: var(--ld-primitive-font-weight-700);
+  line-height: var(--ld-semantic-font-heading-small-line-height-b-s, 1.4);
+  color: var(--ld-semantic-color-text, #2E2F32);
+}
+
+.px-data-table-config-panel__close-button {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  padding: var(--ld-primitive-scale-space-100);
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--ld-semantic-border-radius-round);
+  border: 1px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  color: var(--ld-semantic-color-text, #2E2F32);
+  flex-shrink: 0;
+  transition: background 150ms ease;
+}
+
+.px-data-table-config-panel__close-button:hover {
+  background: var(--ld-semantic-color-fill-subtle, #F8F8F8);
+}
+
+.px-data-table-config-panel__divider {
+  height: 1px;
+  background: var(--ld-semantic-color-separator, #E3E4E5);
+  flex-shrink: 0;
+}
+
+.px-data-table-config-panel__content {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-100);
+  padding: var(--ld-primitive-scale-space-300);
+  min-height: 0;
+}
+
+.px-data-table-config-panel__actions-row {
+  display: flex;
+  gap: var(--ld-primitive-scale-space-200);
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.px-data-table-config-panel__link-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--ld-semantic-color-text, #2E2F32);
+  font-family: var(
+    --ld-semantic-font-body-small-family,
+    'Everyday Sans UI',
+    -apple-system,
+    Roboto,
+    sans-serif
+  );
+  font-size: var(--ld-semantic-font-body-small-size, 14px);
+  font-weight: var(--ld-primitive-font-weight-400);
+  text-decoration: underline;
+  padding: 0;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  line-height: var(--ld-semantic-font-body-small-line-height, 1.43);
+}
+
+.px-data-table-config-panel__link-button:hover {
+  color: var(--ld-semantic-color-text-brand-bold, #0071DC);
+}
+
+.px-data-table-config-panel__column-list {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--ld-semantic-color-separator, #e3e4e5) var(--ld-semantic-color-fill-subtle, #f8f8f8);
+}
+
+.px-data-table-config-panel__column-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.px-data-table-config-panel__column-list::-webkit-scrollbar-track {
+  background: var(--ld-semantic-color-fill-subtle, #f8f8f8);
+  border-radius: var(--ld-semantic-border-radius-round);
+}
+
+.px-data-table-config-panel__column-list::-webkit-scrollbar-thumb {
+  background: var(--ld-semantic-color-separator, #e3e4e5);
+  border-radius: var(--ld-semantic-border-radius-round);
+}
+
+.px-data-table-config-panel__column-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 32px;
+  padding-block: var(--ld-primitive-scale-space-25);
+  padding-inline: 0;
+  border-radius: var(--ld-semantic-border-radius-medium);
+  transition: background 100ms ease;
+  position: relative;
+}
+
+.px-data-table-config-panel__column-row[draggable='true'] {
+  cursor: grab;
+}
+
+.px-data-table-config-panel__column-row[draggable='true']:active {
+  cursor: grabbing;
+}
+
+.px-data-table-config-panel__column-row--dragging {
+  opacity: 0.4;
+}
+
+/* Drop-indicator line (Spectrum-style) — position/display controlled via inline style */
+.px-data-table-config-panel__drop-line {
+  height: 2px;
+  background: var(--ld-semantic-color-border-activated, #0053E2);
+  border-radius: 1px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Left endpoint circle */
+.px-data-table-config-panel__drop-line::before {
+  content: '';
+  position: absolute;
+  left: -4px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ld-semantic-color-border-activated, #0053E2);
+}
+
+/* Right endpoint circle */
+.px-data-table-config-panel__drop-line::after {
+  content: '';
+  position: absolute;
+  right: -4px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ld-semantic-color-border-activated, #0053E2);
+}
+
+.px-data-table-config-panel__column-row-left {
+  display: flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-150);
+  flex: 1;
+  min-width: 0;
+}
+
+.px-data-table-config-panel__column-label {
+  font-family: var(
+    --ld-semantic-font-body-small-family,
+    'Everyday Sans UI',
+    -apple-system,
+    Roboto,
+    sans-serif
+  );
+  font-size: var(--ld-semantic-font-body-small-size, 14px);
+  font-weight: var(--ld-primitive-font-weight-700);
+  line-height: var(--ld-semantic-font-body-small-line-height, 1.43);
+  color: var(--ld-semantic-color-text, #2E2F32);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.px-data-table-config-panel__column-label--disabled {
+  color: var(--ld-semantic-color-text-disabled, #BABBBE);
+}
+
+.px-data-table-config-panel__column-row-right {
+  display: flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-25);
+  flex-shrink: 0;
+  padding-block: var(--ld-primitive-scale-space-25);
+  padding-inline: 0;
+}
+
+.px-data-table-config-panel__pin-button {
+  display: flex;
+  width: 24px;
+  height: 24px;
+  padding: var(--ld-primitive-scale-space-50);
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--ld-semantic-border-radius-round);
+  border: 1px solid transparent;
+  background: none;
+  cursor: pointer;
+  color: transparent;
+  transition:
+    color 120ms ease,
+    background 120ms ease;
+  flex-shrink: 0;
+}
+
+.px-data-table-config-panel__column-row:hover
+  .px-data-table-config-panel__pin-button:not(:disabled),
+.px-data-table-config-panel__column-row:focus-within
+  .px-data-table-config-panel__pin-button:not(:disabled) {
+  color: var(--ld-semantic-color-text-subtle, #74767C);
+}
+
+.px-data-table-config-panel__pin-button:hover:not(:disabled) {
+  color: var(--ld-semantic-color-text, #2E2F32) !important;
+  background: var(--ld-semantic-color-fill-subtle, #F8F8F8);
+}
+
+.px-data-table-config-panel__pin-button--active {
+  color: var(--ld-semantic-color-text, #2E2F32) !important;
+}
+
+.px-data-table-config-panel__pin-button-spacer {
+  display: inline-flex;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+/* Drag handle — now a real <button> for keyboard access */
+.px-data-table-config-panel__drag-handle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: var(--ld-semantic-border-radius-medium);
+  background: none;
+  cursor: grab;
+  color: var(--ld-semantic-color-text-subtle, #74767C);
+  flex-shrink: 0;
+  opacity: 0.35;
+  transition:
+    opacity 120ms ease,
+    color 120ms ease,
+    background 120ms ease,
+    outline 120ms ease;
+}
+
+.px-data-table-config-panel__column-row:hover
+  .px-data-table-config-panel__drag-handle-btn,
+.px-data-table-config-panel__column-row:focus-within
+  .px-data-table-config-panel__drag-handle-btn {
+  opacity: 1;
+  color: var(--ld-semantic-color-text, #2E2F32);
+}
+
+.px-data-table-config-panel__drag-handle-btn:hover {
+  background: var(--ld-semantic-color-fill-subtle, #F8F8F8);
+}
+
+.px-data-table-config-panel__drag-handle-btn:focus-visible {
+  outline: 2px solid var(--ld-semantic-color-border-activated, #0053E2);
+  outline-offset: 1px;
+  opacity: 1;
+}
+
+.px-data-table-config-panel__drag-handle-btn:active {
+  cursor: grabbing;
+}
+
+/* "Grabbed" state during keyboard drag */
+.px-data-table-config-panel__drag-handle-btn--grabbed {
+  opacity: 1;
+  outline: 2px solid var(--ld-semantic-color-border-activated, #0053E2);
+  outline-offset: 1px;
+  background: var(--ld-semantic-color-fill-brand-subtle, #E6F1FC);
+}
+
+.px-data-table-config-panel__drag-handle-btn--hidden {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Screen-reader-only utility */
+.px-data-table-config-panel__sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Adobe Spectrum-style "between" drop indicator — line with circles at both ends */
+.px-data-table-config-panel__column-row--drag-over {
+  background: transparent;
+}
+
+/* The 2px horizontal line, centered on the row's top edge */
+.px-data-table-config-panel__column-row--drag-over::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  transform: translateY(-50%);
+  background: var(--ld-semantic-color-border-activated, #0053E2);
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Two endpoint circles via radial-gradient, layered over the line */
+.px-data-table-config-panel__column-row--drag-over::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  transform: translateY(-50%);
+  background-image:
+    radial-gradient(circle 4px at 4px 50%, var(--ld-semantic-color-border-activated) 100%, transparent 100%),
+    radial-gradient(circle 4px at calc(100% - 4px) 50%, var(--ld-semantic-color-border-activated) 100%, transparent 100%);
+  pointer-events: none;
+  z-index: 11;
+}
+
+.px-data-table-config-panel__column-row--grabbed {
+  background: var(--ld-semantic-color-fill-brand-subtle, #E6F1FC);
+  border-radius: var(--ld-semantic-border-radius-medium);
+}
+
+.px-data-table-config-panel__footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-200);
+  padding: var(--ld-primitive-scale-space-300);
+  flex-shrink: 0;
+}
+
+/* ─── "Move to" button (hidden by default, revealed via React state class) ── */
+.px-data-table-config-panel__move-btn {
+  display: flex;
+  width: 24px;
+  height: 24px;
+  padding: var(--ld-primitive-scale-space-50);
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--ld-semantic-border-radius-round);
+  border: 1px solid transparent;
+  background: none;
+  cursor: pointer;
+  color: var(--ld-semantic-color-text-subtle, #74767C);
+  /* Visually hidden but stays in tab order */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 100ms ease, background 100ms ease;
+  flex-shrink: 0;
+}
+
+/* Revealed when row has keyboard focus (React-controlled) or mouse hover */
+.px-data-table-config-panel__move-btn--visible,
+.px-data-table-config-panel__column-row:hover .px-data-table-config-panel__move-btn {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.px-data-table-config-panel__move-btn:hover {
+  color: var(--ld-semantic-color-text, #2E2F32);
+  background: var(--ld-semantic-color-fill-subtle, #F8F8F8);
+}
+
+.px-data-table-config-panel__move-btn:focus-visible {
+  outline: 2px solid var(--ld-semantic-color-border-activated, #0053E2);
+  outline-offset: 1px;
+}
+
+/* ─── "Move to" dropdown menu ─────────────────────────────────────────────── */
+.px-data-table-config-panel__move-menu {
+  z-index: 9999;
+  min-width: 160px;
+  background: var(--ld-semantic-color-background, #FFFFFF);
+  border: 1px solid var(--ld-semantic-color-separator, #E3E4E5);
+  border-radius: var(--ld-semantic-border-radius-large);
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  padding: var(--ld-primitive-scale-space-50);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.px-data-table-config-panel__move-menu-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-block: var(--ld-primitive-scale-space-100);
+  padding-inline: var(--ld-primitive-scale-space-150);
+  background: none;
+  border: none;
+  border-radius: var(--ld-semantic-border-radius-medium);
+  cursor: pointer;
+  text-align: left;
+  font-family: var(
+    --ld-semantic-font-body-small-family,
+    'Everyday Sans UI',
+    -apple-system,
+    Roboto,
+    sans-serif
+  );
+  font-size: var(--ld-semantic-font-body-small-size, 14px);
+  font-weight: var(--ld-primitive-font-weight-400);
+  line-height: var(--ld-semantic-font-body-small-line-height, 1.43);
+  color: var(--ld-semantic-color-text, #2E2F32);
+  transition: background 100ms ease;
+}
+
+.px-data-table-config-panel__move-menu-item:hover,
+.px-data-table-config-panel__move-menu-item:focus-visible {
+  background: var(--ld-semantic-color-fill-subtle, #F8F8F8);
+  outline: none;
+}
+
+.px-data-table-config-panel__move-menu-item:focus-visible {
+  outline: 2px solid var(--ld-semantic-color-border-activated, #0053E2);
+  outline-offset: -2px;
+}

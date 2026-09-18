@@ -1,0 +1,36 @@
+/* LD Portable – ContentMessage */
+/* ContentMessage */
+.ld-contentmessage-contentMessage {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.ld-contentmessage-media {
+  display: inline-block;
+  line-height: 0;
+  margin: 0 auto;
+}
+.ld-contentmessage-media :first-child {
+  width: 100%;
+}
+.ld-contentmessage-small .ld-contentmessage-media {
+  margin-bottom: 1rem;
+  max-width: 10rem;
+}
+.ld-contentmessage-large .ld-contentmessage-media {
+  margin-bottom: 1.5rem;
+  max-width: 15rem;
+}
+
+.ld-contentmessage-title {
+  margin-bottom: 0.5rem;
+}
+
+.ld-contentmessage-textLabel {
+  color: var(--ld-semantic-color-text-subtle, #515357);
+}
+
+.ld-contentmessage-actions {
+  margin-top: 1.5rem;
+}

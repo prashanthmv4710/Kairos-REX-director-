@@ -1,0 +1,150 @@
+/* LD Portable – Agent Framework */
+
+/* A floating, rounded, elevated work surface: header / scrollable body /
+   optional footer, filling its container (so it can live inside a resizable
+   panel group). */
+.ld-agentframework {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  border-radius: var(--ld-semantic-border-radius-xxlarge, 1.5rem);
+  border: 0.0625rem solid var(--ld-semantic-color-separator, #e3e4e5);
+  box-shadow: none;
+  background: var(--ld-semantic-color-surface, #ffffff);
+  overflow: hidden;
+}
+
+.ld-agentframework-header {
+  display: flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-150, 0.75rem);
+  /* Locked 48 px height, matching the ChatTopAppBar / ChatPaneHeader so seams
+     pixel-align across chat panes and the framework surface. */
+  height: 3rem;
+  flex: 0 0 3rem;
+  padding: 0 var(--ld-primitive-scale-space-200, 1rem);
+  box-sizing: border-box;
+  border-bottom: 0.0625rem solid var(--ld-semantic-color-separator, #e3e4e5);
+}
+/* When the header is a drag handle, signal grab affordance. */
+.ld-agentframework-header--draggable {
+  cursor: grab;
+  user-select: none;
+}
+.ld-agentframework-header--draggable:active {
+  cursor: grabbing;
+}
+/* When the whole framework is a drag handle — grab it anywhere to reorder. */
+.ld-agentframework--grabbable {
+  cursor: grab;
+}
+.ld-agentframework--grabbable:active {
+  cursor: grabbing;
+}
+/* The body stays a normal pointer so text/controls don't read as draggable. */
+.ld-agentframework--grabbable .ld-agentframework-body {
+  cursor: auto;
+}
+/* While being grabbed/adjusted, the framework wears an animated magic-gradient
+   border (the same magic tokens as MagicBox) to signal it's being moved. */
+.ld-agentframework--dragging {
+  border-color: transparent;
+}
+.ld-agentframework--dragging::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: var(--ld-primitive-scale-space-25);
+  background: linear-gradient(
+    110deg,
+    var(--ld-semantic-color-border-magic-start, #0053e2),
+    var(--ld-semantic-color-border-magic-middle, #3d90ec),
+    var(--ld-semantic-color-border-magic-stop, #79cdf6),
+    var(--ld-semantic-color-border-magic-middle, #3d90ec),
+    var(--ld-semantic-color-border-magic-start, #0053e2)
+  );
+  background-size: 200% 100%;
+  -webkit-mask: linear-gradient(var(--ld-primitive-color-black, #000000) 0 0) content-box, linear-gradient(var(--ld-primitive-color-black, #000000) 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: ld-agentframework-magic 1.8s linear infinite;
+  pointer-events: none;
+  z-index: 4;
+}
+@keyframes ld-agentframework-magic {
+  to {
+    background-position: 200% 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ld-agentframework--dragging::after {
+    animation: none;
+  }
+}
+/* The active reference: the header's divider line picks up a subtle brand
+   accent (2px) tying the framework back to the chat message it was opened from. */
+.ld-agentframework--linked .ld-agentframework-header {
+  border-bottom-width: 0.125rem;
+  border-bottom-color: var(--ld-semantic-color-border-brand, #0053e2);
+}
+
+.ld-agentframework-icon {
+  display: inline-flex;
+  flex: 0 0 auto;
+  color: var(--ld-semantic-color-text, #2e2f32);
+}
+
+.ld-agentframework-title {
+  margin: 0;
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ld-agentframework-headerActions {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-50, 0.25rem);
+  flex: 0 0 auto;
+}
+
+/* Close button: pin to the trailing end of the header so it appears after
+   the title and all actions — matches the HR Benefits framework layout. */
+.ld-agentframework-header > .ld-iconbutton-iconButton {
+  order: 999;
+}
+
+.ld-agentframework-body {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+.ld-agentframework-bodyInner {
+  display: grid;
+  gap: var(--ld-primitive-scale-space-200, 1rem);
+  padding: var(--ld-primitive-scale-space-200, 1rem);
+}
+
+.ld-agentframework-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--ld-primitive-scale-space-100, 0.5rem);
+  padding: var(--ld-primitive-scale-space-200, 1rem);
+  border-top: 0.0625rem solid var(--ld-semantic-color-separator, #e3e4e5);
+  flex: 0 0 auto;
+}
+
+/* The footer hosts an ActionGroup (a full-width <ul> by default). Let it
+   shrink-wrap so the footer's flex-end alignment keeps the actions on the
+   right, matching the original two-button layout. Remove the browser-default
+   ul margin-block so vertical padding matches horizontal. */
+.ld-agentframework-footer .ld-wcp-actiongroup-group {
+  width: auto;
+  margin: 0;
+}

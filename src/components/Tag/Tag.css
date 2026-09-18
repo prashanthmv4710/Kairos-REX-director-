@@ -1,0 +1,338 @@
+/* LD Portable – Tag */
+/* Tag */
+.ld-tag-tag {
+  font-size: var(--ld-semantic-font-body-small-size);
+  font-weight: var(--ld-primitive-font-weight-400);
+  line-height: var(--ld-semantic-font-body-small-line-height);
+  align-items: center;
+  border-radius: var(--ld-semantic-border-radius-medium);
+  display: inline-flex;
+  height: 1.5rem;
+  padding-block: 0;
+  padding-inline: var(--ld-primitive-scale-space-100);
+  text-wrap: nowrap;
+}
+
+.ld-tag-small {
+  font-size: var(--ld-semantic-font-caption-size);
+  line-height: var(--ld-semantic-font-caption-line-height);
+  height: auto;
+  padding-block: var(--ld-primitive-scale-space-25);
+  padding-inline: var(--ld-primitive-scale-space-50);
+}
+.ld-tag-small .ld-tag-leadingIcon * {
+  font-size: 0.75rem !important;
+}
+
+.ld-tag-leadingIcon {
+  display: inline-flex;
+  margin-right: 0.25rem;
+}
+.ld-tag-leadingIcon * {
+  font-size: 1rem !important;
+}
+
+.ld-tag-primary.ld-tag-blue {
+  background: var(--ld-semantic-color-fill-accent-blue);
+  color: var(--ld-semantic-color-text-inverse);
+}
+
+.ld-tag-primary.ld-tag-brand {
+  background: var(--ld-semantic-color-fill-accent-blue);
+  color: var(--ld-semantic-color-text-inverse);
+}
+
+.ld-tag-primary.ld-tag-brandBold {
+  background: var(--ld-semantic-color-fill-accent-blue-bold);
+  color: var(--ld-semantic-color-text-inverse);
+}
+
+.ld-tag-primary.ld-tag-cyan {
+  background: var(--ld-semantic-color-fill-accent-cyan);
+  color: var(--ld-semantic-color-text-inverse);
+}
+
+.ld-tag-primary.ld-tag-edited {
+  background: var(--ld-semantic-color-fill-accent-purple);
+  color: var(--ld-semantic-color-text-inverse);
+}
+
+.ld-tag-primary.ld-tag-gray {
+  background: var(--ld-semantic-color-fill-accent-gray);
+  color: var(--ld-semantic-color-text-inverse);
+}
+
+.ld-tag-primary.ld-tag-green {
+  background: var(--ld-semantic-color-fill-accent-green);
+  color: var(--ld-semantic-color-text-inverse);
+}
+
+.ld-tag-primary.ld-tag-info {
+  background: var(--ld-semantic-color-fill-accent-blue);
+  color: var(--ld-semantic-color-text-inverse);
+}
+
+.ld-tag-primary.ld-tag-negative {
+  background: var(--ld-semantic-color-fill-accent-red);
+  color: var(--ld-semantic-color-text-inverse);
+}
+
+.ld-tag-primary.ld-tag-neutral {
+  background: var(--ld-semantic-color-fill);
+  box-shadow: inset 0 0 0 0.0625rem var(--ld-semantic-color-border-accent-gray);
+  color: var(--ld-semantic-color-text);
+}
+
+.ld-tag-primary.ld-tag-orange {
+  background: var(--ld-semantic-color-fill-accent-orange);
+  color: var(--ld-semantic-color-text-inverse);
+}
+
+.ld-tag-primary.ld-tag-pink {
+  background: var(--ld-semantic-color-fill-accent-pink);
+  color: var(--ld-semantic-color-text-inverse);
+}
+
+.ld-tag-primary.ld-tag-positive {
+  background: var(--ld-semantic-color-fill-accent-green);
+  color: var(--ld-semantic-color-text-inverse);
+}
+
+.ld-tag-primary.ld-tag-purple {
+  background: var(--ld-semantic-color-fill-accent-purple);
+  color: var(--ld-semantic-color-text-inverse);
+}
+
+.ld-tag-primary.ld-tag-red {
+  background: var(--ld-semantic-color-fill-accent-red);
+  color: var(--ld-semantic-color-text-inverse);
+}
+
+.ld-tag-primary.ld-tag-spark {
+  background: var(--ld-semantic-color-fill-accent-spark);
+  color: var(--ld-semantic-color-text-accent-spark-bold);
+}
+
+.ld-tag-primary.ld-tag-teal {
+  background: var(--ld-semantic-color-fill-accent-teal);
+  color: var(--ld-semantic-color-text-inverse);
+}
+
+.ld-tag-primary.ld-tag-warning {
+  background: var(--ld-semantic-color-fill-accent-spark);
+  color: var(--ld-semantic-color-text-accent-spark-bold);
+}
+
+.ld-tag-primary.ld-tag-yellow {
+  background: var(--ld-semantic-color-fill-accent-yellow);
+  color: var(--ld-semantic-color-text-accent-yellow-bold);
+}
+
+.ld-tag-secondary.ld-tag-blue {
+  background: var(--ld-semantic-color-fill);
+  box-shadow: inset 0 0 0 0.0625rem var(--ld-semantic-color-border-accent-blue);
+  color: var(--ld-semantic-color-text-accent-blue);
+}
+
+.ld-tag-secondary.ld-tag-brand {
+  background: var(--ld-semantic-color-fill);
+  box-shadow: inset 0 0 0 0.0625rem var(--ld-semantic-color-border-accent-blue-bold);
+  color: var(--ld-semantic-color-text-accent-blue-bold);
+}
+
+.ld-tag-secondary.ld-tag-brandBold {
+  background: var(--ld-semantic-color-fill);
+  box-shadow: inset 0 0 0 0.0625rem var(--ld-semantic-color-border-accent-blue-bold);
+  color: var(--ld-semantic-color-text-accent-blue-bold);
+}
+
+.ld-tag-secondary.ld-tag-cyan {
+  background: var(--ld-semantic-color-fill);
+  box-shadow: inset 0 0 0 0.0625rem var(--ld-semantic-color-border-accent-cyan);
+  color: var(--ld-semantic-color-text-accent-cyan);
+}
+
+.ld-tag-secondary.ld-tag-edited {
+  background: var(--ld-semantic-color-fill);
+  box-shadow: inset 0 0 0 0.0625rem var(--ld-semantic-color-border-accent-purple);
+  color: var(--ld-semantic-color-text-accent-purple);
+}
+
+.ld-tag-secondary.ld-tag-gray {
+  background: var(--ld-semantic-color-fill);
+  box-shadow: inset 0 0 0 0.0625rem var(--ld-semantic-color-border-accent-gray);
+  color: var(--ld-semantic-color-text-accent-gray);
+}
+
+.ld-tag-secondary.ld-tag-green {
+  background: var(--ld-semantic-color-fill);
+  box-shadow: inset 0 0 0 0.0625rem var(--ld-semantic-color-border-accent-green);
+  color: var(--ld-semantic-color-text-accent-green);
+}
+
+.ld-tag-secondary.ld-tag-info {
+  background: var(--ld-semantic-color-fill);
+  box-shadow: inset 0 0 0 0.0625rem var(--ld-semantic-color-border-accent-blue);
+  color: var(--ld-semantic-color-text-accent-blue);
+}
+
+.ld-tag-secondary.ld-tag-negative {
+  background: var(--ld-semantic-color-fill);
+  box-shadow: inset 0 0 0 0.0625rem var(--ld-semantic-color-border-accent-red);
+  color: var(--ld-semantic-color-text-accent-red);
+}
+
+.ld-tag-secondary.ld-tag-neutral {
+  background: var(--ld-semantic-color-fill);
+  box-shadow: inset 0 0 0 0.0625rem var(--ld-semantic-color-border-accent-gray);
+  color: var(--ld-semantic-color-text-accent-gray);
+}
+
+.ld-tag-secondary.ld-tag-orange {
+  background: var(--ld-semantic-color-fill);
+  box-shadow: inset 0 0 0 0.0625rem var(--ld-semantic-color-border-accent-orange);
+  color: var(--ld-semantic-color-text-accent-orange);
+}
+
+.ld-tag-secondary.ld-tag-pink {
+  background: var(--ld-semantic-color-fill);
+  box-shadow: inset 0 0 0 0.0625rem var(--ld-semantic-color-border-accent-pink);
+  color: var(--ld-semantic-color-text-accent-pink);
+}
+
+.ld-tag-secondary.ld-tag-positive {
+  background: var(--ld-semantic-color-fill);
+  box-shadow: inset 0 0 0 0.0625rem var(--ld-semantic-color-border-accent-green);
+  color: var(--ld-semantic-color-text-accent-green);
+}
+
+.ld-tag-secondary.ld-tag-purple {
+  background: var(--ld-semantic-color-fill);
+  box-shadow: inset 0 0 0 0.0625rem var(--ld-semantic-color-border-accent-purple);
+  color: var(--ld-semantic-color-text-accent-purple);
+}
+
+.ld-tag-secondary.ld-tag-red {
+  background: var(--ld-semantic-color-fill);
+  box-shadow: inset 0 0 0 0.0625rem var(--ld-semantic-color-border-accent-red);
+  color: var(--ld-semantic-color-text-accent-red);
+}
+
+.ld-tag-secondary.ld-tag-spark {
+  background: var(--ld-semantic-color-fill);
+  box-shadow: inset 0 0 0 0.0625rem var(--ld-semantic-color-border-accent-spark);
+  color: var(--ld-semantic-color-text-accent-spark);
+}
+
+.ld-tag-secondary.ld-tag-teal {
+  background: var(--ld-semantic-color-fill);
+  box-shadow: inset 0 0 0 0.0625rem var(--ld-semantic-color-border-accent-teal);
+  color: var(--ld-semantic-color-text-accent-teal);
+}
+
+.ld-tag-secondary.ld-tag-warning {
+  background: var(--ld-semantic-color-fill);
+  box-shadow: inset 0 0 0 0.0625rem var(--ld-semantic-color-border-accent-spark);
+  color: var(--ld-semantic-color-text-accent-spark);
+}
+
+.ld-tag-secondary.ld-tag-yellow {
+  background: var(--ld-semantic-color-fill);
+  box-shadow: inset 0 0 0 0.0625rem var(--ld-semantic-color-border-accent-yellow);
+  color: var(--ld-semantic-color-text-accent-yellow);
+}
+
+.ld-tag-tertiary.ld-tag-blue {
+  background: var(--ld-semantic-color-fill-accent-blue-subtle);
+  color: var(--ld-semantic-color-text-accent-blue-bold);
+}
+
+.ld-tag-tertiary.ld-tag-brand {
+  background: var(--ld-semantic-color-fill-accent-blue-subtle);
+  color: var(--ld-semantic-color-text-accent-blue-bold);
+}
+
+.ld-tag-tertiary.ld-tag-brandBold {
+  background: var(--ld-semantic-color-fill-accent-blue-subtle);
+  color: var(--ld-semantic-color-text-accent-blue-bold);
+}
+
+.ld-tag-tertiary.ld-tag-cyan {
+  background: var(--ld-semantic-color-fill-accent-cyan-subtle);
+  color: var(--ld-semantic-color-text-accent-cyan-bold);
+}
+
+.ld-tag-tertiary.ld-tag-edited {
+  background: var(--ld-semantic-color-fill-accent-purple-subtle);
+  color: var(--ld-semantic-color-text-accent-purple-bold);
+}
+
+.ld-tag-tertiary.ld-tag-gray {
+  background: var(--ld-semantic-color-fill-accent-gray-subtle);
+  color: var(--ld-semantic-color-text-accent-gray-bold);
+}
+
+.ld-tag-tertiary.ld-tag-green {
+  background: var(--ld-semantic-color-fill-accent-green-subtle);
+  color: var(--ld-semantic-color-text-accent-green-bold);
+}
+
+.ld-tag-tertiary.ld-tag-info {
+  background: var(--ld-semantic-color-fill-accent-blue-subtle);
+  color: var(--ld-semantic-color-text-accent-blue-bold);
+}
+
+.ld-tag-tertiary.ld-tag-negative {
+  background: var(--ld-semantic-color-fill-accent-red-subtle);
+  color: var(--ld-semantic-color-text-accent-red-bold);
+}
+
+.ld-tag-tertiary.ld-tag-neutral {
+  background: var(--ld-semantic-color-fill-accent-gray-subtle);
+  color: var(--ld-semantic-color-text-accent-gray-bold);
+}
+
+.ld-tag-tertiary.ld-tag-orange {
+  background: var(--ld-semantic-color-fill-accent-orange-subtle);
+  color: var(--ld-semantic-color-text-accent-orange-bold);
+}
+
+.ld-tag-tertiary.ld-tag-pink {
+  background: var(--ld-semantic-color-fill-accent-pink-subtle);
+  color: var(--ld-semantic-color-text-accent-pink-bold);
+}
+
+.ld-tag-tertiary.ld-tag-positive {
+  background: var(--ld-semantic-color-fill-accent-green-subtle);
+  color: var(--ld-semantic-color-text-accent-green-bold);
+}
+
+.ld-tag-tertiary.ld-tag-purple {
+  background: var(--ld-semantic-color-fill-accent-purple-subtle);
+  color: var(--ld-semantic-color-text-accent-purple-bold);
+}
+
+.ld-tag-tertiary.ld-tag-red {
+  background: var(--ld-semantic-color-fill-accent-red-subtle);
+  color: var(--ld-semantic-color-text-accent-red-bold);
+}
+
+.ld-tag-tertiary.ld-tag-spark {
+  background: var(--ld-semantic-color-fill-accent-spark-subtle);
+  color: var(--ld-semantic-color-text-accent-spark-bold);
+}
+
+.ld-tag-tertiary.ld-tag-teal {
+  background: var(--ld-semantic-color-fill-accent-teal-subtle);
+  color: var(--ld-semantic-color-text-accent-teal-bold);
+}
+
+.ld-tag-tertiary.ld-tag-warning {
+  background: var(--ld-semantic-color-fill-accent-spark-subtle);
+  color: var(--ld-semantic-color-text-accent-spark-bold);
+}
+
+.ld-tag-tertiary.ld-tag-yellow {
+  background: var(--ld-semantic-color-fill-accent-yellow-subtle);
+  color: var(--ld-semantic-color-text-accent-yellow-bold);
+}

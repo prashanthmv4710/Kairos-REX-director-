@@ -1,0 +1,1 @@
+Full-featured generic item tile — image, flag, heart, swatches, pack chips, sponsored, pricing, description, rating, and fulfillment attributes. Based on WCP Item tile (Figma node 89462:8140, breakpoint 0-899px vertical variant).

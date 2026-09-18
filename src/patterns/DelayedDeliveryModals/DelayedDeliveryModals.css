@@ -1,0 +1,188 @@
+/* LD Portable – DelayedDeliveryModals */
+
+/* ── Shared: success/confirmation body ── */
+
+.ld-wcp-delayed-delivery-modals-success-body {
+  padding-block: var(--ld-primitive-scale-space-400);
+  padding-inline: var(--ld-primitive-scale-space-300);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-200);
+  text-align: center;
+}
+
+.ld-wcp-delayed-delivery-modals-success-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ld-wcp-delayed-delivery-modals-success-icon--positive {
+  background: var(--ld-semantic-color-fill-positive, #16a34a);
+}
+
+.ld-wcp-delayed-delivery-modals-success-icon--negative {
+  background: var(--ld-semantic-color-fill-negative, #dc2626);
+}
+
+.ld-wcp-delayed-delivery-modals-success-title {
+  font-size: 20px;
+  font-weight: var(--ld-primitive-font-weight-700);
+  color: var(--ld-semantic-color-text);
+  margin: 0;
+}
+
+.ld-wcp-delayed-delivery-modals-success-desc {
+  font-size: var(--ld-semantic-font-body-small-size);
+  color: var(--ld-semantic-color-text-subtle);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ── Shared: modal header ── */
+
+.ld-wcp-delayed-delivery-modals-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: var(--ld-primitive-scale-space-200);
+  padding-inline: var(--ld-primitive-scale-space-250);
+  border-bottom: 1px solid var(--ld-semantic-color-separator);
+}
+
+.ld-wcp-delayed-delivery-modals-header-title {
+  font-size: 18px;
+  font-weight: var(--ld-primitive-font-weight-700);
+  color: var(--ld-semantic-color-text);
+  margin: 0;
+}
+
+.ld-wcp-delayed-delivery-modals-close-btn {
+  background: none;
+  border: none;
+  padding: var(--ld-primitive-scale-space-50);
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  color: var(--ld-semantic-color-text-subtle);
+}
+
+/* ── Shared: modal content ── */
+
+.ld-wcp-delayed-delivery-modals-content {
+  padding: var(--ld-primitive-scale-space-250);
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-150);
+}
+
+.ld-wcp-delayed-delivery-modals-content-text {
+  font-size: var(--ld-semantic-font-body-small-size);
+  color: var(--ld-semantic-color-text);
+  margin: 0;
+}
+
+.ld-wcp-delayed-delivery-modals-content-text--line-height {
+  line-height: 1.5;
+}
+
+/* ── Shared: modal footer ── */
+
+.ld-wcp-delayed-delivery-modals-footer {
+  display: flex;
+  gap: var(--ld-primitive-scale-space-100);
+  padding-block: var(--ld-primitive-scale-space-200);
+  padding-inline: var(--ld-primitive-scale-space-250);
+  border-top: 1px solid var(--ld-semantic-color-separator);
+  justify-content: flex-end;
+}
+
+/* ── Reschedule: slot picker ── */
+
+.ld-wcp-delayed-delivery-modals-slot {
+  display: flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-150);
+  padding: 12px 14px;
+  border-radius: var(--ld-semantic-border-radius-large);
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  border: 1px solid var(--ld-semantic-color-separator, #e3e4e5);
+  background: var(--ld-semantic-color-surface, #fff);
+}
+
+.ld-wcp-delayed-delivery-modals-slot--selected {
+  border: 2px solid var(--ld-semantic-color-border-brand, #0071dc);
+  background: var(--ld-semantic-color-fill-brand-subtle, #e8f0fe);
+}
+
+.ld-wcp-delayed-delivery-modals-slot-radio {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  border: 2px solid var(--ld-semantic-color-border, #c0c0c0);
+}
+
+.ld-wcp-delayed-delivery-modals-slot-radio--selected {
+  border: 5px solid var(--ld-semantic-color-fill-brand-bold, #0071dc);
+}
+
+.ld-wcp-delayed-delivery-modals-slot-label {
+  font-size: var(--ld-semantic-font-body-small-size);
+  font-weight: var(--ld-primitive-font-weight-600);
+  color: var(--ld-semantic-color-text);
+  display: block;
+}
+
+.ld-wcp-delayed-delivery-modals-slot-sublabel {
+  font-size: var(--ld-semantic-font-caption-size);
+  color: var(--ld-semantic-color-text-positive, #16a34a);
+}
+
+/* ── Pickup / Details: info box ── */
+
+.ld-wcp-delayed-delivery-modals-info-box {
+  padding: var(--ld-primitive-scale-space-200);
+  border-radius: var(--ld-semantic-border-radius-large);
+  background: var(--ld-semantic-color-background-subtle, #f8f8f8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-100);
+}
+
+.ld-wcp-delayed-delivery-modals-info-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+}
+
+.ld-wcp-delayed-delivery-modals-info-label {
+  color: var(--ld-semantic-color-text-subtle);
+}
+
+.ld-wcp-delayed-delivery-modals-info-value {
+  font-weight: var(--ld-primitive-font-weight-600);
+  color: var(--ld-semantic-color-text);
+}
+
+.ld-wcp-delayed-delivery-modals-fine-print {
+  font-size: var(--ld-semantic-font-caption-size);
+  color: var(--ld-semantic-color-text-subtle);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ── Content body with 16px gap (for larger gap sections) ── */
+
+.ld-wcp-delayed-delivery-modals-content--gap16 {
+  padding: var(--ld-primitive-scale-space-250);
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-200);
+}

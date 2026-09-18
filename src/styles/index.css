@@ -1,0 +1,51 @@
+@import "../living-design.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Apply the Living Design font to the entire page.
+ * The --ld-primitive-font-family-sans variable is set in living-design.css (:root)
+ * and overridden by Theming.tsx at runtime for brand-specific fonts (Gibson, Bogle).
+ * Without this rule, page-level text falls back to the browser default (serif).
+ */
+/*
+ * AppShell owns scrolling internally (its own overflow:auto pane sized to
+ * 100vh). Without this, <body> has no explicit height, so on some browsers
+ * it ends up a hair taller than the viewport — enough for wheel/trackpad
+ * scroll to chain from the inner pane up to <body> once the pane hits its
+ * end, rubber-banding the entire page (masthead + sidebar included) up and
+ * back. Locking html/body to the viewport with no overflow of their own
+ * means there's never anywhere else for that scroll to chain to.
+ */
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: var(--ld-primitive-font-family-sans, 'Everyday Sans UI', -apple-system, Roboto, sans-serif);
+  color: var(--ld-semantic-color-text, #2e2f32);
+  margin: 0;
+}
+
+/*
+ * Container max-width: match walmart.com responsive approach.
+ * Living Design's Container is 100% width by default — without this,
+ * content stretches edge-to-edge with no margins.
+ * calc(100% - 48px) gives 24px margin on each side, matching Walmart's pattern.
+ */
+.ld-container-container {
+  max-width: calc(100% - 48px);
+}
+
+/*
+ * Grid row-gap: prevent cards from stacking without vertical spacing.
+ * Living Design's Grid uses display:flex with flex-wrap but has NO row-gap,
+ * so when GridColumns wrap to a new row, items stack with zero spacing.
+ */
+.ld-grid-grid {
+  row-gap: 1rem;
+}

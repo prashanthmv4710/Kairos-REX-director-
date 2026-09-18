@@ -1,0 +1,172 @@
+/* LD Portable – Suggestion Button */
+
+/* A pill-shaped chat starter: a short label with a leading asset. Two layout
+   treatments — `icon` (bare icon + regular label) and `image` (round framed
+   image + bold label) — and four color treatments. Fill / text / icon / radius
+   resolve from CSS custom properties so a designer can re-skin any instance;
+   the variant + color classes only set the defaults for those properties. */
+.ld-suggestionbutton {
+  /* Theme-able knobs (overridable per-instance via the component's props). */
+  --ld-suggestionbutton-radius: var(--ld-primitive-scale-borderradius-round, 1000px);
+
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-100, 0.5rem);
+  max-width: 100%;
+  border: 0;
+  border-radius: var(--ld-suggestionbutton-radius);
+  background: var(--ld-suggestionbutton-fill);
+  color: var(--ld-suggestionbutton-text);
+  cursor: pointer;
+  transition: filter 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* ── Layout variants ─────────────────────────────────────────────── */
+/* Icon — a bare icon (no container) beside a regular-weight label. */
+.ld-suggestionbutton--icon {
+  padding: var(--ld-primitive-scale-space-150, 0.75rem) var(--ld-primitive-scale-space-200, 1rem);
+}
+.ld-suggestionbutton--icon .ld-suggestionbutton-label {
+  font-weight: var(--ld-primitive-font-weight-400, 400);
+  line-height: 1;
+}
+/* Loading icon button shrinks to center its spinner. */
+.ld-suggestionbutton--icon.ld-suggestionbutton--loading {
+  justify-content: center;
+}
+
+/* Image — a round framed asset that hugs the left edge beside a bold label. */
+.ld-suggestionbutton--image {
+  height: 3rem;
+  padding: var(--ld-primitive-scale-space-50, 0.25rem) var(--ld-primitive-scale-space-250, 1.25rem)
+    var(--ld-primitive-scale-space-50, 0.25rem) var(--ld-primitive-scale-space-50, 0.25rem);
+}
+.ld-suggestionbutton--image .ld-suggestionbutton-label {
+  font-weight: var(--ld-semantic-font-action-weight, 700);
+  line-height: var(--ld-semantic-font-body-small-lineheight, 1.25rem);
+}
+
+/* ── Color treatments (set the fill / text / icon vars) ──────────── */
+/* Icon: default — subtle white fill, dark label, subtlest-gray icon. */
+.ld-suggestionbutton--color-default {
+  --ld-suggestionbutton-fill: var(--ld-semantic-color-fill, #ffffff);
+  --ld-suggestionbutton-text: var(--ld-semantic-color-text, #2e2f32);
+  --ld-suggestionbutton-icon: var(--ld-semantic-color-text-subtlest, #74767c);
+  border: 0.0625rem solid var(--ld-semantic-color-action-border-tertiary, #babbbe);
+}
+/* brandSubtle — light-blue fill, dark label, brand-blue icon. */
+.ld-suggestionbutton--color-brandSubtle {
+  --ld-suggestionbutton-fill: var(--ld-semantic-color-fill-brand-subtle, #e9f1fe);
+  --ld-suggestionbutton-text: var(--ld-semantic-color-text-onfill-activated-subtle, #2e2f32);
+  --ld-suggestionbutton-icon: var(--ld-semantic-color-action-text-onfill-secondary, #0f42a2);
+}
+
+/* ── Interaction feedback ────────────────────────────────────────── */
+/* Derived from whatever the fill resolves to, so custom fills still react. */
+.ld-suggestionbutton:hover {
+  filter: brightness(0.94);
+}
+.ld-suggestionbutton:active {
+  filter: brightness(0.88);
+}
+.ld-suggestionbutton:focus-visible {
+  outline: 0.125rem solid var(--ld-semantic-color-action-focus-outline, #0053e2);
+  outline-offset: 0.125rem;
+}
+
+/* Disabled — gray fill, white label for both treatments. */
+.ld-suggestionbutton:disabled {
+  cursor: default;
+  filter: none;
+}
+.ld-suggestionbutton:disabled:not(.ld-suggestionbutton--loading) {
+  --ld-suggestionbutton-fill: var(--ld-semantic-color-fill-activated-disabled, #babbbe);
+  --ld-suggestionbutton-text: var(--ld-semantic-color-text-onfill-activated-disabled, #ffffff);
+  --ld-suggestionbutton-icon: var(--ld-semantic-color-text-onfill-activated-disabled, #ffffff);
+  box-shadow: none;
+}
+
+/* ── Leading asset ───────────────────────────────────────────────── */
+/* Bare by default (an icon sits inline, using the icon color var). */
+.ld-suggestionbutton-asset {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ld-suggestionbutton-icon, currentColor);
+}
+/* The image variant frames the asset in a white circle; the loading skeleton
+   reuses the same round frame. */
+.ld-suggestionbutton--image .ld-suggestionbutton-asset,
+.ld-suggestionbutton-asset--skeleton {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--ld-primitive-scale-borderradius-round, 1000px);
+  overflow: hidden;
+  background: var(--ld-semantic-color-fill, #ffffff);
+  box-shadow: inset 0 0 0 0.0625rem var(--ld-semantic-color-action-border-secondary, #0000001a);
+  color: var(--ld-semantic-color-text, #2e2f32);
+}
+/* Let an image (or Avatar) fill the circle. */
+.ld-suggestionbutton-asset > img,
+.ld-suggestionbutton-asset > picture > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ld-suggestionbutton-label {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: var(--ld-semantic-font-body-small-family, 'Everyday Sans UI'), sans-serif;
+  font-size: var(--ld-semantic-font-body-small-size, 0.875rem);
+}
+
+/* ── Loading ─────────────────────────────────────────────────────── */
+.ld-suggestionbutton--loading {
+  cursor: default;
+  pointer-events: none;
+}
+/* Icon variant: a centered spinner ring in the current text color. */
+.ld-suggestionbutton-spinner {
+  flex: 0 0 auto;
+  width: var(--ld-semantic-scale-icon-small, 1rem);
+  height: var(--ld-semantic-scale-icon-small, 1rem);
+  border-radius: 50%;
+  border: 0.125rem solid currentColor;
+  border-top-color: transparent;
+  opacity: 0.6;
+  animation: ld-suggestionbutton-spin 0.7s linear infinite;
+}
+/* Image variant: the asset becomes an empty skeleton circle and the label a
+   shimmer bar. The pill keeps its color fill. */
+.ld-suggestionbutton--loading .ld-suggestionbutton-asset--skeleton {
+  background: var(--ld-semantic-color-loading-subtle, #e3e4e5);
+  box-shadow: none;
+}
+.ld-suggestionbutton-labelSkeleton {
+  width: 5rem;
+  height: 0.75rem;
+  border-radius: var(--ld-primitive-scale-borderradius-round, 1000px);
+  background: currentColor;
+  opacity: 0.25;
+  animation: ld-suggestionbutton-pulse 1.4s ease-in-out infinite;
+}
+@keyframes ld-suggestionbutton-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes ld-suggestionbutton-pulse {
+  0%, 100% { opacity: 0.18; }
+  50% { opacity: 0.34; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ld-suggestionbutton-spinner,
+  .ld-suggestionbutton-labelSkeleton {
+    animation: none;
+  }
+}

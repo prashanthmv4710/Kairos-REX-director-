@@ -1,0 +1,156 @@
+/* LD Portable – Panel */
+/* PanelPortal */
+.ld-panel-panelportal-closeButton {
+  flex: none;
+}
+
+.ld-panel-panelportal-container {
+  box-sizing: border-box;
+  display: flex;
+  height: 100%;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+
+.ld-panel-panelportal-right {
+  justify-content: flex-end;
+  padding-left: 1.5rem;
+}
+
+.ld-panel-panelportal-left {
+  justify-content: flex-start;
+  padding-right: 1.5rem;
+}
+
+.ld-panel-panelportal-panel {
+  background: var(--ld-semantic-color-surface-overlay, #ffffff);
+  box-shadow: var(--ld-semantic-elevation-300);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+.ld-panel-panelportal-transitionEnter .ld-panel-panelportal-left .ld-panel-panelportal-panel {
+  transform: translateX(-100%);
+}
+.ld-panel-panelportal-transitionEnter .ld-panel-panelportal-right .ld-panel-panelportal-panel {
+  transform: translateX(100%);
+}
+.ld-panel-panelportal-transitionEnterActive .ld-panel-panelportal-left .ld-panel-panelportal-panel, .ld-panel-panelportal-transitionEnterActive .ld-panel-panelportal-right .ld-panel-panelportal-panel {
+  transform: none;
+  transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.ld-panel-panelportal-transitionExit .ld-panel-panelportal-left .ld-panel-panelportal-panel, .ld-panel-panelportal-transitionExit .ld-panel-panelportal-right .ld-panel-panelportal-panel {
+  transform: none;
+}
+.ld-panel-panelportal-transitionExitActive .ld-panel-panelportal-left .ld-panel-panelportal-panel {
+  transform: translateX(-100%);
+  transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.ld-panel-panelportal-transitionExitActive .ld-panel-panelportal-right .ld-panel-panelportal-panel {
+  transform: translateX(100%);
+  transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.ld-panel-panelportal-small {
+  max-width: 20rem;
+}
+
+.ld-panel-panelportal-medium {
+  max-width: 26.25rem;
+}
+
+.ld-panel-panelportal-large {
+  max-width: 37.5rem;
+}
+
+.ld-panel-panelportal-header {
+  align-items: flex-start;
+  border-bottom: 0.0625rem solid var(--ld-semantic-color-separator, #e3e4e5);
+  display: flex;
+  flex-direction: row-reverse;
+  flex-shrink: 0;
+  justify-content: space-between;
+  gap: var(--ld-primitive-scale-space-100);
+  padding-block: 0;
+  padding-inline-end: 0;
+  padding-inline-start: var(--ld-primitive-scale-space-200);
+}
+@media screen and (min-width: 37.5rem) {
+  .ld-panel-panelportal-header {
+    padding-block: var(--ld-primitive-scale-space-100);
+    padding-inline-end: var(--ld-primitive-scale-space-100);
+    padding-inline-start: var(--ld-primitive-scale-space-300);
+  }
+}
+
+.ld-panel-panelportal-title {
+  margin: 0;
+  padding-block: var(--ld-primitive-scale-space-100);
+  padding-inline: 0;
+  font-size: 1.125rem;
+  font-weight: var(--ld-primitive-font-weight-700);
+  line-height: var(--ld-semantic-font-body-medium-line-height);
+}
+
+.ld-panel-panelportal-title:focus {
+  outline: none;
+}
+@media screen and (min-width: 56.25rem) {
+  .ld-panel-panelportal-title {
+    font-size: 1.25rem;
+    line-height: var(--ld-primitive-font-lineHeight-350);
+  }
+}
+@media screen and (min-width: 37.5rem) {
+  .ld-panel-panelportal-title {
+    padding: 0.375rem 0 0.375rem 0;
+  }
+}
+
+.ld-panel-panelportal-content {
+  flex: 1 1 auto;
+  overflow-y: auto;
+}
+
+.ld-panel-panelportal-contentInner {
+  padding: var(--ld-primitive-scale-space-200);
+}
+@media screen and (min-width: 37.5rem) {
+  .ld-panel-panelportal-contentInner {
+    padding: var(--ld-primitive-scale-space-300);
+  }
+}
+
+.ld-panel-panelportal-actionContent {
+  border-top: 0.0625rem solid var(--ld-semantic-color-separator, #e3e4e5);
+  display: flex;
+  flex: none;
+  gap: var(--ld-primitive-scale-space-150);
+  justify-content: flex-end;
+  padding: var(--ld-primitive-scale-space-200);
+}
+@media screen and (min-width: 37.5rem) {
+  .ld-panel-panelportal-actionContent {
+    padding: var(--ld-primitive-scale-space-300);
+  }
+}
+
+.ld-panel-panelportal-transitionEnter .ld-panel-panelportal-scrim {
+  opacity: 0;
+}
+.ld-panel-panelportal-transitionEnterActive .ld-panel-panelportal-scrim {
+  opacity: 1;
+  transition: opacity 0.2s linear;
+}
+.ld-panel-panelportal-transitionExit .ld-panel-panelportal-scrim {
+  opacity: 1;
+  transition: opacity 0.3s linear;
+  transition-delay: 0.2s;
+}
+.ld-panel-panelportal-transitionExitActive .ld-panel-panelportal-scrim {
+  opacity: 0;
+}

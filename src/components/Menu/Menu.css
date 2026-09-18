@@ -1,0 +1,476 @@
+/* LD Portable – Menu */
+/* Menu */
+.ld-menu-enter {
+  opacity: 0;
+}
+.ld-menu-bottomLeft .ld-menu-enter, .ld-menu-bottomRight .ld-menu-enter {
+  transform: translateY(-0.5rem);
+}
+.ld-menu-topLeft .ld-menu-enter, .ld-menu-topRight .ld-menu-enter {
+  transform: translateY(0.5rem);
+}
+
+.ld-menu-enterActive {
+  opacity: 1;
+  transition: all 0.1s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.ld-menu-bottomLeft .ld-menu-enterActive, .ld-menu-bottomRight .ld-menu-enterActive, .ld-menu-topLeft .ld-menu-enterActive, .ld-menu-topRight .ld-menu-enterActive {
+  transform: translateY(0);
+}
+
+.ld-menu-exit {
+  opacity: 1;
+}
+.ld-menu-bottomLeft .ld-menu-exit, .ld-menu-bottomRight .ld-menu-exit, .ld-menu-topLeft .ld-menu-exit, .ld-menu-topRight .ld-menu-exit {
+  transform: translateY(0);
+}
+
+.ld-menu-exitActive {
+  opacity: 0;
+  transition: all 0.1s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.ld-menu-bottomLeft .ld-menu-exitActive, .ld-menu-bottomRight .ld-menu-exitActive {
+  transform: translateY(-0.5rem);
+}
+.ld-menu-topLeft .ld-menu-exitActive, .ld-menu-topRight .ld-menu-exitActive {
+  transform: translateY(0.5rem);
+}
+
+/* MenuContainer — matches SelectDropdown's overlay: sized to the longest item
+   within comfortable bounds, with room for cascading submenu panels. */
+.ld-menu-menucontainer-container {
+  box-sizing: border-box;
+  width: max-content;
+  min-width: 12rem;
+  max-width: 22rem;
+  overflow: visible;
+  background: var(--ld-semantic-color-surface-overlay, #ffffff);
+  color: var(--ld-semantic-color-text, #2e2f32);
+  border-radius: var(--ld-semantic-border-radius-large, 8px);
+  box-shadow: var(--ld-semantic-elevation-200, 0 0.25rem 1rem rgba(0, 0, 0, 0.12));
+  display: inline-block;
+  padding: var(--ld-primitive-scale-space-100, 8px);
+}
+
+/* MenuItem */
+.ld-menu-menuitem-menuItem {
+  font-size: var(--ld-semantic-font-body-small-size);
+  font-weight: var(--ld-primitive-font-weight-400);
+  line-height: var(--ld-semantic-font-body-small-line-height);
+  align-items: center;
+  background: transparent;
+  border: 0;
+  color: var(--ld-semantic-color-text, #2e2f32);
+  cursor: pointer;
+  display: flex;
+  margin: 0;
+  padding-block: var(--ld-primitive-scale-space-100);
+  padding-inline: var(--ld-primitive-scale-space-200);
+  text-align: left;
+  white-space: nowrap;
+  width: 100%;
+}
+.ld-menu-menuitem-menuItem.hover, .ld-menu-menuitem-menuItem:hover {
+  background: var(--ld-semantic-color-surface-hovered, #f1f1f2);
+  color: var(--ld-semantic-color-text, #2e2f32);
+}
+.ld-menu-menuitem-menuItem.focus, .ld-menu-menuitem-menuItem:focus {
+  background: var(--ld-semantic-color-surface-hovered, #f1f1f2);
+  color: var(--ld-semantic-color-text, #2e2f32);
+}
+.ld-menu-menuitem-menuItem.active, .ld-menu-menuitem-menuItem:active {
+  background: var(--ld-semantic-color-surface-pressed, #e3e4e5);
+  color: var(--ld-semantic-color-text, #2e2f32);
+}
+.ld-menu-menuitem-menuItem:disabled {
+  background: transparent;
+  color: var(--ld-semantic-color-text-disabled, #babbbe);
+  cursor: default;
+}
+
+.ld-menu-menuitem-leadingIcon {
+  margin-right: 0.5rem;
+}
+
+/* ============================================
+   MENU ITEM VARIANTS
+   Section titles, descriptions, info, submenus (drill-in),
+   breadcrumbs, accordions, and an inline edit row.
+   ============================================ */
+
+.ld-menu-leadingIcon {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-right: 0.5rem;
+}
+
+.ld-menu-menuitem-label {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.ld-menu-menuitem--selected .ld-menu-menuitem-label {
+  font-weight: var(--ld-semantic-font-body-small-weight-alt, 700);
+}
+
+.ld-menu-trailingIcon {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  width: 1rem;
+  height: 1rem;
+  color: var(--ld-semantic-color-text, #2e2f32);
+}
+
+/* Destructive item */
+.ld-menu-menuitem--destructive {
+  color: var(--ld-semantic-color-text-critical, #de1c24);
+}
+.ld-menu-menuitem--destructive:hover:not(:disabled),
+.ld-menu-menuitem--destructive:focus,
+.ld-menu-menuitem--destructive:active:not(:disabled) {
+  color: var(--ld-semantic-color-text-critical, #de1c24);
+}
+
+/* Shared interactive-row styling for the new button-based rows */
+.ld-menu-description-item,
+.ld-menu-sub-trigger,
+.ld-menu-breadcrumb,
+.ld-menu-accordion-trigger {
+  font-size: var(--ld-semantic-font-body-small-size);
+  font-weight: var(--ld-primitive-font-weight-400);
+  line-height: var(--ld-semantic-font-body-small-line-height);
+  align-items: center;
+  background: transparent;
+  border: 0;
+  color: var(--ld-semantic-color-text, #2e2f32);
+  cursor: pointer;
+  display: flex;
+  gap: var(--ld-primitive-scale-space-100);
+  margin: 0;
+  padding-block: var(--ld-primitive-scale-space-100);
+  padding-inline: var(--ld-primitive-scale-space-200);
+  text-align: left;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+.ld-menu-description-item:hover:not(:disabled),
+.ld-menu-sub-trigger:hover:not(:disabled),
+.ld-menu-breadcrumb:hover:not(:disabled),
+.ld-menu-accordion-trigger:hover:not(:disabled),
+.ld-menu-description-item:focus,
+.ld-menu-sub-trigger:focus,
+.ld-menu-breadcrumb:focus,
+.ld-menu-accordion-trigger:focus {
+  background: var(--ld-semantic-color-surface-hovered, #f1f1f2);
+  outline: none;
+}
+.ld-menu-description-item:active:not(:disabled),
+.ld-menu-sub-trigger:active:not(:disabled),
+.ld-menu-breadcrumb:active:not(:disabled),
+.ld-menu-accordion-trigger:active:not(:disabled) {
+  background: var(--ld-semantic-color-surface-pressed, #e3e4e5);
+}
+.ld-menu-description-item:disabled,
+.ld-menu-sub-trigger:disabled,
+.ld-menu-breadcrumb:disabled,
+.ld-menu-accordion-trigger:disabled {
+  color: var(--ld-semantic-color-text-disabled, #babbbe);
+  cursor: default;
+}
+
+/* Chevrons */
+.ld-menu-chevron {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+.ld-menu-chevron--leading {
+  margin-left: 0;
+}
+
+/* Section title (non-interactive heading) */
+.ld-menu-section-title {
+  padding-block: var(--ld-primitive-scale-space-100);
+  padding-inline: var(--ld-primitive-scale-space-200);
+  font-size: var(--ld-semantic-font-body-small-size);
+  font-weight: var(--ld-primitive-font-weight-400);
+  line-height: var(--ld-semantic-font-body-small-line-height);
+  color: var(--ld-semantic-color-text-subtle, #515357);
+}
+.ld-menu-section-title[data-variant='bold'] {
+  font-weight: var(--ld-primitive-font-weight-700);
+}
+
+/* Submenu: cascading flyout panel */
+.ld-menu-sub {
+  position: relative;
+}
+.ld-menu-sub-trigger[data-state='open'] {
+  background: var(--ld-semantic-color-surface-hovered, #f1f1f2);
+}
+.ld-menu-sub-content {
+  position: absolute;
+  left: 100%;
+  /* Pull up by the panel's own padding so the first submenu row lines up with
+     the trigger row, and offset slightly so it reads as a separate surface. */
+  top: calc(-1 * var(--ld-primitive-scale-space-100, 8px));
+  margin-left: var(--ld-primitive-scale-space-50, 4px);
+  z-index: 1;
+}
+
+/* Breadcrumb row */
+.ld-menu-breadcrumb-bullet {
+  width: 0.25rem;
+  height: 0.25rem;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+  margin: 0 0.25rem;
+}
+
+/* Info trailing icon inherits text color (not subtle) */
+.ld-menu-info-icon {
+  color: var(--ld-semantic-color-text, #2e2f32);
+}
+
+/* Description item */
+.ld-menu-description-item {
+  gap: var(--ld-primitive-scale-space-150);
+}
+.ld-menu-description-avatar {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--ld-semantic-border-radius-round);
+  background: var(--ld-semantic-color-fill-brand-subtle, #e9f1fe);
+  color: var(--ld-semantic-color-text-onfill-brand-subtle, #114ab6);
+  overflow: hidden;
+}
+.ld-menu-description-avatar svg,
+.ld-menu-description-avatar img {
+  width: 1.5rem;
+  height: 1.5rem;
+  object-fit: cover;
+}
+.ld-menu-description-text {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+.ld-menu-description-title {
+  font-weight: var(--ld-primitive-font-weight-700);
+  color: var(--ld-semantic-color-text, #2e2f32);
+}
+.ld-menu-description-desc {
+  color: var(--ld-semantic-color-text-subtle, #515357);
+}
+.ld-menu-description-item:disabled .ld-menu-description-title,
+.ld-menu-description-item:disabled .ld-menu-description-desc {
+  color: var(--ld-semantic-color-text-disabled, #babbbe);
+}
+
+/* Accordion */
+.ld-menu-accordion-trigger[data-state='open'] {
+  font-weight: var(--ld-primitive-font-weight-700);
+}
+.ld-menu-accordion-chevron {
+  margin-left: auto;
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  transition: transform 0.15s ease-in-out;
+}
+.ld-menu-accordion-trigger[data-state='open'] .ld-menu-accordion-chevron {
+  transform: rotate(180deg);
+}
+.ld-menu-accordion-content[hidden] {
+  display: none;
+}
+
+/* Inline edit row */
+.ld-menu-edit-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-50);
+  padding-block: var(--ld-primitive-scale-space-50);
+  padding-inline: var(--ld-primitive-scale-space-200);
+  box-sizing: border-box;
+}
+.ld-menu-edit-field {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--ld-semantic-color-field-border, #6d6e71);
+  border-radius: var(--ld-semantic-border-radius-medium);
+  background: var(--ld-semantic-color-field-fill, #ffffff);
+  padding-block: 0;
+  padding-inline: var(--ld-primitive-scale-space-150);
+  transition: border-color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+}
+.ld-menu-edit-field[data-readonly] {
+  border-color: transparent;
+  background: transparent;
+  padding-left: 0;
+  padding-right: 0;
+}
+.ld-menu-edit-field:focus-within {
+  border-width: var(--ld-primitive-scale-borderWidth-200);
+  border-color: var(--ld-semantic-color-field-border-focused, #2e2f32);
+  background: var(--ld-semantic-color-fill-activated-subtle-focused, #e9f1fe);
+}
+.ld-menu-edit-input {
+  flex: 1 1 auto;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding-block: var(--ld-primitive-scale-space-100);
+  padding-inline: 0;
+  font-family: inherit;
+  font-size: var(--ld-semantic-font-body-small-size);
+  font-weight: var(--ld-primitive-font-weight-400);
+  line-height: var(--ld-semantic-font-body-small-line-height);
+  color: var(--ld-semantic-color-field-text-onfill, #2e2f32);
+}
+.ld-menu-edit-input::placeholder {
+  color: var(--ld-semantic-color-text-subtle, #74767c);
+}
+.ld-menu-edit-item[data-error] .ld-menu-edit-field,
+.ld-menu-edit-item[data-error] .ld-menu-edit-field:focus-within {
+  border-color: var(--ld-semantic-color-field-border-negative, #ea1100);
+}
+.ld-menu-edit-item[data-disabled] .ld-menu-edit-input {
+  color: var(--ld-semantic-color-text-disabled, #babbbe);
+}
+.ld-menu-edit-error {
+  display: flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-50);
+  color: var(--ld-semantic-color-text-negative, #ea1100);
+  font-size: var(--ld-semantic-font-caption-size);
+  line-height: var(--ld-semantic-font-caption-line-height);
+}
+.ld-menu-edit-error-icon {
+  flex-shrink: 0;
+  width: 1rem;
+  height: 1rem;
+}
+
+/* ============================================
+   MENU + INFO
+   Each info item can expand a detail panel docked beside the menu.
+   ============================================ */
+
+/* The items column. No padding by default — the container handles it — but
+   it takes over padding when a detail panel is docked alongside. */
+.ld-menu-pane {
+  display: block;
+}
+
+/* When a detail panel is open the surface becomes a two-pane row and the
+   container padding moves onto the items pane so the detail pane can bleed to
+   the panel edges. */
+.ld-menu-menucontainer-container.ld-menu--with-detail {
+  display: flex;
+  align-items: stretch;
+  padding: 0;
+  overflow: hidden;
+  /* Two panes side by side need more room than a single-column menu. Cap the
+     overall height so long detail text scrolls instead of growing the surface;
+     both panes stretch to this height. */
+  width: auto;
+  max-width: none;
+  max-height: 22rem;
+}
+.ld-menu--with-detail .ld-menu-pane {
+  padding: var(--ld-primitive-scale-space-100, 8px);
+  flex: 0 0 auto;
+  min-width: 12rem;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+/* Active info row: bold label so the open item stays scannable. */
+.ld-menu-menuitem-menuItem[aria-expanded='true'] .ld-menu-menuitem-label {
+  font-weight: var(--ld-primitive-font-weight-700);
+}
+.ld-menu-menuitem-menuItem[data-state='open'] {
+  background: var(--ld-semantic-color-surface-hovered, #f1f1f2);
+}
+
+/* Detail panel */
+.ld-menu-detail {
+  flex: 0 0 16rem;
+  max-width: 18rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-50, 4px);
+  padding: var(--ld-primitive-scale-space-200, 16px);
+  background: var(--ld-semantic-color-surface-subtle, #f8f8f8);
+  /* Stretches to the surface height (set on the container); scrolls when the
+     detail text is longer than that. min-height:0 lets the flex child shrink
+     so the internal scroll engages. */
+  min-height: 0;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--ld-primitive-color-gray-40, #c7c8cb) transparent;
+}
+.ld-menu-detail::-webkit-scrollbar {
+  width: 0.5rem;
+}
+.ld-menu-detail::-webkit-scrollbar-thumb {
+  background: var(--ld-primitive-color-gray-40, #c7c8cb);
+  border-radius: var(--ld-semantic-border-radius-round);
+  border: 0.125rem solid var(--ld-semantic-color-surface-subtle, #f8f8f8);
+}
+.ld-menu-detail-title {
+  font-size: var(--ld-semantic-font-body-small-size);
+  font-weight: var(--ld-primitive-font-weight-700);
+  line-height: var(--ld-semantic-font-body-small-line-height);
+  color: var(--ld-semantic-color-text, #2e2f32);
+}
+.ld-menu-detail-body {
+  font-size: var(--ld-semantic-font-body-small-size);
+  font-weight: var(--ld-primitive-font-weight-400);
+  line-height: var(--ld-semantic-font-body-small-line-height);
+  color: var(--ld-semantic-color-text, #2e2f32);
+}
+
+/* Footer note */
+.ld-menu-note {
+  padding: var(--ld-primitive-scale-space-100, 8px) var(--ld-primitive-scale-space-200, 16px);
+  max-width: 16rem;
+  font-size: var(--ld-semantic-font-body-small-size);
+  font-weight: var(--ld-primitive-font-weight-400);
+  line-height: var(--ld-semantic-font-body-small-line-height);
+  color: var(--ld-semantic-color-text-subtle, #515357);
+  white-space: normal;
+}
+
+/* MenuLayoutContainer */
+.ld-menu-menulayoutcontainer-bottomLeft {
+  padding-top: 0.5rem;
+}
+
+.ld-menu-menulayoutcontainer-bottomRight {
+  padding-top: 0.5rem;
+}
+
+.ld-menu-menulayoutcontainer-topLeft {
+  padding-bottom: 0.5rem;
+}
+
+.ld-menu-menulayoutcontainer-topRight {
+  padding-bottom: 0.5rem;
+}

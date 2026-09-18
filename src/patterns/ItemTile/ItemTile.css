@@ -1,0 +1,726 @@
+.ld-wcp-itemtile-tile {
+  position: relative;
+  background: var(--ld-semantic-color-surface, #fff);
+  border-radius: var(--ld-primitive-scale-borderRadius-100, 0.5rem);
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-width: 0;
+  /* no-token: 200px compact tile max-width — Figma design spec, no LD layout token. */
+  max-width: 200px;
+}
+.ld-wcp-itemtile-media {
+  position: relative;
+}
+.ld-wcp-itemtile-imageWrapper {
+  position: relative;
+  width: 100%;
+  /* no-token: 145px initial image height — Figma design spec (between 0–899px
+     small tile and the 164px sizeSmall). No LD scale token for image heights. */
+  height: 145px;
+  background: var(--ld-semantic-color-surface, #fff);
+  padding-block-start: var(--ld-primitive-scale-space-300);
+  padding-block-end: var(--ld-primitive-scale-space-100);
+  padding-inline: var(--ld-primitive-scale-space-100);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--ld-primitive-scale-borderRadius-100, 8px) var(--ld-primitive-scale-borderRadius-100, 8px) 0 0;
+  overflow: hidden;
+}
+.ld-wcp-itemtile-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.ld-wcp-itemtile-imagePlaceholder {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--ld-primitive-scale-borderRadius-100, 8px);
+  background: var(--ld-semantic-color-surface-subtle, #f2f4f7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--ld-primitive-scale-space-150);
+}
+.ld-wcp-itemtile-imagePlaceholderText {
+  font-size: var(--ld-semantic-font-caption-size);
+  line-height: var(--ld-semantic-font-caption-line-height);
+  color: var(--ld-semantic-color-text-subtle, #515357);
+  text-align: center;
+  margin: 0;
+  max-width: 100%;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ld-wcp-itemtile-flagWrap {
+  position: absolute;
+  top: var(--ld-primitive-scale-space-100, 0.5rem);
+  left: var(--ld-primitive-scale-space-100, 0.5rem);
+  z-index: 2;
+}
+.ld-wcp-itemtile-heartWrap {
+  position: absolute;
+  /* Shares the flag's overlay band (space-100 = 8px from the wrapper corner)
+     so the two controls sit on the same line regardless of image padding. */
+  top: var(--ld-primitive-scale-space-100, 0.5rem);
+  right: var(--ld-primitive-scale-space-100, 0.5rem);
+  z-index: 4;
+}
+.ld-wcp-itemtile-body {
+  padding-block: var(--ld-primitive-scale-space-100);
+  padding-inline: var(--ld-primitive-scale-space-100);
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-25);
+  flex: 1;
+  /* no-token: 72px body min-height — Figma design spec, no LD scale token. */
+  min-height: 72px;
+  min-width: 0;
+}
+/* ── Swatch selection ──────────────────────────────────────────────────────
+   Rendered only when the `swatches` prop is set, so classic price tiles are
+   untouched. 24px hit target around a 20px circle, matching the Figma spec. */
+.ld-wcp-itemtile-flagRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ld-primitive-scale-space-50);
+  padding-block-end: var(--ld-primitive-scale-space-50);
+}
+.ld-wcp-itemtile-flagRow--above {
+  padding-block: var(--ld-primitive-scale-space-100) 0;
+  padding-inline: var(--ld-primitive-scale-space-100);
+}
+.ld-wcp-itemtile-swatchRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ld-primitive-scale-space-50);
+  padding-block-start: var(--ld-primitive-scale-space-100);
+  padding-inline: var(--ld-primitive-scale-space-100);
+}
+/* States follow [WCP] Swatch Circle Small (Figma 69523:20679): a 24px hit
+   target around a 20px circle with a 1px border and a 0/2/3/-1 inner shadow.
+   Hover adds a 1px ring on the 24px target; focus and pressed thicken the
+   circle border to 2px; disabled swaps to the disabled border at 40% opacity. */
+.ld-wcp-itemtile-swatch {
+  --ld-wcp-itemtile-swatch-border-width: var(--ld-semantic-scale-border-width-interactive, 0.0625rem);
+  --ld-wcp-itemtile-swatch-border-color: var(--ld-semantic-color-border, #2e2f32);
+  appearance: none;
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--ld-primitive-scale-space-300, 1.5rem);
+  height: var(--ld-primitive-scale-space-300, 1.5rem);
+  border-radius: var(--ld-primitive-scale-borderRadius-round, 1000px);
+}
+.ld-wcp-itemtile-swatchInteractive {
+  cursor: pointer;
+}
+.ld-wcp-itemtile-swatchFill {
+  width: var(--ld-primitive-scale-space-250, 1.25rem);
+  height: var(--ld-primitive-scale-space-250, 1.25rem);
+  border-radius: var(--ld-primitive-scale-borderRadius-round, 1000px);
+  background-color: var(--ld-semantic-color-surface-subtle, #f2f4f7);
+  background-position: center;
+  background-size: cover;
+  box-shadow:
+    inset 0 0 0 var(--ld-wcp-itemtile-swatch-border-width)
+      var(--ld-wcp-itemtile-swatch-border-color),
+    inset 0 0.125rem 0.1875rem -0.0625rem
+      var(--ld-primitive-color-transparentDark-40, rgba(0, 0, 0, 0.4));
+}
+/* Hovered: 1px ring on the 24px target, circle border unchanged. */
+.ld-wcp-itemtile-swatchInteractive:hover {
+  box-shadow: inset 0 0 0 var(--ld-semantic-scale-border-width-interactive, 0.0625rem)
+    var(--ld-semantic-color-border, #2e2f32);
+}
+/* Focused / Pressed: 2px circle border (Figma has no outer focus ring here). */
+.ld-wcp-itemtile-swatchInteractive:focus-visible {
+  outline: none;
+  --ld-wcp-itemtile-swatch-border-width: var(--ld-semantic-scale-border-width-interactive-focused, 0.125rem);
+}
+.ld-wcp-itemtile-swatchInteractive:active {
+  --ld-wcp-itemtile-swatch-border-width: var(--ld-semantic-scale-border-width-interactive-pressed, 0.125rem);
+}
+/* Selected: the Figma set ships no Selected variant, so selection reuses the
+   activated border width with the same border token — no invented color. */
+.ld-wcp-itemtile-swatchSelected {
+  --ld-wcp-itemtile-swatch-border-width: var(--ld-semantic-scale-border-width-interactive-activated, 0.125rem);
+}
+.ld-wcp-itemtile-swatchInteractive:disabled {
+  cursor: default;
+  opacity: 0.4;
+  --ld-wcp-itemtile-swatch-border-color: var(--ld-semantic-color-border-disabled, #babbbe);
+  --ld-wcp-itemtile-swatch-border-width: var(--ld-semantic-scale-border-width-interactive, 0.0625rem);
+}
+
+/* ── Product option chips ──────────────────────────────────────────────────
+   Layout only — the chips themselves are the LD Chip component. ChipGroup's
+   default is a wrapping flex row; the tile lays them out two-up as in Figma. */
+.ld-wcp-itemtile-options {
+  padding-block-start: var(--ld-primitive-scale-space-100);
+  padding-inline: var(--ld-primitive-scale-space-100);
+}
+.ld-wcp-itemtile-options .ld-chip-chipgroup-chipGroup {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--ld-primitive-scale-space-50);
+}
+.ld-wcp-itemtile-options .ld-chip-chip {
+  width: 100%;
+  justify-content: center;
+}
+
+/* ── Responsive image sizing ───────────────────────────────────────────────
+   0–899px → 164px image, 900px+ → 288px. Swatch and chip sizing is identical
+   across both breakpoints; only the image and tile width change.
+   no-token: 164px/288px are Figma design-spec image sizes (Figma 94778:26462,
+   94854:28502). No LD scale token exists for component image dimensions.
+   no-token: 900px is the ItemTile component breakpoint — matches the
+   ITEM_TILE_LG_BREAKPOINT constant in ItemTile.tsx. No LD token for breakpoints. */
+.ld-wcp-itemtile-sizeSmall,
+.ld-wcp-itemtile-sizeResponsive {
+  max-width: 164px;
+}
+.ld-wcp-itemtile-sizeSmall .ld-wcp-itemtile-imageWrapper,
+.ld-wcp-itemtile-sizeResponsive .ld-wcp-itemtile-imageWrapper {
+  height: 164px;
+  padding-block-start: var(--ld-primitive-scale-space-100);
+}
+.ld-wcp-itemtile-sizeLarge {
+  max-width: 288px;
+}
+.ld-wcp-itemtile-sizeLarge .ld-wcp-itemtile-imageWrapper {
+  height: 288px;
+  padding-block-start: var(--ld-primitive-scale-space-100);
+}
+@media (min-width: 900px) {
+  .ld-wcp-itemtile-sizeResponsive {
+    max-width: 288px;
+  }
+  .ld-wcp-itemtile-sizeResponsive .ld-wcp-itemtile-imageWrapper {
+    height: 288px;
+  }
+}
+/* Below 900px the swatches read as a stateless list, matching the mobile
+   design — the same suppression the explicit `size="small"` tile gets by
+   rendering non-interactive elements. */
+@media (max-width: 899px) {
+  .ld-wcp-itemtile-sizeResponsive .ld-wcp-itemtile-swatchInteractive:hover {
+    box-shadow: none;
+  }
+  .ld-wcp-itemtile-sizeResponsive .ld-wcp-itemtile-swatchInteractive,
+  .ld-wcp-itemtile-sizeResponsive .ld-wcp-itemtile-swatchInteractive:focus-visible,
+  .ld-wcp-itemtile-sizeResponsive .ld-wcp-itemtile-swatchInteractive:active,
+  .ld-wcp-itemtile-sizeResponsive .ld-wcp-itemtile-swatchSelected {
+    --ld-wcp-itemtile-swatch-border-width: var(--ld-semantic-scale-border-width-interactive, 0.0625rem);
+  }
+}
+.ld-wcp-itemtile-name {
+  font-size: var(--ld-semantic-font-body-small-size);
+  color: var(--ld-semantic-color-text, #2e2f32);
+  line-height: var(--ld-semantic-font-body-small-line-height);
+  margin: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* Specificity beats .ld-wcp-itemtile-name--h so nameLines wins in both layouts. */
+.ld-wcp-itemtile-name.ld-wcp-itemtile-name--lines-1 { -webkit-line-clamp: 1; }
+.ld-wcp-itemtile-name.ld-wcp-itemtile-name--lines-2 { -webkit-line-clamp: 2; }
+.ld-wcp-itemtile-name.ld-wcp-itemtile-name--lines-3 { -webkit-line-clamp: 3; }
+
+.ld-wcp-itemtile-benefitsSlot,
+.ld-wcp-itemtile-inventorySlot,
+.ld-wcp-itemtile-fulfillmentSlot,
+.ld-wcp-itemtile-attributesSlot,
+.ld-wcp-itemtile-prePriceSlot {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-25);
+  min-width: 0;
+}
+
+/*
+ * ── Attribute + Flag overrides inside description slots ─────────────────────
+ *
+ * Attribute:
+ *   .ax-attribute is inline-flex with flex-shrink:0 — it doesn't fill its
+ *   column or shrink to fit. Inside a slot flex-column the attribute should
+ *   fill the available width so its composite-label-group can wrap naturally.
+ *   .ax-attribute__composite-label-group also carries white-space:nowrap which
+ *   prevents the label segments from wrapping — override to normal.
+ */
+.ld-wcp-itemtile-benefitsSlot .ax-attribute,
+.ld-wcp-itemtile-inventorySlot .ax-attribute,
+.ld-wcp-itemtile-fulfillmentSlot .ax-attribute,
+.ld-wcp-itemtile-attributesSlot .ax-attribute {
+  display: flex;      /* fills the slot width (was inline-flex) */
+  min-width: 0;       /* allow the flex item to shrink */
+  flex-shrink: 1;
+}
+.ld-wcp-itemtile-benefitsSlot .ax-attribute__composite-label-group,
+.ld-wcp-itemtile-inventorySlot .ax-attribute__composite-label-group,
+.ld-wcp-itemtile-fulfillmentSlot .ax-attribute__composite-label-group,
+.ld-wcp-itemtile-attributesSlot .ax-attribute__composite-label-group {
+  white-space: normal;  /* allow label segments to wrap to next line */
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+/*
+ * Flag pills inside description slots: hug content, cap at slot width,
+ * and let the label wrap rather than truncate.
+ *   - align-self:flex-start  → pill only as wide as its content in the column
+ *   - align-items:flex-start → pin icon to first line (like extended Attribute)
+ *   - max-width:100%         → never wider than the slot (tile body column)
+ *   - width:auto             → disables the explicit max-content width
+ *   - white-space on label   → lets the text wrap inside the pill
+ */
+.ld-wcp-itemtile-benefitsSlot .ld-wcp-flag-flag,
+.ld-wcp-itemtile-inventorySlot .ld-wcp-flag-flag,
+.ld-wcp-itemtile-fulfillmentSlot .ld-wcp-flag-flag,
+.ld-wcp-itemtile-attributesSlot .ld-wcp-flag-flag {
+  align-self: flex-start;    /* hug content — don't stretch to column width */
+  align-items: flex-start;   /* pin icon to first line of wrapped label */
+  max-width: 100%;           /* cap at slot boundary */
+  width: auto;               /* override width:max-content */
+  min-width: 0;
+}
+.ld-wcp-itemtile-benefitsSlot .ld-wcp-flag-label,
+.ld-wcp-itemtile-inventorySlot .ld-wcp-flag-label,
+.ld-wcp-itemtile-fulfillmentSlot .ld-wcp-flag-label,
+.ld-wcp-itemtile-attributesSlot .ld-wcp-flag-label {
+  white-space: normal;  /* wrap to as many lines as content needs */
+  overflow: visible;
+}
+
+/* ── Horizontal layout ────────────────────────────────────────────── */
+/*
+ * Horizontal tile stacks two blocks: a media/content row, then a full-width
+ * action area. Actions sit outside the content column so the ActionGroup can
+ * span the whole tile rather than being boxed into the right-hand column.
+ */
+.ld-wcp-itemtile-tile--h {
+  flex-direction: column;
+  max-width: none;
+  height: auto;
+  align-items: stretch;
+  /*
+   * Size against the tile's own width, not the viewport, so the same tile can
+   * sit in a narrow column or a wide one and pick the right breakpoint either
+   * way. Button size can't come from CSS, so it reads the same 900px threshold
+   * via useItemTileBreakpoint().
+   *
+   * inline-size containment means this element can no longer derive its width
+   * from its contents — it must take one from its parent. width:100% supplies
+   * that; without it the tile collapses to 0 inside any auto-width (e.g. flex)
+   * ancestor. The horizontal tile is a full-width row by design, so this also
+   * matches how it is meant to be used.
+   */
+  container-type: inline-size;
+  container-name: ld-itemtile;
+  width: 100%;
+  box-sizing: border-box;
+
+  /*
+   * Figma sizes the horizontal tile itself: 343px at 0–899px (89462:8121) and
+   * 464px at 900px+ (89462:8134) — media + 16px gap + an equal detail column.
+   * The breakpoint comes from the space *around* the tile, so this element stays
+   * full width to answer the container query while the two blocks below cap
+   * themselves. Without the cap every child inherits the frame's width and the
+   * tile stretches across whatever preview it is dropped into.
+   */
+  /* no-token: 343px/464px are Figma design-spec tile widths (nodes 89462:8121/8134).
+     No LD scale token exists for component layout widths — approved exception. */
+  --itemtile-h-width: 343px;
+  --ld-wcp-itemtile-h-gap: var(--ld-primitive-scale-space-200, 1rem);
+}
+/*
+ * A pinned breakpoint sizes the tile itself, so it stops stretching to whatever
+ * container it sits in. Capping the root also narrows the query container below
+ * 900px, which is what keeps the @container override from fighting the pin.
+ * Unpinned tiles stay full width so that override can still do its job.
+ */
+.ld-wcp-itemtile-tile--hBase,
+.ld-wcp-itemtile-tile--hLg {
+  max-width: calc(var(--itemtile-h-width) + 2 * var(--ld-primitive-scale-space-100, 8px));
+}
+.ld-wcp-itemtile-tile--hLg {
+  --itemtile-h-width: 464px;
+}
+.ld-wcp-itemtile-main--h,
+.ld-wcp-itemtile-actions--h {
+  /* Tile width + the tile's own 8px inline padding on each side. */
+  max-width: calc(var(--itemtile-h-width) + 2 * var(--ld-primitive-scale-space-100, 8px));
+  box-sizing: border-box;
+}
+.ld-wcp-itemtile-main--h {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  min-width: 0;
+  gap: var(--ld-wcp-itemtile-h-gap);
+  padding: var(--ld-primitive-scale-space-100);
+}
+.ld-wcp-itemtile-actions--h {
+  width: 100%;
+  padding-inline: var(--ld-primitive-scale-space-100);
+  padding-block-end: var(--ld-primitive-scale-space-100);
+}
+
+/*
+ * Media and detail columns split the row equally — flex-basis 50% with matching
+ * grow on .ld-wcp-itemtile-body--h — so the image scales with the tile instead
+ * of holding a fixed pixel width. It stays square via aspect-ratio, sized off
+ * the column's own computed width, and centred inside via object-fit: contain.
+ * The column owns the flex sizing so the heart can anchor to it.
+ */
+.ld-wcp-itemtile-media--h {
+  position: relative;
+  flex: 1 1 50%;
+  min-width: 0;
+  align-self: flex-start;
+}
+.ld-wcp-itemtile-imageWrapper--h {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--ld-primitive-scale-borderRadius-100, 8px);
+  /* main--h already supplies the tile's 8px inset; no padding of its own here. */
+  padding: 0;
+  box-sizing: border-box;
+}
+/* The vertical wrapper's 8px padding puts its heart on the image corner; this
+   wrapper has no padding, so the heart anchors to the column edge directly. */
+.ld-wcp-itemtile-heartWrap--h {
+  top: 0;
+  right: 0;
+}
+/*
+ * The media column is already inset from the tile edge, so the flag anchors to
+ * the column corner — that keeps its distance from the tile's top-left the same
+ * 8px the vertical tile uses.
+ */
+.ld-wcp-itemtile-imageWrapper--h .ld-wcp-itemtile-flagWrap {
+  top: 0;
+  left: 0;
+}
+.ld-wcp-itemtile-body--h {
+  flex: 1 1 50%;
+  min-width: 0;
+  min-height: unset;
+  padding: 0;
+  gap: var(--ld-primitive-scale-space-50);
+  display: flex;
+  flex-direction: column;
+}
+.ld-wcp-itemtile-name--h {
+  /* Default clamp for the horizontal tile; nameLines overrides it. */
+  -webkit-line-clamp: 2;
+}
+/*
+ * Offers and Action Details live in the content column, not the full-width
+ * action area: they belong to the product detail content, so they align with
+ * the item name rather than spanning the media column. Both are gap-only
+ * stacks, so hiding either one leaves no residual space.
+ */
+.ld-wcp-itemtile-offers--h {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-50, 4px);
+  align-items: flex-start;
+  min-width: 0;
+}
+/*
+ * Figma `Actions-details`: 8px above the group, 4px between the buttons, both
+ * buttons filling the detail column (164px / 224px) — never the whole tile.
+ */
+.ld-wcp-itemtile-actionDetails--h {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-50, 4px);
+  margin-block-start: var(--ld-primitive-scale-space-100, 8px);
+  min-width: 0;
+}
+.ld-wcp-itemtile-cta,
+.ld-wcp-itemtile-actions {
+  margin-top: var(--ld-primitive-scale-space-50);
+  width: 100%;
+}
+
+/* ── Vertical CTA layout ──────────────────────────────────────────── */
+/*
+ * Single column of three blocks — media, CTA slot, item details — with an
+ * optional trailing disclosure row. The CTA slot sits between the media and the
+ * details (Figma `Actions-vertical`), which is what separates this from the
+ * compact `vertical` tile above; that tile is untouched.
+ */
+.ld-wcp-itemtile-tile--v {
+  flex-direction: column;
+  max-width: none;
+  height: auto;
+  align-items: flex-start;
+  padding-block-end: var(--ld-primitive-scale-space-100, 8px);
+  /*
+   * Same container strategy as the horizontal tile: the breakpoint comes from
+   * the space *around* the tile, so this element stays full width to answer the
+   * container query while the blocks below cap themselves at the Figma width.
+   * That also lets OfferBadge resolve its own `ld-itemtile` query in here.
+   */
+  container-type: inline-size;
+  container-name: ld-itemtile;
+  width: 100%;
+  box-sizing: border-box;
+  /* Figma root Auto Layout: 12px between the media, CTA, and details blocks. */
+  gap: var(--ld-primitive-scale-space-150, 12px);
+  /* 164px at 0–899px (94778:26462); 288px at 900px+ (94854:28502). */
+  --itemtile-v-width: 164px;
+}
+/*
+ * A pinned breakpoint sizes the tile itself, so the CTA rows can't stretch it
+ * past the Figma width. Capping the root also narrows the query container below
+ * 900px, which keeps the @container override from fighting the pin.
+ */
+.ld-wcp-itemtile-tile--vBase,
+.ld-wcp-itemtile-tile--vLg {
+  max-width: var(--itemtile-v-width);
+}
+.ld-wcp-itemtile-tile--vLg {
+  --itemtile-v-width: 288px;
+}
+.ld-wcp-itemtile-sizeLarge .ld-wcp-priceblock-price,
+.ld-wcp-itemtile-tile--vLg .ld-wcp-priceblock-price,
+.ld-wcp-itemtile-tile--hLg .ld-wcp-priceblock-price {
+  /* Stays the 0-nudge anchor at this size too — no margin here, ever.
+     32px = primitive font-size-500 (2rem); 40px = primitive lineHeight-500 (2.5rem). */
+  font-size: var(--ld-primitive-font-size-500, 2rem);
+  line-height: var(--ld-primitive-font-lineHeight-500, 2.5rem);
+}
+.ld-wcp-itemtile-sizeLarge .ld-wcp-priceblock-dollarSign,
+.ld-wcp-itemtile-sizeLarge .ld-wcp-priceblock-cents,
+.ld-wcp-itemtile-tile--vLg .ld-wcp-priceblock-dollarSign,
+.ld-wcp-itemtile-tile--vLg .ld-wcp-priceblock-cents,
+.ld-wcp-itemtile-tile--hLg .ld-wcp-priceblock-dollarSign,
+.ld-wcp-itemtile-tile--hLg .ld-wcp-priceblock-cents {
+  margin-top: 6px;
+}
+.ld-wcp-itemtile-sizeLarge .ld-wcp-priceblock-suffix,
+.ld-wcp-itemtile-tile--vLg .ld-wcp-priceblock-suffix,
+.ld-wcp-itemtile-tile--hLg .ld-wcp-priceblock-suffix {
+  margin-top: 10px;
+}
+.ld-wcp-itemtile-sizeLarge .ld-wcp-priceblock-prefix,
+.ld-wcp-itemtile-sizeLarge .ld-wcp-priceblock-originalPrice,
+.ld-wcp-itemtile-sizeLarge .ld-wcp-priceblock-unitPrice,
+.ld-wcp-itemtile-sizeLarge .ld-wcp-priceblock-strikethroughCaption,
+.ld-wcp-itemtile-tile--vLg .ld-wcp-priceblock-prefix,
+.ld-wcp-itemtile-tile--vLg .ld-wcp-priceblock-originalPrice,
+.ld-wcp-itemtile-tile--vLg .ld-wcp-priceblock-unitPrice,
+.ld-wcp-itemtile-tile--vLg .ld-wcp-priceblock-strikethroughCaption,
+.ld-wcp-itemtile-tile--hLg .ld-wcp-priceblock-prefix,
+.ld-wcp-itemtile-tile--hLg .ld-wcp-priceblock-originalPrice,
+.ld-wcp-itemtile-tile--hLg .ld-wcp-priceblock-unitPrice,
+.ld-wcp-itemtile-tile--hLg .ld-wcp-priceblock-strikethroughCaption {
+  margin-bottom: var(--ld-primitive-scale-space-50, 4px);
+}
+/* The 1px prefix nudge is 0\u2013899px only \u2014 cancel it out at the large sizes. */
+.ld-wcp-itemtile-sizeLarge .ld-wcp-priceblock-prefix,
+.ld-wcp-itemtile-tile--vLg .ld-wcp-priceblock-prefix,
+.ld-wcp-itemtile-tile--hLg .ld-wcp-priceblock-prefix {
+  top: 0;
+}/* 32/40 pricing carries 6px more leading above the glyphs than 24/20 does, so
+   the row above it is pulled back to keep the same optical gap as 0–899px. */
+.ld-wcp-itemtile-sizeLarge .ld-wcp-itemtile-prePriceSlot,
+.ld-wcp-itemtile-tile--vLg .ld-wcp-itemtile-prePriceSlot,
+.ld-wcp-itemtile-tile--hLg .ld-wcp-itemtile-prePriceSlot {
+  margin-bottom: -6px;
+}.ld-wcp-itemtile-visual--v,
+.ld-wcp-itemtile-actions--v,
+.ld-wcp-itemtile-body--v,
+.ld-wcp-itemtile-footer--v {
+  width: 100%;
+  max-width: var(--itemtile-v-width);
+  min-width: 0;
+  box-sizing: border-box;
+}
+.ld-wcp-itemtile-visual--v {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-50, 4px);
+}
+/* Flags sit above the media in this layout rather than overlaying it. */
+.ld-wcp-itemtile-flags--v {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: var(--ld-primitive-scale-space-50, 4px);
+  padding-inline: var(--ld-primitive-scale-space-100, 8px);
+}
+.ld-wcp-itemtile-media--v {
+  position: relative;
+  width: 100%;
+}
+/*
+ * Square media that tracks the tile cap, so the 164px → 288px step needs no
+ * separate height rule. Same 8px inset as the plain vertical tile's media, so
+ * the visible image is the same size whether or not the CTA content is on.
+ */
+.ld-wcp-itemtile-imageWrapper--v {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  padding: var(--ld-primitive-scale-space-100, 8px);
+  border-radius: var(--ld-primitive-scale-borderRadius-100, 8px);
+  box-sizing: border-box;
+}
+.ld-wcp-itemtile-heartWrap--v {
+  top: var(--ld-primitive-scale-space-100, 8px);
+  right: var(--ld-primitive-scale-space-100, 8px);
+}
+/*
+ * Figma `Actions-vertical` stacks its rows 4px apart — tighter than the 8px
+ * ActionGroup default — and each row hugs its content, so callers pass
+ * align: 'leading'.
+ */
+.ld-wcp-itemtile-actions--v .ld-wcp-actiongroup-rows {
+  --ag-row-gap: var(--ld-primitive-scale-space-50, 4px);
+}
+/* Siblings of the details column, so they carry the same inset themselves. */
+.ld-wcp-itemtile-actions--v,
+.ld-wcp-itemtile-footer--v {
+  padding-inline: var(--ld-primitive-scale-space-100, 8px);
+}
+.ld-wcp-itemtile-body--v {
+  padding-block: 0;
+  padding-inline: var(--ld-primitive-scale-space-100, 8px);
+  min-height: unset;
+  flex: 0 0 auto;
+  gap: var(--ld-primitive-scale-space-50, 4px);
+}
+/* Figma `Description`: wraps to a maximum of 3 lines, then ellipsises. */
+.ld-wcp-itemtile-name--v {
+  -webkit-line-clamp: 3;
+}
+/*
+ * Gap-only stacks, so hiding either section leaves no residual space. Neither
+ * carries a top margin because the details column's own 4px gap already
+ * supplies the separation.
+ */
+.ld-wcp-itemtile-offers--v,
+.ld-wcp-itemtile-actionDetails--v {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-50, 4px);
+  align-items: flex-start;
+  min-width: 0;
+}
+/* No smaller Link variant exists, so icon-links are scoped down to the
+   surrounding row text size here instead of the ActionGroup default. */
+.ld-wcp-itemtile-tile .ld-wcp-actiongroup-icon-link {
+  font-size: var(--ld-semantic-font-body-small-size, 14px);
+}
+.ld-wcp-itemtile-actionDetails--v {
+  align-items: stretch;
+}
+/*
+ * A disclosure in the footer slot is a single action, not a list section, so it
+ * drops the Accordion's dividers and inline padding to sit flush with the
+ * details column above it — the same treatment action rows get in ActionGroup.css.
+ */
+.ld-wcp-itemtile-footer--v .ld-accordion-item,
+.ld-wcp-itemtile-footer--v .ld-accordion-item:first-child {
+  border-block: none;
+}
+.ld-wcp-itemtile-footer--v .ld-accordion-header {
+  align-items: center;
+  padding-block: var(--ld-primitive-scale-space-50, 4px);
+  padding-inline: 0;
+}
+.ld-wcp-itemtile-footer--v .ld-accordion-headerContent {
+  display: flex;
+  align-items: center;
+}
+
+/*
+ * 900px+ — same structure, same content, wider row.
+ * Must stay last in the file: @container adds no specificity, so this only wins
+ * over the base rule on source order.
+ */
+@container ld-itemtile (min-width: 900px) {
+  /*
+   * Set on the descendants, not on .ld-wcp-itemtile-tile--h: an element cannot
+   * match a container query against the container it establishes itself.
+   */
+  .ld-wcp-itemtile-main--h,
+  .ld-wcp-itemtile-actions--h {
+    --itemtile-h-width: 464px;
+  }
+
+  /*
+   * Vertical CTA — 164px tile grows to 288px (94854:28502). Set on the
+   * descendants for the same reason as above: the tile establishes the
+   * container, so it cannot match its own query.
+   */
+  .ld-wcp-itemtile-visual--v,
+  .ld-wcp-itemtile-actions--v,
+  .ld-wcp-itemtile-body--v,
+  .ld-wcp-itemtile-footer--v {
+    --itemtile-v-width: 288px;
+  }
+  /*
+   * Only the dollar figure scales (24/32 → 32/40); the `$` and cents stay at
+   * body-small in both Figma frames, so they are deliberately left alone.
+   * Scoped to --v so the horizontal tile's pricing is unaffected.
+   */
+  .ld-wcp-itemtile-body--v .ld-wcp-priceblock-price {
+    font-size: var(--ld-primitive-font-size-500, 2rem);
+    line-height: var(--ld-primitive-font-lineHeight-500, 2.5rem);
+  }
+}
+
+/*
+ * ── Product media aspect ratio ─────────────────────────────────────────────
+ * Vertical layouts only, and opt-in: without `imageRatio` the tile keeps the
+ * height it already had. Setting it drives the media box from its own width
+ * instead, which is what lets a 2:3 portrait frame work at every tile size.
+ * Must stay after the @container block so it also wins over the 900px+ heights.
+ */
+.ld-wcp-itemtile-tile--ratio11 {
+  --itemtile-image-ratio: 1 / 1;
+}
+.ld-wcp-itemtile-tile--ratio23 {
+  --itemtile-image-ratio: 2 / 3;
+}
+.ld-wcp-itemtile-tile--ratio11 .ld-wcp-itemtile-imageWrapper,
+.ld-wcp-itemtile-tile--ratio23 .ld-wcp-itemtile-imageWrapper {
+  height: auto;
+  aspect-ratio: var(--itemtile-image-ratio);
+}
+
+/* Configurator: keep fixed height only when NO explicit ratio is set.
+   When imageRatio is active the ratio drives the height via aspect-ratio,
+   so we must NOT override aspect-ratio back to auto. */
+.ld-wcp-itemtile-configurator:not(.ld-wcp-itemtile-tile--ratio11):not(.ld-wcp-itemtile-tile--ratio23) .ld-wcp-itemtile-imageWrapper {
+  height: var(--ld-wcp-itemtile-configurator-image-size, 164px);
+  aspect-ratio: auto;
+}
+.ld-wcp-itemtile-configurator.ld-wcp-itemtile-sizeLarge .ld-wcp-itemtile-imageWrapper,
+.ld-wcp-itemtile-configurator.ld-wcp-itemtile-tile--vLg .ld-wcp-itemtile-imageWrapper {
+  --ld-wcp-itemtile-configurator-image-size: 288px;
+}

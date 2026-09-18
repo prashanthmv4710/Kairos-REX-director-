@@ -1,0 +1,291 @@
+/* LD Portable – Button */
+/* Button */
+.ld-button-button {
+  align-items: center;
+  appearance: none;
+  border: 0.125rem solid transparent;
+  border-radius: var(--ld-semantic-border-radius-round);
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-flex;
+  font-weight: var(--ld-semantic-font-body-small-weight-alt, 700);
+  justify-content: center;
+  position: relative;
+  text-decoration: none;
+  transition: background 0.1s cubic-bezier(0.77, 0, 0.175, 1),
+              border-color 0.1s cubic-bezier(0.77, 0, 0.175, 1),
+              color 0.1s cubic-bezier(0.77, 0, 0.175, 1);
+  white-space: nowrap;
+}
+.ld-button-button:focus-visible {
+  outline: 0.125rem solid var(--ld-semantic-color-border-activated, #0053e2);
+  outline-offset: 0.125rem;
+}
+.ld-button-button:disabled {
+  cursor: not-allowed;
+}
+
+.ld-button-destructive {
+  background: var(--ld-semantic-color-action-fill-negative, #ea1100);
+  border-color: var(--ld-semantic-color-action-fill-negative, #ea1100);
+  color: var(--ld-semantic-color-action-text-onFill-negative, #ffffff);
+}
+.ld-button-destructive:hover, .ld-button-destructive.hover {
+  background: var(--ld-semantic-color-action-fill-negative-hovered, #ce0f00);
+  border-color: var(--ld-semantic-color-action-fill-negative-hovered, #ce0f00);
+  color: var(--ld-semantic-color-action-text-onFill-negative-hovered, #ffffff);
+}
+.ld-button-destructive:focus-visible {
+  background: var(--ld-semantic-color-action-fill-negative-focused, #ce0f00);
+  border-color: var(--ld-semantic-color-action-fill-negative-focused, #ce0f00);
+  color: var(--ld-semantic-color-action-text-onFill-negative-focused, #ffffff);
+}
+.ld-button-destructive:active, .ld-button-destructive.active {
+  background: var(--ld-semantic-color-action-fill-negative-pressed, #a20c00);
+  border-color: var(--ld-semantic-color-action-fill-negative-pressed, #a20c00);
+  color: var(--ld-semantic-color-action-text-onFill-negative-pressed, #ffffff);
+}
+.ld-button-destructive:disabled {
+  background: var(--ld-semantic-color-action-fill-negative-disabled, #babbbe);
+  border-color: var(--ld-semantic-color-action-fill-negative-disabled, #babbbe);
+  color: var(--ld-semantic-color-action-text-onFill-negative-disabled, #ffffff);
+}
+
+.ld-button-primary {
+  background: var(--ld-semantic-color-action-fill-primary, #0053e2);
+  border-color: var(--ld-semantic-color-action-fill-primary, #0053e2);
+  color: var(--ld-semantic-color-action-text-onFill-primary, #ffffff);
+}
+.ld-button-primary:hover, .ld-button-primary.hover {
+  background: var(--ld-semantic-color-action-fill-primary-hovered, #114ab6);
+  border-color: var(--ld-semantic-color-action-fill-primary-hovered, #114ab6);
+  color: var(--ld-semantic-color-action-text-onFill-primary-hovered, #ffffff);
+}
+.ld-button-primary:focus-visible {
+  background: var(--ld-semantic-color-action-fill-primary-focused, #114ab6);
+  border-color: var(--ld-semantic-color-action-fill-primary-focused, #114ab6);
+  color: var(--ld-semantic-color-action-text-onFill-primary-focused, #ffffff);
+}
+.ld-button-primary:active, .ld-button-primary.active {
+  background: var(--ld-semantic-color-action-fill-primary-pressed, #002e99);
+  border-color: var(--ld-semantic-color-action-fill-primary-pressed, #002e99);
+  color: var(--ld-semantic-color-action-text-onFill-primary-pressed, #ffffff);
+}
+.ld-button-primary:disabled {
+  background: var(--ld-semantic-color-action-fill-primary-disabled, #babbbe);
+  border-color: var(--ld-semantic-color-action-fill-primary-disabled, #babbbe);
+  color: var(--ld-semantic-color-action-text-onFill-primary-disabled, #ffffff);
+}
+
+.ld-button-secondary {
+  background: var(--ld-semantic-color-action-fill-secondary, #ffffff);
+  border-style: solid;
+  border-width: var(--ld-semantic-scale-borderwidth-interactive, 0.0625rem);
+  border-color: var(--ld-semantic-color-action-border-secondary, #2e2f32);
+  color: var(--ld-semantic-color-action-text-onFill-secondary, #2e2f32);
+}
+.ld-button-secondary:hover, .ld-button-secondary.hover {
+  background: var(--ld-semantic-color-action-fill-secondary-hovered, #f1f1f2);
+  border-color: var(--ld-semantic-color-action-border-secondary-hovered, #2e2f32);
+  box-shadow: inset 0 0 0 0.0625rem var(--ld-semantic-color-action-border-secondary-hovered, #2e2f32);
+  color: var(--ld-semantic-color-action-text-onFill-secondary-hovered, #2e2f32);
+}
+.ld-button-secondary:focus-visible {
+  background: var(--ld-semantic-color-action-fill-secondary-focused, #f1f1f2);
+  border-color: var(--ld-semantic-color-action-border-secondary-focused, #2e2f32);
+  box-shadow: inset 0 0 0 0.0625rem var(--ld-semantic-color-action-border-secondary-focused, #2e2f32);
+  color: var(--ld-semantic-color-action-text-onFill-secondary-focused, #2e2f32);
+}
+.ld-button-secondary:active, .ld-button-secondary.active {
+  background: var(--ld-semantic-color-action-fill-secondary-pressed, #e3e4e5);
+  border-color: var(--ld-semantic-color-action-border-secondary-pressed, #2e2f32);
+  box-shadow: inset 0 0 0 0.0625rem var(--ld-semantic-color-action-border-secondary-pressed, #2e2f32);
+  color: var(--ld-semantic-color-action-text-onFill-secondary-pressed, #2e2f32);
+}
+.ld-button-secondary:disabled {
+  background: var(--ld-semantic-color-action-fill-secondary-disabled, #ffffff);
+  border-color: var(--ld-semantic-color-action-border-secondary-disabled, #babbbe);
+  color: var(--ld-semantic-color-action-text-onFill-secondary-disabled, #babbbe);
+}
+
+.ld-button-tertiary {
+  background: var(--ld-semantic-color-action-fill-tertiary, #ffffff);
+  border-style: solid;
+  border-width: var(--ld-semantic-scale-borderwidth-interactive, 0.0625rem);
+  border-color: var(--ld-semantic-color-action-border-tertiary, #babbbe);
+  color: var(--ld-semantic-color-action-text-onFill-tertiary, #2e2f32);
+}
+.ld-button-tertiary:hover, .ld-button-tertiary.hover {
+  background: var(--ld-semantic-color-action-fill-tertiary-hovered, #f1f1f2);
+  border-color: var(--ld-semantic-color-action-border-tertiary-hovered, #babbbe);
+  box-shadow: inset 0 0 0 0.0625rem var(--ld-semantic-color-action-border-tertiary-hovered, #babbbe);
+  color: var(--ld-semantic-color-action-text-onFill-tertiary-hovered, #2e2f32);
+}
+.ld-button-tertiary:focus-visible {
+  background: var(--ld-semantic-color-action-fill-tertiary-focused, #f1f1f2);
+  border-color: var(--ld-semantic-color-action-border-tertiary-focused, #babbbe);
+  box-shadow: inset 0 0 0 0.0625rem var(--ld-semantic-color-action-border-tertiary-focused, #babbbe);
+  color: var(--ld-semantic-color-action-text-onFill-tertiary-focused, #2e2f32);
+}
+.ld-button-tertiary:active, .ld-button-tertiary.active {
+  background: var(--ld-semantic-color-action-fill-tertiary-pressed, #e3e4e5);
+  border-color: var(--ld-semantic-color-action-border-tertiary-pressed, #babbbe);
+  box-shadow: inset 0 0 0 0.0625rem var(--ld-semantic-color-action-border-tertiary-pressed, #babbbe);
+  color: var(--ld-semantic-color-action-text-onFill-tertiary-pressed, #2e2f32);
+}
+.ld-button-tertiary:disabled {
+  background: var(--ld-semantic-color-action-fill-tertiary-disabled, #ffffff);
+  border-color: var(--ld-semantic-color-action-border-tertiary-disabled, #babbbe);
+  color: var(--ld-semantic-color-action-text-onFill-tertiary-disabled, #babbbe);
+}
+
+.ld-button-ghost {
+  background: var(--ld-semantic-color-action-fill-transparent, transparent);
+  border-color: var(--ld-semantic-color-action-border-transparent, transparent);
+  color: var(--ld-semantic-color-action-text-onFill-transparent, #2e2f32);
+}
+.ld-button-ghost:hover, .ld-button-ghost.hover {
+  background: var(--ld-semantic-color-action-fill-transparent-hovered, #f1f1f2);
+  border-color: var(--ld-semantic-color-action-border-transparent-hovered, transparent);
+  color: var(--ld-semantic-color-action-text-onFill-transparent-hovered, #2e2f32);
+}
+.ld-button-ghost:focus-visible {
+  background: var(--ld-semantic-color-action-fill-transparent-focused, #e8e8e9);
+  border-color: var(--ld-semantic-color-action-border-transparent-focused, transparent);
+  color: var(--ld-semantic-color-action-text-onFill-transparent-focused, #2e2f32);
+}
+.ld-button-ghost:active, .ld-button-ghost.active {
+  background: var(--ld-semantic-color-action-fill-transparent-pressed, #dadadc);
+  border-color: var(--ld-semantic-color-action-border-transparent-pressed, transparent);
+  color: var(--ld-semantic-color-action-text-onFill-transparent-pressed, #2e2f32);
+}
+.ld-button-ghost:disabled {
+  background: var(--ld-semantic-color-action-fill-transparent-disabled, transparent);
+  border-color: var(--ld-semantic-color-action-border-transparent-disabled, transparent);
+  color: var(--ld-semantic-color-action-text-onFill-transparent-disabled, #babbbe);
+}
+
+.ld-button-topnav-action-alt {
+  background: var(--ld-semantic-color-topNav-fill, #0053e2);
+  border-color: var(--ld-semantic-color-topNav-fill, #0053e2);
+  color: var(--ld-semantic-color-topNav-text-onFill, #ffffff);
+}
+.ld-button-topnav-action-alt:hover, .ld-button-topnav-action-alt.hover {
+  background: var(--ld-semantic-color-topNav-fill-hovered, rgba(0, 0, 0, 0.6));
+  border-color: var(--ld-semantic-color-topNav-fill-hovered, rgba(0, 0, 0, 0.6));
+  color: var(--ld-semantic-color-topNav-text-onFill-hovered, #151f29);
+}
+.ld-button-topnav-action-alt:focus-visible {
+  background: var(--ld-semantic-color-topNav-fill-focused, rgba(0, 0, 0, 0.6));
+  border-color: var(--ld-semantic-color-topNav-fill-focused, rgba(0, 0, 0, 0.6));
+  color: var(--ld-semantic-color-topNav-text-onFill-focused, #151f29);
+  outline-color: var(--ld-semantic-color-topNav-text-onFill, #ffffff);
+}
+.ld-button-topnav-action-alt:active, .ld-button-topnav-action-alt.active {
+  background: var(--ld-semantic-color-topNav-fill-pressed, rgba(255, 255, 255, 0.8));
+  border-color: var(--ld-semantic-color-topNav-fill-pressed, rgba(255, 255, 255, 0.8));
+  color: var(--ld-semantic-color-topNav-text-onFill-pressed, #ffffff);
+}
+.ld-button-topnav-action-alt:disabled {
+  background: var(--ld-semantic-color-action-fill-primary-disabled, #babbbe);
+  border-color: var(--ld-semantic-color-action-fill-primary-disabled, #babbbe);
+  color: var(--ld-semantic-color-action-text-onFill-primary-disabled, #ffffff);
+}
+
+/* Square shape — 4px corners. Pair with .ld-button-ghost for the
+   square, no-fill "Button Ghost" treatment. */
+.ld-button-square {
+  border-radius: var(--ld-semantic-border-radius-medium, 0.25rem);
+}
+
+.ld-button-isFullWidth {
+  display: flex;
+  width: 100%;
+}
+
+.ld-button-small {
+  font-size: var(--ld-semantic-font-body-small-size, 0.875rem);
+  height: var(--ld-primitive-scale-space-400, 2rem);
+  padding: 0 var(--ld-primitive-scale-space-200, 1rem);
+}
+
+.ld-button-medium {
+  font-size: var(--ld-semantic-font-body-medium-size, 1rem);
+  height: var(--ld-primitive-scale-space-500, 2.5rem);
+  padding: 0 var(--ld-primitive-scale-space-300, 1.5rem);
+}
+
+.ld-button-large {
+  font-size: var(--ld-semantic-font-body-large-size, 1.125rem);
+  height: var(--ld-primitive-scale-space-600, 3rem);
+  padding: 0 var(--ld-primitive-scale-space-300, 1.5rem);
+}
+
+.ld-button-leading {
+  margin-right: var(--ld-primitive-scale-space-100, 0.5rem);
+}
+
+.ld-button-trailing {
+  margin-left: var(--ld-primitive-scale-space-100, 0.5rem);
+}
+
+.ld-button-leading,
+.ld-button-trailing {
+  display: inline-flex;
+}
+
+/* Loading State */
+.ld-button-loading {
+  cursor: wait;
+  pointer-events: none;
+}
+
+/* Visually-hidden label for screen readers during loading state */
+.ld-button-loading-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@keyframes ld-button-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.ld-button-spinner {
+  display: block;
+  flex-shrink: 0;
+  animation: ld-button-spin 0.75s linear infinite;
+  transform-origin: center;
+  -webkit-mask-image: conic-gradient(
+    from 90deg at 50% 50%,
+    transparent 0deg,
+    black 138.6deg,
+    black 270deg,
+    transparent 360deg
+  );
+  mask-image: conic-gradient(
+    from 90deg at 50% 50%,
+    transparent 0deg,
+    black 138.6deg,
+    black 270deg,
+    transparent 360deg
+  );
+}
+@media (prefers-reduced-motion: reduce) {
+  .ld-button-spinner {
+    animation: none;
+  }
+}
+
+/* ButtonGroup */
+.ld-button-buttongroup-buttonGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ld-primitive-scale-space-200);
+}

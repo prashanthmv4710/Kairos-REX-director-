@@ -1,0 +1,1 @@
+Single- or multi-action card with actionMode="single" interactive states or actionMode="multi" static surface tokens; use static adornments in single mode and independent controls in multi mode

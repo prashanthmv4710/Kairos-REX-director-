@@ -1,0 +1,56 @@
+/* LD Portable – OrderStatusBanner */
+
+.ld-wcp-order-status-banner-root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ld-primitive-scale-space-150);
+  background: var(--ld-semantic-color-surface, #fff);
+  border-radius: var(--ld-semantic-border-radius-large);
+  box-shadow: 0 -1px 2px 0 rgba(0, 0, 0, 0.10), 0 1px 2px 1px rgba(0, 0, 0, 0.15);
+  padding-block: var(--ld-primitive-scale-space-150);
+  padding-inline: var(--ld-primitive-scale-space-200);
+  margin: 16px 0;
+  position: relative;
+}
+
+.ld-wcp-order-status-banner-icon {
+  flex-shrink: 0;
+}
+
+.ld-wcp-order-status-banner-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ld-primitive-scale-space-100);
+  font-size: var(--ld-semantic-font-body-small-size, 14px);
+}
+
+.ld-wcp-order-status-banner-text {
+  color: var(--ld-semantic-color-text, #2e2f32);
+}
+
+.ld-wcp-order-status-banner-separator {
+  color: var(--ld-semantic-color-text-subtlest, #74767c);
+}
+
+.ld-wcp-order-status-banner-delivery {
+  color: var(--ld-semantic-color-text, #2e2f32);
+  font-weight: var(--ld-primitive-font-weight-700);
+}
+
+.ld-wcp-order-status-banner-dismiss {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: var(--ld-primitive-scale-space-50);
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ld-semantic-color-text-subtle, #46474a);
+}

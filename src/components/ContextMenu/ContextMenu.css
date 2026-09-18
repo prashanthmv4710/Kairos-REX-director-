@@ -1,0 +1,11 @@
+/* ============================================
+   CONTEXT MENU - LD 3.5 Tokens
+   Thin wrapper over SelectDropdown styles.
+   Shares all visual styles via ld-select-dropdown-* classes.
+   This file contains only context-menu-specific overrides.
+   ============================================ */
+
+/* --- Context trigger zone --- */
+.ld-context-menu-trigger {
+  display: contents;
+}

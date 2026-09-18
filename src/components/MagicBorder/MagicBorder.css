@@ -1,0 +1,373 @@
+/* LD Portable - MagicBorder */
+.ld-magicborder-border {
+  /*
+   * Standard gradient-border double-background trick: the FIRST background-
+   * image layer must be an OPAQUE fill clipped to padding-box — it masks the
+   * interior so only the border-box layer's conic-gradient shows, confined
+   * to the ring. `background-clip`'s comma list pairs positionally with
+   * `background-image` layers (NOT with `background-color`, which is always
+   * a single bottom layer) — a `background-color` here would not mask
+   * anything, and a transparent first layer paints nothing, so the conic-
+   * gradient (clipped to border-box, which also covers the interior) would
+   * bleed through the whole box instead of just the stroke.
+   */
+  /*
+   * Component-scoped override point: defaults to the app surface color, but
+   * a consumer nesting MagicBorder inside a differently-colored parent (a
+   * subtle/elevated surface, a branded panel) can override just this one
+   * var — e.g. style={{'--ld-magicborder-interior-fill': 'var(--ld-semantic-color-surface-subtle)'}}
+   * — without fighting the ring's background-clip mechanics above.
+   */
+  --ld-magicborder-interior-fill: var(--ld-semantic-color-surface, #ffffff);
+  background-clip: padding-box, border-box;
+  background-origin: border-box;
+  border: var(--ld-primitive-scale-borderWidth-100, 0.0625rem) solid transparent;
+  /*
+   * Defaults to inheriting the surrounding context's radius so MagicBorder
+   * can drop into an already-rounded shape unmodified. The borderRadius
+   * variant classes below win on specificity and set the explicit primitive
+   * token instead.
+   */
+  border-radius: inherit;
+  box-sizing: border-box;
+  display: inline-block;
+  width: 100%;
+}
+
+.ld-magicborder-border.ld-magicborder-borderRadius25 {
+  border-radius: var(--ld-primitive-scale-borderRadius-25, 0.125rem);
+}
+
+.ld-magicborder-border.ld-magicborder-borderRadius50 {
+  border-radius: var(--ld-primitive-scale-borderRadius-50, 0.25rem);
+}
+
+.ld-magicborder-border.ld-magicborder-borderRadius100 {
+  border-radius: var(--ld-primitive-scale-borderRadius-100, 0.5rem);
+}
+
+.ld-magicborder-border.ld-magicborder-borderRadius200 {
+  border-radius: var(--ld-primitive-scale-borderRadius-200, 1rem);
+}
+
+.ld-magicborder-border.ld-magicborder-borderRadius300 {
+  border-radius: var(--ld-primitive-scale-borderRadius-300, 1.5rem);
+}
+
+.ld-magicborder-border.ld-magicborder-borderRadiusRound {
+  border-radius: var(--ld-primitive-scale-borderRadius-round, 62.5rem);
+}
+
+/*
+ * Live sync with a directly-framed Prompt Composer — its field morphs
+ * between a fully-round `inline` pill and a 1.5rem-radius `default` two-row
+ * surface as it auto-expands for multi-line text or attachments (see
+ * `effectiveVariant` in PromptComposer.tsx, reflected as `data-variant` on
+ * its root). Any fixed `borderRadius` token above would freeze the ring to
+ * whichever shape was true when it was authored, so it visibly falls out of
+ * sync with the field the instant the composer morphs. `:has()` lets the
+ * ring read the composer's *current* shape and match it continuously
+ * instead — this always wins over the static token classes above (4
+ * selector components vs. their 2), so no ordering is required, but it
+ * still loses to any `borderRadius` set via inline `style`/`UNSAFE_style`.
+ */
+.ld-magicborder-border:has(> .ld-magicborder-contentWrapper > .ld-promptcomposer-root[data-variant='inline']) {
+  border-radius: var(--ld-primitive-scale-borderRadius-round, 62.5rem);
+}
+
+.ld-magicborder-border:has(> .ld-magicborder-contentWrapper > .ld-promptcomposer-root[data-variant='default']) {
+  border-radius: var(--ld-primitive-scale-borderRadius-300, 1.5rem);
+}
+
+/*
+ * Figma's "Border Angular Dark Component & Tokens" doc gives an exact
+ * conic-gradient(from 90deg at 0% 0%, ...) formula, but that recipe was
+ * authored against a roughly SQUARE preview swatch. Applied to this
+ * component's actual wide/short proportions (368x61 in the source file, and
+ * every real usage here — a label-sized chip, not a square), a corner-
+ * anchored conic gradient never rotates far enough across a wide box to
+ * reach its accent-color stops, so it rendered as a flat, uniform blue ring
+ * with no visible theme accent at all.
+ *
+ * Rendering the actual production symbol (not the doc's token swatch) at
+ * its real aspect ratio shows the accent color concentrated specifically at
+ * the top-left CORNER (not spread across the whole top edge) fading through
+ * a pale midtone to blue concentrated at the bottom-right corner — a 135deg
+ * (top-left to bottom-right) diagonal, not a vertical one. This linear-
+ * gradient reproduces that, and unlike the conic version, it holds up
+ * regardless of the element's aspect ratio.
+ */
+.ld-magicborder-border.ld-magicborder-variantSubtle {
+  background-image: linear-gradient(
+      var(--ld-magicborder-interior-fill),
+      var(--ld-magicborder-interior-fill)
+    ),
+    linear-gradient(
+      135deg,
+      var(--ld-semantic-color-border-magic-subtle-right-start, #ffc220) 0%,
+      var(--ld-semantic-color-border-magic-subtle-left-stop, #fff3d2) 35%,
+      var(--ld-semantic-color-border-magic-subtle-left-middle, #c9dcfd) 70%,
+      var(--ld-semantic-color-border-magic-subtle-left-start, #0053e2) 100%
+    );
+}
+
+/* Bold: same diagonal blend, swapped for the higher-contrast tokens. */
+.ld-magicborder-border.ld-magicborder-variantBold {
+  background-image: linear-gradient(
+      var(--ld-magicborder-interior-fill),
+      var(--ld-magicborder-interior-fill)
+    ),
+    linear-gradient(
+      135deg,
+      var(--ld-semantic-color-border-magic-bold-right-start, #ffc220) 0%,
+      var(--ld-semantic-color-border-magic-bold-left-stop, #330f06) 35%,
+      var(--ld-semantic-color-border-magic-bold-left-middle, #001e60) 70%,
+      var(--ld-semantic-color-border-magic-bold-left-start, #0053e2) 100%
+    );
+}
+
+/*
+ * Dark: for AI-branded content sitting on a near-black interior (e.g. the
+ * Wibey agent theme's `#040404` surfaces). Subtle's pale pastel stops and
+ * bold's mid-tone browns/navys both read as washed-out or nearly invisible
+ * against black, so dark instead sits deep in shadow at the diagonal's ends
+ * and blooms into a saturated accent at the corner — a glow emerging from
+ * the surface rather than a ring drawn on top of it.
+ */
+.ld-magicborder-border.ld-magicborder-variantDark {
+  background-image: linear-gradient(
+      var(--ld-magicborder-interior-fill),
+      var(--ld-magicborder-interior-fill)
+    ),
+    linear-gradient(
+      135deg,
+      var(--ld-semantic-color-border-magic-dark-right-start, #22d6c8) 0%,
+      var(--ld-semantic-color-border-magic-dark-left-stop, #060c0b) 35%,
+      var(--ld-semantic-color-border-magic-dark-left-middle, #001e60) 70%,
+      var(--ld-semantic-color-border-magic-dark-left-start, #0053e2) 100%
+    );
+}
+
+.ld-magicborder-contentWrapper {
+  padding: var(--ld-primitive-scale-space-200, 1rem);
+}
+
+/* `padded={false}`: the ring sits flush against the framed control's own
+   edge (e.g. a prompt composer) instead of floating a fixed gap around it. */
+.ld-magicborder-contentWrapper.ld-magicborder-contentWrapperFlush {
+  padding: 0;
+}
+
+/*
+ * Animated ring — registers the sweep angle as a typed, animatable custom
+ * property (an `<angle>`, not a plain string) so the keyframes below can
+ * interpolate it smoothly frame-by-frame instead of snapping between values.
+ * Reuses the exact background-clip double-layer trick above; only the second
+ * layer's gradient (linear → conic) and its color-stop order change, so a
+ * conic hotspot travels continuously around the ring instead of sitting at a
+ * fixed diagonal.
+ */
+@property --ld-magicborder-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes ld-magicborder-rotate {
+  from {
+    --ld-magicborder-angle: 0deg;
+  }
+  to {
+    --ld-magicborder-angle: 360deg;
+  }
+}
+
+.ld-magicborder-border.ld-magicborder-animated {
+  animation: ld-magicborder-rotate 4s linear infinite;
+  will-change: --ld-magicborder-angle;
+}
+
+/* Each variant's four color stops are reused from its static gradient above,
+   reordered so the 0deg and 360deg stops match — a seamless loop point for
+   the conic sweep instead of a visible jump. */
+.ld-magicborder-border.ld-magicborder-animated.ld-magicborder-variantSubtle {
+  background-image: linear-gradient(
+      var(--ld-magicborder-interior-fill),
+      var(--ld-magicborder-interior-fill)
+    ),
+    conic-gradient(
+      from var(--ld-magicborder-angle),
+      var(--ld-semantic-color-border-magic-subtle-left-start, #0053e2) 0deg,
+      var(--ld-semantic-color-border-magic-subtle-right-start, #ffc220) 90deg,
+      var(--ld-semantic-color-border-magic-subtle-left-stop, #fff3d2) 160deg,
+      var(--ld-semantic-color-border-magic-subtle-left-middle, #c9dcfd) 270deg,
+      var(--ld-semantic-color-border-magic-subtle-left-start, #0053e2) 360deg
+    );
+}
+
+.ld-magicborder-border.ld-magicborder-animated.ld-magicborder-variantBold {
+  background-image: linear-gradient(
+      var(--ld-magicborder-interior-fill),
+      var(--ld-magicborder-interior-fill)
+    ),
+    conic-gradient(
+      from var(--ld-magicborder-angle),
+      var(--ld-semantic-color-border-magic-bold-left-start, #0053e2) 0deg,
+      var(--ld-semantic-color-border-magic-bold-right-start, #ffc220) 90deg,
+      var(--ld-semantic-color-border-magic-bold-left-stop, #330f06) 160deg,
+      var(--ld-semantic-color-border-magic-bold-left-middle, #001e60) 270deg,
+      var(--ld-semantic-color-border-magic-bold-left-start, #0053e2) 360deg
+    );
+}
+
+/* Dark: the treatment tuned for the Wibey agent theme's near-black surfaces —
+   see the `dark` variant note above. */
+.ld-magicborder-border.ld-magicborder-animated.ld-magicborder-variantDark {
+  background-image: linear-gradient(
+      var(--ld-magicborder-interior-fill),
+      var(--ld-magicborder-interior-fill)
+    ),
+    conic-gradient(
+      from var(--ld-magicborder-angle),
+      var(--ld-semantic-color-border-magic-dark-left-start, #0053e2) 0deg,
+      var(--ld-semantic-color-border-magic-dark-right-start, #22d6c8) 90deg,
+      var(--ld-semantic-color-border-magic-dark-left-stop, #060c0b) 160deg,
+      var(--ld-semantic-color-border-magic-dark-left-middle, #001e60) 270deg,
+      var(--ld-semantic-color-border-magic-dark-left-start, #0053e2) 360deg
+    );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Keep the ring as a static gradient stroke, held at its start angle,
+     rather than spinning it. */
+  .ld-magicborder-border.ld-magicborder-animated {
+    animation: none;
+  }
+}
+
+/*
+ * Focus-activated ring — the gradient stroke (the border-box background
+ * layer) is dropped entirely until a descendant has focus, via the native
+ * `:focus-within` pseudo-class rather than any focus-tracking state. With
+ * only the opaque interior-fill layer left, `background-clip`'s two values
+ * (set on the base class above) cycle down to just its first ("padding-box")
+ * per spec, so the border itself paints nothing and the ring reads as fully
+ * absent — not merely faded — rather than shifting or repainting the framed
+ * content underneath. `background-image` can't be transitioned smoothly
+ * (browsers don't interpolate gradients), so the ring snaps in/out with
+ * focus rather than fading.
+ *
+ * The `.ld-magicborder-animated` repeat below isn't redundant: the animated
+ * variant rules above (`.animated.variantSubtle/Bold/Dark`) each carry three
+ * class selectors, which out-specifies this rule's plain two — without it,
+ * an animated + activateOnFocus ring (e.g. the Wibey composer) would stay
+ * visible at rest instead of only lighting up on focus.
+ */
+.ld-magicborder-border.ld-magicborder-activateOnFocus,
+.ld-magicborder-border.ld-magicborder-activateOnFocus.ld-magicborder-animated {
+  background-image: linear-gradient(
+    var(--ld-magicborder-interior-fill),
+    var(--ld-magicborder-interior-fill)
+  );
+}
+
+.ld-magicborder-border.ld-magicborder-activateOnFocus.ld-magicborder-variantSubtle:focus-within {
+  background-image: linear-gradient(
+      var(--ld-magicborder-interior-fill),
+      var(--ld-magicborder-interior-fill)
+    ),
+    linear-gradient(
+      135deg,
+      var(--ld-semantic-color-border-magic-subtle-right-start, #ffc220) 0%,
+      var(--ld-semantic-color-border-magic-subtle-left-stop, #fff3d2) 35%,
+      var(--ld-semantic-color-border-magic-subtle-left-middle, #c9dcfd) 70%,
+      var(--ld-semantic-color-border-magic-subtle-left-start, #0053e2) 100%
+    );
+}
+
+.ld-magicborder-border.ld-magicborder-activateOnFocus.ld-magicborder-variantBold:focus-within {
+  background-image: linear-gradient(
+      var(--ld-magicborder-interior-fill),
+      var(--ld-magicborder-interior-fill)
+    ),
+    linear-gradient(
+      135deg,
+      var(--ld-semantic-color-border-magic-bold-right-start, #ffc220) 0%,
+      var(--ld-semantic-color-border-magic-bold-left-stop, #330f06) 35%,
+      var(--ld-semantic-color-border-magic-bold-left-middle, #001e60) 70%,
+      var(--ld-semantic-color-border-magic-bold-left-start, #0053e2) 100%
+    );
+}
+
+.ld-magicborder-border.ld-magicborder-activateOnFocus.ld-magicborder-variantDark:focus-within {
+  background-image: linear-gradient(
+      var(--ld-magicborder-interior-fill),
+      var(--ld-magicborder-interior-fill)
+    ),
+    linear-gradient(
+      135deg,
+      var(--ld-semantic-color-border-magic-dark-right-start, #22d6c8) 0%,
+      var(--ld-semantic-color-border-magic-dark-left-stop, #060c0b) 35%,
+      var(--ld-semantic-color-border-magic-dark-left-middle, #001e60) 70%,
+      var(--ld-semantic-color-border-magic-dark-left-start, #0053e2) 100%
+    );
+}
+
+/* `animated` layers a conic (not linear) gradient, so its focus-activated
+   equivalents need their own rules with the conic recipe swapped in. */
+.ld-magicborder-border.ld-magicborder-activateOnFocus.ld-magicborder-animated.ld-magicborder-variantSubtle:focus-within {
+  background-image: linear-gradient(
+      var(--ld-magicborder-interior-fill),
+      var(--ld-magicborder-interior-fill)
+    ),
+    conic-gradient(
+      from var(--ld-magicborder-angle),
+      var(--ld-semantic-color-border-magic-subtle-left-start, #0053e2) 0deg,
+      var(--ld-semantic-color-border-magic-subtle-right-start, #ffc220) 90deg,
+      var(--ld-semantic-color-border-magic-subtle-left-stop, #fff3d2) 160deg,
+      var(--ld-semantic-color-border-magic-subtle-left-middle, #c9dcfd) 270deg,
+      var(--ld-semantic-color-border-magic-subtle-left-start, #0053e2) 360deg
+    );
+}
+
+.ld-magicborder-border.ld-magicborder-activateOnFocus.ld-magicborder-animated.ld-magicborder-variantBold:focus-within {
+  background-image: linear-gradient(
+      var(--ld-magicborder-interior-fill),
+      var(--ld-magicborder-interior-fill)
+    ),
+    conic-gradient(
+      from var(--ld-magicborder-angle),
+      var(--ld-semantic-color-border-magic-bold-left-start, #0053e2) 0deg,
+      var(--ld-semantic-color-border-magic-bold-right-start, #ffc220) 90deg,
+      var(--ld-semantic-color-border-magic-bold-left-stop, #330f06) 160deg,
+      var(--ld-semantic-color-border-magic-bold-left-middle, #001e60) 270deg,
+      var(--ld-semantic-color-border-magic-bold-left-start, #0053e2) 360deg
+    );
+}
+
+.ld-magicborder-border.ld-magicborder-activateOnFocus.ld-magicborder-animated.ld-magicborder-variantDark:focus-within {
+  background-image: linear-gradient(
+      var(--ld-magicborder-interior-fill),
+      var(--ld-magicborder-interior-fill)
+    ),
+    conic-gradient(
+      from var(--ld-magicborder-angle),
+      var(--ld-semantic-color-border-magic-dark-left-start, #0053e2) 0deg,
+      var(--ld-semantic-color-border-magic-dark-right-start, #22d6c8) 90deg,
+      var(--ld-semantic-color-border-magic-dark-left-stop, #060c0b) 160deg,
+      var(--ld-semantic-color-border-magic-dark-left-middle, #001e60) 270deg,
+      var(--ld-semantic-color-border-magic-dark-left-start, #0053e2) 360deg
+    );
+}
+
+/* `animated` normally spins continuously via `animation-play-state: running`
+   (the default); hold the sweep paused at its start angle while unfocused so
+   it doesn't visibly rotate underneath the invisible/flat ring, then resume
+   the instant focus lands. */
+.ld-magicborder-border.ld-magicborder-activateOnFocus.ld-magicborder-animated {
+  animation-play-state: paused;
+}
+
+.ld-magicborder-border.ld-magicborder-activateOnFocus.ld-magicborder-animated:focus-within {
+  animation-play-state: running;
+}

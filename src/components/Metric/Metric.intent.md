@@ -1,0 +1,1 @@
+KPI / trend display

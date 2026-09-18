@@ -1,0 +1,45 @@
+/* LD Portable – Nudge */
+/* Nudge */
+.ld-nudge-nudge {
+  align-items: flex-start;
+  background: var(--ld-semantic-color-fill-brand-subtle, #e9f1fe);
+  border-radius: var(--ld-semantic-border-radius-large);
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+}
+
+.ld-nudge-wrapperOuter {
+  display: flex;
+  flex: 1;
+  padding: var(--ld-primitive-scale-space-200);
+}
+.ld-nudge-hasCloseButton .ld-nudge-wrapperOuter {
+  padding-right: 0;
+}
+.ld-nudge-hasNoContent .ld-nudge-wrapperOuter {
+  align-items: center;
+}
+
+.ld-nudge-leading {
+  flex: none;
+  margin-right: 1rem;
+}
+
+.ld-nudge-wrapperInner {
+  flex: 1;
+}
+
+.ld-nudge-content {
+  display: block;
+  margin-top: 0.5rem;
+}
+
+.ld-nudge-actionContent {
+  margin-top: 0.5rem;
+}
+
+/* NudgeCloseButton */
+.ld-nudge-nudgeclosebutton-closeButton {
+  margin: 0.25rem;
+}

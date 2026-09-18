@@ -1,0 +1,29 @@
+/* LD Portable – SearchResultsHeader */
+.ld-wcp-search-results-header-root {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: var(--ld-semantic-color-surface);
+}
+.ld-wcp-search-results-header-inner {
+  display: flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-50);
+  padding-block-start: var(--ld-primitive-scale-space-100);
+  padding-block-end: var(--ld-primitive-scale-space-200);
+  padding-inline: var(--ld-primitive-scale-space-200);
+}
+.ld-wcp-search-results-header-back-btn {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--ld-semantic-color-text, #2e2f32);
+  padding: 0;
+}

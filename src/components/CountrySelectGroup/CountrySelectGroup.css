@@ -1,0 +1,129 @@
+.ld-wcp-countryselectgroup-root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-200);
+  width: 100%;
+}
+.ld-wcp-countryselectgroup-description {
+  font-size: var(--ld-semantic-font-body-medium-size);
+  line-height: 1.5;
+  color: var(--ld-semantic-color-text, #2e2f32);
+  margin: 0;
+}
+.ld-wcp-countryselectgroup-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-100);
+}
+.ld-wcp-countryselectgroup-row {
+  display: flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-100);
+  width: 100%;
+  min-height: 44px;
+  padding-block: var(--ld-primitive-scale-space-100);
+  padding-inline-end: var(--ld-primitive-scale-space-100);
+  padding-inline-start: var(--ld-primitive-scale-space-50);
+  background: var(--ld-semantic-color-surface, #fff);
+  border: none;
+  border-radius: var(--ld-semantic-border-radius-large);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  cursor: pointer;
+  text-align: left;
+}
+.ld-wcp-countryselectgroup-row:hover {
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+}
+/* Native radio input — visually hidden but reachable by AT and keyboard */
+.ld-wcp-countryselectgroup-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+  pointer-events: none;
+}
+
+/* Focus ring on the label — keyboard only, not on mouse click */
+.ld-wcp-countryselectgroup-row:has(.ld-wcp-countryselectgroup-input:focus-visible) {
+  outline: 2px solid var(--ld-semantic-color-border-activated, #0071dc);
+  outline-offset: 2px;
+}
+/* Selected state — bold text + filled radio indicate selection on mouse click.
+   Blue background + ring only appear on keyboard focus to avoid flash on click. */
+.ld-wcp-countryselectgroup-rowSelected:has(.ld-wcp-countryselectgroup-input:focus-visible) {
+  background: var(--ld-semantic-color-surface-brand, #e6f1fc);
+  box-shadow: 0 0 0 1.5px var(--ld-semantic-color-action-fill-primary, #0071dc);
+}
+.ld-wcp-countryselectgroup-radio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.ld-wcp-countryselectgroup-radioSvg {
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+  pointer-events: none;
+}
+.ld-wcp-countryselectgroup-radioOuter {
+  fill: var(--ld-semantic-color-input-fill, #ffffff);
+  stroke: var(--ld-semantic-color-input-border, #2e2f32);
+  stroke-width: 1px;
+}
+.ld-wcp-countryselectgroup-row:hover .ld-wcp-countryselectgroup-radioOuter {
+  fill: var(--ld-semantic-color-input-fill-hovered, #f1f1f2);
+  stroke: var(--ld-semantic-color-input-border-hovered, #2e2f32);
+  stroke-width: 2px;
+}
+.ld-wcp-countryselectgroup-rowSelected .ld-wcp-countryselectgroup-radioOuter {
+  fill: var(--ld-semantic-color-input-fill-activated, #2e2f32);
+  stroke: var(--ld-semantic-color-input-border-activated, #2e2f32);
+  stroke-width: 2px;
+}
+.ld-wcp-countryselectgroup-rowSelected:hover .ld-wcp-countryselectgroup-radioOuter {
+  fill: var(--ld-semantic-color-input-fill-activated-hovered, #3a3b3e);
+}
+.ld-wcp-countryselectgroup-radioInner {
+  fill: transparent;
+}
+.ld-wcp-countryselectgroup-rowSelected .ld-wcp-countryselectgroup-radioInner {
+  fill: var(--ld-semantic-color-input-indicator-activated, #ffffff);
+}
+.ld-wcp-countryselectgroup-flag {
+  width: 24px;
+  height: 16px;
+  object-fit: cover;
+  border-radius: var(--ld-semantic-border-radius-small);
+  flex-shrink: 0;
+}
+.ld-wcp-countryselectgroup-name {
+  flex: 1;
+  font-size: var(--ld-semantic-font-body-medium-size);
+  line-height: var(--ld-semantic-font-body-medium-line-height);
+  color: var(--ld-semantic-color-text, #2e2f32);
+}
+.ld-wcp-countryselectgroup-nameSelected {
+  font-weight: var(--ld-primitive-font-weight-700);
+}
+.ld-wcp-countryselectgroup-dialCode {
+  font-size: var(--ld-semantic-font-body-small-size);
+  line-height: var(--ld-semantic-font-body-small-line-height);
+  color: var(--ld-semantic-color-text-subtle, #515357);
+  white-space: nowrap;
+}
+.ld-wcp-countryselectgroup-footer {
+  font-size: var(--ld-semantic-font-caption-size);
+  line-height: var(--ld-semantic-font-caption-line-height);
+  color: var(--ld-semantic-color-text, #2e2f32);
+  margin: 0;
+  white-space: pre-line;
+}

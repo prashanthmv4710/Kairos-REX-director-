@@ -1,0 +1,165 @@
+/* LD Portable – RichSnackbar */
+.ld-wcp-richsnackbar-snackbar {
+  display: flex;
+  min-width: 311px;
+  width: 390px;
+  max-width: calc(100vw - 48px);
+  min-height: 52px;
+  align-items: stretch;
+  position: fixed;
+  z-index: var(--ld-semantic-z-index-notification, 1080);
+  border-radius: var(--ld-primitive-scale-borderRadius-50, 4px);
+  box-shadow: var(--ld-primitive-elevation-300);
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 0.2s cubic-bezier(0.55, 0.055, 0.675, 0.19), transform 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.ld-wcp-richsnackbar-open {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ld-wcp-richsnackbar-bottomLeft { bottom: 24px; left: 24px; }
+.ld-wcp-richsnackbar-bottomCenter { bottom: 24px; left: 50%; transform: translateX(-50%) translateY(100%); }
+.ld-wcp-richsnackbar-bottomCenter.ld-wcp-richsnackbar-open { transform: translateX(-50%) translateY(0); }
+.ld-wcp-richsnackbar-bottomRight { bottom: 24px; right: 24px; }
+
+.ld-wcp-richsnackbar-primary { background: var(--ld-semantic-color-fill-accent-blue-subtle, #EBF0FF); }
+.ld-wcp-richsnackbar-secondary { background: var(--ld-semantic-color-surface, #ffffff); }
+.ld-wcp-richsnackbar-inverse { background: var(--ld-semantic-color-text, #2e2f32); }
+.ld-wcp-richsnackbar-brand { background: var(--ld-semantic-color-fill-brand, #0071DC); }
+
+.ld-wcp-richsnackbar-copy {
+  display: flex;
+  flex: 1 0 0;
+  min-height: 56px;
+  padding: var(--ld-primitive-scale-space-200, 16px) var(--ld-primitive-scale-space-100, 8px) var(--ld-primitive-scale-space-200, 16px) var(--ld-primitive-scale-space-200, 16px);
+  align-items: flex-start;
+  gap: var(--ld-primitive-scale-space-100, 8px);
+}
+
+.ld-wcp-richsnackbar-copyCenter { justify-content: center; }
+
+.ld-wcp-richsnackbar-leading {
+  display: flex;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+
+.ld-wcp-richsnackbar-message {
+  font-size: var(--ld-semantic-font-body-small-size, 14px);
+  font-weight: var(--ld-semantic-font-body-small-weight-default, 400);
+  line-height: var(--ld-semantic-font-body-small-line-height, 20px);
+  font-kerning: none;
+  font-feature-settings: 'liga' off;
+}
+
+.ld-wcp-richsnackbar-messageBold { font-weight: var(--ld-semantic-font-body-small-weight-alt, 700); }
+
+.ld-wcp-richsnackbar-primary .ld-wcp-richsnackbar-message { color: var(--ld-semantic-color-text-onFill-accent-blue-subtle, #002E99); }
+.ld-wcp-richsnackbar-secondary .ld-wcp-richsnackbar-message { color: var(--ld-semantic-color-text, #2e2f32); }
+.ld-wcp-richsnackbar-inverse .ld-wcp-richsnackbar-message { color: var(--ld-semantic-color-text-inverse, #ffffff); }
+.ld-wcp-richsnackbar-brand .ld-wcp-richsnackbar-message { color: var(--ld-semantic-color-text-inverse, #ffffff); }
+
+.ld-wcp-richsnackbar-trailing {
+  display: flex;
+  height: 56px;
+  justify-content: flex-end;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.ld-wcp-richsnackbar-trailingActions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.ld-wcp-richsnackbar-actionWrapper {
+  display: flex;
+  padding: 0 var(--ld-primitive-scale-space-200, 16px) 0 var(--ld-primitive-scale-space-100, 8px);
+  align-items: center;
+}
+
+.ld-wcp-richsnackbar-actionBtn {
+  display: flex;
+  height: var(--ld-primitive-scale-space-400, 32px);
+  justify-content: center;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-100, 8px);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-size: var(--ld-semantic-font-body-small-size, 14px);
+  font-weight: var(--ld-semantic-font-body-small-weight-default, 400);
+  line-height: var(--ld-semantic-font-body-small-line-height, 20px);
+  font-kerning: none;
+  font-feature-settings: 'liga' off;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  transition: opacity 0.15s ease;
+}
+
+.ld-wcp-richsnackbar-actionBtn:hover { opacity: 0.8; }
+.ld-wcp-richsnackbar-actionBtn:focus-visible { outline: 2px solid var(--ld-semantic-color-border-activated, #0071dc); outline-offset: 2px; border-radius: 2px; }
+
+.ld-wcp-richsnackbar-primary .ld-wcp-richsnackbar-actionBtn { color: var(--ld-semantic-color-text-accent-blue-bold, #002e99); }
+.ld-wcp-richsnackbar-secondary .ld-wcp-richsnackbar-actionBtn { color: var(--ld-semantic-color-link-text, #2e2f32); }
+.ld-wcp-richsnackbar-inverse .ld-wcp-richsnackbar-actionBtn { color: var(--ld-semantic-color-link-text-accent-white, #ffffff); }
+.ld-wcp-richsnackbar-brand .ld-wcp-richsnackbar-actionBtn { color: var(--ld-semantic-color-link-text-accent-white, #ffffff); }
+
+.ld-wcp-richsnackbar-closeWrapper {
+  display: flex;
+  padding: 0 var(--ld-primitive-scale-space-100, 8px);
+  align-items: center;
+}
+
+.ld-wcp-richsnackbar-closeBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--ld-primitive-scale-borderRadius-round, 9999px);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: inherit;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.ld-wcp-richsnackbar-closeBtn:hover { background: rgba(0, 0, 0, 0.06); }
+.ld-wcp-richsnackbar-closeBtn:focus-visible { outline: 2px solid var(--ld-semantic-color-border-activated, #0071dc); outline-offset: 2px; }
+
+.ld-wcp-richsnackbar-inverse .ld-wcp-richsnackbar-closeBtn,
+.ld-wcp-richsnackbar-brand .ld-wcp-richsnackbar-closeBtn {
+  color: var(--ld-semantic-color-text-inverse, #fff);
+}
+.ld-wcp-richsnackbar-inverse .ld-wcp-richsnackbar-closeBtn:hover,
+.ld-wcp-richsnackbar-brand .ld-wcp-richsnackbar-closeBtn:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.ld-wcp-richsnackbar-inlineMode {
+  position: relative;
+  bottom: auto;
+  left: auto;
+  right: auto;
+  z-index: auto;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+@media (max-width: 37.4375rem) {
+  .ld-wcp-richsnackbar-snackbar { width: calc(100vw - 48px); min-width: 0; }
+  .ld-wcp-richsnackbar-bottomLeft, .ld-wcp-richsnackbar-bottomRight { left: 24px; right: auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ld-wcp-richsnackbar-snackbar { transition: opacity 0.01ms; }
+  .ld-wcp-richsnackbar-bottomCenter { transition: opacity 0.01ms; }
+}

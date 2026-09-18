@@ -1,0 +1,25 @@
+/* LD Portable – ErrorMessage */
+/* ErrorMessage */
+.ld-errormessage-errorMessage {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.ld-errormessage-media {
+  display: inline-block;
+  line-height: 0;
+  margin-bottom: 2rem;
+}
+
+.ld-errormessage-title {
+  margin-bottom: 0.5rem;
+}
+
+.ld-errormessage-textLabel {
+  color: var(--ld-semantic-color-text-subtlest, #74767c);
+}
+
+.ld-errormessage-actions {
+  margin-top: 1.5rem;
+}

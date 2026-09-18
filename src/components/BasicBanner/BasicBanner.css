@@ -1,0 +1,71 @@
+/* LD Portable – BasicBanner */
+.ld-wcp-basic-banner-root {
+  display: flex;
+  align-items: center;
+  gap: var(--ld-semantic-spacing-100, 0.5rem);
+  width: 100%;
+  padding: var(--ld-semantic-spacing-150, 0.75rem) var(--ld-semantic-spacing-200, 1rem);
+  border-radius: var(--ld-primitive-scale-borderRadius-100, 0.5rem);
+  box-sizing: border-box;
+  text-align: left;
+  border: none;
+  text-decoration: none;
+}
+
+.ld-wcp-basic-banner-clickable {
+  cursor: pointer;
+}
+
+.ld-wcp-basic-banner-clickable:hover {
+  filter: brightness(0.97);
+}
+
+/* ── Variants ─────────────────────────────────────────────────────────────── */
+
+/* Default: accent-blue-subtle fill, navy-on-blue-subtle text */
+.ld-wcp-basic-banner-default {
+  background: var(--ld-semantic-color-fill-accent-blue-subtle, #e9f1fe);
+  color: var(--ld-semantic-color-text-onFill-accent-blue-subtle, #002e99);
+}
+
+/* Brand: Walmart brand fill, on-brand text (white) */
+.ld-wcp-basic-banner-brand {
+  background: var(--ld-semantic-color-fill-brand, #0053e2);
+  color: var(--ld-semantic-color-text-onFill-brand, #ffffff);
+}
+
+/* Inverse: dark/inverse fill, on-inverse text (white) */
+.ld-wcp-basic-banner-inverse {
+  background: var(--ld-semantic-color-fill-inverse, #2e2f32);
+  color: var(--ld-semantic-color-text-onFill-inverse, #ffffff);
+}
+
+/* ── Icon slot ────────────────────────────────────────────────────────────── */
+
+.ld-wcp-basic-banner-icon-slot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: var(--ld-semantic-scale-icon-medium, 1.5rem);
+  height: var(--ld-semantic-scale-icon-medium, 1.5rem);
+  color: inherit;
+}
+
+.ld-wcp-basic-banner-icon {
+  width: var(--ld-semantic-scale-icon-medium, 1.5rem);
+  height: var(--ld-semantic-scale-icon-medium, 1.5rem);
+  color: inherit;
+}
+
+/* ── Text ─────────────────────────────────────────────────────────────────── */
+
+.ld-wcp-basic-banner-text {
+  font-size: var(--ld-semantic-font-body-small-size, 0.875rem);
+  font-weight: var(--ld-semantic-font-body-small-weight-alt, 700);
+  line-height: var(--ld-semantic-font-body-small-line-height, 1.25rem);
+  color: inherit;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

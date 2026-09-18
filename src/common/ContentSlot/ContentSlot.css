@@ -1,0 +1,22 @@
+/* LD Portable – ContentSlot (design utility placeholder) */
+
+.ld-content-slot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 32px;
+  box-sizing: border-box;
+  background-color: var(--ld-primitive-color-red-5, #fef2f1);
+  border: 1px dashed var(--ld-primitive-color-red-50, #f69991);
+}
+
+.ld-content-slot__label {
+  margin: 0;
+  color: var(--ld-primitive-color-red-100, #ea1100);
+  font-family: var(--ld-semantic-font-caption-family, 'Everyday Sans UI', sans-serif);
+  font-size: var(--ld-semantic-font-caption-size, 0.75rem);
+  font-weight: var(--ld-semantic-font-caption-weight-alt, 700);
+  line-height: var(--ld-semantic-font-caption-lineheight, 1rem);
+  text-align: center;
+}

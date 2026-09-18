@@ -1,0 +1,97 @@
+/* ============================================
+   FORM -- LD 3.5 Tokens
+   ============================================ */
+
+/* --- Form root --- */
+.ld-form-root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-200, 16px);
+}
+
+/* --- FormItem --- */
+.ld-form-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-100, 8px);
+}
+
+/* --- FormLabel --- */
+.ld-form-label {
+  font-size: var(--ld-semantic-font-body-small-size, 0.875rem);
+  font-weight: var(--ld-primitive-font-weight-500);
+  line-height: var(--ld-semantic-font-body-small-line-height, 1.25rem);
+  color: var(--ld-semantic-color-text, #2e2f32);
+  cursor: default;
+}
+
+.ld-form-label-error {
+  color: var(--ld-semantic-color-text-negative, #de1c24);
+}
+
+.ld-form-label-disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+/* --- FormControl (wrapper for the input) --- */
+.ld-form-control {
+  display: flex;
+  flex-direction: column;
+}
+
+.ld-form-control input,
+.ld-form-control textarea,
+.ld-form-control select {
+  font-size: var(--ld-semantic-font-body-small-size, 0.875rem);
+  line-height: var(--ld-semantic-font-body-small-line-height, 1.25rem);
+  color: var(--ld-semantic-color-text, #2e2f32);
+  background-color: var(--ld-semantic-color-surface, #ffffff);
+  border: 1px solid var(--ld-semantic-color-border-subtle, #c5c6c8);
+  border-radius: var(--ld-primitive-scale-borderRadius-50, 4px);
+  padding: var(--ld-primitive-scale-space-100, 8px) var(--ld-primitive-scale-space-150, 12px);
+  outline: none;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.ld-form-control input:focus,
+.ld-form-control textarea:focus,
+.ld-form-control select:focus {
+  border-color: var(--ld-semantic-color-border-activated, #0058e0);
+  box-shadow: 0 0 0 1px var(--ld-semantic-color-border-activated, #0058e0);
+}
+
+.ld-form-control input::placeholder,
+.ld-form-control textarea::placeholder {
+  color: var(--ld-semantic-color-text-subtle, #74767c);
+}
+
+.ld-form-control input[aria-invalid="true"],
+.ld-form-control textarea[aria-invalid="true"],
+.ld-form-control select[aria-invalid="true"] {
+  border-color: var(--ld-semantic-color-border-negative, #de1c24);
+}
+
+.ld-form-control input[aria-invalid="true"]:focus,
+.ld-form-control textarea[aria-invalid="true"]:focus,
+.ld-form-control select[aria-invalid="true"]:focus {
+  border-color: var(--ld-semantic-color-border-negative, #de1c24);
+  box-shadow: 0 0 0 1px var(--ld-semantic-color-border-negative, #de1c24);
+}
+
+/* --- FormDescription --- */
+.ld-form-description {
+  font-size: var(--ld-semantic-font-body-small-size, 0.875rem);
+  line-height: var(--ld-semantic-font-body-small-line-height, 1.25rem);
+  color: var(--ld-semantic-color-text-subtle, #74767c);
+  margin: 0;
+}
+
+/* --- FormMessage --- */
+.ld-form-message {
+  font-size: var(--ld-semantic-font-caption-size, 0.75rem);
+  font-weight: var(--ld-primitive-font-weight-500);
+  line-height: var(--ld-semantic-font-caption-line-height, 1rem);
+  color: var(--ld-semantic-color-text-negative, #de1c24);
+  margin: 0;
+}

@@ -1,0 +1,191 @@
+/* LD Portable – Chip */
+/* Chip */
+.ld-chip-chip {
+  --ld-chip-height: var(--ld-semantic-spacing-300, 1.5rem);
+  --ld-chip-padding-y: var(--ld-semantic-spacing-25, 0.125rem);
+  --ld-chip-padding-x: var(--ld-semantic-spacing-100, 0.5rem);
+  --ld-chip-gap: var(--ld-semantic-spacing-100, 0.5rem);
+  --ld-chip-icon-size: var(--ld-semantic-scale-icon-small, 1rem);
+  --ld-chip-icon-padding-reduction: var(--ld-semantic-spacing-50, 0.25rem);
+  --ld-chip-padding-x-with-icon: calc(var(--ld-chip-padding-x) - var(--ld-chip-icon-padding-reduction));
+  --ld-chip-font-size: var(--ld-semantic-font-body-small-size, 0.875rem);
+  --ld-chip-font-weight: var(--ld-semantic-font-body-small-weight-default, 400);
+  --ld-chip-line-height: var(--ld-semantic-font-body-small-line-height, 1.25rem);
+  font-size: var(--ld-chip-font-size);
+  font-weight: var(--ld-chip-font-weight);
+  line-height: var(--ld-chip-line-height);
+  align-items: center;
+  background: var(--ld-semantic-color-filter-fill, #ffffff);
+  border: 0;
+  border-radius: var(--ld-semantic-border-radius-medium);
+  box-shadow: inset 0 0 0 0.0625rem var(--ld-semantic-color-filter-border, #2e2f32);
+  box-sizing: border-box;
+  color: var(--ld-semantic-color-filter-text-onFill, #2e2f32);
+  cursor: pointer;
+  display: inline-flex;
+  height: var(--ld-chip-height);
+  padding: var(--ld-chip-padding-y) var(--ld-chip-padding-x);
+  white-space: nowrap;
+}
+.ld-chip-chip:hover, .ld-chip-chip.hover {
+  background: var(--ld-semantic-color-filter-fill-hovered, #f1f1f2);
+  box-shadow: inset 0 0 0 0.125rem var(--ld-semantic-color-filter-border-hovered, #2e2f32);
+}
+.ld-chip-chip:focus-visible, .ld-chip-chip.focus {
+  background: var(--ld-semantic-color-filter-fill-focused, #f1f1f2);
+  box-shadow: inset 0 0 0 0.125rem var(--ld-semantic-color-filter-border-focused, #2e2f32);
+  outline: 2px solid var(--ld-semantic-color-border-activated, #0053e2);
+  outline-offset: 2px;
+}
+.ld-chip-chip:active, .ld-chip-chip.active {
+  background: var(--ld-semantic-color-filter-fill-pressed, #e3e4e5);
+  box-shadow: inset 0 0 0 0.125rem var(--ld-semantic-color-filter-border-pressed, #2e2f32);
+}
+.ld-chip-chip:disabled {
+  background: var(--ld-semantic-color-filter-fill-disabled, #ffffff);
+  box-shadow: inset 0 0 0 0.0625rem var(--ld-semantic-color-filter-border-disabled, #babbbe);
+  color: var(--ld-semantic-color-filter-text-onFill-disabled, #babbbe);
+  cursor: default;
+}
+
+/* Selected state — uses activated filter tokens (filled blue treatment) */
+.ld-chip-selected {
+  background: var(--ld-semantic-color-filter-fill-activated, #e8f0ff);
+  box-shadow: inset 0 0 0 0.125rem var(--ld-semantic-color-filter-border-activated, #0053e2);
+  color: var(--ld-semantic-color-filter-text-onFill, #2e2f32);
+}
+.ld-chip-selected:hover, .ld-chip-selected.hover {
+  background: var(--ld-semantic-color-filter-fill-activated-hovered, #d1e0ff);
+  box-shadow: inset 0 0 0 0.125rem var(--ld-semantic-color-filter-border-activated-hovered, #0053e2);
+}
+.ld-chip-selected:focus-visible, .ld-chip-selected.focus {
+  background: var(--ld-semantic-color-filter-fill-activated-focused, #e9f1fe);
+  box-shadow: inset 0 0 0 0.125rem var(--ld-semantic-color-filter-border-activated-focused, #0053e2);
+}
+.ld-chip-selected:active, .ld-chip-selected.active {
+  background: var(--ld-semantic-color-filter-fill-activated-pressed, #bfd0ff);
+  box-shadow: inset 0 0 0 0.125rem var(--ld-semantic-color-filter-border-activated-pressed, #002185);
+}
+.ld-chip-selected:disabled {
+  background: var(--ld-semantic-color-filter-fill-disabled, #ffffff);
+  box-shadow: inset 0 0 0 0.125rem var(--ld-semantic-color-filter-border-activated-disabled, #babbbe);
+  color: var(--ld-semantic-color-filter-text-onFill-disabled, #babbbe);
+}
+
+/* Pill variant — fully rounded corners using the round borderRadius token. */
+.ld-chip-pill {
+  border-radius: var(--ld-primitive-scale-borderRadius-round, 1000px);
+}
+
+/* Built-in dismiss affordance — only present when a pill chip is selected.
+   In the resting activated state the chip hugs its label (the icon collapses
+   to zero width). On hover/focus the chip expands to reveal the close icon.
+   It inherits the chip's text color so the icon matches the label. */
+.ld-chip-close {
+  align-items: center;
+  color: inherit;
+  display: inline-flex;
+  margin-left: 0;
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-width 0.15s ease, margin-left 0.15s ease, opacity 0.15s ease;
+}
+.ld-chip-pill.ld-chip-selected:hover .ld-chip-close,
+.ld-chip-pill.ld-chip-selected.hover .ld-chip-close,
+.ld-chip-pill.ld-chip-selected:focus-visible .ld-chip-close,
+.ld-chip-pill.ld-chip-selected.focus .ld-chip-close {
+  margin-left: 0.5rem;
+  max-width: 1.5rem;
+  opacity: 1;
+}
+
+.ld-chip-small {
+  --ld-chip-height: var(--ld-semantic-spacing-300, 1.5rem);
+  --ld-chip-padding-y: var(--ld-semantic-spacing-25, 0.125rem);
+  --ld-chip-padding-x: var(--ld-semantic-spacing-100, 0.5rem);
+  --ld-chip-gap: var(--ld-semantic-spacing-50, 0.25rem);
+  --ld-chip-icon-size: var(--ld-semantic-scale-icon-small, 1rem);
+  --ld-chip-font-size: var(--ld-semantic-font-body-small-size, 0.875rem);
+  --ld-chip-font-weight: var(--ld-semantic-font-body-small-weight-default, 400);
+  --ld-chip-line-height: var(--ld-semantic-font-body-small-line-height, 1.25rem);
+}
+
+.ld-chip-medium {
+  --ld-chip-height: var(--ld-semantic-spacing-400, 2rem);
+  --ld-chip-padding-y: var(--ld-semantic-spacing-50, 0.25rem);
+  --ld-chip-padding-x: var(--ld-semantic-spacing-150, 0.75rem);
+  --ld-chip-gap: var(--ld-semantic-spacing-100, 0.5rem);
+  --ld-chip-icon-size: var(--ld-semantic-scale-icon-small, 1rem);
+  --ld-chip-font-size: var(--ld-semantic-font-body-small-size, 0.875rem);
+  --ld-chip-font-weight: var(--ld-semantic-font-body-small-weight-default, 400);
+  --ld-chip-line-height: var(--ld-semantic-font-body-small-line-height, 1.25rem);
+}
+
+.ld-chip-large {
+  --ld-chip-height: var(--ld-semantic-spacing-500, 2.5rem);
+  --ld-chip-padding-y: var(--ld-semantic-spacing-100, 0.5rem);
+  --ld-chip-padding-x: var(--ld-semantic-spacing-200, 1rem);
+  --ld-chip-gap: var(--ld-semantic-spacing-150, 0.75rem);
+  --ld-chip-icon-size: var(--ld-semantic-scale-icon-medium, 1.5rem);
+  --ld-chip-font-size: var(--ld-semantic-font-body-medium-size, 1rem);
+  --ld-chip-font-weight: var(--ld-semantic-font-body-medium-weight-default, 400);
+  --ld-chip-line-height: var(--ld-semantic-font-body-medium-line-height, 1.5rem);
+}
+
+.ld-chip-hasLeading {
+  padding-inline-start: var(--ld-chip-padding-x-with-icon);
+}
+
+.ld-chip-hasTrailing {
+  padding-inline-end: var(--ld-chip-padding-x-with-icon);
+}
+
+.ld-chip-selectionIndicator {
+  width: var(--ld-chip-icon-size);
+  height: var(--ld-chip-icon-size);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 var(--ld-chip-icon-size);
+  margin-right: var(--ld-chip-gap);
+}
+
+.ld-chip-leading {
+  width: var(--ld-chip-icon-size);
+  height: var(--ld-chip-icon-size);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 var(--ld-chip-icon-size);
+  margin-right: var(--ld-chip-gap);
+}
+
+.ld-chip-trailing {
+  width: var(--ld-chip-icon-size);
+  height: var(--ld-chip-icon-size);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 var(--ld-chip-icon-size);
+  margin-left: var(--ld-chip-gap);
+}
+
+.ld-chip-selectionIndicator > *,
+.ld-chip-leading > *,
+.ld-chip-trailing > * {
+  width: var(--ld-chip-icon-size);
+  height: var(--ld-chip-icon-size);
+  font-size: var(--ld-chip-icon-size);
+  line-height: 1;
+}
+
+/* ChipGroup */
+.ld-chip-chipgroup-chipGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ld-primitive-scale-space-100);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}

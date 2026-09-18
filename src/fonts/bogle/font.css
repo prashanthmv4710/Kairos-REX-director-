@@ -1,0 +1,15 @@
+/* Bogle */
+
+@font-face {
+  font-display: swap;
+  font-family: 'Bogle';
+  font-weight: 400;
+  src: url('./Bogle-400.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Bogle';
+  font-weight: 700;
+  src: url('./Bogle-700.woff2') format('woff2');
+}

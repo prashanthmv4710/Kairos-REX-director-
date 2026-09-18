@@ -1,0 +1,1 @@
+Promotional skyline banner

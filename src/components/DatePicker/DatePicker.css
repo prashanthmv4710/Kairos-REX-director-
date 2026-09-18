@@ -1,0 +1,376 @@
+/* LD Portable – DatePicker */
+/* DatePicker */
+.ld-datepicker-container {
+  position: relative;
+}
+
+/* BaseDatePickerCalendar */
+.ld-datepicker-basedatepickercalendar-container {
+  z-index: 200;
+  background: var(--ld-semantic-color-surface, #ffffff);
+  border-radius: var(--ld-semantic-border-radius-large);
+  box-shadow: var(--ld-semantic-elevation-200);
+  min-width: 22rem;
+  position: absolute;
+  
+}
+.ld-datepicker-basedatepickercalendar-container.ld-datepicker-basedatepickercalendar-large {
+  top: 5rem;
+}
+.ld-datepicker-basedatepickercalendar-container.ld-datepicker-basedatepickercalendar-small {
+  top: 3.75rem;
+}
+
+.ld-datepicker-basedatepickercalendar-errorText {
+  padding-block-start: var(--ld-primitive-scale-space-100);
+  padding-block-end: 0;
+  padding-inline: var(--ld-primitive-scale-space-100);
+}
+
+/* DatePickerCalendar */
+.ld-datepicker-datepickercalendar-transitionEnter {
+  opacity: 0;
+  transform: translateY(0.05rem);
+}
+
+.ld-datepicker-datepickercalendar-transitionEnterActive {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.1s cubic-bezier(0.77, 0, 0.175, 1), transform 0.1s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.ld-datepicker-datepickercalendar-transitionExit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ld-datepicker-datepickercalendar-transitionExitActive {
+  opacity: 0;
+  transform: translateY(0.05rem);
+  transition: opacity 0.1s cubic-bezier(0.77, 0, 0.175, 1), transform 0.1s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+/* DatePickerCalendarBody */
+.ld-datepicker-datepickercalendarbody-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* DatePickerCalendarHeader */
+.ld-datepicker-datepickercalendarheader-container {
+  display: flex;
+  width: 100%;
+}
+
+/* DatePickerCalendarHeaderDay */
+.ld-datepicker-datepickercalendarheaderday-label {
+  align-items: center;
+  display: flex;
+  flex-basis: 0;
+  flex-grow: 1;
+  justify-content: center;
+  min-width: 3rem;
+  padding-block: var(--ld-primitive-scale-space-100);
+  padding-inline: 0;
+}
+
+/* DatePickerCalendarMonth */
+.ld-datepicker-datepickercalendarmonth-container {
+  min-width: 22rem;
+  padding: var(--ld-primitive-scale-space-100);
+}
+
+/* DatePickerCalendarNavigation */
+.ld-datepicker-datepickercalendarnavigation-datePickerCalendarNavigationContainer {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: var(--ld-primitive-scale-space-100);
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* DatePickerCalendarSingleDay */
+.ld-datepicker-datepickercalendarsingleday-container {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  width: 100%;
+}
+.ld-datepicker-datepickercalendarsingleday-container.ld-datepicker-datepickercalendarsingleday-disabled {
+  cursor: default;
+}
+
+.ld-datepicker-datepickercalendarsingleday-indicator {
+  align-items: center;
+  background: var(--ld-semantic-color-surface, #ffffff);
+  border-radius: var(--ld-semantic-border-radius-round);
+  color: var(--ld-semantic-color-field-text-onFill, #2e2f32);
+  display: flex;
+  height: 3rem;
+  justify-content: center;
+  width: 3rem;
+  z-index: -1;
+}
+.ld-datepicker-datepickercalendarsingleday-container:hover .ld-datepicker-datepickercalendarsingleday-indicator, .ld-datepicker-datepickercalendarsingleday-container.hover .ld-datepicker-datepickercalendarsingleday-indicator {
+  background: var(--ld-semantic-color-surface-hovered, #f1f1f2);
+}
+.ld-datepicker-datepickercalendarsingleday-container:focus .ld-datepicker-datepickercalendarsingleday-indicator, .ld-datepicker-datepickercalendarsingleday-container.focus .ld-datepicker-datepickercalendarsingleday-indicator {
+  background: var(--ld-semantic-color-surface-hovered, #f1f1f2);
+}
+.ld-datepicker-datepickercalendarsingleday-container:active .ld-datepicker-datepickercalendarsingleday-indicator, .ld-datepicker-datepickercalendarsingleday-container.active .ld-datepicker-datepickercalendarsingleday-indicator {
+  background: var(--ld-semantic-color-separator, #e3e4e5);
+}
+.ld-datepicker-datepickercalendarsingleday-container.ld-datepicker-datepickercalendarsingleday-disabled .ld-datepicker-datepickercalendarsingleday-indicator {
+  background: var(--ld-semantic-color-surface, #ffffff);
+  color: var(--ld-semantic-color-field-text-onFill-disabled, #babbbe);
+}
+.ld-datepicker-datepickercalendarsingleday-isSelected .ld-datepicker-datepickercalendarsingleday-indicator {
+  background: var(--ld-semantic-color-fill-activated, #0053e2);
+  color: var(--ld-semantic-color-text-onFill-activated, #ffffff);
+}
+.ld-datepicker-datepickercalendarsingleday-isSelected:hover .ld-datepicker-datepickercalendarsingleday-indicator, .ld-datepicker-datepickercalendarsingleday-isSelected.hover .ld-datepicker-datepickercalendarsingleday-indicator {
+  background: var(--ld-semantic-color-fill-activated-hovered, #114ab6);
+}
+.ld-datepicker-datepickercalendarsingleday-isSelected:focus .ld-datepicker-datepickercalendarsingleday-indicator, .ld-datepicker-datepickercalendarsingleday-isSelected.focus .ld-datepicker-datepickercalendarsingleday-indicator {
+  background: var(--ld-semantic-color-fill-activated-hovered, #114ab6);
+}
+.ld-datepicker-datepickercalendarsingleday-isSelected:active .ld-datepicker-datepickercalendarsingleday-indicator, .ld-datepicker-datepickercalendarsingleday-isSelected.active .ld-datepicker-datepickercalendarsingleday-indicator {
+  background: var(--ld-semantic-color-fill-activated-pressed, #002e99);
+}
+.ld-datepicker-datepickercalendarsingleday-isSelected.ld-datepicker-datepickercalendarsingleday-disabled .ld-datepicker-datepickercalendarsingleday-indicator {
+  background: var(--ld-semantic-color-field-border-disabled, #babbbe);
+  color: var(--ld-semantic-color-text-onFill-activated, #ffffff);
+}
+.ld-datepicker-datepickercalendarsingleday-isToday .ld-datepicker-datepickercalendarsingleday-indicator {
+  box-shadow: inset 0 0 0 0.125rem var(--ld-semantic-color-fill-activated, #0053e2);
+}
+.ld-datepicker-datepickercalendarsingleday-isToday:hover .ld-datepicker-datepickercalendarsingleday-indicator, .ld-datepicker-datepickercalendarsingleday-isToday.hover .ld-datepicker-datepickercalendarsingleday-indicator {
+  box-shadow: inset 0 0 0 0.125rem var(--ld-semantic-color-fill-activated, #0053e2);
+}
+.ld-datepicker-datepickercalendarsingleday-isToday:focus .ld-datepicker-datepickercalendarsingleday-indicator, .ld-datepicker-datepickercalendarsingleday-isToday.focus .ld-datepicker-datepickercalendarsingleday-indicator {
+  box-shadow: inset 0 0 0 0.125rem var(--ld-semantic-color-fill-activated, #0053e2);
+}
+.ld-datepicker-datepickercalendarsingleday-isToday:active .ld-datepicker-datepickercalendarsingleday-indicator, .ld-datepicker-datepickercalendarsingleday-isToday.active .ld-datepicker-datepickercalendarsingleday-indicator {
+  box-shadow: inset 0 0 0 0.125rem var(--ld-semantic-color-fill-activated, #0053e2);
+}
+.ld-datepicker-datepickercalendarsingleday-isToday.ld-datepicker-datepickercalendarsingleday-disabled .ld-datepicker-datepickercalendarsingleday-indicator {
+  box-shadow: inset 0 0 0 0.125rem var(--ld-semantic-color-field-border-disabled, #babbbe);
+}
+
+.ld-datepicker-datepickercalendarsingleday-textLabel {
+  color: inherit !important;
+}
+
+/* DatePickerCalendarWeek */
+.ld-datepicker-datepickercalendarweek-container {
+  display: flex;
+  width: 100%;
+}
+
+.ld-datepicker-datepickercalendarweek-itemContainer {
+  height: 3rem;
+  width: 100%;
+}
+
+/* DatePickerDateField */
+.ld-datepicker-datepickerdatefield-calendarIconButton {
+  margin-right: 0.25rem;
+}
+
+/* LD Portable – DateRangePicker */
+/* BaseDateRangePickerCalendar */
+.ld-daterangepicker-basedaterangepickercalendar-container {
+  z-index: 200;
+  background: var(--ld-semantic-color-surface, #ffffff);
+  border-radius: var(--ld-semantic-border-radius-large);
+  box-shadow: var(--ld-semantic-elevation-200);
+  position: absolute;
+  top: auto;
+  width: 44.0625rem;
+}
+
+.ld-daterangepicker-basedaterangepickercalendar-errorText {
+  padding-block-start: var(--ld-primitive-scale-space-100);
+  padding-block-end: 0;
+  padding-inline: var(--ld-primitive-scale-space-100);
+}
+
+/* BaseDateRangePickerCalendarActionBar */
+.ld-daterangepicker-basedaterangepickercalendaractionbar-actionBar {
+  display: flex;
+  gap: var(--ld-primitive-scale-space-300);
+  justify-content: flex-end;
+  padding: var(--ld-primitive-scale-space-200);
+}
+
+/* DateRangePickerCalendar */
+.ld-daterangepicker-daterangepickercalendar-transitionEnter {
+  opacity: 0;
+  transform: translateY(0.05rem);
+}
+
+.ld-daterangepicker-daterangepickercalendar-transitionEnterActive {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.1s cubic-bezier(0.77, 0, 0.175, 1), transform 0.1s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.ld-daterangepicker-daterangepickercalendar-transitionExit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ld-daterangepicker-daterangepickercalendar-transitionExitActive {
+  opacity: 0;
+  transform: translateY(0.05rem);
+  transition: opacity 0.1s cubic-bezier(0.77, 0, 0.175, 1), transform 0.1s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+/* DateRangePickerCalendarDay */
+.ld-daterangepicker-daterangepickercalendarday-container {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  width: 100%;
+}
+.ld-daterangepicker-daterangepickercalendarday-container.ld-daterangepicker-daterangepickercalendarday-disabled {
+  cursor: default;
+}
+.ld-daterangepicker-daterangepickercalendarday-container > * {
+  z-index: -1;
+}
+
+.ld-daterangepicker-daterangepickercalendarday-indicator {
+  align-items: center;
+  background: var(--ld-semantic-color-surface, #ffffff);
+  border-radius: var(--ld-semantic-border-radius-round);
+  color: var(--ld-semantic-color-field-text-onFill, #2e2f32);
+  display: flex;
+  height: 3rem;
+  justify-content: center;
+  width: 3rem;
+}
+.ld-daterangepicker-daterangepickercalendarday-container:hover .ld-daterangepicker-daterangepickercalendarday-indicator, .ld-daterangepicker-daterangepickercalendarday-container.hover .ld-daterangepicker-daterangepickercalendarday-indicator {
+  background: var(--ld-semantic-color-surface-hovered, #f1f1f2);
+}
+.ld-daterangepicker-daterangepickercalendarday-container:focus .ld-daterangepicker-daterangepickercalendarday-indicator, .ld-daterangepicker-daterangepickercalendarday-container.focus .ld-daterangepicker-daterangepickercalendarday-indicator {
+  background: var(--ld-semantic-color-surface-hovered, #f1f1f2);
+}
+.ld-daterangepicker-daterangepickercalendarday-container:active .ld-daterangepicker-daterangepickercalendarday-indicator, .ld-daterangepicker-daterangepickercalendarday-container.active .ld-daterangepicker-daterangepickercalendarday-indicator {
+  background: var(--ld-semantic-color-separator, #e3e4e5);
+}
+.ld-daterangepicker-daterangepickercalendarday-container.ld-daterangepicker-daterangepickercalendarday-disabled .ld-daterangepicker-daterangepickercalendarday-indicator {
+  background: var(--ld-semantic-color-surface, #ffffff);
+  color: var(--ld-semantic-color-field-text-onFill-disabled, #babbbe);
+}
+.ld-daterangepicker-daterangepickercalendarday-isToday .ld-daterangepicker-daterangepickercalendarday-indicator {
+  box-shadow: inset 0 0 0 0.125rem var(--ld-semantic-color-fill-activated, #0053e2);
+}
+.ld-daterangepicker-daterangepickercalendarday-isToday:hover .ld-daterangepicker-daterangepickercalendarday-indicator, .ld-daterangepicker-daterangepickercalendarday-isToday.hover .ld-daterangepicker-daterangepickercalendarday-indicator {
+  box-shadow: inset 0 0 0 0.125rem var(--ld-semantic-color-fill-activated, #0053e2);
+}
+.ld-daterangepicker-daterangepickercalendarday-isToday:focus .ld-daterangepicker-daterangepickercalendarday-indicator, .ld-daterangepicker-daterangepickercalendarday-isToday.focus .ld-daterangepicker-daterangepickercalendarday-indicator {
+  box-shadow: inset 0 0 0 0.125rem var(--ld-semantic-color-fill-activated, #0053e2);
+}
+.ld-daterangepicker-daterangepickercalendarday-isToday:active .ld-daterangepicker-daterangepickercalendarday-indicator, .ld-daterangepicker-daterangepickercalendarday-isToday.active .ld-daterangepicker-daterangepickercalendarday-indicator {
+  box-shadow: inset 0 0 0 0.125rem var(--ld-semantic-color-fill-activated, #0053e2);
+}
+.ld-daterangepicker-daterangepickercalendarday-isToday.ld-daterangepicker-daterangepickercalendarday-disabled .ld-daterangepicker-daterangepickercalendarday-indicator {
+  box-shadow: inset 0 0 0 0.125rem var(--ld-semantic-color-field-border-disabled, #babbbe);
+}
+.ld-daterangepicker-daterangepickercalendarday-selectedEnd .ld-daterangepicker-daterangepickercalendarday-indicator, .ld-daterangepicker-daterangepickercalendarday-selectedNoRange .ld-daterangepicker-daterangepickercalendarday-indicator, .ld-daterangepicker-daterangepickercalendarday-selectedStart .ld-daterangepicker-daterangepickercalendarday-indicator {
+  background: var(--ld-semantic-color-fill-activated, #0053e2);
+  color: var(--ld-semantic-color-text-onFill-activated, #ffffff);
+}
+.ld-daterangepicker-daterangepickercalendarday-selectedEnd:hover .ld-daterangepicker-daterangepickercalendarday-indicator, .ld-daterangepicker-daterangepickercalendarday-selectedEnd.hover .ld-daterangepicker-daterangepickercalendarday-indicator, .ld-daterangepicker-daterangepickercalendarday-selectedNoRange:hover .ld-daterangepicker-daterangepickercalendarday-indicator, .ld-daterangepicker-daterangepickercalendarday-selectedNoRange.hover .ld-daterangepicker-daterangepickercalendarday-indicator, .ld-daterangepicker-daterangepickercalendarday-selectedStart:hover .ld-daterangepicker-daterangepickercalendarday-indicator, .ld-daterangepicker-daterangepickercalendarday-selectedStart.hover .ld-daterangepicker-daterangepickercalendarday-indicator {
+  background: var(--ld-semantic-color-fill-activated-hovered, #114ab6);
+}
+.ld-daterangepicker-daterangepickercalendarday-selectedEnd:focus .ld-daterangepicker-daterangepickercalendarday-indicator, .ld-daterangepicker-daterangepickercalendarday-selectedEnd.focus .ld-daterangepicker-daterangepickercalendarday-indicator, .ld-daterangepicker-daterangepickercalendarday-selectedNoRange:focus .ld-daterangepicker-daterangepickercalendarday-indicator, .ld-daterangepicker-daterangepickercalendarday-selectedNoRange.focus .ld-daterangepicker-daterangepickercalendarday-indicator, .ld-daterangepicker-daterangepickercalendarday-selectedStart:focus .ld-daterangepicker-daterangepickercalendarday-indicator, .ld-daterangepicker-daterangepickercalendarday-selectedStart.focus .ld-daterangepicker-daterangepickercalendarday-indicator {
+  background: var(--ld-semantic-color-fill-activated-hovered, #114ab6);
+}
+.ld-daterangepicker-daterangepickercalendarday-selectedEnd:active .ld-daterangepicker-daterangepickercalendarday-indicator, .ld-daterangepicker-daterangepickercalendarday-selectedEnd.active .ld-daterangepicker-daterangepickercalendarday-indicator, .ld-daterangepicker-daterangepickercalendarday-selectedNoRange:active .ld-daterangepicker-daterangepickercalendarday-indicator, .ld-daterangepicker-daterangepickercalendarday-selectedNoRange.active .ld-daterangepicker-daterangepickercalendarday-indicator, .ld-daterangepicker-daterangepickercalendarday-selectedStart:active .ld-daterangepicker-daterangepickercalendarday-indicator, .ld-daterangepicker-daterangepickercalendarday-selectedStart.active .ld-daterangepicker-daterangepickercalendarday-indicator {
+  background: var(--ld-semantic-color-fill-activated-pressed, #002e99);
+}
+.ld-daterangepicker-daterangepickercalendarday-selectedEnd.ld-daterangepicker-daterangepickercalendarday-disabled .ld-daterangepicker-daterangepickercalendarday-indicator, .ld-daterangepicker-daterangepickercalendarday-selectedNoRange.ld-daterangepicker-daterangepickercalendarday-disabled .ld-daterangepicker-daterangepickercalendarday-indicator, .ld-daterangepicker-daterangepickercalendarday-selectedStart.ld-daterangepicker-daterangepickercalendarday-disabled .ld-daterangepicker-daterangepickercalendarday-indicator {
+  background: var(--ld-semantic-color-field-border-disabled, #babbbe);
+  color: var(--ld-semantic-color-text-onFill-activated, #ffffff);
+}
+.ld-daterangepicker-daterangepickercalendarday-selectedMiddle .ld-daterangepicker-daterangepickercalendarday-indicator {
+  background: var(--ld-semantic-color-fill-activated-subtle, #f0f5ff);
+  color: var(--ld-semantic-color-field-text-onFill, #2e2f32);
+}
+.ld-daterangepicker-daterangepickercalendarday-selectedMiddle:hover .ld-daterangepicker-daterangepickercalendarday-indicator, .ld-daterangepicker-daterangepickercalendarday-selectedMiddle.hover .ld-daterangepicker-daterangepickercalendarday-indicator {
+  background: var(--ld-semantic-color-fill-activated-subtle-hovered, #e9f1fe);
+}
+.ld-daterangepicker-daterangepickercalendarday-selectedMiddle:focus .ld-daterangepicker-daterangepickercalendarday-indicator, .ld-daterangepicker-daterangepickercalendarday-selectedMiddle.focus .ld-daterangepicker-daterangepickercalendarday-indicator {
+  background: var(--ld-semantic-color-fill-activated-subtle-hovered, #e9f1fe);
+}
+.ld-daterangepicker-daterangepickercalendarday-selectedMiddle:active .ld-daterangepicker-daterangepickercalendarday-indicator, .ld-daterangepicker-daterangepickercalendarday-selectedMiddle.active .ld-daterangepicker-daterangepickercalendarday-indicator {
+  background: var(--ld-semantic-color-fill-activated-subtle-pressed, #c9dcfd);
+}
+.ld-daterangepicker-daterangepickercalendarday-selectedMiddle.ld-daterangepicker-daterangepickercalendarday-disabled .ld-daterangepicker-daterangepickercalendarday-indicator {
+  background: var(--ld-semantic-color-surface-subtle, #f8f8f8);
+  color: var(--ld-semantic-color-field-text-onFill-disabled, #babbbe);
+}
+
+.ld-daterangepicker-daterangepickercalendarday-selectedEnd > * {
+  background: linear-gradient(90deg, var(--ld-semantic-color-fill-activated-subtle, #f0f5ff) 50%, transparent 50%);
+}
+.ld-daterangepicker-daterangepickercalendarday-selectedEnd.ld-daterangepicker-daterangepickercalendarday-disabled > * {
+  background: linear-gradient(90deg, var(--ld-semantic-color-surface-subtle, #f8f8f8) 50%, transparent 50%);
+}
+
+.ld-daterangepicker-daterangepickercalendarday-selectedStart > * {
+  background: linear-gradient(90deg, transparent 50%, var(--ld-semantic-color-fill-activated-subtle, #f0f5ff) 50%);
+}
+.ld-daterangepicker-daterangepickercalendarday-selectedStart.ld-daterangepicker-daterangepickercalendarday-disabled > * {
+  background: linear-gradient(90deg, transparent 50%, var(--ld-semantic-color-surface-subtle, #f8f8f8) 50%);
+}
+
+.ld-daterangepicker-daterangepickercalendarday-selectedMiddle > * {
+  background: var(--ld-semantic-color-fill-activated-subtle, #f0f5ff);
+}
+.ld-daterangepicker-daterangepickercalendarday-selectedMiddle.ld-daterangepicker-daterangepickercalendarday-disabled > * {
+  background: var(--ld-semantic-color-surface-subtle, #f8f8f8);
+}
+
+.ld-daterangepicker-daterangepickercalendarday-textLabel {
+  color: inherit !important;
+}
+
+/* DateRangePickerCalendarMonths */
+.ld-daterangepicker-daterangepickercalendarmonths-container {
+  display: flex;
+}
+.ld-daterangepicker-daterangepickercalendarmonths-container > *:first-child {
+  border-right: 0.0625rem solid var(--ld-semantic-color-separator, #e3e4e5);
+}
+
+/* DateRangePickerCalendarNavigation */
+.ld-daterangepicker-daterangepickercalendarnavigation-dateRangePickerCalendarNavigationContainer {
+  align-items: center;
+  display: flex;
+  padding: var(--ld-primitive-scale-space-100);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.ld-daterangepicker-daterangepickercalendarnavigation-leftTextLabel {
+  flex-grow: 1;
+  padding-right: 3rem;
+  text-align: center;
+}
+
+.ld-daterangepicker-daterangepickercalendarnavigation-rightTextLabel {
+  flex-grow: 1;
+  padding-left: 3rem;
+  text-align: center;
+}

@@ -1,0 +1,7 @@
+.ax-highlight-text__bold {
+  font-weight: var(--ld-primitive-font-weight-700);
+}
+
+.ax-highlight-text__match {
+  font-weight: var(--ld-primitive-font-weight-400);
+}

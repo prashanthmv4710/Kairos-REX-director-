@@ -1,0 +1,198 @@
+/* LD Portable – ActionGroup */
+.ld-wcp-actiongroup-group {
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.ld-wcp-actiongroup-inline {
+  flex-direction: row;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-200, 16px);
+  justify-content: flex-start;
+}
+
+.ld-wcp-actiongroup-inlineFullWidth > * {
+  flex: 1 0 0;
+}
+
+.ld-wcp-actiongroup-stacked {
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--ld-primitive-scale-space-200, 16px);
+}
+
+.ld-wcp-actiongroup-stacked > * {
+  width: 100%;
+  align-self: stretch;
+}
+
+.ld-wcp-actiongroup-inlineRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-200, 16px);
+  width: 100%;
+}
+
+.ld-wcp-actiongroup-inlineRow > * {
+  flex: 1 0 0;
+}
+
+.ld-wcp-actiongroup-threeOptions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.ld-wcp-actiongroup-threeOptions > li:nth-child(3) {
+  grid-column: 1 / -1;
+}
+
+/* ── Rows-based mode (Figma: node 94623:24683 — 6 independently togglable rows) ── */
+/* Each row is a full-width li; gap-only spacing so hidden rows leave zero residual height. */
+.ld-wcp-actiongroup-rows {
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%;
+  /* Tighter vertically than within a row, so rows read as one grouped block. */
+  gap: var(--ag-row-gap, var(--ld-primitive-scale-space-100, 8px));
+  /* Semantic <ul> for AT, but no list chrome — these are action rows, not a list. */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * Each row is its own wrapping flex line. Actions keep their intrinsic width
+ * (no flex-grow), so a row of mixed controls — icon button, chip, stepper —
+ * reads at natural size and reflows onto the next line when space runs out.
+ */
+.ld-wcp-actiongroup-row-item {
+  width: 100%;
+  min-width: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--ag-slot-gap, var(--ld-primitive-scale-space-150, 12px));
+  justify-content: flex-end;
+}
+
+.ld-wcp-actiongroup-row-item--leading {
+  justify-content: flex-start;
+}
+
+/* Never stretch an action to fill the row — intrinsic width only. */
+.ld-wcp-actiongroup-row-item > * {
+  flex: 0 0 auto;
+}
+
+/*
+ * Equal-column row: widths come from the grid, not from label length, so a pair
+ * of buttons lines up with the tile's media/content columns above. minmax(0,1fr)
+ * (rather than 1fr) lets a long label shrink instead of blowing out the track.
+ */
+.ld-wcp-actiongroup-row-item--columns {
+  display: grid;
+  grid-template-columns: repeat(var(--ag-row-columns, 2), minmax(0, 1fr));
+  column-gap: var(--ld-primitive-scale-space-200, 16px);
+  row-gap: var(--ld-primitive-scale-space-100, 8px);
+}
+.ld-wcp-actiongroup-row-item--columns > * {
+  inline-size: 100%;
+}
+
+/*
+ * Opt-in full-width row: a disclosure trigger spans the group so its label sits
+ * left and its chevron sits hard right, matching the reference.
+ */
+.ld-wcp-actiongroup-row-item--stretch {
+  justify-content: flex-start;
+}
+.ld-wcp-actiongroup-row-item--stretch > * {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/*
+ * LD's small IconButton is 34px tall (icon + padding) while the small Button is
+ * 32px (space-400). When they share a row the mismatch reads as misalignment, so
+ * normalise the icon button to the button height — layout only, no restyling.
+ */
+.ld-wcp-actiongroup-row-item .ld-iconbutton-small {
+  block-size: var(--ld-primitive-scale-space-400, 2rem);
+  inline-size: var(--ld-primitive-scale-space-400, 2rem);
+}
+
+/*
+ * A disclosure inside an action row is a single action, not a list section —
+ * drop the Accordion's section rules so no divider appears between it and the
+ * row that follows. Scoped to action rows; the standalone Accordion is unchanged.
+ */
+.ld-wcp-actiongroup-row-item .ld-accordion-item,
+.ld-wcp-actiongroup-row-item .ld-accordion-item:first-child {
+  border-block: none;
+}
+
+/*
+ * Drop the Accordion's own inline padding so the trigger's label lines up with
+ * the other left-aligned actions (e.g. the Compare checkbox) in the same group.
+ */
+.ld-wcp-actiongroup-row-item .ld-accordion-header {
+  padding-inline: 0;
+}
+
+/*
+ * Icon links: the underline belongs to the label, not the glyph. Clearing it on
+ * the anchor and re-applying to the text span keeps one link target while
+ * leaving the leading icon undecorated.
+ */
+.ld-wcp-actiongroup-icon-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-50, 4px);
+  text-decoration: none;
+}
+.ld-wcp-actiongroup-icon-link:hover .ld-wcp-actiongroup-icon-link-label,
+.ld-wcp-actiongroup-icon-link:focus .ld-wcp-actiongroup-icon-link-label {
+  text-decoration: none;
+}
+.ld-wcp-actiongroup-icon-link-label {
+  text-decoration: underline;
+}
+
+/* ── Slot-based mode (Figma: Actions-horizontal / 0-899px, node 89624:55465) ── */
+/* Horizontal Auto Layout — hugs children by default; each slot sizes naturally.  */
+/* Slot count controlled by array length (1–3); pass any LD action component.     */
+.ld-wcp-actiongroup-slots {
+  flex-direction: row;
+  align-items: center;
+  gap: var(--ag-slot-gap, var(--ld-primitive-scale-space-100, 8px));
+  width: auto;
+  justify-content: flex-start;
+}
+
+.ld-wcp-actiongroup-slot-item {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Alignment: trailing (no-op when fullWidth is true) */
+.ld-wcp-actiongroup-slots--trailing {
+  justify-content: flex-end;
+}
+
+/* Full-width: stretch each slot equally (e.g. full-width CTA button row). */
+.ld-wcp-actiongroup-slots--full-width {
+  width: 100%;
+}
+
+.ld-wcp-actiongroup-slots--full-width > .ld-wcp-actiongroup-slot-item {
+  flex: 1 0 0;
+}
+
+/* Wrap: allow slots to flow onto a second line on narrow screens. */
+.ld-wcp-actiongroup-slots--wrap {
+  flex-wrap: wrap;
+}

@@ -1,0 +1,52 @@
+/* LD Portable – DemoModal */
+
+.ld-wcp-demo-modal-scrim {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.ld-wcp-demo-modal-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--ld-semantic-color-surface, #fff);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.24);
+  z-index: 1001;
+  max-width: calc(100vw - 32px);
+  max-height: calc(100vh - 32px);
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.ld-wcp-demo-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: var(--ld-primitive-scale-space-200);
+  padding-inline: var(--ld-primitive-scale-space-250);
+  border-bottom: 1px solid var(--ld-semantic-color-separator, #e3e4e5);
+}
+
+.ld-wcp-demo-modal-title {
+  font-size: 18px;
+  font-weight: var(--ld-primitive-font-weight-700);
+  color: var(--ld-semantic-color-text, #2e2f32);
+  margin: 0;
+}
+
+.ld-wcp-demo-modal-close-btn {
+  background: none;
+  border: none;
+  padding: var(--ld-primitive-scale-space-50);
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ld-semantic-color-text-subtle, #46474a);
+}

@@ -1,0 +1,60 @@
+/* LD Portable – Metric */
+/* Metric */
+.ld-metric-timescope {
+  color: var(--ld-semantic-color-text-subtlest, #74767c);
+  margin-bottom: var(--ld-semantic-spacing-50, 0.25rem);
+}
+
+.ld-metric-valueContainer {
+  align-items: baseline;
+  display: flex;
+  gap: var(--ld-semantic-spacing-50, 0.25rem);
+}
+
+.ld-metric-value {
+  white-space: nowrap;
+}
+
+.ld-metric-unit {
+  white-space: nowrap;
+}
+
+/* Keep metric value/unit at compact sizes across breakpoints. */
+.ld-metric-value.ld-text-display-small.ld-text-display-weightAlt {
+  font-size: var(--ld-semantic-font-display-small-size-b-s, 1.75rem);
+  line-height: var(--ld-semantic-font-display-small-line-height-b-s, 2.25rem);
+}
+
+.ld-metric-unit.ld-text-heading-small.ld-text-heading-weightAlt {
+  font-size: var(--ld-semantic-font-heading-small-size-b-s, 1.125rem);
+  line-height: var(--ld-semantic-font-heading-small-line-height-b-s, 1.5rem);
+}
+
+.ld-metric-labelContainer {
+  display: flex;
+  gap: var(--ld-semantic-spacing-50, 0.25rem);
+}
+.ld-metric-neutral .ld-metric-labelContainer {
+  color: var(--ld-semantic-color-text, #2e2f32);
+}
+.ld-metric-positiveUp .ld-metric-labelContainer {
+  color: var(--ld-semantic-color-text-positive, #2a8703);
+}
+.ld-metric-positiveDown .ld-metric-labelContainer {
+  color: var(--ld-semantic-color-text-positive, #2a8703);
+}
+.ld-metric-negativeUp .ld-metric-labelContainer {
+  color: var(--ld-semantic-color-text-negative, #ea1100);
+}
+.ld-metric-negativeDown .ld-metric-labelContainer {
+  color: var(--ld-semantic-color-text-negative, #ea1100);
+}
+
+.ld-metric-trendIndicator {
+  line-height: 1;
+  margin: var(--ld-semantic-spacing-25, 0.125rem) 0 var(--ld-semantic-spacing-25, 0.125rem) 0;
+}
+
+.ld-metric-textLabel {
+  color: inherit;
+}

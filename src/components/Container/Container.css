@@ -1,0 +1,16 @@
+/* LD Portable – Container */
+/* Main content container: 1660px max-width, responsive horizontal padding */
+.ld-container-container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  width: 100%;
+  max-width: 1660px;
+}
+@media screen and (min-width: 75rem) {
+  .ld-container-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}

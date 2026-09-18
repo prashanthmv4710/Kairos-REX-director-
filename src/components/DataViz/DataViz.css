@@ -1,0 +1,111 @@
+/* ---------------------------------------------------------------------------
+ * PX Data Visualization — chart chrome
+ * Scoped under .ld-dataviz so it never leaks into shared/global styles.
+ * ------------------------------------------------------------------------- */
+
+.ld-dataviz {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-200);
+  width: 100%;
+  min-width: 0;
+}
+
+.ld-dataviz--row {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-300);
+}
+
+/* ── Legend ─────────────────────────────────────────────────────────────── */
+.ld-dataviz-legend {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: var(--ld-primitive-scale-space-100);
+  column-gap: var(--ld-primitive-scale-space-200);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ld-dataviz-legend--row {
+  flex-direction: row;
+}
+
+.ld-dataviz-legend--column {
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: var(--ld-primitive-scale-space-100);
+}
+
+.ld-dataviz-legend--end {
+  justify-content: flex-end;
+}
+
+.ld-dataviz-legend__item {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-100);
+  font-family: 'Everyday Sans UI', 'Everyday Sans', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', sans-serif;
+  font-size: var(--ld-semantic-font-body-small-size);
+  line-height: var(--ld-semantic-font-body-small-line-height);
+  color: var(--ld-semantic-color-text, #2e2f32);
+}
+
+.ld-dataviz-legend__dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex: 0 0 auto;
+}
+
+.ld-dataviz-legend__line {
+  width: 24px;
+  height: 0;
+  flex: 0 0 auto;
+  border-top-width: 3px;
+}
+
+.ld-dataviz-legend__value {
+  font-weight: var(--ld-primitive-font-weight-700);
+}
+
+.ld-dataviz-legend__label {
+  color: var(--ld-semantic-color-text, #2e2f32);
+}
+
+/* ── Pie / donut center ─────────────────────────────────────────────────── */
+.ld-dataviz__pie-wrap {
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.ld-dataviz__pie-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  pointer-events: none;
+}
+
+.ld-dataviz__pie-center-value {
+  font-family: 'Everyday Sans UI', 'Everyday Sans', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', sans-serif;
+  font-size: 28px;
+  font-weight: var(--ld-primitive-font-weight-700);
+  line-height: 1.1;
+  color: var(--ld-semantic-color-text, #2e2f32);
+}
+
+.ld-dataviz__pie-center-label {
+  font-family: 'Everyday Sans UI', 'Everyday Sans', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', sans-serif;
+  font-size: var(--ld-semantic-font-body-small-size);
+  line-height: 1.2;
+  color: var(--ld-semantic-color-text-subtle, #74767c);
+}

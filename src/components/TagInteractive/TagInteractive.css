@@ -1,0 +1,138 @@
+/* LD Portable – Tag Interactive */
+/* Tag Interactive */
+.ld-taginteractive-interactiveTag {
+  align-items: center;
+  border: 0;
+  border-radius: var(--ld-semantic-border-radius-medium);
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: inherit;
+  font-weight: var(--ld-primitive-font-weight-400);
+  text-wrap: nowrap;
+  white-space: nowrap;
+}
+
+.ld-taginteractive-interactiveTag:focus-visible {
+  outline: 2px solid var(--ld-semantic-color-border-activated, #0053e2);
+  outline-offset: 2px;
+}
+
+.ld-taginteractive-interactiveTag:disabled {
+  background: var(--ld-semantic-color-fill-disabled, #ffffff);
+  box-shadow: inset 0 0 0 0.0625rem
+    var(--ld-semantic-color-border-disabled, #babbbe);
+  color: var(--ld-semantic-color-text-disabled, #babbbe);
+  cursor: default;
+}
+
+.ld-taginteractive-label {
+  display: inline-flex;
+}
+
+.ld-taginteractive-leadingIcon,
+.ld-taginteractive-trailingIcon {
+  align-items: center;
+  display: inline-flex;
+}
+
+/* ── Sizes: each step sets text style, padding, and gap ──────────────── */
+
+/* small → Caption (12px / 16px); padding 4 top/bottom, 4 right, 8 left */
+.ld-taginteractive-small {
+  font-size: var(--ld-semantic-font-caption-size);
+  line-height: var(--ld-semantic-font-caption-line-height);
+  gap: var(--ld-primitive-scale-space-50);
+  padding-block: var(--ld-primitive-scale-space-50);
+  padding-inline-end: var(--ld-primitive-scale-space-50);
+  padding-inline-start: var(--ld-primitive-scale-space-100);
+}
+.ld-taginteractive-small .ld-taginteractive-leadingIcon *,
+.ld-taginteractive-small .ld-taginteractive-trailingIcon * {
+  font-size: 1rem !important;
+}
+
+/* medium → Body Small (14px / 20px); padding 2 top/bottom, 4 right, 8 left */
+.ld-taginteractive-medium {
+  font-size: var(--ld-semantic-font-body-small-size);
+  line-height: var(--ld-semantic-font-body-small-line-height);
+  gap: var(--ld-primitive-scale-space-50);
+  padding-block: var(--ld-primitive-scale-space-25);
+  padding-inline-end: var(--ld-primitive-scale-space-50);
+  padding-inline-start: var(--ld-primitive-scale-space-100);
+}
+.ld-taginteractive-medium .ld-taginteractive-leadingIcon *,
+.ld-taginteractive-medium .ld-taginteractive-trailingIcon * {
+  font-size: 1rem !important;
+}
+
+/* large → Body Medium (16px / 24px); padding 2 top/bottom, 4 right, 8 left */
+.ld-taginteractive-large {
+  font-size: var(--ld-semantic-font-body-medium-size);
+  line-height: var(--ld-semantic-font-body-medium-line-height);
+  gap: var(--ld-primitive-scale-space-100);
+  padding-block: var(--ld-primitive-scale-space-25);
+  padding-inline-end: var(--ld-primitive-scale-space-50);
+  padding-inline-start: var(--ld-primitive-scale-space-100);
+}
+.ld-taginteractive-large .ld-taginteractive-leadingIcon *,
+.ld-taginteractive-large .ld-taginteractive-trailingIcon * {
+  font-size: 1.25rem !important;
+}
+
+/* ── Colors: subtle fill + accent text, with hover / pressed states ──── */
+
+.ld-taginteractive-brand {
+  background: var(--ld-semantic-color-fill-brand-subtle);
+  color: var(--ld-semantic-color-text-accent-blue-bold);
+}
+.ld-taginteractive-brand:hover:not(:disabled) {
+  background: var(--ld-semantic-color-fill-brand-subtle-hovered);
+}
+.ld-taginteractive-brand:active:not(:disabled) {
+  background: var(--ld-semantic-color-fill-brand-subtle-pressed);
+}
+
+.ld-taginteractive-info {
+  background: var(--ld-semantic-color-fill-info-subtle);
+  color: var(--ld-semantic-color-text-accent-blue);
+}
+.ld-taginteractive-info:hover:not(:disabled) {
+  background: var(--ld-semantic-color-fill-info-subtle-hovered);
+}
+.ld-taginteractive-info:active:not(:disabled) {
+  background: var(--ld-semantic-color-fill-info-subtle-pressed);
+}
+
+.ld-taginteractive-positive {
+  background: var(--ld-semantic-color-fill-positive-subtle);
+  color: var(--ld-semantic-color-text-accent-green);
+}
+.ld-taginteractive-positive:hover:not(:disabled) {
+  background: var(--ld-semantic-color-fill-positive-subtle-hovered);
+}
+.ld-taginteractive-positive:active:not(:disabled) {
+  background: var(--ld-semantic-color-fill-positive-subtle-pressed);
+}
+
+.ld-taginteractive-warning {
+  background: var(--ld-semantic-color-fill-warning-subtle);
+  color: var(--ld-semantic-color-text-accent-spark);
+}
+.ld-taginteractive-warning:hover:not(:disabled) {
+  background: var(--ld-semantic-color-fill-warning-subtle-hovered);
+}
+.ld-taginteractive-warning:active:not(:disabled) {
+  background: var(--ld-semantic-color-fill-warning-subtle-pressed);
+}
+
+.ld-taginteractive-negative {
+  background: var(--ld-semantic-color-fill-negative-subtle);
+  color: var(--ld-semantic-color-text-accent-red);
+}
+.ld-taginteractive-negative:hover:not(:disabled) {
+  background: var(--ld-semantic-color-fill-negative-subtle-hovered);
+}
+.ld-taginteractive-negative:active:not(:disabled) {
+  background: var(--ld-semantic-color-fill-negative-subtle-pressed);
+}

@@ -1,0 +1,94 @@
+.ld-processingtrace-activitylist-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-50);
+}
+
+/* Scrollbar stays invisible until the user hovers, focuses, or actively
+   scrolls the list — avoids a persistent scrollbar cluttering the card. */
+.ld-processingtrace-activitylist-list--scrollable {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+  transition: scrollbar-color 0.2s ease;
+}
+
+.ld-processingtrace-activitylist-list--scrollable:hover,
+.ld-processingtrace-activitylist-list--scrollable:focus-within,
+.ld-processingtrace-activitylist-list--scrollable.ld-processingtrace-activitylist-list--scrolling {
+  scrollbar-color: var(--ld-semantic-color-border-subtle, #c4c5c9) transparent;
+}
+
+.ld-processingtrace-activitylist-list--scrollable::-webkit-scrollbar {
+  width: 6px;
+}
+
+.ld-processingtrace-activitylist-list--scrollable::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.ld-processingtrace-activitylist-list--scrollable::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 3px;
+  transition: background-color 0.2s ease;
+}
+
+.ld-processingtrace-activitylist-list--scrollable:hover::-webkit-scrollbar-thumb,
+.ld-processingtrace-activitylist-list--scrollable:focus-within::-webkit-scrollbar-thumb,
+.ld-processingtrace-activitylist-list--scrollable.ld-processingtrace-activitylist-list--scrolling::-webkit-scrollbar-thumb {
+  background: var(--ld-semantic-color-border-subtle, #c4c5c9);
+}
+
+.ld-processingtrace-activity {
+  display: grid;
+  grid-template-columns: var(--ld-primitive-scale-space-200, 1rem) 1fr auto;
+  column-gap: 12px;
+  padding-block: var(--ld-primitive-scale-space-25);
+  padding-inline: 0;
+  align-items: start;
+}
+
+.ld-processingtrace-activity-glyph {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--ld-primitive-scale-space-200, 1rem);
+  height: var(--ld-primitive-scale-space-200, 1rem);
+  margin-top: 1px;
+}
+
+/* The Spinner component's smallest built-in size is 24px and it has no
+   style/className override, so scope-resize it to match the 16px checkmark. */
+.ld-processingtrace-activity-glyph .ld-spinner-container {
+  width: var(--ld-primitive-scale-space-200, 1rem);
+  height: var(--ld-primitive-scale-space-200, 1rem);
+}
+
+.ld-processingtrace-activity--success .ld-processingtrace-activity-glyph {
+  color: var(--ld-semantic-color-fill-positive, #2a8703);
+}
+
+.ld-processingtrace-activity--failure .ld-processingtrace-activity-glyph {
+  color: var(--ld-semantic-color-fill-negative, #ea1100);
+}
+
+.ld-processingtrace-activity--processing .ld-processingtrace-activity-glyph {
+  color: var(--ld-semantic-color-fill-info, #0053e2);
+}
+
+.ld-processingtrace-activity-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+
+.ld-processingtrace-activity-trailing {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  align-self: center;
+  flex: none;
+}

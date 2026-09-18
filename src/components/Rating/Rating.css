@@ -1,0 +1,89 @@
+/* LD Portable – Rating */
+.ld-wcp-rating-rating {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.ld-wcp-rating-disabled {
+  pointer-events: none;
+}
+
+.ld-wcp-rating-disabled .ld-wcp-rating-star-filled,
+.ld-wcp-rating-disabled .ld-wcp-rating-star-empty {
+  color: var(--ld-a11y-color-text-disabled);
+}
+
+.ld-wcp-rating-disabled .ld-wcp-rating-label {
+  color: var(--ld-a11y-color-text-disabled);
+}
+
+.ld-wcp-rating-stars {
+  display: inline-flex;
+  align-items: center;
+}
+
+.ld-wcp-rating-starBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  border-radius: var(--ld-semantic-border-radius-small);
+  user-select: none;
+  -webkit-user-select: none;
+  transition: transform 0.1s ease;
+  flex-shrink: 0;
+}
+
+.ld-wcp-rating-starBtn:focus-visible {
+  outline: 2px solid var(--ld-semantic-color-border-activated, #0071dc);
+  outline-offset: 1px;
+  border-radius: 3px;
+}
+
+.ld-wcp-rating-starBtn:not(:disabled):hover {
+  transform: scale(1.12);
+}
+
+.ld-wcp-rating-starBtn:not(:disabled):active {
+  transform: scale(0.96);
+}
+
+.ld-wcp-rating-star-filled {
+  color: var(--ld-semantic-color-rating-fill);
+}
+
+.ld-wcp-rating-star-empty {
+  color: var(--ld-semantic-color-rating-border);
+}
+
+.ld-wcp-rating-label {
+  font-weight: var(--ld-primitive-font-weight-400);
+  color: var(--ld-semantic-color-text-subtle);
+  line-height: 1.4;
+  white-space: nowrap;
+  text-align: center;
+}
+
+/* Small */
+.ld-wcp-rating-small .ld-wcp-rating-stars { gap: 2px; }
+.ld-wcp-rating-small .ld-wcp-rating-starBtn { width: 16px; height: 16px; }
+.ld-wcp-rating-small .ld-wcp-rating-starBtn .ld-wcp-rating-star-filled,
+.ld-wcp-rating-small .ld-wcp-rating-starBtn .ld-wcp-rating-star-empty {
+  font-size: var(--ld-semantic-font-body-medium-size);
+}
+.ld-wcp-rating-small .ld-wcp-rating-label { font-size: 12px; }
+
+/* Medium */
+.ld-wcp-rating-medium .ld-wcp-rating-stars { gap: 4px; }
+.ld-wcp-rating-medium .ld-wcp-rating-starBtn { width: 24px; height: 24px; }
+.ld-wcp-rating-medium .ld-wcp-rating-starBtn .ld-wcp-rating-star-filled,
+.ld-wcp-rating-medium .ld-wcp-rating-starBtn .ld-wcp-rating-star-empty {
+  font-size: 24px;
+}
+.ld-wcp-rating-medium .ld-wcp-rating-label { font-size: 14px; }

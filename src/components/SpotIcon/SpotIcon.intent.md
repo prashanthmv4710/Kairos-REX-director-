@@ -1,0 +1,1 @@
+Decorative circular icon treatment

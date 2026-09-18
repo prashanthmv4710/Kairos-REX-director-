@@ -1,0 +1,214 @@
+{
+  "themes": [
+    {
+      "key": "default",
+      "label": "Default",
+      "isBase": true,
+      "slots": [
+        {
+          "hex": "#4dbdf5",
+          "name": "Blue Medium"
+        },
+        {
+          "hex": "#a9ddf7",
+          "name": "Blue Light"
+        },
+        {
+          "hex": "#0053e2",
+          "name": "Blue"
+        },
+        {
+          "hex": "#002e99",
+          "name": "Blue Darkest"
+        },
+        {
+          "hex": "#ffffff",
+          "name": "White"
+        },
+        {
+          "hex": "#ffc220",
+          "name": "Spark"
+        },
+        {
+          "hex": "#995213",
+          "name": "Spark Dark"
+        }
+      ]
+    },
+    {
+      "key": "walmart",
+      "label": "Walmart",
+      "isBase": false,
+      "slots": [
+        {
+          "hex": "#4dbdf5",
+          "name": "Blue Medium"
+        },
+        {
+          "hex": "#a9ddf7",
+          "name": "Blue Light"
+        },
+        {
+          "hex": "#0053e2",
+          "name": "Blue"
+        },
+        {
+          "hex": "#002e99",
+          "name": "Blue Darkest"
+        },
+        {
+          "hex": "#ffffff",
+          "name": "White"
+        },
+        {
+          "hex": "#ffc220",
+          "name": "Spark"
+        },
+        {
+          "hex": "#995213",
+          "name": "Spark Dark"
+        }
+      ]
+    },
+    {
+      "key": "walmart-connect",
+      "label": "Walmart Connect",
+      "isBase": false,
+      "slots": [
+        {
+          "hex": "#4dbdf5",
+          "name": "Blue Medium"
+        },
+        {
+          "hex": "#a9ddf7",
+          "name": "Blue Light"
+        },
+        {
+          "hex": "#0053e2",
+          "name": "Blue"
+        },
+        {
+          "hex": "#002e99",
+          "name": "Blue Darkest"
+        },
+        {
+          "hex": "#ffffff",
+          "name": "White"
+        },
+        {
+          "hex": "#c7a0fe",
+          "name": "Purple"
+        },
+        {
+          "hex": "#993ef4",
+          "name": "Purple Dark"
+        }
+      ]
+    },
+    {
+      "key": "data-ventures",
+      "label": "Data Ventures",
+      "isBase": false,
+      "slots": [
+        {
+          "hex": "#002e99",
+          "name": "Blue Darkest"
+        },
+        {
+          "hex": "#eedefd",
+          "name": "Purple Lightest"
+        },
+        {
+          "hex": "#993ef4",
+          "name": "Purple Dark"
+        },
+        {
+          "hex": "#4c2280",
+          "name": "Purple Darkest"
+        },
+        {
+          "hex": "#ffffff",
+          "name": "White"
+        },
+        {
+          "hex": "#ddf1fc",
+          "name": "Blue Lightest"
+        },
+        {
+          "hex": "#001e60",
+          "name": "Blue Dark"
+        }
+      ]
+    },
+    {
+      "key": "bodega",
+      "label": "Bodega",
+      "isBase": false,
+      "slots": [
+        {
+          "hex": "#5faa37",
+          "name": "Green Medium"
+        },
+        {
+          "hex": "#ecf8ce",
+          "name": "Green Light"
+        },
+        {
+          "hex": "#a4cc42",
+          "name": "Green"
+        },
+        {
+          "hex": "#15340f",
+          "name": "Green Darkest"
+        },
+        {
+          "hex": "#ffffff",
+          "name": "White"
+        },
+        {
+          "hex": "#ff765f",
+          "name": "Red"
+        },
+        {
+          "hex": "#ea1100",
+          "name": "Red Medium"
+        }
+      ]
+    },
+    {
+      "key": "walmart-inverse",
+      "label": "Walmart Inverse",
+      "isBase": false,
+      "slots": [
+        {
+          "hex": "#a9ddf7",
+          "name": "Blue Light"
+        },
+        {
+          "hex": "#0053e2",
+          "name": "Blue"
+        },
+        {
+          "hex": "#4dbdf5",
+          "name": "Blue Medium"
+        },
+        {
+          "hex": "#ddf1fc",
+          "name": "Blue Lightest"
+        },
+        {
+          "hex": "#002e99",
+          "name": "Blue Darkest"
+        },
+        {
+          "hex": "#ffc220",
+          "name": "Spark"
+        },
+        {
+          "hex": "#fbe298",
+          "name": "Spark Light"
+        }
+      ]
+    }
+  ]
+}

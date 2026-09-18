@@ -1,0 +1,48 @@
+/* LD Portable – Form */
+/* FormHelperText */
+.ld-form-formhelpertext-helperText {
+  align-items: center;
+  color: var(--ld-semantic-color-text-subtle, #515357);
+  display: flex;
+  position: relative;
+}
+.ld-form-formhelpertext-helperText.ld-form-formhelpertext-disabled {
+  color: var(--ld-semantic-color-text-disabled, #babbbe);
+}
+.ld-form-formhelpertext-helperText.ld-form-formhelpertext-hasError {
+  color: var(--ld-semantic-color-text-negative, #ea1100);
+}
+
+.ld-form-formhelpertext-icon {
+  color: var(--ld-semantic-color-text-negative, #ea1100);
+  flex-shrink: 0;
+  margin-right: 0.25rem;
+}
+.ld-form-formhelpertext-hasError .ld-form-formhelpertext-icon {
+  color: var(--ld-semantic-color-text-negative, #ea1100);
+}
+
+/* FormLabel */
+.ld-form-formlabel-label {
+  align-items: center;
+  box-sizing: border-box;
+  color: var(--ld-semantic-color-text, #2e2f32);
+  display: flex;
+  gap: var(--ld-primitive-scale-space-50);
+}
+.ld-form-formlabel-label.ld-form-formlabel-disabled {
+  color: var(--ld-a11y-color-text-disabled);
+  cursor: default;
+}
+
+.ld-form-formlabel-large {
+  font-size: var(--ld-semantic-font-body-small-size);
+  font-weight: var(--ld-primitive-font-weight-700);
+  line-height: var(--ld-semantic-font-body-small-line-height);
+}
+
+.ld-form-formlabel-small {
+  font-size: var(--ld-semantic-font-caption-size);
+  font-weight: var(--ld-primitive-font-weight-700);
+  line-height: var(--ld-semantic-font-caption-line-height);
+}

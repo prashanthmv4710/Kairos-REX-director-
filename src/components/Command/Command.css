@@ -1,0 +1,233 @@
+/* ============================================
+   COMMAND MENU -- LD 3.5 Tokens
+   ============================================ */
+
+/* --- Root container --- */
+.ld-command-root {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: var(--ld-semantic-border-radius-large, 8px);
+  border: 1px solid var(--ld-semantic-color-border-subtle, #c5c6c8);
+  background-color: var(--ld-semantic-color-surface-overlay, #ffffff);
+  color: var(--ld-semantic-color-text, #2e2f32);
+}
+
+/* --- Dialog overlay --- */
+.ld-command-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background-color: var(--ld-primitive-color-transparentDark-50);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 15vh;
+}
+
+/* --- Dialog content wrapper --- */
+.ld-command-dialog {
+  width: 100%;
+  max-width: 540px;
+  overflow: hidden;
+  padding: 0;
+  border-radius: var(--ld-semantic-border-radius-large, 8px);
+  box-shadow: var(--ld-semantic-elevation-200, 0px 4px 16px rgba(0, 0, 0, 0.12));
+  background-color: var(--ld-semantic-color-surface-overlay, #ffffff);
+}
+
+/* --- Input wrapper --- */
+.ld-command-input-wrapper {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--ld-semantic-color-separator, #e3e4e5);
+  padding: 0 var(--ld-primitive-scale-space-200, 16px);
+}
+
+/* --- Search icon --- */
+.ld-command-search-icon {
+  margin-right: var(--ld-primitive-scale-space-100, 8px);
+  width: var(--ld-semantic-scale-icon-small, 16px);
+  height: var(--ld-semantic-scale-icon-small, 16px);
+  flex-shrink: 0;
+  color: var(--ld-semantic-color-text-subtle, #74767c);
+}
+
+/* --- Input field --- */
+.ld-command-input {
+  display: flex;
+  height: 44px;
+  width: 100%;
+  border-radius: var(--ld-primitive-scale-borderRadius-50, 4px);
+  background: transparent;
+  padding: var(--ld-primitive-scale-space-200, 16px) 0;
+  font-size: var(--ld-semantic-font-body-medium-size, 1rem);
+  line-height: var(--ld-semantic-font-body-medium-line-height, 1.5rem);
+  color: var(--ld-semantic-color-text, #2e2f32);
+  border: none;
+  outline: none;
+}
+
+.ld-command-input:focus-visible {
+  outline: none;
+  border-bottom: 1px solid var(--ld-semantic-color-border-activated, #0058e0);
+  border-radius: 0;
+}
+
+.ld-command-input::placeholder {
+  color: var(--ld-semantic-color-text-subtle, #74767c);
+}
+
+.ld-command-input:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+/* --- List container --- */
+.ld-command-list {
+  max-height: 300px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* --- Empty state --- */
+.ld-command-empty {
+  padding: var(--ld-primitive-scale-space-300, 24px) 0;
+  text-align: center;
+  font-size: var(--ld-semantic-font-body-small-size, 0.875rem);
+  color: var(--ld-semantic-color-text-subtle, #74767c);
+}
+
+/* --- Group --- */
+.ld-command-group {
+  overflow: hidden;
+  padding: var(--ld-primitive-scale-space-50, 4px);
+  color: var(--ld-semantic-color-text, #2e2f32);
+}
+
+/* --- Group heading --- */
+.ld-command-group-heading {
+  padding: var(--ld-primitive-scale-space-100, 8px) var(--ld-primitive-scale-space-200, 16px);
+  font-size: var(--ld-semantic-font-caption-size, 0.75rem);
+  font-weight: var(--ld-primitive-font-weight-400);
+  line-height: var(--ld-semantic-font-caption-line-height, 1rem);
+  color: var(--ld-semantic-color-text-subtle, #74767c);
+}
+
+/* --- Separator --- */
+.ld-command-separator {
+  height: 1px;
+  margin: var(--ld-primitive-scale-space-50, 4px) 0;
+  background-color: var(--ld-semantic-color-separator, #e3e4e5);
+}
+
+/* --- Item --- */
+.ld-command-item {
+  display: flex;
+  position: relative;
+  cursor: default;
+  user-select: none;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-100, 8px);
+  padding: var(--ld-primitive-scale-space-100, 8px) var(--ld-primitive-scale-space-200, 16px);
+  border-radius: 0;
+  font-size: var(--ld-semantic-font-body-small-size, 0.875rem);
+  line-height: var(--ld-semantic-font-body-small-line-height, 1.25rem);
+  color: var(--ld-semantic-color-action-text-onFill-transparent, #2e2f32);
+  transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+
+.ld-command-item[data-selected="true"] {
+  background: var(--ld-semantic-color-fill-hovered, #f1f1f2);
+  color: var(--ld-semantic-color-action-text-onFill-transparent-hovered, #2e2f32);
+}
+
+.ld-command-item[data-selected="true"]::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--ld-semantic-color-fill-brand, #0053e2);
+  border-radius: 0 2px 2px 0;
+}
+
+.ld-command-item:active:not([data-disabled="true"]) {
+  background: var(--ld-semantic-color-fill-pressed, #dadadc);
+}
+
+.ld-command-item[data-disabled="true"] {
+  color: var(--ld-semantic-color-action-text-onFill-transparent-disabled, #babbbe);
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+/* --- Item icon sizing --- */
+.ld-command-item svg {
+  width: var(--ld-semantic-scale-icon-small, 16px);
+  height: var(--ld-semantic-scale-icon-small, 16px);
+  flex-shrink: 0;
+}
+
+/* --- Shortcut text --- */
+.ld-command-shortcut {
+  margin-left: auto;
+  flex-shrink: 0;
+  white-space: nowrap;
+  font-size: var(--ld-semantic-font-caption-size, 0.75rem);
+  letter-spacing: 0.05em;
+  color: var(--ld-semantic-color-text-subtle, #74767c);
+}
+
+/* --- Close button (skip-link style — visually hidden, appears on focus) --- */
+.ld-command-close-btn {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+  background: none;
+}
+
+.ld-command-close-btn:focus-visible {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+  clip: auto;
+  overflow: visible;
+  white-space: normal;
+  margin: 0;
+  padding: 10px 16px;
+  font-size: var(--ld-semantic-font-body-small-size, 0.875rem);
+  font-family: inherit;
+  font-weight: var(--ld-primitive-font-weight-600);
+  text-align: center;
+  color: var(--ld-semantic-color-text-brand, #0053e2);
+  background: var(--ld-semantic-color-surface-overlay, #ffffff);
+  border: none;
+  border-top: 1px solid var(--ld-semantic-color-separator, #e3e4e5);
+  outline: 2px solid var(--ld-semantic-color-border-activated, #0053e2);
+  outline-offset: -2px;
+  cursor: pointer;
+}
+
+/* --- Screen-reader live region (visually hidden) --- */
+.ld-command-sr-announce {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

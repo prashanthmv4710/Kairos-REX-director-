@@ -1,0 +1,193 @@
+/* LD Portable – RichMediaSheet */
+
+.ld-wcp-richmediasheet-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--ld-semantic-z-index-modal-backdrop, 1040);
+  background: var(--ld-primitive-color-transparentDark-50);
+  animation: ld-wcp-richmediasheet-fadeIn 200ms ease-out;
+}
+
+.ld-wcp-richmediasheet-sheet {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: var(--ld-semantic-z-index-modal, 1050);
+  display: flex;
+  flex-direction: column;
+  border-top-left-radius: var(--ld-primitive-scale-borderRadius-200, 16px);
+  border-top-right-radius: var(--ld-primitive-scale-borderRadius-200, 16px);
+  max-height: 90vh;
+  box-shadow: var(--ld-semantic-elevation-300, 0 -2px 8px rgba(0, 0, 0, 0.1));
+  animation: ld-wcp-richmediasheet-slideUp 300ms cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.ld-wcp-richmediasheet-sheetFixed { height: 80vh; }
+.ld-wcp-richmediasheet-sheetContent { height: auto; }
+
+@media (min-width: 56.25rem) {
+  .ld-wcp-richmediasheet-sheet {
+    left: calc(50% - 384px);
+    right: calc(50% - 384px);
+    width: 768px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+
+.ld-wcp-richmediasheet-surfaceDefault { background: var(--ld-semantic-color-surface-overlay, #ffffff); }
+.ld-wcp-richmediasheet-surfaceBrand { background: var(--wcp-semantic-color-surface-overlay-brand-subtle, #F0F5FF); }
+/*
+ * Brand-bold sheet surface — use the WCP overlay-brand-bold token (deep navy),
+ * matching the sibling brand variant which uses overlay-brand-subtle. Falls
+ * back to the LD `fill-brand-bold` semantic, then to the literal navy hex,
+ * so the surface stays bold regardless of which theme layer is loaded.
+ */
+.ld-wcp-richmediasheet-surfaceBrandBold {
+  background: var(
+    --wcp-semantic-color-surface-overlay-brand-bold,
+    var(--ld-semantic-color-fill-brand-bold, #001e60)
+  );
+}
+.ld-wcp-richmediasheet-surfaceMedia { background: var(--ld-semantic-color-fill, #ffffff); }
+
+.ld-wcp-richmediasheet-grabber {
+  width: 36px;
+  height: 4px;
+  border-radius: var(--ld-primitive-scale-borderRadius-round, 9999px);
+  background: var(--ld-semantic-color-separator, #D9DADC);
+  align-self: center;
+  flex-shrink: 0;
+  margin: 8px auto 0;
+  pointer-events: none;
+}
+
+.ld-wcp-richmediasheet-grabberInverse { background: rgba(255, 255, 255, 0.4); }
+
+.ld-wcp-richmediasheet-closeButton {
+  display: flex;
+  padding: var(--ld-primitive-scale-space-100, 8px);
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--ld-primitive-scale-borderRadius-round, 9999px);
+  border: 1px solid transparent;
+  background: var(--ld-semantic-color-action-fill-transparent, transparent);
+  cursor: pointer;
+  color: var(--ld-semantic-color-text, #2E2F32);
+  flex-shrink: 0;
+  transition: background 150ms;
+}
+.ld-wcp-richmediasheet-closeButton:hover { background: var(--ld-semantic-color-surface-hovered, rgba(0,0,0,0.05)); }
+.ld-wcp-richmediasheet-closeButton:focus-visible { outline: 2px solid var(--ld-semantic-color-border-activated, #0053E2); outline-offset: 2px; }
+
+.ld-wcp-richmediasheet-closeButtonInverse {
+  background: var(--ld-semantic-color-action-fill-accent-white, rgba(255,255,255,0.15));
+  color: var(--ld-semantic-color-text-inverse, #ffffff);
+}
+.ld-wcp-richmediasheet-closeButtonInverse:hover { background: rgba(255,255,255,0.25); }
+
+.ld-wcp-richmediasheet-header {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  flex-shrink: 0;
+}
+
+.ld-wcp-richmediasheet-headerRow {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--ld-primitive-scale-space-200, 16px);
+  padding: var(--ld-primitive-scale-space-100, 8px);
+}
+@media (min-width: 56.25rem) {
+  .ld-wcp-richmediasheet-headerRow { padding: var(--ld-primitive-scale-space-200, 16px); }
+}
+
+.ld-wcp-richmediasheet-headerTitleFrame {
+  flex: 1 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: var(--ld-primitive-scale-space-100, 8px) 0 var(--ld-primitive-scale-space-100, 8px) var(--ld-primitive-scale-space-700, 56px);
+}
+@media (min-width: 56.25rem) {
+  .ld-wcp-richmediasheet-headerTitleFrame { padding: 6px 0 6px var(--ld-primitive-scale-space-700, 56px); }
+}
+
+.ld-wcp-richmediasheet-headerTitle:focus {
+  outline: none;
+}
+
+.ld-wcp-richmediasheet-headerTitle {
+  flex: 1 0 0;
+  color: var(--ld-semantic-color-text, #2E2F32);
+  text-align: center;
+  font-size: 18px;
+  font-weight: var(--ld-semantic-font-heading-small-weight-default, 700);
+  line-height: var(--ld-semantic-font-heading-small-line-height-b-s, 1.4);
+  margin: 0;
+}
+@media (min-width: 56.25rem) { .ld-wcp-richmediasheet-headerTitle { font-size: var(--ld-semantic-font-heading-small-size-b-s, 20px); } }
+
+.ld-wcp-richmediasheet-headerTitleInverse { color: var(--ld-semantic-color-text-inverse, #ffffff); }
+.ld-wcp-richmediasheet-headerTitleBoldSurface { color: var(--ld-semantic-color-text-inverse, #ffffff); }
+
+.ld-wcp-richmediasheet-headerSubtitle {
+  flex: 1 0 0;
+  color: var(--ld-semantic-color-text, #2E2F32);
+  text-align: center;
+  font-size: var(--ld-semantic-font-body-medium-size, 16px);
+  font-weight: var(--ld-semantic-font-body-medium-weight-default, 400);
+  line-height: var(--ld-semantic-font-body-medium-line-height, 1.5);
+  margin: 0;
+}
+.ld-wcp-richmediasheet-headerSubtitleBoldSurface { color: rgba(255,255,255,0.85); }
+
+.ld-wcp-richmediasheet-headerDivider { height: 1px; background: var(--ld-semantic-color-separator, #D9DADC); }
+.ld-wcp-richmediasheet-headerDividerInverse { height: 1px; background: rgba(255,255,255,0.2); }
+
+.ld-wcp-richmediasheet-headerInverse {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  flex-shrink: 0;
+  border-top-left-radius: var(--ld-primitive-scale-borderRadius-200, 16px);
+  border-top-right-radius: var(--ld-primitive-scale-borderRadius-200, 16px);
+  background: var(--ld-semantic-color-fill-brand, #0053E2);
+}
+
+.ld-wcp-richmediasheet-headerNone { display: flex; flex-direction: column; align-items: stretch; flex-shrink: 0; }
+.ld-wcp-richmediasheet-headerNoneRow { display: flex; justify-content: flex-end; padding: var(--ld-primitive-scale-space-100, 8px); }
+
+.ld-wcp-richmediasheet-headerLogoLeft { flex: 1 0 0; display: flex; align-items: center; padding: var(--ld-primitive-scale-space-100, 8px) 0; min-height: 40px; }
+.ld-wcp-richmediasheet-headerLogoCenter { flex: 1 0 0; display: flex; justify-content: center; align-items: center; padding: var(--ld-primitive-scale-space-100, 8px) 0 var(--ld-primitive-scale-space-100, 8px) var(--ld-primitive-scale-space-700, 56px); min-height: 40px; }
+
+.ld-wcp-richmediasheet-contentArea { overflow-y: auto; flex-shrink: 1; -webkit-overflow-scrolling: touch; }
+.ld-wcp-richmediasheet-contentAreaFixed { flex: 1 0 0; }
+
+.ld-wcp-richmediasheet-footer { display: flex; flex-direction: column; align-items: stretch; align-self: stretch; flex-shrink: 0; position: relative; }
+.ld-wcp-richmediasheet-footerDefault { background: var(--ld-semantic-color-surface-overlay, #ffffff); }
+.ld-wcp-richmediasheet-footerBrand { background: var(--wcp-semantic-color-surface-overlay-brand-subtle, #F0F5FF); }
+.ld-wcp-richmediasheet-footerBrandBold { background: var(--ld-semantic-color-fill-brand, #0071DC); }
+.ld-wcp-richmediasheet-footerMedia { background: var(--ld-semantic-color-surface-overlay, #ffffff); }
+
+.ld-wcp-richmediasheet-footerDivider { height: 1px; align-self: stretch; background: var(--ld-semantic-color-separator, #D9DADC); }
+.ld-wcp-richmediasheet-footerActions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+  overflow: hidden;
+  padding: var(--ld-primitive-scale-space-200, 16px);
+  gap: var(--ld-primitive-scale-space-100, 8px);
+}
+@media (min-width: 56.25rem) { .ld-wcp-richmediasheet-footerActions { padding: var(--ld-primitive-scale-space-300, 24px); } }
+
+@keyframes ld-wcp-richmediasheet-fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes ld-wcp-richmediasheet-slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .ld-wcp-richmediasheet-sheet { animation: none; }
+  .ld-wcp-richmediasheet-overlay { animation: none; }
+}

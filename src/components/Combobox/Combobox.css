@@ -1,0 +1,148 @@
+/* LD Portable -- FluentCombobox */
+
+.ld-fluentcombobox-root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-50);
+  position: relative;
+}
+
+.ld-fluentcombobox-label {
+  color: var(--ld-semantic-color-text, #2e2f32);
+  font-size: var(--ld-semantic-font-caption-size);
+  font-weight: var(--ld-primitive-font-weight-600);
+  line-height: var(--ld-semantic-font-caption-line-height);
+}
+
+/* Input wrapper */
+.ld-fluentcombobox-inputWrapper {
+  align-items: center;
+  border: 1px solid var(--ld-semantic-color-field-border, #babbbe);
+  border-radius: var(--ld-semantic-border-radius-medium);
+  display: flex;
+  overflow: hidden;
+  transition: border-color 0.15s;
+}
+
+.ld-fluentcombobox-inputWrapper:focus-within {
+  border-color: var(--ld-semantic-color-border-activated, #0053e2);
+  box-shadow: 0 0 0 1px var(--ld-semantic-color-border-activated, #0053e2);
+}
+
+.ld-fluentcombobox-input {
+  appearance: none;
+  background: var(--ld-semantic-color-field-fill, #ffffff);
+  border: none;
+  color: var(--ld-semantic-color-text, #2e2f32);
+  flex: 1;
+  font-family: inherit;
+  font-size: var(--ld-semantic-font-body-small-size);
+  line-height: var(--ld-semantic-font-body-small-line-height);
+  min-width: 0;
+  padding-block: var(--ld-primitive-scale-space-100);
+  padding-inline: var(--ld-primitive-scale-space-150);
+  outline: none;
+}
+
+.ld-fluentcombobox-input::placeholder {
+  color: var(--ld-semantic-color-text-subtle, #74767c);
+}
+
+.ld-fluentcombobox-input:disabled {
+  color: var(--ld-semantic-color-text-disabled, #babbbe);
+  cursor: not-allowed;
+}
+
+/* Trigger chevron button */
+.ld-fluentcombobox-trigger {
+  align-items: center;
+  appearance: none;
+  background: var(--ld-semantic-color-field-fill, #ffffff);
+  border: none;
+  border-left: 1px solid var(--ld-semantic-color-field-border, #babbbe);
+  color: var(--ld-semantic-color-text-subtle, #74767c);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  padding: var(--ld-primitive-scale-space-100);
+}
+
+.ld-fluentcombobox-trigger:hover:not(:disabled) {
+  background: var(--ld-semantic-color-action-fill-secondary-hovered, #f1f1f2);
+}
+
+.ld-fluentcombobox-trigger:disabled {
+  cursor: not-allowed;
+}
+
+.ld-fluentcombobox-chevron {
+  transition: transform 0.2s ease;
+}
+.ld-fluentcombobox-chevronOpen {
+  transform: rotate(180deg);
+}
+
+/* Listbox dropdown */
+.ld-fluentcombobox-listbox {
+  background: var(--ld-semantic-color-surface, #ffffff);
+  border: 1px solid var(--ld-semantic-color-field-border, #babbbe);
+  border-radius: var(--ld-semantic-border-radius-medium);
+  box-shadow: 0 0.3125rem 0.625rem 0.1875rem rgba(0, 0, 0, 0.149),
+              0 -0.0625rem 0.25rem 0 rgba(0, 0, 0, 0.102);
+  left: 0;
+  max-height: 15rem;
+  overflow-y: auto;
+  padding-block: var(--ld-primitive-scale-space-50);
+  padding-inline: 0;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  z-index: 200;
+  margin-top: 0.25rem;
+}
+
+/* Option */
+.ld-fluentcombobox-option {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  font-size: var(--ld-semantic-font-body-small-size);
+  gap: var(--ld-primitive-scale-space-100);
+  justify-content: space-between;
+  line-height: var(--ld-semantic-font-body-small-line-height);
+  padding-block: var(--ld-primitive-scale-space-100);
+  padding-inline: var(--ld-primitive-scale-space-150);
+}
+
+.ld-fluentcombobox-option:hover,
+.ld-fluentcombobox-optionActive {
+  background: var(--ld-semantic-color-action-fill-secondary-hovered, #f1f1f2);
+}
+
+.ld-fluentcombobox-optionSelected {
+  font-weight: var(--ld-primitive-font-weight-600);
+}
+
+.ld-fluentcombobox-optionDisabled {
+  color: var(--ld-semantic-color-text-disabled, #babbbe);
+  cursor: not-allowed;
+}
+
+.ld-fluentcombobox-checkmark {
+  flex-shrink: 0;
+  color: var(--ld-semantic-color-action-fill-primary, #0053e2);
+}
+
+.ld-fluentcombobox-noResults {
+  color: var(--ld-semantic-color-text-subtle, #74767c);
+  font-size: var(--ld-semantic-font-body-small-size);
+  padding-block: var(--ld-primitive-scale-space-100);
+  padding-inline: var(--ld-primitive-scale-space-150);
+  text-align: center;
+}
+
+/* Disabled state */
+.ld-fluentcombobox-disabled .ld-fluentcombobox-inputWrapper {
+  border-color: var(--ld-semantic-color-field-border-disabled, #e3e4e5);
+  background: var(--ld-semantic-color-field-fill-disabled, #f7f7f8);
+}

@@ -1,0 +1,50 @@
+/* LD Portable - MagicFill */
+.ld-magicfill-magicFill {
+  /*
+   * Solid diagonal gradient — the "Magic Fill Bold" / "Linear" treatment.
+   * No shimmer, no keyframes: this is a static fill, unlike MagicBox's
+   * animated border.
+   */
+  background: linear-gradient(
+    166deg,
+    var(--ld-semantic-color-fill-magic-bold-start, #001e60) 10%,
+    var(--ld-semantic-color-fill-magic-bold-stop, #0053e2) 118%
+  );
+  border-radius: var(--ld-primitive-scale-borderRadius-100, 0.5rem);
+  box-sizing: border-box;
+  display: inline-block;
+  width: 100%;
+}
+
+.ld-magicfill-magicFill.ld-magicfill-borderRadius25 {
+  border-radius: var(--ld-primitive-scale-borderRadius-25, 0.125rem);
+}
+
+.ld-magicfill-magicFill.ld-magicfill-borderRadius50 {
+  border-radius: var(--ld-primitive-scale-borderRadius-50, 0.25rem);
+}
+
+.ld-magicfill-magicFill.ld-magicfill-borderRadius100 {
+  border-radius: var(--ld-primitive-scale-borderRadius-100, 0.5rem);
+}
+
+.ld-magicfill-magicFill.ld-magicfill-borderRadius200 {
+  border-radius: var(--ld-primitive-scale-borderRadius-200, 1rem);
+}
+
+.ld-magicfill-magicFill.ld-magicfill-borderRadiusRound {
+  border-radius: var(--ld-primitive-scale-borderRadius-round, 62.5rem);
+}
+
+.ld-magicfill-magicFillContentWrapper {
+  /*
+   * Theme-aware, not a flat white: the fill's start color is dark for
+   * customer/partner but a light accent for developer/associate, where
+   * white text fails contrast (~1.8:1). --ld-semantic-color-text-on-fill-
+   * magic-bold flips per theme in src/themes/agent-themes.css. This only
+   * covers plain-text children — Body/Heading set their own explicit
+   * color and need it passed directly (see MagicFill.tsx's doc comment).
+   */
+  color: var(--ld-semantic-color-text-inverse, #ffffff);
+  padding: var(--ld-primitive-scale-space-300, 1.5rem);
+}

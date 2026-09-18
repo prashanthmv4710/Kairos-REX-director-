@@ -1,0 +1,40 @@
+{
+  "_readme": [
+    "UNVERIFIED Cursor prompt-time context injection for @walmart/ld-kit.",
+    "",
+    "NOT shipped active, for two reasons:",
+    "  1. .cursor/hooks.json is a \"version\": 1 schema. An unrecognised event key",
+    "     risks a config-parse failure that would ALSO take down the working",
+    "     `stop` a11y hook already in that file. Losing a working loop to enable",
+    "     an unproven one is a bad trade.",
+    "  2. The only Cursor facts verified in this repo are the `stop` event and",
+    "     its stdout {followup_message} transport (see scripts/a11y/README.md).",
+    "     Neither the event name below nor whether its stdout reaches the model's",
+    "     context has been confirmed.",
+    "",
+    "Cursor is also the runtime that needs this least: the .mdc frontmatter",
+    "(alwaysApply / globs) auto-attach actually works there, so rules already",
+    "reach the model without a hook.",
+    "",
+    "TO TRY IT:",
+    "  1. Merge the `hooks` block below into .cursor/hooks.json.",
+    "  2. Set LD_CURSOR_PROMPT_HOOK=1 — scripts/ld/hook.mjs detects Cursor (via",
+    "     the cursor_version field Cursor puts in the hook payload) and emits",
+    "     NOTHING unless that flag is set. This is on purpose: Cursor also reads",
+    "     .claude/settings.json, so the Claude hook can fire under Cursor, and",
+    "     sending a payload whose transport we are guessing at is worse than",
+    "     staying quiet.",
+    "  3. Restart Cursor and confirm BOTH that this hook fires AND that the a11y",
+    "     `stop` hook still does. If either breaks, revert — you lose nothing.",
+    "",
+    "Kill switch, as everywhere: LD_CONTEXT_OFF=1."
+  ],
+  "version": 1,
+  "hooks": {
+    "beforeSubmitPrompt": [
+      {
+        "command": "test -f scripts/ld/hook.mjs && node scripts/ld/hook.mjs --agent cursor || true"
+      }
+    ]
+  }
+}

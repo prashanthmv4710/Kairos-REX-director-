@@ -1,0 +1,650 @@
+/* LD Portable – Prompt Composer */
+
+/* ── Root ─────────────────────────────────────────────────────────────────
+   The composer is a rounded "field" surface that scales by `data-size`
+   (large/small) and reflows by `data-variant` (default two-row / inline
+   single-row). State is reflected on `data-state` (disabled/error/busy) and
+   `data-dragover`. The `.hover`/`.focused` helper classes mirror the
+   pseudo-classes so every state can be demonstrated statically. */
+.ld-promptcomposer-root {
+  --_pc-pad: var(--ld-primitive-scale-space-100, 0.5rem);
+  --_pc-gap: var(--ld-primitive-scale-space-100, 0.5rem);
+  --_pc-text: var(--ld-semantic-font-body-medium-size, 1rem);
+  --_pc-line: var(--ld-semantic-font-body-medium-lineheight, 1.5rem);
+  --_pc-input-px: var(--ld-primitive-scale-space-150, 0.75rem);
+  --_pc-input-py: var(--ld-primitive-scale-space-100, 0.5rem);
+  --_pc-actions-gap: var(--ld-primitive-scale-space-50, 0.25rem);
+  --_pc-min-width: calc(var(--ld-primitive-scale-space-100, 0.5rem) * 50);
+  --_pc-max-width: calc(var(--ld-primitive-scale-space-50, 0.25rem) * 181);
+  --_pc-scrollbar-size: var(--ld-primitive-scale-space-100, 0.5rem);
+  --_pc-icon-lg: var(--ld-primitive-scale-space-300, 1.5rem);
+  --_pc-icon-sm: var(--ld-primitive-scale-space-200, 1rem);
+  --_pc-wave-gap: calc(var(--ld-primitive-scale-space-50, 0.25rem) / 2);
+  --_pc-wave-bar-width: calc(var(--ld-primitive-scale-space-50, 0.25rem) / 2);
+  --_pc-link-thickness: calc(var(--ld-primitive-scale-borderWidth-100, 0.0625rem) * 1.5);
+  --_pc-link-offset: calc(var(--ld-semantic-font-caption-size, 0.75rem) * 0.1066667);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--_pc-gap);
+  box-sizing: border-box;
+  width: 100%;
+  /* Width clamp: prefers never narrower than 400px, never wider than 724px,
+     and centers within wider parents — but `min()` against 100% lets it
+     yield to a parent narrower than 400px (e.g. a docked side panel around
+     ~350-380px of content width) instead of overflowing it. Mobile size
+     opts out below — see the `[data-size='mobile']` override. */
+  min-width: min(var(--_pc-min-width), 100%);
+  max-width: var(--_pc-max-width);
+  margin-inline: auto;
+  font-family: var(--ld-semantic-font-body-medium-family, 'Everyday Sans UI', system-ui, sans-serif);
+}
+
+.ld-promptcomposer-root[data-size='small'] {
+  --_pc-text: var(--ld-semantic-font-body-small-size, 0.875rem);
+  --_pc-line: var(--ld-semantic-font-body-small-lineheight, 1.25rem);
+  --_pc-pad: var(--ld-primitive-scale-space-50, 0.25rem);
+  --_pc-input-py: var(--ld-primitive-scale-space-50, 0.25rem);
+}
+/* Mobile (≈343) keeps the same spacing tokens but opts out of the 400/724px
+   width clamp so it can fit a ~343px container without overflowing. */
+.ld-promptcomposer-root[data-size='mobile'] {
+  --_pc-text: var(--ld-semantic-font-body-medium-size, 1rem);
+  --_pc-line: var(--ld-semantic-font-body-medium-lineheight, 1.5rem);
+  /* --_pc-pad and --_pc-input-py both inherit the root 8px default — no override */
+  min-width: 0;
+  max-width: 100%;
+  margin-inline: 0;
+}
+
+/* ── Field surface ───────────────────────────────────────────────────────── */
+.ld-promptcomposer-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--_pc-gap);
+  box-sizing: border-box;
+  min-width: 0;
+  max-width: 100%;
+  padding: var(--_pc-pad);
+  background: var(--ld-semantic-color-field-fill);
+  border: var(--ld-primitive-scale-borderWidth-100, 0.0625rem) solid var(--ld-semantic-color-separator);
+  border-radius: var(--ld-primitive-scale-borderRadius-300, 1.5rem);
+  /* The whole field surface feels like a text-input target; interactive
+     controls (buttons, selectors) override this with their own cursor rules. */
+  cursor: text;
+  transition:
+    border-color 0.1s ease,
+    box-shadow 0.1s ease,
+    padding 0.13s cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* The inline (single-row) variant is fully round regardless of size. */
+.ld-promptcomposer-root[data-variant='inline'] .ld-promptcomposer-field {
+  border-radius: var(--ld-primitive-scale-borderRadius-round, 62.5rem);
+}
+
+/* Desktop (compressed) in the expanded/default layout uses tighter corners. */
+.ld-promptcomposer-root[data-size='small'][data-variant='default'] .ld-promptcomposer-field {
+  border-radius: var(--ld-primitive-scale-borderRadius-200, 1rem);
+}
+
+/* Hover — very subtle border darkening; explicitly limited to true resting state only */
+.ld-promptcomposer-root:not([data-state]):not([data-dragover]):not(:focus-within):not(.focused):hover .ld-promptcomposer-field,
+.ld-promptcomposer-root.hover:not([data-state]):not([data-dragover]):not(.focused) .ld-promptcomposer-field {
+  border-color: var(--ld-primitive-color-gray-30);
+}
+
+/* Focus (focus-within so any inner control keeps the ring) */
+.ld-promptcomposer-root:not([data-state='disabled']):focus-within .ld-promptcomposer-field,
+.ld-promptcomposer-root.focused .ld-promptcomposer-field {
+  border-color: var(--ld-semantic-color-field-border-focused);
+  box-shadow: var(--ld-semantic-elevation-200);
+}
+
+/* When framed by a MagicBorder — which already draws the composer's own
+   focus edge (see `ComposerMagicFrame`'s `activateOnFocus`) — the field keeps
+   its normal resting/hover border, but drops its own border + box-shadow the
+   instant it's focused, so only the MagicBorder ring shows once the user
+   clicks in (no doubled-up edge). The error state's negative border is left
+   untouched; that's a validation signal, not part of the focus treatment,
+   and stays visible even while focused. */
+.ld-magicborder-border .ld-promptcomposer-root:not([data-state='disabled']):not([data-state='error']):focus-within .ld-promptcomposer-field,
+.ld-magicborder-border .ld-promptcomposer-root.focused:not([data-state='error']) .ld-promptcomposer-field {
+  border-color: transparent;
+  box-shadow: none;
+}
+
+/* Error / negative */
+.ld-promptcomposer-root[data-state='error'] .ld-promptcomposer-field {
+  border-color: var(--ld-semantic-color-field-border-negative);
+}
+.ld-promptcomposer-root[data-state='error']:focus-within .ld-promptcomposer-field {
+  border-color: var(--ld-semantic-color-field-border-negative);
+  box-shadow: var(--ld-semantic-elevation-200);
+}
+
+/* Disabled */
+.ld-promptcomposer-root[data-state='disabled'] .ld-promptcomposer-field {
+  border-color: var(--ld-semantic-color-field-border-disabled);
+  background: var(--ld-semantic-color-field-fill-disabled);
+  /* Restore not-allowed: the explicit `cursor: text` on .ld-promptcomposer-field
+     would otherwise beat the inherited not-allowed from the root. */
+  cursor: not-allowed;
+}
+.ld-promptcomposer-root[data-state='disabled'] {
+  cursor: not-allowed;
+}
+/* Every control reads as disabled and is non-interactive — including the
+   consumer-slotted tools pill and model selector, which aren't `disabled`
+   themselves. */
+.ld-promptcomposer-root[data-state='disabled'] .ld-promptcomposer-toolbar,
+.ld-promptcomposer-root[data-state='disabled'] .ld-promptcomposer-inlineRow,
+.ld-promptcomposer-root[data-state='disabled'] .ld-promptcomposer-inputRow {
+  pointer-events: none;
+}
+.ld-promptcomposer-root[data-state='disabled'] .ld-promptcomposer-iconbtn.ld-iconbutton-iconButton {
+  color: var(--ld-semantic-color-action-text-onFill-tertiary-disabled, #babbbe);
+}
+.ld-promptcomposer-root[data-state='disabled'] .ld-buttontoggle-button {
+  background: var(--ld-semantic-color-action-fill-tertiary-disabled, #ffffff);
+  border-color: var(--ld-semantic-color-action-border-tertiary-disabled, #babbbe);
+  color: var(--ld-semantic-color-action-text-onFill-tertiary-disabled, #babbbe);
+}
+.ld-promptcomposer-root[data-state='disabled'] .ld-buttontoggle-noFill,
+.ld-promptcomposer-root[data-state='disabled'] .ld-buttontoggle-noFill:disabled {
+  background: transparent;
+  border-color: transparent;
+}
+
+/* Drag-over drop affordance */
+.ld-promptcomposer-root[data-dragover] .ld-promptcomposer-field {
+  border-style: dashed;
+  border-color: var(--ld-semantic-color-action-fill-primary);
+  background: var(--ld-semantic-color-fill-info-subtle);
+}
+
+/* ── Text input ────────────────────────────────────────────────────────── */
+.ld-promptcomposer-input {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  resize: none;
+  background: transparent;
+  color: var(--ld-semantic-color-field-text-onFill);
+  /* The typing caret uses the brand color. */
+  caret-color: var(--ld-semantic-color-text-brand);
+  font-family: inherit;
+  font-size: var(--_pc-text);
+  line-height: var(--_pc-line);
+  max-height: none;
+}
+.ld-promptcomposer-input::placeholder {
+  color: var(--ld-semantic-color-field-text-subtle-onFill, #515357);
+}
+/* Once the field exceeds its max rows, the scrollbar uses the gray subtlest
+   fill and only shows on hover. */
+.ld-promptcomposer-input {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+.ld-promptcomposer-input:hover,
+.ld-promptcomposer-input:focus {
+  scrollbar-color: var(--ld-primitive-color-gray-40) transparent;
+}
+.ld-promptcomposer-input::-webkit-scrollbar {
+  width: var(--_pc-scrollbar-size);
+}
+.ld-promptcomposer-input::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: var(--ld-primitive-scale-borderRadius-100, 0.5rem);
+  border: var(--ld-primitive-scale-borderWidth-200, 0.125rem) solid transparent;
+  background-clip: content-box;
+}
+.ld-promptcomposer-input:hover::-webkit-scrollbar-thumb,
+.ld-promptcomposer-input:focus::-webkit-scrollbar-thumb {
+  background-color: var(--ld-primitive-color-gray-40);
+}
+.ld-promptcomposer-input:disabled {
+  color: var(--ld-semantic-color-field-text-onFill-disabled, #babbbe);
+  cursor: not-allowed;
+}
+.ld-promptcomposer-input:disabled::placeholder {
+  color: var(--ld-semantic-color-field-text-onFill-disabled, #babbbe);
+}
+.ld-promptcomposer-root[data-state='disabled'] .ld-promptcomposer-input,
+.ld-promptcomposer-root[data-state='disabled'] .ld-promptcomposer-input::placeholder {
+  color: var(--ld-semantic-color-field-text-onFill-disabled, #babbbe);
+}
+
+.ld-promptcomposer-inputRow {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--_pc-gap);
+  padding: var(--_pc-input-py) var(--_pc-input-px);
+}
+.ld-promptcomposer-inputRow .ld-promptcomposer-input {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* ── Attachments row ──────────────────────────────────────────────────────── */
+.ld-promptcomposer-attachmentsViewport {
+  --_pc-attachments-fade-width: var(--ld-primitive-scale-size-800, 4rem);
+  --_pc-attachments-mask-left: 0px;
+  --_pc-attachments-mask-right: 0px;
+  position: relative;
+  /* AttachmentTile reserves padding-block-start for its close-button footprint.
+     The field's own --_pc-pad (8px) provides the top clearance above the
+     attachment row — the dismiss button sits within that space comfortably.
+     A previous negative margin here consumed that clearance entirely, leaving
+     0px headroom for the close button; it has been removed. */
+}
+
+.ld-promptcomposer-attachments {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--_pc-gap);
+  overflow-x: auto;
+  overflow-y: visible;
+  /* Hide scrollbar */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    var(--ld-primitive-color-black, #000000) var(--_pc-attachments-mask-left),
+    var(--ld-primitive-color-black, #000000) calc(100% - var(--_pc-attachments-mask-right)),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    var(--ld-primitive-color-black, #000000) var(--_pc-attachments-mask-left),
+    var(--ld-primitive-color-black, #000000) calc(100% - var(--_pc-attachments-mask-right)),
+    transparent 100%
+  );
+}
+
+/* AttachmentTile reserves right-side footprint for the close-button overhang.
+   Collapse that reserved tail between siblings so the visual tile surfaces
+   stay exactly `--_pc-gap` apart (8px token by default). */
+.ld-promptcomposer-attachments > .ld-attachmenttile-tile {
+  margin-inline-end: calc(var(--_ld-attachmenttile-close-overhang-x, 0px) * -1);
+}
+
+.ld-promptcomposer-attachments > .ld-attachmenttile-tile:last-child {
+  margin-inline-end: 0;
+}
+
+.ld-promptcomposer-attachments::-webkit-scrollbar {
+  display: none;
+}
+
+.ld-promptcomposer-attachmentsViewport[data-fade-left='true'] {
+  --_pc-attachments-mask-left: var(--_pc-attachments-fade-width);
+}
+
+.ld-promptcomposer-attachmentsViewport[data-fade-right='true'] {
+  --_pc-attachments-mask-right: var(--_pc-attachments-fade-width);
+}
+
+/* ── Suggestions row ──────────────────────────────────────────────────────── */
+.ld-promptcomposer-suggestionsSlot {
+  display: flex;
+}
+.ld-promptcomposer-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ld-primitive-scale-space-50, 0.25rem);
+}
+.ld-promptcomposer-suggestion {
+  appearance: none;
+  cursor: pointer;
+  padding: var(--ld-primitive-scale-space-50, 0.25rem) var(--ld-primitive-scale-space-150, 0.75rem);
+  background: var(--ld-semantic-color-action-fill-tertiary);
+  color: var(--ld-semantic-color-action-text-onFill-tertiary);
+  border: var(--ld-primitive-scale-borderWidth-100, 0.0625rem) solid var(--ld-semantic-color-action-border-tertiary);
+  border-radius: var(--ld-primitive-scale-borderRadius-round, 62.5rem);
+  font-family: inherit;
+  font-size: var(--ld-semantic-font-body-small-size, 0.875rem);
+  line-height: var(--ld-semantic-font-body-small-lineheight, 1.25rem);
+  transition: background 0.1s ease;
+}
+.ld-promptcomposer-suggestion:hover {
+  background: var(--ld-semantic-color-action-fill-tertiary-focused);
+}
+
+/* ── Toolbar (default variant) ─────────────────────────────────────────────── */
+.ld-promptcomposer-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--_pc-gap);
+}
+.ld-promptcomposer-toolbarStart {
+  display: flex;
+  align-items: center;
+  gap: var(--_pc-gap);
+  min-width: 0;
+  /* The tools cluster shrinks (and its pill truncates) before forcing the
+     row to overflow; the send/mic cluster keeps its size. The pill label
+     ellipsizes via its own `overflow: hidden` + `min-width: 0` below, so the
+     cluster must NOT clip here — a slotted Menu/Select opens an absolutely
+     positioned flyout *inside* this cluster (it isn't portaled), and
+     `overflow: hidden` would cut the open menu off. */
+  flex: 1 1 auto;
+}
+.ld-promptcomposer-toolbarLeadingActions {
+  display: flex;
+  align-items: center;
+  gap: var(--_pc-actions-gap);
+  min-width: 0;
+  flex: 0 0 auto;
+}
+.ld-promptcomposer-toolbarEnd {
+  display: flex;
+  align-items: center;
+  gap: var(--_pc-actions-gap);
+  min-width: 0;
+  flex: 0 0 auto;
+}
+.ld-promptcomposer-toolbarActions {
+  display: flex;
+  align-items: center;
+  gap: var(--_pc-actions-gap);
+  min-width: 0;
+  flex: 0 0 auto;
+}
+/* Let a long tools pill (e.g. "system-polaris-guide +2") ellipsize its label
+   — keeping the pill's rounded border intact — rather than clip the whole pill
+   or push the row wider than the composer. */
+.ld-promptcomposer-toolbarStart .ld-buttontoggle-button {
+  min-width: 0;
+  max-width: 100%;
+}
+.ld-promptcomposer-toolbarStart .ld-buttontoggle-label {
+  flex: 0 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ── Inline variant (single row) ────────────────────────────────────────────── */
+.ld-promptcomposer-inlineRow {
+  display: flex;
+  align-items: center;
+  gap: var(--_pc-gap);
+}
+.ld-promptcomposer-inlineRow .ld-promptcomposer-input {
+  flex: 1 1 auto;
+  min-width: 0;
+  /* keep a single comfortable line in inline mode before growth */
+  align-self: center;
+}
+.ld-promptcomposer-modes {
+  display: flex;
+  align-items: center;
+  gap: var(--_pc-gap);
+  white-space: nowrap;
+}
+
+.ld-promptcomposer-lead {
+  display: inline-flex;
+  flex: 0 0 auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ld-promptcomposer-field {
+    transition: border-color 0.1s ease, box-shadow 0.1s ease;
+  }
+}
+
+/* ── Buttons ──────────────────────────────────────────────────────────────── */
+/* Add + mic read as transparent glyphs (no fill / border) until hover. */
+.ld-promptcomposer-iconbtn.ld-iconbutton-iconButton {
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+  color: var(--ld-semantic-color-action-text-onFill-tertiary);
+}
+.ld-promptcomposer-iconbtn.ld-iconbutton-iconButton:hover {
+  background: var(--ld-semantic-color-action-fill-tertiary-focused);
+}
+.ld-promptcomposer-mic--recording.ld-iconbutton-iconButton {
+  color: var(--ld-semantic-color-action-text-onFill-tertiary);
+}
+
+/* ── Mic dictation pulse ──────────────────────────────────────────────────────
+   The mic sits inside a MagicBox. While dictating, `--pc-mic-level` (0–1) is
+   updated imperatively from the live input loudness. We replace MagicBox's
+   built-in looped glow animation with a level-driven envelope so the ring
+   brightens and swells in time with the user's voice; it rests at a faint
+   baseline during silence. */
+.ld-promptcomposer-micWrap {
+  --pc-mic-level: 0;
+  display: inline-flex;
+  flex: 0 0 auto;
+  border-radius: var(--ld-primitive-scale-borderRadius-round, 62.5rem);
+}
+.ld-promptcomposer-micWrap .ld-magicbox-magicGlowContainer {
+  animation: none !important;
+  opacity: calc(0.4 + 0.6 * var(--pc-mic-level));
+  transform: scale(calc(1 + 0.14 * var(--pc-mic-level)));
+  transform-origin: center;
+  /* Short transition smooths the per-frame jumps without lagging the voice. */
+  transition: opacity 0.08s linear, transform 0.08s linear;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ld-promptcomposer-micWrap .ld-magicbox-magicGlowContainer {
+    transform: none;
+    opacity: 0.7;
+    transition: none;
+  }
+}
+
+/* ── Listening (dictation) state ───────────────────────────────────────────
+   While dictating, the "+" becomes "✕", the tools pill / inline field is
+   replaced by a "Listening" label + a live voice waveform, and the send
+   button shows an animated equalizer glyph. */
+.ld-promptcomposer-listening {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-100, 0.5rem);
+  min-width: 0;
+  flex: 1 1 auto;
+  overflow: hidden;
+}
+.ld-promptcomposer-listening-label {
+  flex: 0 0 auto;
+  color: var(--ld-semantic-color-field-text-subtle-onFill, #515357);
+  font-size: var(--_pc-text);
+  line-height: var(--_pc-line);
+  white-space: nowrap;
+}
+
+/* The scrolling voice waveform — thin rounded bars, newest on the right. The
+   per-bar `scaleY` / opacity are set inline from the live mic level. */
+.ld-promptcomposer-waveform {
+  --_pc-wave-fade: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--_pc-wave-gap);
+  height: 2rem;
+  min-width: 0;
+  flex: 1 1 auto;
+  overflow: hidden;
+  /* Feather both edges so bars fade in on the right and out on the left */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    black var(--_pc-wave-fade),
+    black calc(100% - var(--_pc-wave-fade)),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0,
+    black var(--_pc-wave-fade),
+    black calc(100% - var(--_pc-wave-fade)),
+    transparent 100%
+  );
+}
+.ld-promptcomposer-waveform-bar {
+  flex: 0 0 auto;
+  width: var(--_pc-wave-bar-width);
+  height: 100%;
+  border-radius: var(--ld-primitive-scale-borderRadius-round, 62.5rem);
+  background: var(--ld-semantic-color-field-text-subtle-onFill, #515357);
+  transform-origin: center;
+  transition: transform 0.09s linear, opacity 0.09s linear;
+}
+
+/* Send / stop is the one filled, circular, primary action. */
+.ld-promptcomposer-send.ld-iconbutton-iconButton {
+  background: var(--ld-semantic-color-action-fill-primary);
+  color: var(--ld-semantic-color-action-text-onFill-primary, #ffffff);
+  border-color: transparent;
+}
+.ld-promptcomposer-send.ld-iconbutton-iconButton:hover {
+  background: var(--ld-semantic-color-action-fill-primary-hovered, #114ab6);
+  border-color: transparent;
+}
+.ld-promptcomposer-send.ld-iconbutton-iconButton:focus {
+  background: var(--ld-semantic-color-action-fill-primary-focused, #114ab6);
+  border-color: transparent;
+}
+.ld-promptcomposer-send.ld-iconbutton-iconButton:active {
+  background: var(--ld-semantic-color-action-fill-primary-pressed, #002e99);
+  border-color: transparent;
+}
+
+/* The equalizer glyph on the listening send button gently pulses to read as
+   live. Each bar scales from its own center on a staggered cadence. */
+.ld-promptcomposer-waveglyph-bars rect {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: ld-promptcomposer-eq 0.9s ease-in-out infinite;
+}
+.ld-promptcomposer-waveglyph-bars rect:nth-child(2) {
+  animation-delay: 0.18s;
+}
+.ld-promptcomposer-waveglyph-bars rect:nth-child(3) {
+  animation-delay: 0.36s;
+}
+.ld-promptcomposer-waveglyph-bars rect:nth-child(4) {
+  animation-delay: 0.12s;
+}
+@keyframes ld-promptcomposer-eq {
+  0%, 100% { transform: scaleY(0.55); }
+  50% { transform: scaleY(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ld-promptcomposer-waveglyph-bars rect {
+    animation: none;
+  }
+}
+.ld-promptcomposer-send.ld-iconbutton-iconButton:disabled {
+  background: var(--ld-semantic-color-action-fill-primary-disabled);
+  color: var(--ld-semantic-color-action-text-onFill-primary-disabled, #ffffff);
+}
+
+/* ── Character counter ──────────────────────────────────────────────────────── */
+.ld-promptcomposer-count {
+  font-size: var(--ld-semantic-font-caption-size, 0.75rem);
+  line-height: var(--ld-semantic-font-caption-lineheight, 1rem);
+  color: var(--ld-semantic-color-field-text-subtle-onFill, #515357);
+  white-space: nowrap;
+}
+.ld-promptcomposer-count--over {
+  color: var(--ld-semantic-color-field-border-negative);
+  font-weight: var(--ld-primitive-font-weight-700);
+}
+
+/* ── Inline error message ──────────────────────────────────────────────────── */
+.ld-promptcomposer-error {
+  display: flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-50, 0.25rem);
+  padding-inline: var(--_pc-pad);
+  color: var(--ld-semantic-color-field-border-negative);
+  font-size: var(--ld-semantic-font-body-small-size, 0.875rem);
+  line-height: var(--ld-semantic-font-body-small-lineheight, 1.25rem);
+}
+
+/* ── Disclaimer ─────────────────────────────────────────────────────────────── */
+/* Always fills the width of whatever it sits in (block flow, or a flex/grid
+   parent that centers/shrink-wraps by default) and matches the composer's own
+   width clamp so it lines up with the field's edges instead of shrink-wrapping
+   to its text — which is what let long copy overflow/clip at narrow widths. */
+.ld-promptcomposer-disclaimer {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  max-width: calc(var(--ld-primitive-scale-space-50, 0.25rem) * 181);
+  margin-inline: auto;
+  align-self: stretch;
+  color: var(--ld-semantic-color-text-subtle);
+}
+.ld-promptcomposer-root + .ld-promptcomposer-disclaimer[data-size='caption'] {
+  margin-top: var(--ld-primitive-scale-space-100, 0.5rem);
+}
+.ld-promptcomposer-root[data-size='small'] + .ld-promptcomposer-disclaimer[data-size='caption'] {
+  margin-top: var(--ld-primitive-scale-space-50, 0.25rem);
+}
+.ld-promptcomposer-root[data-size='mobile'] + .ld-promptcomposer-disclaimer[data-size='caption'] {
+  margin-top: var(--ld-primitive-scale-space-25, 0.125rem);
+}
+.ld-promptcomposer-disclaimer-content {
+  display: inline;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  font-size: var(--ld-semantic-font-caption-size, 0.75rem);
+  line-height: var(--ld-semantic-font-caption-lineheight, 1rem);
+}
+.ld-promptcomposer-disclaimer[data-size='caption'] .ld-promptcomposer-disclaimer-content {
+  font-size: var(--ld-semantic-font-caption-size, 0.75rem);
+  line-height: var(--ld-semantic-font-caption-lineheight, 1rem);
+}
+.ld-promptcomposer-disclaimer[data-size='body-small'] .ld-promptcomposer-disclaimer-content {
+  font-size: var(--ld-semantic-font-body-small-size, 0.875rem);
+  line-height: var(--ld-semantic-font-body-small-lineheight, 1.25rem);
+}
+.ld-promptcomposer-disclaimer[data-align='center'] {
+  text-align: center;
+}
+.ld-promptcomposer-disclaimer[data-align='start'] {
+  text-align: left;
+}
+.ld-promptcomposer-disclaimer-icon {
+  /* Inline with the text so it rides the first line next to the first letter. */
+  display: inline-block;
+  vertical-align: -0.15em;
+  margin-right: 0.3em;
+  font-size: inherit;
+  color: var(--ld-semantic-color-text);
+}
+.ld-promptcomposer-disclaimer-text a {
+  color: var(--ld-semantic-color-text-info);
+  text-decoration-color: currentColor;
+  text-decoration-thickness: var(--_pc-link-thickness);
+  text-underline-offset: var(--_pc-link-offset);
+  text-decoration: underline;
+}
+.ld-promptcomposer-disclaimer-text a:hover {
+  color: var(--ld-semantic-color-text-onFill-info-subtle-hovered);
+  text-decoration: none;
+}
+.ld-promptcomposer-disclaimer-text a:focus {
+  color: var(--ld-semantic-color-text-onFill-info-subtle-focused);
+  text-decoration: none;
+}
+.ld-promptcomposer-disclaimer-text a:active {
+  color: var(--ld-semantic-color-text-onFill-info-subtle-pressed);
+  text-decoration: none;
+}

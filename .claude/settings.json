@@ -1,0 +1,27 @@
+{
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "test -f scripts/ld/hook.mjs && node scripts/ld/hook.mjs --agent claude || true",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": ".*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node scripts/a11y/run-endhook.mjs --agent claude",
+            "timeout": 55
+          }
+        ]
+      }
+    ]
+  }
+}

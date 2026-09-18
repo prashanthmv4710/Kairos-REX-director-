@@ -1,0 +1,35 @@
+{
+  "count": 5,
+  "items": [
+    {
+      "name": "AgentEmotes",
+      "tokenName": "ld-primitive-lottie-agentEmotes ",
+      "format": "lottie",
+      "size": 12190
+    },
+    {
+      "name": "AgentQuirk",
+      "tokenName": "ld-primitive-lottie-agentQuirk  ",
+      "format": "lottie",
+      "size": 18085
+    },
+    {
+      "name": "AgentReady",
+      "tokenName": "ld-primitive-lottie-agentReady",
+      "format": "lottie",
+      "size": 16775
+    },
+    {
+      "name": "AgentThinking",
+      "tokenName": "ld-primitive-lottie-agentThinking",
+      "format": "lottie",
+      "size": 7273
+    },
+    {
+      "name": "AgentWelcome",
+      "tokenName": "ld-primitive-lottie-agentWelcome",
+      "format": "lottie",
+      "size": 15898
+    }
+  ]
+}

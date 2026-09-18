@@ -1,0 +1,290 @@
+/* LD Portable -- QuantityStepper */
+
+.ld-quantity-stepper-root {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* =============================================
+   PILL -- single persistent wrapper for all modes
+   ============================================= */
+
+.ld-quantity-stepper-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--ld-semantic-border-radius-round, 62.5rem);
+  font-family: inherit;
+  font-weight: var(--ld-semantic-font-action-weight, 700);
+  border: none;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+  transition: background-color 0.25s ease;
+}
+
+.ld-quantity-stepper-pill:focus-visible {
+  outline: var(--ld-semantic-focus-ring-width, 0.125rem) solid var(--ld-semantic-focus-ring-color, #0053e2);
+  outline-offset: var(--ld-semantic-focus-ring-offset, 0.125rem);
+}
+
+.ld-quantity-stepper-pill[aria-disabled="true"] {
+  cursor: not-allowed;
+}
+
+/* -- Sizes -- */
+
+.ld-quantity-stepper-pill--small {
+  height: 32px;
+  font-size: var(--ld-semantic-font-body-small-size, 0.875rem);
+  line-height: 1.43;
+}
+
+.ld-quantity-stepper-pill--medium {
+  height: 40px;
+  font-size: var(--ld-semantic-font-body-medium-size, 1rem);
+  line-height: 1.5;
+}
+
+.ld-quantity-stepper-pill--large {
+  height: 52px;
+  font-size: var(--ld-semantic-font-body-large-size, 1.125rem);
+  line-height: 1.33;
+}
+
+/* -- Primary variant -- */
+
+.ld-quantity-stepper-pill--primary {
+  background: var(--ld-semantic-color-action-fill-primary, #0071dc);
+  color: var(--ld-semantic-color-action-text-onFill-primary, #ffffff);
+}
+
+.ld-quantity-stepper-pill--primary:hover:not([aria-disabled="true"]) {
+  background: var(--ld-semantic-color-action-fill-primary-hovered, #0060b8);
+}
+
+.ld-quantity-stepper-pill--primary:active:not([aria-disabled="true"]) {
+  background: var(--ld-semantic-color-action-fill-primary-pressed, #004c94);
+}
+
+.ld-quantity-stepper-pill--primary[aria-disabled="true"] {
+  background: var(--ld-semantic-color-action-fill-primary-disabled, #c2dcf7);
+  color: var(--ld-semantic-color-action-text-onFill-primary-disabled, #ffffff);
+}
+
+/* -- Secondary variant -- */
+
+.ld-quantity-stepper-pill--secondary {
+  background: var(--ld-semantic-color-action-fill-secondary, #ffffff);
+  color: var(--ld-semantic-color-action-text-onFill-secondary, #2e2f32);
+  border: 1.5px solid var(--ld-semantic-color-action-border-secondary, #2e2f32);
+}
+
+.ld-quantity-stepper-pill--secondary:hover:not([aria-disabled="true"]) {
+  background: var(--ld-semantic-color-action-fill-secondary-hovered, #f0f0f1);
+}
+
+.ld-quantity-stepper-pill--secondary:active:not([aria-disabled="true"]) {
+  background: var(--ld-semantic-color-action-fill-secondary-pressed, #e0e0e2);
+}
+
+.ld-quantity-stepper-pill--secondary[aria-disabled="true"] {
+  color: var(--ld-semantic-color-action-text-onFill-secondary-disabled, #babbbe);
+  border-color: var(--ld-semantic-color-action-border-secondary-disabled, #babbbe);
+}
+
+/* -- Tertiary variant -- */
+
+.ld-quantity-stepper-pill--tertiary {
+  background: var(--ld-semantic-color-action-fill-tertiary, transparent);
+  color: var(--ld-semantic-color-action-text-onFill-tertiary, #2e2f32);
+  border: 1.5px solid var(--ld-semantic-color-action-border-tertiary, #74767c);
+}
+
+.ld-quantity-stepper-pill--tertiary:hover:not([aria-disabled="true"]) {
+  background: var(--ld-semantic-color-action-fill-tertiary-hovered, #f0f0f1);
+}
+
+.ld-quantity-stepper-pill--tertiary:active:not([aria-disabled="true"]) {
+  background: var(--ld-semantic-color-action-fill-tertiary-pressed, #e0e0e2);
+}
+
+.ld-quantity-stepper-pill--tertiary[aria-disabled="true"] {
+  color: var(--ld-semantic-color-action-text-onFill-tertiary-disabled, #babbbe);
+  border-color: var(--ld-semantic-color-action-border-tertiary-disabled, #e6e6e8);
+}
+
+/* =============================================
+   MODE CLASSES -- control pill behavior
+   ============================================= */
+
+/* Initial & Collapsed: pill is clickable */
+.ld-quantity-stepper-mode-initial,
+.ld-quantity-stepper-mode-collapsed {
+  cursor: pointer;
+}
+
+
+/* Initial mode: padding for label content */
+.ld-quantity-stepper-mode-initial {
+  padding: 0 var(--ld-semantic-spacing-200, 1rem);
+  gap: var(--ld-semantic-spacing-50, 0.25rem);
+}
+
+.ld-quantity-stepper-pill--small.ld-quantity-stepper-mode-initial { padding: 0 var(--ld-semantic-spacing-150, 0.75rem); }
+.ld-quantity-stepper-pill--medium.ld-quantity-stepper-mode-initial { padding: 0 var(--ld-semantic-spacing-200, 1rem); }
+.ld-quantity-stepper-pill--large.ld-quantity-stepper-mode-initial { padding: 0 var(--ld-semantic-spacing-250, 1.25rem); }
+
+/* Icon-only initial mode: force circle shape (same as collapsed) */
+.ld-quantity-stepper-icon-only-initial {
+  padding: 0 !important;
+}
+
+.ld-quantity-stepper-pill--small.ld-quantity-stepper-icon-only-initial { width: 32px; }
+.ld-quantity-stepper-pill--medium.ld-quantity-stepper-icon-only-initial { width: 40px; }
+.ld-quantity-stepper-pill--large.ld-quantity-stepper-icon-only-initial { width: 52px; }
+
+/* Collapsed mode: force circle shape */
+.ld-quantity-stepper-mode-collapsed {
+  padding: 0;
+}
+
+.ld-quantity-stepper-pill--small.ld-quantity-stepper-mode-collapsed { width: 32px; }
+.ld-quantity-stepper-pill--medium.ld-quantity-stepper-mode-collapsed { width: 40px; }
+.ld-quantity-stepper-pill--large.ld-quantity-stepper-mode-collapsed { width: 52px; }
+
+/* Expanded mode: stepper layout */
+.ld-quantity-stepper-mode-expanded {
+  cursor: default;
+  padding: var(--ld-semantic-spacing-25, 0.125rem);
+  gap: var(--ld-semantic-spacing-25, 0.125rem);
+  overflow: visible;
+}
+
+.ld-quantity-stepper-pill--small.ld-quantity-stepper-mode-expanded { min-width: 112px; }
+.ld-quantity-stepper-pill--medium.ld-quantity-stepper-mode-expanded { min-width: 136px; }
+.ld-quantity-stepper-pill--large.ld-quantity-stepper-mode-expanded { min-width: 168px; }
+
+
+/* =============================================
+   SLOT SIDE -- left/right icon button slots
+   ============================================= */
+
+.ld-quantity-stepper-slot-side {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+  transition: max-width var(--ld-semantic-duration-medium, 0.30s) ease, opacity var(--ld-semantic-duration-medium, 0.30s) ease;
+}
+
+.ld-quantity-stepper-slot-visible {
+  opacity: 1;
+}
+
+/* Size-specific max-widths when visible */
+.ld-quantity-stepper-pill--small .ld-quantity-stepper-slot-visible { max-width: 28px; }
+.ld-quantity-stepper-pill--medium .ld-quantity-stepper-slot-visible { max-width: 36px; }
+.ld-quantity-stepper-pill--large .ld-quantity-stepper-slot-visible { max-width: 48px; }
+
+.ld-quantity-stepper-slot-hidden {
+  max-width: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* =============================================
+   ICON BUTTONS -- inside expanded stepper
+   ============================================= */
+
+.ld-quantity-stepper-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: var(--ld-semantic-border-radius-round, 62.5rem);
+  cursor: pointer;
+  flex-shrink: 0;
+  background: transparent;
+  color: inherit;
+  padding: 0;
+  transition: background-color 0.15s ease;
+}
+
+.ld-quantity-stepper-icon-btn:focus-visible {
+  outline: var(--ld-semantic-focus-ring-width, 0.125rem) solid var(--ld-semantic-color-border-activated, #0071dc);
+  outline-offset: var(--ld-semantic-focus-ring-offset, 0.125rem);
+}
+
+.ld-quantity-stepper-icon-btn:disabled {
+  cursor: not-allowed;
+  opacity: var(--ld-semantic-opacity-disabled, 0.4);
+}
+
+.ld-quantity-stepper-icon-btn--small  { width: 28px; height: 28px; }
+.ld-quantity-stepper-icon-btn--medium { width: 36px; height: 36px; }
+.ld-quantity-stepper-icon-btn--large  { width: 48px; height: 48px; }
+
+/* Icon button hover -- per variant */
+.ld-quantity-stepper-pill--primary .ld-quantity-stepper-icon-btn:hover:not(:disabled) {
+  background: var(--ld-semantic-color-action-fill-primary-hovered, #0060b8);
+}
+.ld-quantity-stepper-pill--primary .ld-quantity-stepper-icon-btn:active:not(:disabled) {
+  background: var(--ld-semantic-color-action-fill-primary-pressed, #004c94);
+}
+
+.ld-quantity-stepper-pill--secondary .ld-quantity-stepper-icon-btn:hover:not(:disabled) {
+  background: var(--ld-semantic-color-action-fill-secondary-hovered, #f0f0f1);
+}
+.ld-quantity-stepper-pill--secondary .ld-quantity-stepper-icon-btn:active:not(:disabled) {
+  background: var(--ld-semantic-color-action-fill-secondary-pressed, #e0e0e2);
+}
+
+.ld-quantity-stepper-pill--tertiary .ld-quantity-stepper-icon-btn:hover:not(:disabled) {
+  background: var(--ld-semantic-color-action-fill-tertiary-hovered, #f0f0f1);
+}
+.ld-quantity-stepper-pill--tertiary .ld-quantity-stepper-icon-btn:active:not(:disabled) {
+  background: var(--ld-semantic-color-action-fill-tertiary-pressed, #e0e0e2);
+}
+
+/* =============================================
+   CENTER SLOT -- count + label
+   ============================================= */
+
+.ld-quantity-stepper-slot-center {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  gap: var(--ld-semantic-spacing-50, 0.25rem);
+  white-space: nowrap;
+}
+
+.ld-quantity-stepper-pill-content {
+  display: flex;
+  align-items: center;
+  gap: var(--ld-semantic-spacing-50, 0.25rem);
+}
+
+.ld-quantity-stepper-label-text {
+  white-space: nowrap;
+}
+
+.ld-quantity-stepper-count-value {
+  display: inline-block;
+}
+
+/* =============================================
+   REDUCED MOTION
+   ============================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .ld-quantity-stepper-pill {
+    transition: none !important;
+  }
+
+  .ld-quantity-stepper-slot-side {
+    transition: none !important;
+  }
+}

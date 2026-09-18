@@ -1,0 +1,177 @@
+/* LD Portable – Radio */
+/* Radio */
+.ld-radio-label {
+  font-size: var(--ld-semantic-font-body-small-size, 0.875rem);
+  font-weight: var(--ld-semantic-font-body-small-weight-default, 400);
+  line-height: var(--ld-semantic-font-body-small-line-height, 1.25rem);
+  cursor: pointer;
+  display: inline-flex;
+  position: relative;
+  user-select: none;
+}
+.ld-radio-label.ld-radio-checked {
+  font-size: var(--ld-semantic-font-body-small-size, 0.875rem);
+  font-weight: var(--ld-semantic-font-body-small-weight-alt, 700);
+  line-height: var(--ld-semantic-font-body-small-line-height, 1.25rem);
+}
+.ld-radio-label.ld-radio-disabled {
+  color: var(--ld-semantic-color-text-disabled, #babbbe);
+  cursor: default;
+}
+
+.ld-radio-input {
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  height: 1.5rem;
+  left: 0;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.5rem;
+  margin: 0;
+  z-index: 2;
+}
+.ld-radio-input:disabled {
+  cursor: default;
+}
+
+.ld-radio-radioInput {
+  box-sizing: border-box;
+  color: var(--ld-semantic-color-input-text-onFill);
+  display: block;
+  flex: none;
+  height: 1.5rem;
+  pointer-events: none;
+  width: 1.5rem;
+}
+
+.ld-radio-radioInputOuter {
+  fill: var(--ld-semantic-color-input-fill);
+  r: calc(0.75rem - var(--ld-semantic-scale-borderwidth-interactive) / 2);
+  stroke: var(--ld-semantic-color-input-border);
+  stroke-width: var(--ld-semantic-scale-borderwidth-interactive);
+}
+.ld-radio-checked .ld-radio-radioInputOuter {
+  fill: var(--ld-semantic-color-input-fill-activated);
+  r: calc(0.75rem - var(--ld-semantic-scale-borderwidth-interactive-activated) / 2);
+  stroke: var(--ld-semantic-color-input-border-activated);
+  stroke-width: var(--ld-semantic-scale-borderwidth-interactive-activated);
+}
+.ld-radio-label:hover .ld-radio-radioInputOuter, .ld-radio-label.hover .ld-radio-radioInputOuter {
+  fill: var(--ld-semantic-color-input-fill-hovered);
+  r: calc(0.75rem - var(--ld-semantic-scale-borderwidth-interactive-hovered) / 2);
+  stroke: var(--ld-semantic-color-input-border-hovered);
+  stroke-width: var(--ld-semantic-scale-borderwidth-interactive-hovered);
+}
+.ld-radio-input:focus ~ .ld-radio-radioInput .ld-radio-radioInputOuter, .ld-radio-label.focus .ld-radio-radioInputOuter {
+  fill: var(--ld-semantic-color-input-fill-focused);
+  r: calc(0.75rem - var(--ld-semantic-scale-borderwidth-interactive-focused) / 2);
+  stroke: var(--ld-semantic-color-input-border-focused);
+  stroke-width: var(--ld-semantic-scale-borderwidth-interactive-focused);
+}
+.ld-radio-label:active .ld-radio-radioInputOuter, .ld-radio-label.active .ld-radio-radioInputOuter {
+  fill: var(--ld-semantic-color-input-fill-pressed) !important;
+  r: calc(0.75rem - var(--ld-semantic-scale-borderwidth-interactive-pressed) / 2);
+  stroke: var(--ld-semantic-color-input-border-pressed);
+  stroke-width: var(--ld-semantic-scale-borderwidth-interactive-pressed);
+}
+.ld-radio-label:not(.ld-radio-checked).ld-radio-disabled .ld-radio-radioInputOuter {
+  fill: var(--ld-semantic-color-input-fill-disabled) !important;
+  r: calc(0.75rem - var(--ld-semantic-scale-borderwidth-interactive) / 2) !important;
+  stroke: var(--ld-semantic-color-input-border-disabled) !important;
+  stroke-width: var(--ld-semantic-scale-borderwidth-interactive) !important;
+}
+.ld-radio-checked:hover .ld-radio-radioInputOuter, .ld-radio-checked.hover .ld-radio-radioInputOuter {
+  fill: var(--ld-semantic-color-input-fill-activated-hovered);
+  r: calc(0.75rem - var(--ld-semantic-scale-borderwidth-interactive-activated-hovered) / 2);
+  stroke: var(--ld-semantic-color-input-border-activated-hovered);
+  stroke-width: var(--ld-semantic-scale-borderwidth-interactive-activated-hovered);
+}
+.ld-radio-checked .ld-radio-input:focus ~ .ld-radio-radioInput .ld-radio-radioInputOuter, .ld-radio-checked.focus .ld-radio-radioInputOuter {
+  fill: var(--ld-semantic-color-input-fill-activated-focused);
+  r: calc(0.75rem - var(--ld-semantic-scale-borderwidth-interactive-activated-focused) / 2);
+  stroke: var(--ld-semantic-color-input-border-activated-focused);
+  stroke-width: var(--ld-semantic-scale-borderwidth-interactive-activated-focused);
+}
+.ld-radio-checked:active .ld-radio-radioInputOuter, .ld-radio-checked.active .ld-radio-radioInputOuter {
+  fill: var(--ld-semantic-color-input-fill-activated-pressed) !important;
+  r: calc(0.75rem - var(--ld-semantic-scale-borderwidth-interactive-activated-pressed) / 2) !important;
+  stroke: var(--ld-semantic-color-input-border-activated-pressed) !important;
+  stroke-width: var(--ld-semantic-scale-borderwidth-interactive-activated-pressed) !important;
+}
+.ld-radio-disabled.ld-radio-checked .ld-radio-radioInputOuter, .ld-radio-disabled.ld-radio-checked.active .ld-radio-radioInputOuter {
+  fill: var(--ld-semantic-color-input-fill-activated-disabled) !important;
+  r: calc(0.75rem - var(--ld-semantic-scale-borderwidth-interactive-activated) / 2) !important;
+  stroke: var(--ld-semantic-color-input-border-activated-disabled) !important;
+  stroke-width: var(--ld-semantic-scale-borderwidth-interactive-activated) !important;
+}
+
+.ld-radio-radioInputInner {
+  fill: transparent;
+  r: 0.25rem;
+}
+.ld-radio-checked .ld-radio-radioInputInner {
+  fill: var(--ld-semantic-color-input-indicator-activated);
+}
+.ld-radio-radioInputInner {
+
+}
+.ld-radio-checked:hover .ld-radio-radioInputInner, .ld-radio-checked.hover .ld-radio-radioInputInner {
+  fill: var(--ld-semantic-color-input-indicator-activated);
+}
+.ld-radio-checked .ld-radio-input:focus ~ .ld-radio-radioInput .ld-radio-radioInputInner, .ld-radio-checked.focus .ld-radio-radioInputInner {
+  fill: var(--ld-semantic-color-input-indicator-activated);
+}
+.ld-radio-checked:active .ld-radio-radioInputInner, .ld-radio-checked.active .ld-radio-radioInputInner {
+  fill: var(--ld-semantic-color-input-indicator-activated) !important;
+}
+.ld-radio-disabled.ld-radio-checked .ld-radio-radioInputInner {
+  fill: var(--ld-semantic-color-input-indicator-activated) !important;
+}
+
+.ld-radio-labelText {
+  margin-left: 0.75rem;
+  align-self: center;
+}
+
+/* Small variant — 20×20 control. Override only dimensions and SVG radii so
+   every state style above still applies; the rem-based r values map 1:1 to
+   the SVG viewBox because the display size matches the viewBox in pixels. */
+.ld-radio-small .ld-radio-input,
+.ld-radio-small .ld-radio-radioInput {
+  height: 1.25rem;
+  width: 1.25rem;
+}
+.ld-radio-small .ld-radio-radioInputOuter {
+  r: calc(0.625rem - var(--ld-semantic-scale-borderwidth-interactive) / 2);
+}
+.ld-radio-small.ld-radio-checked .ld-radio-radioInputOuter,
+.ld-radio-small.ld-radio-label:hover .ld-radio-radioInputOuter,
+.ld-radio-small.ld-radio-label.hover .ld-radio-radioInputOuter,
+.ld-radio-small .ld-radio-input:focus ~ .ld-radio-radioInput .ld-radio-radioInputOuter,
+.ld-radio-small.ld-radio-label.focus .ld-radio-radioInputOuter,
+.ld-radio-small.ld-radio-label:active .ld-radio-radioInputOuter,
+.ld-radio-small.ld-radio-label.active .ld-radio-radioInputOuter,
+.ld-radio-small.ld-radio-checked:hover .ld-radio-radioInputOuter,
+.ld-radio-small.ld-radio-checked.hover .ld-radio-radioInputOuter,
+.ld-radio-small.ld-radio-checked .ld-radio-input:focus ~ .ld-radio-radioInput .ld-radio-radioInputOuter,
+.ld-radio-small.ld-radio-checked.focus .ld-radio-radioInputOuter,
+.ld-radio-small.ld-radio-checked:active .ld-radio-radioInputOuter,
+.ld-radio-small.ld-radio-checked.active .ld-radio-radioInputOuter {
+  r: calc(0.625rem - var(--ld-semantic-scale-borderwidth-interactive-activated) / 2);
+}
+.ld-radio-small.ld-radio-label:not(.ld-radio-checked).ld-radio-disabled .ld-radio-radioInputOuter {
+  r: calc(0.625rem - var(--ld-semantic-scale-borderwidth-interactive) / 2) !important;
+}
+.ld-radio-small.ld-radio-disabled.ld-radio-checked .ld-radio-radioInputOuter,
+.ld-radio-small.ld-radio-disabled.ld-radio-checked.active .ld-radio-radioInputOuter {
+  r: calc(0.625rem - var(--ld-semantic-scale-borderwidth-interactive-activated) / 2) !important;
+}
+.ld-radio-small .ld-radio-radioInputInner {
+  r: 0.20833rem;
+}
+.ld-radio-small .ld-radio-labelText {
+  margin-left: 0.5rem;
+}

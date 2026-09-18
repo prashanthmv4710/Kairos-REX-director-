@@ -1,0 +1,191 @@
+/* LD Portable – Callout */
+/* Suppress visible outline on programmatically focused step label */
+.ld-callout-step-label:focus {
+}
+
+/* BaseCallout */
+.ld-callout-basecallout-baseCallout {
+  border-radius: var(--ld-semantic-border-radius-medium);
+  box-shadow: var(--ld-semantic-elevation-200);
+  position: relative;
+  width: 13.3125rem;
+}
+.ld-callout-basecallout-baseCallout::before {
+  background: var(--ld-semantic-color-fill-inverse, #2e2f32);
+  box-shadow: 2.1213px 2.1213px 5px 2px rgba(0, 0, 0, 0.15), -0.7071px -0.7071px 3px 0 rgba(0, 0, 0, 0.1);
+  content: "";
+  display: block;
+  height: 0.7071rem;
+  position: absolute;
+  transform: translate(-50%, -50%) rotate(45deg);
+  width: 0.7071rem;
+}
+
+.ld-callout-basecallout-bottomCenter::before {
+  left: 50%;
+  top: 0;
+}
+
+.ld-callout-basecallout-bottomLeft::before {
+  left: calc(100% - 1.5rem);
+  top: 0;
+}
+
+.ld-callout-basecallout-bottomRight::before {
+  left: 1.5rem;
+  top: 0;
+}
+
+.ld-callout-basecallout-left::before {
+  left: 100%;
+  top: 50%;
+}
+
+.ld-callout-basecallout-right::before {
+  left: 0;
+  top: 50%;
+}
+
+.ld-callout-basecallout-topCenter::before {
+  left: 50%;
+  top: 100%;
+}
+
+.ld-callout-basecallout-topLeft::before {
+  left: calc(100% - 1.5rem);
+  top: 100%;
+}
+
+.ld-callout-basecallout-topRight::before {
+  left: 1.5rem;
+  top: 100%;
+}
+
+.ld-callout-basecallout-content {
+  background: var(--ld-semantic-color-fill-inverse, #2e2f32);
+  border-radius: var(--ld-semantic-border-radius-medium);
+  padding-block: var(--ld-primitive-scale-space-200);
+  padding-inline: 0;
+  position: relative;
+}
+
+.ld-callout-basecallout-label {
+  font-size: var(--ld-semantic-font-body-small-size);
+  font-weight: var(--ld-semantic-font-body-small-weight-alt);
+  line-height: var(--ld-semantic-font-body-small-line-height);
+  color: var(--ld-semantic-color-text-on-fill-inverse, #ffffff);
+  padding-block-start: 0;
+  padding-block-end: var(--ld-primitive-scale-space-50);
+  padding-inline: var(--ld-primitive-scale-space-200);
+}
+
+.ld-callout-basecallout-footer {
+  align-items: center;
+  display: flex;
+  gap: var(--ld-primitive-scale-space-100);
+  padding-block: 0;
+  padding-inline: var(--ld-primitive-scale-space-200);
+}
+
+.ld-callout-basecallout-stepIndicator {
+  font-size: var(--ld-semantic-font-body-small-size);
+  font-weight: var(--ld-semantic-font-body-small-weight-default);
+  line-height: var(--ld-semantic-font-body-small-line-height);
+  color: var(--ld-semantic-color-text-on-fill-inverse, #ffffff);
+}
+
+.ld-callout-basecallout-actions {
+  align-items: center;
+  display: flex;
+  gap: var(--ld-primitive-scale-space-100);
+  margin-left: auto;
+}
+
+/* Callout */
+.ld-callout-callout {
+  display: inline-block;
+  position: relative;
+}
+
+.ld-callout-enter {
+  opacity: 0;
+}
+.ld-callout-bottomCenter .ld-callout-enter, .ld-callout-bottomLeft .ld-callout-enter, .ld-callout-bottomRight .ld-callout-enter {
+  transform: translateY(6.25rem);
+}
+.ld-callout-left .ld-callout-enter {
+  transform: translateX(-6.25rem);
+}
+.ld-callout-right .ld-callout-enter {
+  transform: translateX(6.25rem);
+}
+.ld-callout-topCenter .ld-callout-enter, .ld-callout-topLeft .ld-callout-enter, .ld-callout-topRight .ld-callout-enter {
+  transform: translateY(-6.25rem);
+}
+
+.ld-callout-enterActive {
+  opacity: 1;
+  transition: opacity 0.2s linear, transform 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.ld-callout-callout .ld-callout-enterActive {
+  transform: none;
+}
+
+.ld-callout-exit {
+  opacity: 1;
+}
+
+.ld-callout-exitActive {
+  opacity: 0;
+  transition: opacity 0.2s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+
+/* CalloutCloseButton */
+.ld-callout-calloutclosebutton-closeButton {
+  font-size: var(--ld-semantic-font-body-small-size);
+  font-weight: var(--ld-semantic-font-body-small-weight-default);
+  line-height: var(--ld-semantic-font-body-small-line-height);
+  background: none;
+  border: 0;
+  color: var(--ld-semantic-color-text-on-fill-inverse, #ffffff);
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+}
+
+/* CalloutLink */
+.ld-callout-calloutlink-link {
+  font-size: var(--ld-semantic-font-body-small-size);
+  font-weight: var(--ld-semantic-font-body-small-weight-default);
+  line-height: var(--ld-semantic-font-body-small-line-height);
+  background: none;
+  border: 0;
+  color: var(--ld-semantic-color-text-on-fill-inverse, #ffffff);
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+}
+
+/* CalloutLayoutManager */
+.ld-callout-calloutlayoutmanager-layoutManager {
+  z-index: 100;
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+.ld-callout-calloutlayoutmanager-bottom {
+  padding-top: 0.75rem;
+}
+
+.ld-callout-calloutlayoutmanager-left {
+  padding-right: 0.75rem;
+}
+
+.ld-callout-calloutlayoutmanager-right {
+  padding-left: 0.75rem;
+}
+
+.ld-callout-calloutlayoutmanager-top {
+  padding-bottom: 0.75rem;
+}

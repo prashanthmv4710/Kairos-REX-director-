@@ -1,0 +1,7 @@
+/* LD Portable – LineClamp */
+/* LineClamp */
+.ld-lineclamp-lineClamp {
+  -webkit-box-orient: vertical; 
+  display: -webkit-box; 
+  overflow: hidden;
+}

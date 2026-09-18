@@ -1,0 +1,1 @@
+Expand / collapse inline content

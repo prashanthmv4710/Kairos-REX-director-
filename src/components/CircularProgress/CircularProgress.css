@@ -1,0 +1,53 @@
+/* LD Portable – Circular Progress (data viz) */
+
+.ld-circular-progress {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ld-circular-progress-svg {
+  display: block;
+}
+
+.ld-circular-progress-track {
+  stroke: var(--ld-semantic-color-progress-fill-subtle, #e3e4e5);
+}
+
+.ld-circular-progress-fill {
+  /* Animate value changes for a smooth fill sweep. */
+  transition: stroke-dasharray 0.4s ease, stroke 0.2s ease;
+}
+
+.ld-circular-progress-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ld-primitive-scale-space-25);
+  pointer-events: none;
+  text-align: center;
+}
+
+.ld-circular-progress-value {
+  color: var(--ld-semantic-color-text, #2e2f32);
+  font-family: var(--ld-semantic-font-display-small-family, 'Everyday Sans UI'), system-ui, sans-serif;
+  font-weight: var(--ld-semantic-font-display-small-weight-alt, 700);
+  line-height: 1.1;
+}
+
+.ld-circular-progress-label {
+  color: var(--ld-semantic-color-text, #2e2f32);
+  font-family: var(--ld-semantic-font-body-large-family, 'Everyday Sans UI'), system-ui, sans-serif;
+  font-weight: var(--ld-semantic-font-body-large-weight-default, 400);
+  line-height: 1.2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ld-circular-progress-fill {
+    transition: none;
+  }
+}

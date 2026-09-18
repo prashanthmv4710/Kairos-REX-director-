@@ -1,0 +1,15 @@
+/* EverydaySansMono */
+
+@font-face {
+  font-display: swap;
+  font-family: 'EverydaySansMono';
+  font-weight: 400;
+  src: url('./EverydaySansMono-400.woff2') format('woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'EverydaySansMono';
+  font-weight: 700;
+  src: url('./EverydaySansMono-700.woff2') format('woff2');
+}

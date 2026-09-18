@@ -1,0 +1,110 @@
+/* LD Portable – Banner */
+/* Banner */
+.ld-banner-banner {
+  font-size: var(--ld-semantic-font-body-small-size, 0.875rem);
+  font-weight: var(--ld-semantic-font-body-small-weight-default, 400);
+  line-height: var(--ld-semantic-font-body-small-line-height, 1.25rem);
+  align-items: flex-start;
+  align-self: flex-start;
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+}
+
+.ld-banner-contentContainer {
+  flex-grow: 1;
+  padding-block: var(--ld-primitive-scale-space-200);
+  padding-inline-end: 0;
+  padding-inline-start: var(--ld-primitive-scale-space-200);
+}
+
+.ld-banner-content {
+  margin: 0 auto;
+  max-width: 43.75rem;
+  text-align: center;
+}
+
+.ld-banner-error {
+  background: var(--ld-semantic-color-notice-fill-negative, #ea1100);
+  color: var(--ld-semantic-color-notice-text-onFill-negative, #ffffff);
+}
+
+.ld-banner-info {
+  background: var(--ld-semantic-color-notice-fill-info, #0053e2);
+  color: var(--ld-semantic-color-notice-text-onFill-info, #ffffff);
+}
+
+.ld-banner-success {
+  background: var(--ld-semantic-color-notice-fill-positive, #2a8703);
+  color: var(--ld-semantic-color-notice-text-onFill-positive, #ffffff);
+}
+
+.ld-banner-warning {
+  background: var(--ld-semantic-color-notice-fill-warning, #ffc220);
+  color: var(--ld-semantic-color-notice-text-onFill-warning, #2e2f32);
+}
+
+/* Small variant – rounded corners, compact layout, leading status icon */
+.ld-banner-small {
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--ld-semantic-border-radius-large, 0.5rem);
+  gap: var(--ld-semantic-spacing-100, 0.5rem);
+  padding: var(--ld-semantic-spacing-100, 0.5rem)
+    var(--ld-semantic-spacing-150, 0.75rem);
+  width: auto;
+}
+
+.ld-banner-leadingIcon {
+  align-items: center;
+  display: inline-flex;
+  flex-shrink: 0;
+  font-size: var(--ld-semantic-scale-icon-small, 1rem);
+  /* line-height: 1 collapses the glyph's line box to the icon size so it can
+     be centered; min-height matches the content line-height so a single line
+     centers while a wrapped message stays aligned to the first line. */
+  line-height: 1;
+  min-height: 1.25rem;
+}
+
+.ld-banner-small .ld-banner-contentContainer {
+  justify-content: flex-start;
+  padding: 0;
+}
+
+.ld-banner-small .ld-banner-content {
+  text-align: left;
+}
+
+/* BannerCloseButton — plain button with a 2.75rem (44px) min tap target
+   (WCAG 2.5.5). Interactive states come from the button itself. */
+.ld-banner-bannerclosebutton-close {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  display: flex;
+  flex-shrink: 0;
+  font: inherit;
+  justify-content: center;
+  min-height: 2.75rem;
+  min-width: 2.75rem;
+  padding: var(--ld-primitive-scale-space-200);
+}
+
+/* The small banner passes IconButton `size="xsmall"` for a compact close
+   control that matches its dense layout. Without this override, the 44px
+   min-tap-target above (same selector specificity, later in source order)
+   wins the cascade over IconButton's own xsmall padding and forces every
+   close button to a uniform 48px regardless of banner size. Scope a smaller
+   min target here — 24px still satisfies WCAG 2.5.8 (AA) target size. */
+.ld-banner-small .ld-banner-bannerclosebutton-close {
+  min-height: 1.5rem;
+  min-width: 1.5rem;
+  padding: var(--ld-primitive-scale-space-50);
+}
+
+.ld-banner-bannerclosebutton-closeIcon {
+  display: block;
+}

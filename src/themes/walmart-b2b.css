@@ -1,0 +1,86 @@
+/**
+ * Walmart B2B Theme
+ * Auto-generated from Airtable — do not edit manually
+ */
+
+[data-ld-theme="Walmart B2B"] {
+  --ld-semantic-color-action-fill-primary: #002e99;
+  --ld-semantic-color-action-fill-primary-focused: #002185;
+  --ld-semantic-color-action-fill-primary-hovered: #002185;
+  --ld-semantic-color-action-fill-primary-pressed: #001e60;
+  --ld-semantic-color-border-activated: #002e99;
+  --ld-semantic-color-bottomNav-text-onFill-activated: #001e60;
+  --ld-semantic-color-bottomNav-text-onFill-activated-focused: #001e60;
+  --ld-semantic-color-bottomNav-text-onFill-activated-hovered: #001e60;
+  --ld-semantic-color-bottomNav-text-onFill-activated-pressed: #001e60;
+  --ld-semantic-color-fill-activated: #001e60;
+  --ld-semantic-color-fill-activated-focused: #002e99;
+  --ld-semantic-color-fill-activated-hovered: #002e99;
+  --ld-semantic-color-fill-activated-pressed: #001e60;
+  --ld-semantic-color-fill-brand: #001e60;
+  --ld-semantic-color-fill-brand-bold: #0e002e;
+  --ld-semantic-color-text-activated: #001e60;
+  --ld-semantic-color-text-brand: #001e60;
+  --ld-semantic-color-text-onFill-brand-subtle: #001e60;
+  --ld-semantic-color-topNav-fill: #001e60;
+  --ld-semantic-color-topNav-fill-alt-focused: rgba(255, 255, 255, 0.4000);
+  --ld-semantic-color-topNav-fill-alt-hovered: rgba(255, 255, 255, 0.4000);
+  --ld-semantic-color-topNav-fill-alt-pressed: rgba(255, 255, 255, 0.5000);
+  --wcp-semantic-color-action-fill-primary-alt: #4dbdf5;
+  --wcp-semantic-color-action-fill-primary-alt-focused: #189ee2;
+  --wcp-semantic-color-action-fill-primary-alt-hovered: #189ee2;
+  --wcp-semantic-color-action-fill-primary-alt-pressed: #0083c7;
+  --wcp-semantic-color-action-text-onFill-primary-alt: #0e002e;
+  --wcp-semantic-color-action-text-onFill-primary-alt-focused: #0e002e;
+  --wcp-semantic-color-action-text-onFill-primary-alt-hovered: #0e002e;
+  --wcp-semantic-color-action-text-onFill-primary-alt-pressed: #0e002e;
+  --wcp-semantic-color-surface-overlay-brand-bold: #001e60;
+  --wcp-semantic-color-surface-overlay-brand-subtle: #4dbdf5;
+  --wcp-semantic-media-topNav-logo-compact: var(--wcp-primitive-media-logo);
+}
+
+/* === AUTO-GENERATED: MEDIA PRIMITIVES START === */
+/* Theme: Walmart B2B — primitive media tokens */
+[data-ld-theme="Walmart B2B"] {
+  --wcp-primitive-media-creditCardBrand: url("./media/assets/eeaccc419a6587bb.png");
+  --wcp-primitive-media-creditCardBrand1: url("./media/assets/6e144c3ac99a0e3b.png");
+  --wcp-primitive-media-creditCardBrand2: url("./media/assets/1b4a81c2115bc1b1.png");
+  --wcp-primitive-media-creditCardBrand3: url("./media/assets/98649846c4754256.png");
+  --wcp-primitive-media-creditCardBrand4: url("./media/assets/179402521f12ded4.png");
+  --wcp-primitive-media-creditCardBrand5: url("./media/assets/ff88cefedaa8e674.png");
+  --wcp-primitive-media-creditCardBrand6: url("./media/assets/53e0544bb09d642b.png");
+  --wcp-primitive-media-creditCardGeneric: url("./media/assets/4080c89adde8e58d.png");
+  --wcp-primitive-media-creditCardGeneric1: url("./media/assets/02c226253ec10692.png");
+  --wcp-primitive-media-creditCardGeneric2: url("./media/assets/d18c8dd8a8ec911c.png");
+  --wcp-primitive-media-creditCardGeneric3: url("./media/assets/5ac6150b0f0aa31d.png");
+  --wcp-primitive-media-creditCardGeneric4: url("./media/assets/e3d0a69f19ab45fa.png");
+  --wcp-primitive-media-creditCardGeneric5: url("./media/assets/133caf7741ea4b01.png");
+  --wcp-primitive-media-creditCardGeneric6: url("./media/assets/376ec22e38bf9eb7.png");
+  --wcp-primitive-media-creditCardLiderBci: url("./media/assets/fd95f0ce9e7a214a.png");
+  --wcp-primitive-media-errorGeneric: url("./media/assets/6e26c4d048181cd5.svg");
+  --wcp-primitive-media-errorNetwork: url("./media/assets/349e2d6d68953098.svg");
+  --wcp-primitive-media-errorNotFound: url("./media/assets/59c3f1d4bdfbdc08.svg");
+  --wcp-primitive-media-flagCanada: url("./media/assets/97bdb56a288bcb53.svg");
+  --wcp-primitive-media-flagChile: url("./media/assets/6773a3ef69b563e1.svg");
+  --wcp-primitive-media-flagColombia: url("./media/assets/99934ec825833d2f.svg");
+  --wcp-primitive-media-flagMexico: url("./media/assets/a093b2c5ca88261d.svg");
+  --wcp-primitive-media-flagUSA: url("./media/assets/fd32d013d9398ee6.svg");
+  --wcp-primitive-media-gic: url("./media/assets/1c6e45fb0326edc9.svg");
+  --wcp-primitive-media-gicDelivery: url("./media/assets/f34370269d7f2eed.svg");
+  --wcp-primitive-media-gicPickup: url("./media/assets/ba20a30cdbde05b5.svg");
+  --wcp-primitive-media-gicShipping: url("./media/assets/08812781695725ac.svg");
+  --wcp-primitive-media-logo: url("./media/assets/7c98ea7d7e880d22.svg");
+  --wcp-primitive-media-logo-inverse: url("./media/assets/028213eb0aa36efc.svg");
+  --wcp-primitive-media-logo-inverse-member: url("./media/assets/fb5e94d0263b2cdf.svg");
+  --wcp-primitive-media-logo-member: url("./media/assets/9de226d984e41ea5.svg");
+  --wcp-primitive-media-membershipCard: url("./media/assets/67ebb0e5367775d1.png");
+  --wcp-primitive-media-membershipCardPlus: url("./media/assets/b156f93cf4672f82.png");
+  --wcp-primitive-media-privacyChoice: url("./media/assets/85ada1cb83c3b6a9.svg");
+  --wcp-primitive-media-privacyChoiceInverse: url("./media/assets/f92c0cfd5d1699ef.svg");
+  --wcp-primitive-media-wordmark: url("./media/assets/64e6630b71757e4a.svg");
+  --wcp-primitive-media-wordmark-inverse: url("./media/assets/6ea7f9f6e30006ed.svg");
+  --wcp-primitive-media-wordmark-inverse-member: url("./media/assets/ba6bb60c16d6cd7d.svg");
+  --wcp-primitive-media-wordmark-member: url("./media/assets/2e5e0526581f55f4.svg");
+  --wcp-semantic-media-topNav-logo-compact: url("./media/assets/7c98ea7d7e880d22.svg");
+}
+/* === AUTO-GENERATED: MEDIA PRIMITIVES END === */

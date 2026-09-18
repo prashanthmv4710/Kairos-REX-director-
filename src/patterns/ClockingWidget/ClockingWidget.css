@@ -1,0 +1,236 @@
+.ax-clocking-widget {
+  /*
+   * Establish a container so the layout responds to the widget's own width,
+   * not the viewport. This widget is embedded in different surfaces (narrow
+   * mobile shells, wide desktop dashboards, sidebars) and the breakpoint must
+   * track the parent column, not the page. The threshold below uses
+   * `--ld-semantic-breakpoint-medium` (600px / LD "tablet") so attributes flip
+   * from stacked → single-line at the LD-canonical mobile→tablet boundary.
+   *
+   * Figma node 18411:4561 — padding-top only; horizontal padding is owned by
+   * the inner sections so the illustration can bleed to the edge correctly.
+   */
+  container-type: inline-size;
+  container-name: ax-clocking-widget;
+  background-color: var(--ld-semantic-color-topNav-fill, #0053e2);
+  color: var(--ld-semantic-color-topNav-text-onFill, #fff);
+  padding-top: var(--ld-primitive-scale-space-200, 16px);
+  border-top: var(--ld-primitive-scale-borderWidth-100, 1px) solid
+    var(--ld-semantic-color-topNav-text-onFill, #fff);
+}
+
+.ax-clocking-widget__inner {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Top content row: info column (flex-1) + illustration (shrink-0, 145×132). */
+.ax-clocking-widget__top-row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--ld-primitive-scale-space-50, 4px);
+  padding-right: var(--ld-primitive-scale-space-200, 16px);
+  width: 100%;
+}
+
+/* Status + role + attributes stacked with 12px gap (Figma: gap-150). */
+.ax-clocking-widget__info-column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-150, 12px);
+  flex: 1;
+  min-width: 0;
+  padding-left: var(--ld-primitive-scale-space-200, 16px);
+}
+
+/* "Clocked in / Clocked out" label + dot icon (Figma: gap-100 = 8px). */
+.ax-clocking-widget__status-row {
+  display: flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-100, 8px);
+}
+
+.ax-clocking-widget__status-icon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+}
+
+/* heading/medium — 20px bold (Figma: ld/semantic/textStyle/heading/medium/default). */
+.ax-clocking-widget__status-label {
+  font-family: var(--ld-semantic-font-heading-medium-family, 'Everyday_Sans_UI', sans-serif);
+  font-size: var(--ld-semantic-font-heading-medium-size-b-s, 1.25rem);
+  font-weight: var(--ld-semantic-font-heading-medium-weight-default, 700);
+  line-height: var(--ld-semantic-font-heading-medium-line-height-b-s, 1.75rem);
+  color: var(--ld-semantic-color-topNav-text-onFill, #fff);
+  white-space: nowrap;
+}
+
+/* body/medium/alt — 16px bold (Figma: ld/semantic/textStyle/body/medium/alt). */
+.ax-clocking-widget__role {
+  font-family: var(--ld-semantic-font-body-medium-family, 'Everyday_Sans_UI', sans-serif);
+  font-size: var(--ld-semantic-font-body-medium-size, 1rem);
+  font-weight: var(--ld-semantic-font-body-medium-weight-alt, 700);
+  line-height: var(--ld-semantic-font-body-medium-line-height, 1.5rem);
+  color: var(--ld-semantic-color-topNav-text-onFill, #fff);
+  margin: 0;
+}
+
+/* Three rows stacked with 2px gap (Figma: Attributes container gap-50 = 2px). */
+.ax-clocking-widget__attributes {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-25, 2px);
+}
+
+/* Each attribute row: icon + text inline, gap 4px (Figma: .attribute small gap-50).
+ * `align-items: center` keeps the 16px icon vertically centered against the
+ * label's single line — `flex-start` top-aligns it and reads as sitting
+ * slightly high next to the text. */
+.ax-clocking-widget__attribute {
+  display: flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-50, 4px);
+  font-family: var(--ld-semantic-font-body-small-family, 'Everyday_Sans_UI', sans-serif);
+  font-size: var(--ld-semantic-font-body-small-size, 0.875rem);
+  line-height: var(--ld-semantic-font-body-small-line-height, 1.25rem);
+  color: var(--ld-semantic-color-topNav-text-onFill, #fff);
+}
+
+/* Store | WM WK separator — 12px gap on each side (Figma: gap-150 = 12px). */
+.ax-clocking-widget__separator {
+  margin-inline: var(--ld-primitive-scale-space-50, 4px);
+}
+
+/* Illustration: inline flex sibling (not absolute) — 145×132px fixed. */
+.ax-clocking-widget__illustration {
+  flex-shrink: 0;
+  width: 145px;
+  height: 132px;
+  overflow: hidden;
+  border-radius: var(--ld-primitive-scale-borderRadius-100, 8px);
+  pointer-events: none;
+  align-self: flex-end;
+}
+
+/* Actions bar: full padding 16px around, gap 12px between buttons. */
+.ax-clocking-widget__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-150, 12px);
+  padding: var(--ld-primitive-scale-space-200, 16px);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.ax-clocking-widget__clock-button--topnav-fill-alt {
+  background: var(
+    --ld-color-semantic-topNav-fill-alt,
+    var(
+      --ld-semantic-color-topNav-fill-alt,
+      var(--ld-semantic-color-topNav-fill-pressed, rgba(0, 0, 0, 0.8))
+    )
+  );
+  /* Base Button ships a 2px border; color-matching it to the background
+   * still double-composites the alpha at the edge (border paints on top
+   * of the already-composited fill) and shows up as a faint ring. Drop
+   * the border outright instead — focus-visible keeps its own outline. */
+  border: none;
+  color: var(--ld-semantic-color-topNav-text-onFill, #fff);
+}
+
+.ax-clocking-widget__clock-button--topnav-fill-alt:hover,
+.ax-clocking-widget__clock-button--topnav-fill-alt.hover {
+  background: var(
+    --ld-color-semantic-topNav-fill-alt-hovered,
+    var(
+      --ld-semantic-color-topNav-fill-alt-hovered,
+      var(--ld-semantic-color-topNav-fill-hovered, rgba(0, 0, 0, 0.6))
+    )
+  );
+  color: var(--ld-semantic-color-topNav-text-onFill-hovered, #fff);
+}
+
+.ax-clocking-widget__clock-button--topnav-fill-alt:focus-visible {
+  background: var(
+    --ld-color-semantic-topNav-fill-alt-focused,
+    var(
+      --ld-semantic-color-topNav-fill-alt-focused,
+      var(--ld-semantic-color-topNav-fill-focused, rgba(0, 0, 0, 0.6))
+    )
+  );
+  color: var(--ld-semantic-color-topNav-text-onFill-focused, #fff);
+}
+
+.ax-clocking-widget__clock-button--topnav-fill-alt:active,
+.ax-clocking-widget__clock-button--topnav-fill-alt.active {
+  background: var(
+    --ld-color-semantic-topNav-fill-alt-pressed,
+    var(
+      --ld-semantic-color-topNav-fill-alt-pressed,
+      var(--ld-semantic-color-topNav-fill-pressed, rgba(0, 0, 0, 0.8))
+    )
+  );
+  color: var(--ld-semantic-color-topNav-text-onFill-pressed, #fff);
+}
+
+/* Overflow ("⋯") trigger — round button sitting directly next to the clock
+ * button (plain `gap` from `.ax-clocking-widget__actions`, no longer pushed
+ * to the end of the row). Sizing/shape only here — the
+ * `--topnav-fill-alt` modifier class (shared with the clock/meal buttons
+ * above) owns every color state, so all three actions use the exact same
+ * tokens at rest, hover, focus, and active. */
+.ax-clocking-widget__more-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  flex-shrink: 0;
+  border-radius: var(--ld-primitive-scale-borderRadius-circle, 50%);
+  cursor: pointer;
+}
+
+.ax-clocking-widget__more-button:focus-visible {
+  outline: var(--ld-primitive-scale-borderWidth-200, 2px) solid
+    var(--ld-semantic-color-topNav-text-onFill, #fff);
+  outline-offset: 2px;
+}
+
+/* ---------------------------------------------------------------------------
+ * Responsive layout — driven by container queries so the widget adapts to its
+ * own container width.
+ *
+ *   < 600px  (mobile / narrow column): attributes stack vertically, illustration
+ *            is absolutely positioned in the top-right, info column reserves
+ *            155px of right padding so text doesn't run under it.
+ *   ≥ 600px  (LD "medium" breakpoint = tablet/desktop): attributes flow on a
+ *            single horizontal line, illustration sits inline at the end of
+ *            the row, info column drops the reserved right padding.
+ * ------------------------------------------------------------------------- */
+@container ax-clocking-widget (min-width: 600px) {
+  .ax-clocking-widget__attributes {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--ld-primitive-scale-space-100, 8px);
+    column-gap: var(--ld-primitive-scale-space-200, 16px);
+  }
+}
+
+/* Fallback for browsers without container query support. */
+@supports not (container-type: inline-size) {
+  @media (min-width: 600px) {
+    .ax-clocking-widget__attributes {
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--ld-primitive-scale-space-100, 8px);
+      column-gap: var(--ld-primitive-scale-space-200, 16px);
+    }
+  }
+}

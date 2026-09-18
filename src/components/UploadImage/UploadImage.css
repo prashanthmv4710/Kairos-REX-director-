@@ -1,0 +1,241 @@
+/* LD Portable – UploadImage */
+.ld-wcp-uploadimage-root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-100, 8px);
+}
+
+.ld-wcp-uploadimage-hiddenInput {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.ld-wcp-uploadimage-header {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: var(--ld-primitive-scale-space-25);
+  line-height: var(--ld-semantic-font-body-small-line-height, 20px);
+}
+
+.ld-wcp-uploadimage-labelBold {
+  font-size: var(--ld-semantic-font-body-small-size, 14px);
+  font-weight: var(--ld-primitive-font-weight-700);
+  color: var(--ld-semantic-color-text);
+}
+
+.ld-wcp-uploadimage-labelNormal {
+  font-size: var(--ld-semantic-font-body-small-size, 14px);
+  font-weight: var(--ld-primitive-font-weight-400);
+  color: var(--ld-semantic-color-text);
+}
+
+.ld-wcp-uploadimage-errorAlert {
+  display: flex;
+  align-items: stretch;
+  border: 1px solid var(--ld-semantic-color-border-negative, #CE0000);
+  border-radius: var(--ld-primitive-scale-borderRadius-50, 4px);
+  background: var(--ld-semantic-color-fill-negative-subtle, #FFECEC);
+  overflow: hidden;
+}
+
+.ld-wcp-uploadimage-errorTab {
+  width: 4px;
+  flex-shrink: 0;
+  background: var(--ld-semantic-color-border-negative, #CE0000);
+  border-radius: var(--ld-primitive-scale-borderRadius-50, 4px) 0 0 var(--ld-primitive-scale-borderRadius-50, 4px);
+}
+
+.ld-wcp-uploadimage-errorContent {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--ld-primitive-scale-space-100, 8px);
+  padding: var(--ld-primitive-scale-space-100, 8px) var(--ld-primitive-scale-space-150, 12px);
+  flex: 1;
+}
+
+.ld-wcp-uploadimage-errorIcon {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--ld-semantic-color-text-onFill-negative-subtle, #A20C00);
+}
+
+.ld-wcp-uploadimage-errorMessage {
+  font-size: var(--ld-semantic-font-body-small-size, 14px);
+  font-weight: var(--ld-primitive-font-weight-400);
+  line-height: var(--ld-semantic-font-body-small-line-height, 20px);
+  color: var(--ld-semantic-color-text-onFill-negative-subtle, #A20C00);
+}
+
+.ld-wcp-uploadimage-wideTile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 96px;
+  border: 2px dashed var(--ld-semantic-color-action-border-secondary, #2E2F32);
+  border-radius: var(--ld-primitive-scale-borderRadius-200, 16px);
+  background: var(--ld-semantic-color-action-fill-secondary, transparent);
+  cursor: pointer;
+  color: var(--ld-semantic-color-action-text-onFill-secondary, #2E2F32);
+  transition: background 0.15s ease, border-color 0.15s ease;
+  padding: 0;
+}
+
+.ld-wcp-uploadimage-wideTile:hover {
+  background: var(--ld-semantic-color-action-fill-secondary-hovered, rgba(0,0,0,0.04));
+  border-color: var(--ld-semantic-color-action-border-secondary-hovered, #2E2F32);
+}
+
+.ld-wcp-uploadimage-wideTile:active {
+  background: var(--ld-semantic-color-action-fill-secondary-pressed, rgba(0,0,0,0.08));
+}
+
+.ld-wcp-uploadimage-wideTile:focus-visible {
+  outline: 2px solid var(--ld-semantic-color-border-activated, #0071dc);
+  outline-offset: 2px;
+}
+
+.ld-wcp-uploadimage-wideTile-dragging,
+.ld-wcp-uploadimage-squareTile-dragging {
+  background: var(--ld-semantic-color-action-fill-secondary-hovered, rgba(0, 113, 220, 0.08));
+  border-color: var(--ld-semantic-color-border-activated, #0071dc);
+  border-style: solid;
+}
+
+.ld-wcp-uploadimage-tilesRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ld-primitive-scale-space-100);
+  align-items: flex-start;
+}
+
+.ld-wcp-uploadimage-uploadedTile {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  flex-shrink: 0;
+  border-radius: var(--ld-primitive-scale-borderRadius-200, 16px);
+  overflow: hidden;
+  background: var(--ld-semantic-color-fill-subtle, #f0f1f2);
+}
+
+.ld-wcp-uploadimage-uploadedImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.ld-wcp-uploadimage-removeBtn {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--ld-semantic-border-radius-round);
+  background: var(--ld-semantic-color-action-fill-secondary, #fff);
+  border: none;
+  cursor: pointer;
+  color: var(--ld-semantic-color-action-text-onFill-secondary, #2E2F32);
+  box-shadow: var(--ld-primitive-elevation-100);
+  transition: background 0.15s ease;
+  padding: 0;
+}
+
+.ld-wcp-uploadimage-removeBtn:hover {
+  background: var(--ld-semantic-color-action-fill-secondary-hovered, #f2f2f2);
+}
+
+.ld-wcp-uploadimage-removeBtn:active {
+  background: var(--ld-semantic-color-action-fill-secondary-pressed, #e8e8e8);
+}
+
+.ld-wcp-uploadimage-removeBtn:focus-visible {
+  outline: 2px solid var(--ld-semantic-color-border-activated, #0071dc);
+  outline-offset: 1px;
+}
+
+.ld-wcp-uploadimage-squareTile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 96px;
+  height: 96px;
+  flex-shrink: 0;
+  border: 2px dashed var(--ld-semantic-color-action-border-secondary, #2E2F32);
+  border-radius: var(--ld-primitive-scale-borderRadius-200, 16px);
+  background: var(--ld-semantic-color-action-fill-secondary, transparent);
+  cursor: pointer;
+  color: var(--ld-semantic-color-action-text-onFill-secondary, #2E2F32);
+  padding: 0;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.ld-wcp-uploadimage-squareTile:hover:not(:disabled) {
+  background: var(--ld-semantic-color-action-fill-secondary-hovered, rgba(0,0,0,0.04));
+}
+
+.ld-wcp-uploadimage-squareTile:active:not(:disabled) {
+  background: var(--ld-semantic-color-action-fill-secondary-pressed, rgba(0,0,0,0.08));
+}
+
+.ld-wcp-uploadimage-squareTile:focus-visible {
+  outline: 2px solid var(--ld-semantic-color-border-activated, #0071dc);
+  outline-offset: 2px;
+}
+
+.ld-wcp-uploadimage-squareTileGhost {
+  opacity: 0.4;
+  cursor: default;
+  border-style: dashed;
+  color: var(--ld-semantic-color-text-disabled, #ADADAD);
+  border-color: var(--ld-semantic-color-text-disabled, #ADADAD);
+  background: transparent;
+}
+
+.ld-wcp-uploadimage-photoTip {
+  font-size: var(--ld-semantic-font-caption-size, 12px);
+  font-weight: var(--ld-primitive-font-weight-400);
+  line-height: var(--ld-semantic-font-caption-line-height, 16px);
+  color: var(--ld-semantic-color-text-subtle, #51535B);
+  margin: 0;
+}
+
+.ld-wcp-uploadimage-photoTipBold {
+  font-weight: var(--ld-primitive-font-weight-700);
+  color: var(--ld-semantic-color-text-subtle, #51535B);
+}
+
+@media (min-width: 56.25rem) {
+  .ld-wcp-uploadimage-wideTile {
+    height: 112px;
+    border-radius: var(--ld-primitive-scale-borderRadius-200, 16px);
+  }
+  .ld-wcp-uploadimage-uploadedTile {
+    width: 112px;
+    height: 112px;
+  }
+  .ld-wcp-uploadimage-squareTile {
+    width: 112px;
+    height: 112px;
+  }
+  .ld-wcp-uploadimage-tilesRow {
+    gap: var(--ld-primitive-scale-space-150);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ld-wcp-uploadimage-wideTile,
+  .ld-wcp-uploadimage-squareTile,
+  .ld-wcp-uploadimage-removeBtn {
+    transition: none;
+  }
+}

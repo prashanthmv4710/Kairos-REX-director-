@@ -1,0 +1,1 @@
+Count/status pill — integer-only children (number or numeric string), throws at runtime otherwise. Omit children for a status dot. Use Badge for counts; use Tag for text status labels ("New", "Beta", "Out of stock").

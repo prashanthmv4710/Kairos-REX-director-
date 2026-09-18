@@ -1,0 +1,110 @@
+/* LD Portable -- FluentMenu */
+
+/* Layout */
+.ld-fluentmenu-root {
+  display: inline-block;
+  position: relative;
+}
+
+.ld-fluentmenu-root .ld-fluentmenu-layoutContainer {
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+.ld-fluentmenu-content {
+  left: 0;
+  position: absolute;
+  top: 0;
+  z-index: 100;
+}
+
+/* Transition */
+.ld-fluentmenu-enter {
+  opacity: 0;
+  transform: translateY(-0.25rem);
+}
+
+.ld-fluentmenu-enterActive {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.1s cubic-bezier(0.165, 0.84, 0.44, 1),
+              transform 0.1s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.ld-fluentmenu-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ld-fluentmenu-exitActive {
+  opacity: 0;
+  transform: translateY(-0.25rem);
+  transition: opacity 0.1s cubic-bezier(0.165, 0.84, 0.44, 1),
+              transform 0.1s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* List container */
+.ld-fluentmenu-list {
+  background: var(--ld-semantic-color-surface, #ffffff);
+  border-radius: var(--ld-semantic-border-radius-medium);
+  box-shadow: 0 0.3125rem 0.625rem 0.1875rem rgba(0, 0, 0, 0.149),
+              0 -0.0625rem 0.25rem 0 rgba(0, 0, 0, 0.102);
+  display: flex;
+  flex-direction: column;
+  min-width: 10rem;
+  padding-block: var(--ld-primitive-scale-space-50);
+  padding-inline: 0;
+}
+
+/* MenuItem */
+.ld-fluentmenu-item {
+  align-items: center;
+  appearance: none;
+  background: none;
+  border: none;
+  color: var(--ld-semantic-color-text, #2e2f32);
+  cursor: pointer;
+  display: flex;
+  font-size: var(--ld-semantic-font-body-small-size);
+  gap: var(--ld-primitive-scale-space-100);
+  line-height: var(--ld-semantic-font-body-small-line-height);
+  padding-block: var(--ld-primitive-scale-space-100);
+  padding-inline: var(--ld-primitive-scale-space-150);
+  text-align: left;
+  width: 100%;
+}
+
+.ld-fluentmenu-item:hover {
+  background: var(--ld-semantic-color-action-fill-secondary-hovered, #f1f1f2);
+}
+
+.ld-fluentmenu-item:focus {
+  background: var(--ld-semantic-color-action-fill-secondary-hovered, #f1f1f2);
+}
+
+.ld-fluentmenu-item:focus-visible {
+  outline: 2px solid var(--ld-semantic-color-border-activated, #0053e2);
+  outline-offset: -2px;
+}
+
+.ld-fluentmenu-item:active {
+  background: var(--ld-semantic-color-action-fill-secondary-pressed, #e3e4e5);
+}
+
+.ld-fluentmenu-item:disabled {
+  color: var(--ld-semantic-color-text-disabled, #babbbe);
+  cursor: not-allowed;
+}
+
+.ld-fluentmenu-itemIcon {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* Divider */
+.ld-fluentmenu-divider {
+  border-top: 1px solid var(--ld-semantic-color-field-border, #babbbe);
+  margin: 0.25rem 0;
+}

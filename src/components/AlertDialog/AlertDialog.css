@@ -1,0 +1,89 @@
+/* LD Portable -- AlertDialog */
+
+/* Suppress focus outline on headings focused programmatically (not via Tab) */
+.ld-alert-dialog-programmatic-heading:focus {
+}
+
+/* Hide the Modal's close (X) button — alert dialogs require explicit action */
+.ld-alert-dialog-modal .ld-modal-modalportal-header > .ld-iconbutton-iconButton {
+  display: none;
+}
+
+/* Adjust header padding when close button is hidden */
+.ld-alert-dialog-modal .ld-modal-modalportal-header {
+  padding: var(--ld-primitive-scale-space-200);
+}
+@media screen and (min-width: 37.5rem) {
+  .ld-alert-dialog-modal .ld-modal-modalportal-header {
+    padding: var(--ld-primitive-scale-space-300);
+  }
+}
+
+.ld-alert-dialog-modal .ld-modal-modalportal-title {
+  margin-top: 0;
+}
+
+/* Shared button base */
+.ld-alert-dialog-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: var(--ld-semantic-border-radius-round, 9999px);
+  cursor: pointer;
+  font-weight: var(--ld-semantic-font-action-weight, 700);
+  font-size: var(--ld-semantic-font-body-small-size, 0.875rem);
+  line-height: var(--ld-semantic-font-body-small-line-height);
+  padding: 6px 16px;
+  min-height: 32px;
+  box-sizing: border-box;
+  transition: background-color 0.15s ease;
+}
+
+.ld-alert-dialog-btn:focus-visible {
+  outline: 2px solid var(--ld-semantic-color-border-activated);
+  outline-offset: 2px;
+}
+
+/* Action button (primary) */
+.ld-alert-dialog-action {
+  background-color: var(--ld-semantic-color-action-fill-primary);
+  color: var(--ld-semantic-color-action-text-onFill-primary);
+}
+
+.ld-alert-dialog-action:hover {
+  background-color: var(--ld-semantic-color-action-fill-primary-hovered);
+}
+
+.ld-alert-dialog-action:active {
+  background-color: var(--ld-semantic-color-action-fill-primary-pressed);
+}
+
+/* Destructive action button */
+.ld-alert-dialog-action--destructive {
+  background-color: var(--ld-semantic-color-action-fill-negative);
+  color: var(--ld-semantic-color-action-text-onFill-negative);
+}
+
+.ld-alert-dialog-action--destructive:hover {
+  background-color: var(--ld-semantic-color-action-fill-negative-hovered);
+}
+
+.ld-alert-dialog-action--destructive:active {
+  background-color: var(--ld-semantic-color-action-fill-negative-pressed);
+}
+
+/* Cancel button (secondary) */
+.ld-alert-dialog-cancel {
+  background-color: var(--ld-semantic-color-action-fill-secondary);
+  color: var(--ld-semantic-color-action-text-onFill-secondary);
+  border: 1.5px solid var(--ld-semantic-color-action-border-secondary);
+}
+
+.ld-alert-dialog-cancel:hover {
+  background-color: var(--ld-semantic-color-action-fill-secondary-hovered);
+}
+
+.ld-alert-dialog-cancel:active {
+  background-color: var(--ld-semantic-color-action-fill-secondary-pressed);
+}

@@ -1,0 +1,89 @@
+/* LD Portable – SpotIcon */
+/* SpotIcon */
+.ld-spoticon-spotIcon {
+  align-items: center;
+  display: inline-flex;
+  justify-content: center;
+}
+
+/* Shape */
+.ld-spoticon-shape-circle {
+  border-radius: var(--ld-semantic-border-radius-round);
+}
+
+.ld-spoticon-shape-square {
+  border-radius: var(--ld-primitive-scale-borderRadius-100, 0.5rem);
+}
+
+/* Color */
+.ld-spoticon-color-brand {
+  background: var(--ld-semantic-color-fill-accent-blue-subtle, #e9f1fe);
+  color: var(--ld-semantic-color-text-onFill-accent-blue-subtle, #114ab6);
+}
+
+.ld-spoticon-color-neutral {
+  background: var(--ld-semantic-color-surface, #ffffff);
+  color: var(--ld-semantic-color-text, #2e2f32);
+}
+
+.ld-spoticon-color-blue {
+  background: var(--ld-semantic-color-fill-accent-blue-subtle, #eff4ff);
+  color: var(--ld-semantic-color-text-accent-blue-bold, #002e99);
+}
+
+.ld-spoticon-color-green {
+  background: var(--ld-semantic-color-fill-accent-green-subtle, #d8ffcf);
+  color: var(--ld-semantic-color-text-accent-green-bold, #1d5f02);
+}
+
+.ld-spoticon-color-orange {
+  background: var(--ld-semantic-color-fill-accent-orange-subtle, #fff2e8);
+  color: var(--ld-semantic-color-text-accent-orange-bold, #af2f00);
+}
+
+.ld-spoticon-color-pink {
+  background: var(--ld-semantic-color-fill-accent-pink-subtle, #fef0f6);
+  color: var(--ld-semantic-color-text-accent-pink-bold, #8c1e64);
+}
+
+.ld-spoticon-color-purple {
+  background: var(--ld-semantic-color-fill-accent-purple-subtle, #f6f2ff);
+  color: var(--ld-semantic-color-text-accent-purple-bold, #452358);
+}
+
+.ld-spoticon-color-teal {
+  background: var(--ld-semantic-color-fill-accent-teal-subtle, #cdfef7);
+  color: var(--ld-semantic-color-text-accent-teal-bold, #005a6f);
+}
+
+/* Size – circle */
+.ld-spoticon-shape-circle.ld-spoticon-size-small {
+  height: 3rem;
+  width: 3rem;
+}
+
+.ld-spoticon-shape-circle.ld-spoticon-size-medium {
+  height: 3.25rem;
+  width: 3.25rem;
+}
+
+.ld-spoticon-shape-circle.ld-spoticon-size-large {
+  height: 3.5rem;
+  width: 3.5rem;
+}
+
+/* Size – square */
+.ld-spoticon-shape-square.ld-spoticon-size-small {
+  height: 3rem;
+  width: 3rem;
+}
+
+.ld-spoticon-shape-square.ld-spoticon-size-medium {
+  height: 5rem;
+  width: 5rem;
+}
+
+.ld-spoticon-shape-square.ld-spoticon-size-large {
+  height: 7.5rem;
+  width: 7.5rem;
+}

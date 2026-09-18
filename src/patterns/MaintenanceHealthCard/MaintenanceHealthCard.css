@@ -1,0 +1,173 @@
+/* LD Portable – MaintenanceHealthCard */
+
+.ld-wcp-maintenance-health-card-root {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--ld-semantic-color-separator, #e3e4e5);
+  border-radius: var(--ld-semantic-border-radius-large);
+  overflow: hidden;
+  background: var(--ld-semantic-color-surface, #fff);
+}
+
+/* ── Header ── */
+
+.ld-wcp-maintenance-health-card-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--ld-primitive-scale-space-250);
+  background: linear-gradient(135deg, var(--ld-maintenance-gradient-start, #1a237e) 0%, var(--ld-maintenance-gradient-end, #283593) 100%);
+  color: var(--ld-semantic-color-text-inverse);
+  overflow: hidden;
+}
+
+.ld-wcp-maintenance-health-card-header-illustration {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: auto;
+  opacity: 0.15;
+  object-fit: cover;
+}
+
+.ld-wcp-maintenance-health-card-header-info {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-25);
+}
+
+.ld-wcp-maintenance-health-card-header-label {
+  font-size: 11px;
+  font-weight: var(--ld-primitive-font-weight-600);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0;
+  opacity: 0.8;
+}
+
+.ld-wcp-maintenance-health-card-header-vehicle {
+  font-size: var(--ld-semantic-font-body-medium-size);
+  font-weight: var(--ld-primitive-font-weight-700);
+  margin: 0;
+}
+
+.ld-wcp-maintenance-health-card-header-sub {
+  font-size: var(--ld-semantic-font-caption-size);
+  margin: 0;
+  opacity: 0.8;
+}
+
+.ld-wcp-maintenance-health-card-header-score {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-25);
+}
+
+.ld-wcp-maintenance-health-card-score-label {
+  font-size: 10px;
+  font-weight: var(--ld-primitive-font-weight-600);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.8;
+}
+
+/* ── Value statement ── */
+
+.ld-wcp-maintenance-health-card-value-statement {
+  padding-block-start: var(--ld-primitive-scale-space-150);
+  padding-block-end: 0;
+  padding-inline: var(--ld-primitive-scale-space-200);
+}
+
+/* ── Maintenance grid ── */
+
+.ld-wcp-maintenance-health-card-grid-section {
+  padding: var(--ld-primitive-scale-space-200);
+}
+
+.ld-wcp-maintenance-health-card-grid-heading {
+  font-size: 13px;
+  font-weight: var(--ld-primitive-font-weight-600);
+  color: var(--ld-semantic-color-text-subtle, #515357);
+  margin: 0 0 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.ld-wcp-maintenance-health-card-grid {
+  display: grid;
+  gap: var(--ld-primitive-scale-space-150);
+}
+
+.ld-wcp-maintenance-health-card-grid-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: var(--ld-primitive-scale-space-150);
+  border-radius: var(--ld-semantic-border-radius-large);
+  border: 1px solid var(--ld-semantic-color-separator, #e3e4e5);
+  background: var(--ld-semantic-color-background-subtle, #f8f8f8);
+}
+
+.ld-wcp-maintenance-health-card-item-name {
+  font-size: var(--ld-semantic-font-body-small-size);
+  font-weight: var(--ld-primitive-font-weight-600);
+  color: var(--ld-semantic-color-text, #2e2f32);
+  margin: 0;
+}
+
+.ld-wcp-maintenance-health-card-item-detail {
+  font-size: var(--ld-semantic-font-caption-size);
+  color: var(--ld-semantic-color-text-subtle, #515357);
+  margin: 0;
+}
+
+.ld-wcp-maintenance-health-card-item-price {
+  font-size: 13px;
+  font-weight: var(--ld-primitive-font-weight-600);
+  color: var(--ld-semantic-color-text, #2e2f32);
+  margin: 0;
+}
+
+/* ── Bundle savings ── */
+
+.ld-wcp-maintenance-health-card-bundle {
+  padding-block-start: 0;
+  padding-block-end: var(--ld-primitive-scale-space-150);
+  padding-inline: var(--ld-primitive-scale-space-200);
+}
+
+/* ── Footer ── */
+
+.ld-wcp-maintenance-health-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: var(--ld-primitive-scale-space-150);
+  padding-inline: var(--ld-primitive-scale-space-200);
+  border-top: 1px solid var(--ld-semantic-color-separator, #e3e4e5);
+  background: var(--ld-semantic-color-background-subtle, #f2f3f3);
+}
+
+.ld-wcp-maintenance-health-card-footer-status {
+  font-size: 13px;
+  font-weight: var(--ld-primitive-font-weight-600);
+}
+
+.ld-wcp-maintenance-health-card-footer-status--action {
+  color: var(--ld-semantic-color-text-negative, #dc2626);
+}
+
+.ld-wcp-maintenance-health-card-footer-status--ok {
+  color: var(--ld-semantic-color-text-positive, #16a34a);
+}
+
+.ld-wcp-maintenance-health-card-footer-actions {
+  display: flex;
+  gap: var(--ld-primitive-scale-space-100);
+}

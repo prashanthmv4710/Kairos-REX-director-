@@ -1,0 +1,98 @@
+/* LD Portable – Suggestion Text Link */
+
+/* A text-only chat suggestion: a label with an optional leading icon.
+   Two size treatments (small / medium) and two color treatments (default /
+   white). Underline appears on hover, focus, and press; disabled dims
+   the text. */
+
+.ld-suggestiontextlink {
+  /* Reset */
+  appearance: none;
+  background: transparent;
+  border: 0;
+  padding: var(--ld-primitive-scale-space-50, 0.25rem) 0;
+  margin: 0;
+
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-100, 0.5rem);
+  color: var(--ld-suggestiontextlink-text);
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+/* ── Size variants ────────────────────────────────────────────────── */
+.ld-suggestiontextlink--size-small .ld-suggestiontextlink-label {
+  font-family: var(--ld-semantic-font-body-small-family, 'Everyday_Sans_UI:Regular');
+  font-size: var(--ld-semantic-font-body-small-size, 0.875rem);
+  font-weight: var(--ld-semantic-font-body-small-weight-default, 400);
+  line-height: var(--ld-semantic-font-body-small-line-height, 1.25rem);
+}
+
+.ld-suggestiontextlink--size-medium .ld-suggestiontextlink-label {
+  font-family: var(--ld-semantic-font-body-medium-family, 'Everyday_Sans_UI:Regular');
+  font-size: var(--ld-semantic-font-body-medium-size, 1rem);
+  font-weight: var(--ld-semantic-font-body-medium-weight-default, 400);
+  line-height: var(--ld-semantic-font-body-medium-line-height, 1.5rem);
+}
+
+/* ── Color treatments ─────────────────────────────────────────────── */
+/* Default — dark link text for light backgrounds. */
+.ld-suggestiontextlink--color-default {
+  --ld-suggestiontextlink-text: var(--ld-semantic-color-link-text, #2e2f32);
+  --ld-suggestiontextlink-text-hovered: var(--ld-semantic-color-link-text-hovered, #2e2f32);
+  --ld-suggestiontextlink-text-focused: var(--ld-semantic-color-link-text-focused, #2e2f32);
+  --ld-suggestiontextlink-text-pressed: var(--ld-semantic-color-link-text-pressed, #171819);
+  --ld-suggestiontextlink-text-disabled: var(--ld-semantic-color-link-text-disabled, #babbbe);
+}
+
+/* White — white text for dark / brand-filled backgrounds. */
+.ld-suggestiontextlink--color-white {
+  --ld-suggestiontextlink-text: var(--ld-semantic-color-link-text-accent-white, #ffffff);
+  --ld-suggestiontextlink-text-hovered: var(--ld-semantic-color-link-text-accent-white-hovered, #ffffff);
+  --ld-suggestiontextlink-text-focused: var(--ld-semantic-color-link-text-accent-white-focused, #ffffff);
+  --ld-suggestiontextlink-text-pressed: var(--ld-semantic-color-link-text-accent-white-pressed, #e3e4e5);
+  --ld-suggestiontextlink-text-disabled: var(--ld-semantic-color-link-text-accent-white-disabled, #babbbe);
+}
+
+/* ── Interaction states ──────────────────────────────────────────── */
+.ld-suggestiontextlink:hover:not(:disabled) {
+  color: var(--ld-suggestiontextlink-text-hovered);
+}
+
+.ld-suggestiontextlink:hover:not(:disabled) .ld-suggestiontextlink-label,
+.ld-suggestiontextlink:focus-visible .ld-suggestiontextlink-label,
+.ld-suggestiontextlink:active:not(:disabled) .ld-suggestiontextlink-label {
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  text-underline-position: from-font;
+}
+
+.ld-suggestiontextlink:focus-visible {
+  color: var(--ld-suggestiontextlink-text-focused);
+  outline: var(--ld-semantic-border-width-medium, 0.125rem) solid var(--ld-semantic-color-border-activated, #0053e2);
+  outline-offset: 0.125rem;
+  border-radius: var(--ld-primitive-scale-borderRadius-25, 0.125rem);
+}
+
+.ld-suggestiontextlink:active:not(:disabled) {
+  color: var(--ld-suggestiontextlink-text-pressed);
+}
+
+/* ── Disabled ────────────────────────────────────────────────────── */
+.ld-suggestiontextlink:disabled {
+  cursor: default;
+  color: var(--ld-suggestiontextlink-text-disabled);
+}
+
+/* ── Leading icon ────────────────────────────────────────────────── */
+.ld-suggestiontextlink-icon {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--ld-semantic-scale-icon-small, 1rem);
+  height: var(--ld-semantic-scale-icon-small, 1rem);
+  color: inherit;
+}

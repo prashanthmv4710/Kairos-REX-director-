@@ -1,0 +1,498 @@
+/* LD Portable – DataTable */
+/* DataTable */
+.ld-datatable-dataTable {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/* DataTableBulkActions */
+.ld-datatable-datatablebulkactions-dataTableBulkActions {
+  align-items: center;
+  background: var(--ld-semantic-color-surface-activated, #f0f5ff);
+  border-radius: var(--ld-semantic-border-radius-medium);
+  box-shadow: inset 0 0 0 0.0625rem var(--ld-semantic-color-fill-activated, #0053e2), var(--ld-semantic-elevation-200);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-200);
+  justify-content: center;
+  padding: var(--ld-primitive-scale-space-200);
+}
+@media screen and (min-width: 37.5rem) {
+  .ld-datatable-datatablebulkactions-dataTableBulkActions {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.ld-datatable-datatablebulkactions-content {
+  align-items: center;
+  display: flex;
+}
+
+.ld-datatable-datatablebulkactions-icon {
+  color: var(--ld-semantic-color-fill-activated-hovered, #114ab6);
+  flex-shrink: 0;
+  margin-right: 0.75rem;
+}
+
+.ld-datatable-datatablebulkactions-textLabel {
+  color: var(--ld-semantic-color-fill-activated-hovered, #114ab6);
+  margin-right: 1rem;
+}
+
+.ld-datatable-datatablebulkactions-selectActionsContainer {
+  display: flex;
+  padding-inline: 1rem;
+  gap: var(--ld-primitive-scale-space-400);
+}
+
+.ld-datatable-datatablebulkactions-actionContent {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+}
+@media screen and (min-width: 37.5rem) {
+  .ld-datatable-datatablebulkactions-actionContent {
+    justify-content: end;
+  }
+}
+
+/* DataTableCell */
+.ld-datatable-datatablecell-dataTableCell {
+  color: var(--ld-semantic-color-text, #2e2f32);
+  font-size: var(--ld-semantic-font-body-medium-size);
+  font-weight: var(--ld-primitive-font-weight-400);
+  line-height: var(--ld-semantic-font-body-medium-line-height);
+  padding: var(--ld-primitive-scale-space-200);
+}
+
+.ld-datatable-datatablecell-alphanumeric {
+  text-align: left;
+}
+
+.ld-datatable-datatablecell-numeric {
+  font-family: EverydaySansMono, 'Courier New', 'monospace';
+  text-align: right;
+}
+
+/* DataTableCellActions */
+.ld-datatable-datatablecellactions-dataTableCellActions {
+  padding-block: var(--ld-primitive-scale-space-150);
+  padding-inline: var(--ld-primitive-scale-space-200);
+}
+
+.ld-datatable-datatablecellactions-content {
+  display: flex;
+  gap: var(--ld-primitive-scale-space-50);
+  justify-content: flex-end;
+}
+
+/* DataTableCellBulkEditTextArea */
+.ld-datatable-datatablecellbulkedittextarea-cell {
+  color: var(--ld-semantic-color-text, #2e2f32);
+  font-size: var(--ld-semantic-font-body-medium-size);
+  font-weight: var(--ld-primitive-font-weight-400);
+  line-height: var(--ld-semantic-font-body-medium-line-height);
+  box-shadow: inset 0 0 0 0.0625rem var(--ld-semantic-color-field-border, #909196);
+  padding: 0;
+  position: relative;
+  vertical-align: bottom;
+}
+.ld-datatable-datatablecellbulkedittextarea-cell.ld-datatable-datatablecellbulkedittextarea-isEdited {
+  background: var(--ld-semantic-color-fill-edited-subtle, #efebf2);
+}
+.ld-datatable-datatablecellbulkedittextarea-cell.ld-datatable-datatablecellbulkedittextarea-hasError {
+  background: var(--ld-semantic-color-fill-negative-subtle, #fde9e8);
+}
+.ld-datatable-datatablecellbulkedittextarea-cell:hover, .ld-datatable-datatablecellbulkedittextarea-cell.hover {
+  box-shadow: inset 0 0 0 0.125rem var(--ld-semantic-color-field-border-focused, #2e2f32);
+}
+.ld-datatable-datatablecellbulkedittextarea-cell:focus-within, .ld-datatable-datatablecellbulkedittextarea-cell.focus {
+  box-shadow: inset 0 0 0 0.125rem var(--ld-semantic-color-field-border-focused, #2e2f32);
+}
+
+.ld-datatable-datatablecellbulkedittextarea-alphanumeric {
+  text-align: left;
+}
+
+.ld-datatable-datatablecellbulkedittextarea-numeric {
+  font-family: EverydaySansMono, 'Courier New', 'monospace';
+  text-align: right;
+}
+
+/* DataTableCellBulkEditTextAreaHelperText */
+.ld-datatable-datatablecellbulkedittextareahelpertext-helperText {
+  display: flex;
+  gap: var(--ld-primitive-scale-space-50);
+  margin: 0 1rem 1rem;
+  text-align: left;
+}
+.ld-datatable-datatablecellbulkedittextareahelpertext-helperText.ld-datatable-datatablecellbulkedittextareahelpertext-isEdited {
+  color: var(--ld-semantic-color-text-edited-bold, #452358);
+}
+.ld-datatable-datatablecellbulkedittextareahelpertext-helperText.ld-datatable-datatablecellbulkedittextareahelpertext-hasError {
+  color: var(--ld-semantic-color-text-negative-bold, #a20c00);
+}
+
+.ld-datatable-datatablecellbulkedittextareahelpertext-icon {
+  color: var(--ld-semantic-color-text-negative-bold, #a20c00);
+  flex-shrink: 0;
+}
+
+/* DataTableCellBulkEditTextAreaTextArea */
+.ld-datatable-datatablecellbulkedittextareatextarea-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-100);
+  justify-content: flex-end;
+}
+
+.ld-datatable-datatablecellbulkedittextareatextarea-textarea {
+  font-size: var(--ld-semantic-font-body-medium-size);
+  font-weight: var(--ld-primitive-font-weight-400);
+  line-height: var(--ld-semantic-font-body-medium-line-height);
+  background: inherit;
+  border: 0;
+  box-sizing: border-box;
+  display: block;
+  height: 100%;
+  overflow: hidden;
+  padding: var(--ld-primitive-scale-space-200);
+  resize: none;
+  text-align: inherit;
+  width: 100%;
+}
+.ld-datatable-datatablecellbulkedittextareatextarea-hasHelperText .ld-datatable-datatablecellbulkedittextareatextarea-textarea {
+  padding-bottom: 0;
+}
+
+/* DataTableCellInlineEditTextArea */
+.ld-datatable-datatablecellinlineedittextarea-cell {
+  line-height: 1;
+  padding: 0;
+  position: relative;
+}
+
+.ld-datatable-datatablecellinlineedittextarea-container {
+  background: transparent;
+  border: 0;
+  box-shadow: inset 0 0 0 0 var(--ld-semantic-color-field-border, #909196);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  vertical-align: bottom;
+  width: 100%;
+}
+.ld-datatable-datatablecellinlineedittextarea-container:hover, .hover .ld-datatable-datatablecellinlineedittextarea-container {
+  box-shadow: inset 0 0 0 0.125rem var(--ld-semantic-color-field-border-focused, #2e2f32);
+}
+.ld-datatable-datatablecellinlineedittextarea-container:focus, .focus .ld-datatable-datatablecellinlineedittextarea-container {
+  box-shadow: inset 0 0 0 0.125rem var(--ld-semantic-color-field-border-focused, #2e2f32);
+}
+.ld-datatable-datatablecellinlineedittextarea-container:active, .active .ld-datatable-datatablecellinlineedittextarea-container {
+  box-shadow: inset 0 0 0 0.125rem var(--ld-semantic-color-field-border-focused, #2e2f32);
+}
+.ld-datatable-datatablecellinlineedittextarea-hasError .ld-datatable-datatablecellinlineedittextarea-container {
+  background: var(--ld-semantic-color-fill-negative-subtle, #fde9e8);
+}
+
+.ld-datatable-datatablecellinlineedittextarea-containerContent {
+  align-items: center;
+  display: flex;
+  gap: var(--ld-primitive-scale-space-100);
+  justify-content: flex-start;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+}
+.ld-datatable-datatablecellinlineedittextarea-alphanumeric .ld-datatable-datatablecellinlineedittextarea-containerContent {
+  flex-direction: row;
+  padding-left: 1rem;
+  padding-right: 0.5rem;
+}
+.ld-datatable-datatablecellinlineedittextarea-numeric .ld-datatable-datatablecellinlineedittextarea-containerContent {
+  flex-direction: row-reverse;
+  padding-left: 0.5rem;
+  padding-right: 1rem;
+}
+.ld-datatable-datatablecellinlineedittextarea-hasError .ld-datatable-datatablecellinlineedittextarea-containerContent {
+  padding-bottom: 0.5rem;
+}
+
+.ld-datatable-datatablecellinlineedittextarea-textLabel {
+  font-size: var(--ld-semantic-font-body-medium-size);
+  font-weight: var(--ld-primitive-font-weight-400);
+  line-height: var(--ld-semantic-font-body-medium-line-height);
+  color: var(--ld-semantic-color-text, #2e2f32);
+  display: block;
+  flex: 1 1;
+}
+.ld-datatable-datatablecellinlineedittextarea-alphanumeric .ld-datatable-datatablecellinlineedittextarea-textLabel {
+  text-align: left;
+}
+.ld-datatable-datatablecellinlineedittextarea-numeric .ld-datatable-datatablecellinlineedittextarea-textLabel {
+  font-family: EverydaySansMono, 'Courier New', 'monospace';
+  text-align: right;
+}
+
+.ld-datatable-datatablecellinlineedittextarea-indicator {
+  align-items: flex-start;
+  display: flex;
+  gap: var(--ld-primitive-scale-space-100);
+  justify-content: flex-start;
+  visibility: hidden;
+}
+.ld-datatable-datatablecellinlineedittextarea-container:hover .ld-datatable-datatablecellinlineedittextarea-indicator, .hover .ld-datatable-datatablecellinlineedittextarea-indicator {
+  visibility: visible;
+}
+.ld-datatable-datatablecellinlineedittextarea-container:focus .ld-datatable-datatablecellinlineedittextarea-indicator, .focus .ld-datatable-datatablecellinlineedittextarea-indicator {
+  visibility: visible;
+}
+.ld-datatable-datatablecellinlineedittextarea-container:active .ld-datatable-datatablecellinlineedittextarea-indicator, .active .ld-datatable-datatablecellinlineedittextarea-indicator {
+  visibility: visible;
+}
+.ld-datatable-datatablecellinlineedittextarea-alphanumeric .ld-datatable-datatablecellinlineedittextarea-indicator {
+  flex-direction: row;
+}
+.ld-datatable-datatablecellinlineedittextarea-numeric .ld-datatable-datatablecellinlineedittextarea-indicator {
+  flex-direction: row-reverse;
+}
+
+.ld-datatable-datatablecellinlineedittextarea-indicatorEditIcon {
+  color: var(--ld-semantic-color-text-subtle, #515357);
+}
+
+.ld-datatable-datatablecellinlineedittextarea-indicatorSaveIcon {
+  color: var(--ld-semantic-color-text-positive, #2a8703);
+}
+
+.ld-datatable-datatablecellinlineedittextarea-helperText {
+  font-size: var(--ld-semantic-font-caption-size);
+  font-weight: var(--ld-primitive-font-weight-400);
+  line-height: var(--ld-semantic-font-caption-line-height);
+  color: var(--ld-semantic-color-text-negative-bold, #a20c00);
+  display: flex;
+  gap: var(--ld-primitive-scale-space-50);
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-block-start: var(--ld-primitive-scale-space-50);
+  padding-block-end: var(--ld-primitive-scale-space-100);
+  padding-inline-end: var(--ld-primitive-scale-space-50);
+  padding-inline-start: var(--ld-primitive-scale-space-100);
+}
+
+.ld-datatable-datatablecellinlineedittextarea-helperTextIcon {
+  color: var(--ld-semantic-color-text-negative-bold, #a20c00);
+  flex: none;
+}
+
+/* DataTableCellInlineEditTextAreaDialog */
+.ld-datatable-datatablecellinlineedittextareadialog-dialog {
+  background: var(--ld-semantic-color-surface, #ffffff);
+  border-radius: var(--ld-semantic-border-radius-medium);
+  box-shadow: var(--ld-semantic-elevation-200);
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-100);
+  left: 0;
+  padding-block-start: var(--ld-primitive-scale-space-50);
+  padding-block-end: var(--ld-primitive-scale-space-100);
+  padding-inline: var(--ld-primitive-scale-space-50);
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.ld-datatable-datatablecellinlineedittextareadialog-actionContent {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: var(--ld-primitive-scale-space-300);
+  justify-content: flex-end;
+}
+
+/* DataTableCellInlineEditTextAreaDialogTextArea */
+.ld-datatable-datatablecellinlineedittextareadialogtextarea-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.ld-datatable-datatablecellinlineedittextareadialogtextarea-textarea {
+  font-size: var(--ld-semantic-font-body-medium-size);
+  font-weight: var(--ld-primitive-font-weight-400);
+  line-height: var(--ld-semantic-font-body-medium-line-height);
+  background: var(--ld-semantic-color-surface, #ffffff);
+  border: 0;
+  border-radius: var(--ld-semantic-border-radius-medium);
+  box-shadow: inset 0 0 0 0.0625rem var(--ld-semantic-color-field-border, #909196);
+  color: var(--ld-semantic-color-text, #2e2f32);
+  padding-bottom: 0.75rem;
+  padding-top: 0.75rem;
+  resize: none;
+  width: 100%;
+}
+.ld-datatable-datatablecellinlineedittextareadialogtextarea-textarea:hover, .hover .ld-datatable-datatablecellinlineedittextareadialogtextarea-textarea {
+  background: var(--ld-semantic-color-surface, #ffffff);
+  box-shadow: inset 0 0 0 0.125rem var(--ld-semantic-color-field-border-focused, #2e2f32);
+}
+.ld-datatable-datatablecellinlineedittextareadialogtextarea-textarea:focus, .focus .ld-datatable-datatablecellinlineedittextareadialogtextarea-textarea {
+  background: var(--ld-semantic-color-surface, #ffffff);
+  box-shadow: inset 0 0 0 0.125rem var(--ld-semantic-color-field-border-focused, #2e2f32);
+}
+.ld-datatable-datatablecellinlineedittextareadialogtextarea-hasError .ld-datatable-datatablecellinlineedittextareadialogtextarea-textarea {
+  background: var(--ld-semantic-color-surface, #ffffff);
+  box-shadow: inset 0 0 0 0.0625rem var(--ld-semantic-color-field-border-negative, #ea1100);
+}
+.ld-datatable-datatablecellinlineedittextareadialogtextarea-hasError .ld-datatable-datatablecellinlineedittextareadialogtextarea-textarea:hover, .hover.ld-datatable-datatablecellinlineedittextareadialogtextarea-hasError .ld-datatable-datatablecellinlineedittextareadialogtextarea-textarea {
+  background: var(--ld-semantic-color-surface, #ffffff);
+  box-shadow: inset 0 0 0 0.125rem var(--ld-semantic-color-field-border-negative, #ea1100);
+}
+.ld-datatable-datatablecellinlineedittextareadialogtextarea-hasError .ld-datatable-datatablecellinlineedittextareadialogtextarea-textarea:focus, .focus.ld-datatable-datatablecellinlineedittextareadialogtextarea-hasError .ld-datatable-datatablecellinlineedittextareadialogtextarea-textarea {
+  background: var(--ld-semantic-color-surface, #ffffff);
+  box-shadow: inset 0 0 0 0.125rem var(--ld-semantic-color-field-border-negative, #ea1100);
+}
+.ld-datatable-datatablecellinlineedittextareadialogtextarea-alphanumeric .ld-datatable-datatablecellinlineedittextareadialogtextarea-textarea {
+  padding-left: 0.75rem;
+  padding-right: 3.25rem;
+  text-align: left;
+}
+.ld-datatable-datatablecellinlineedittextareadialogtextarea-numeric .ld-datatable-datatablecellinlineedittextareadialogtextarea-textarea {
+  font-family: EverydaySansMono, 'Courier New', 'monospace';
+  padding-left: 3.25rem;
+  padding-right: 0.75rem;
+  text-align: right;
+}
+
+.ld-datatable-datatablecellinlineedittextareadialogtextarea-helperText {
+  padding-block-start: var(--ld-primitive-scale-space-100);
+  padding-block-end: 0;
+  padding-inline-end: var(--ld-primitive-scale-space-50);
+  padding-inline-start: var(--ld-primitive-scale-space-100);
+}
+
+/* DataTableCellSelect */
+.ld-datatable-datatablecellselect-cellSelect {
+  box-sizing: border-box;
+  padding: var(--ld-primitive-scale-space-200);
+  vertical-align: top;
+  width: 3.25rem;
+}
+
+/* DataTableCellStatus */
+.ld-datatable-datatablecellstatus-dataTableCellStatus {
+  padding: var(--ld-primitive-scale-space-200);
+}
+
+/* DataTableHeader */
+.ld-datatable-datatableheader-tableHeader {
+  background: var(--ld-semantic-color-surface-subtle, #f8f8f8);
+  line-height: 1;
+  padding: 0;
+}
+
+.ld-datatable-datatableheader-dataTableHeader {
+  color: var(--ld-semantic-color-text, #2e2f32);
+  font-size: var(--ld-semantic-font-body-medium-size);
+  font-weight: var(--ld-primitive-font-weight-700);
+  line-height: var(--ld-semantic-font-body-medium-line-height);
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  padding: var(--ld-primitive-scale-space-200);
+  width: 100%;
+}
+.ld-datatable-datatableheader-left .ld-datatable-datatableheader-dataTableHeader {
+  justify-content: flex-start;
+  text-align: left;
+}
+.ld-datatable-datatableheader-right .ld-datatable-datatableheader-dataTableHeader {
+  justify-content: flex-end;
+  text-align: right;
+}
+
+/* DataTableHeaderButton */
+.ld-datatable-datatableheaderbutton-button {
+  color: var(--ld-semantic-color-text, #2e2f32);
+  font-size: var(--ld-semantic-font-body-medium-size);
+  font-weight: var(--ld-primitive-font-weight-700);
+  line-height: var(--ld-semantic-font-body-medium-line-height);
+  align-items: center;
+  background: var(--ld-semantic-color-surface-subtle, #f8f8f8);
+  border: 0;
+  cursor: pointer;
+  display: flex;
+  margin: 0;
+  padding: var(--ld-primitive-scale-space-200);
+}
+.ld-datatable-datatableheaderbutton-button:hover, .hover .ld-datatable-datatableheaderbutton-button {
+  background: var(--ld-semantic-color-surface-hovered, #f1f1f2);
+}
+.ld-datatable-datatableheaderbutton-button:hover .ld-datatable-datatableheaderbutton-icon, .hover .ld-datatable-datatableheaderbutton-button .ld-datatable-datatableheaderbutton-icon {
+  visibility: visible;
+}
+.ld-datatable-datatableheaderbutton-button:focus, .focus .ld-datatable-datatableheaderbutton-button {
+  background: var(--ld-semantic-color-surface-hovered, #f1f1f2);
+}
+.ld-datatable-datatableheaderbutton-button:focus .ld-datatable-datatableheaderbutton-icon, .focus .ld-datatable-datatableheaderbutton-button .ld-datatable-datatableheaderbutton-icon {
+  visibility: visible;
+}
+.ld-datatable-datatableheaderbutton-button:active, .active .ld-datatable-datatableheaderbutton-button {
+  background: var(--ld-semantic-color-separator, #e3e4e5);
+}
+.ld-datatable-datatableheaderbutton-button.ld-datatable-datatableheaderbutton-left {
+  justify-content: flex-start;
+  text-align: left;
+}
+.ld-datatable-datatableheaderbutton-button.ld-datatable-datatableheaderbutton-right {
+  justify-content: flex-end;
+  text-align: right;
+}
+.ld-datatable-datatableheaderbutton-button.ld-datatable-datatableheaderbutton-sorted .ld-datatable-datatableheaderbutton-icon {
+  color: var(--ld-semantic-color-text, #2e2f32);
+  visibility: visible;
+}
+
+.ld-datatable-datatableheaderbutton-icon {
+  color: var(--ld-semantic-color-text-subtle, #515357);
+  flex: none;
+  visibility: hidden;
+}
+.ld-datatable-datatableheaderbutton-left .ld-datatable-datatableheaderbutton-icon {
+  margin-left: 0.25rem;
+}
+.ld-datatable-datatableheaderbutton-right .ld-datatable-datatableheaderbutton-icon {
+  margin-right: 0.25rem;
+}
+
+/* DataTableHeaderSelect */
+.ld-datatable-datatableheaderselect-headerSelect {
+  background: var(--ld-semantic-color-surface-subtle, #f8f8f8);
+  box-sizing: border-box;
+  padding: var(--ld-primitive-scale-space-200);
+  width: 3.25rem;
+}
+
+.ld-datatable-datatableheaderselect-checkbox {
+  vertical-align: middle;
+}
+
+/* DataTableRow */
+.ld-datatable-datatablerow-dataTableRow {
+  background: var(--ld-semantic-color-surface, #ffffff);
+  border-bottom: var(--ld-semantic-color-separator, #e3e4e5) solid 0.0625rem;
+}
+.ld-datatable-datatablerow-dataTableRow.hover, .ld-datatable-datatablerow-dataTableRow:hover {
+  background: var(--ld-semantic-color-surface-hovered, #f1f1f2);
+}
+
+.ld-datatable-datatablerow-selected {
+  background: var(--ld-semantic-color-surface-activated, #f0f5ff);
+}
+.ld-datatable-datatablerow-selected.hover, .ld-datatable-datatablerow-selected:hover {
+  background: var(--ld-semantic-color-surface-activated, #e9f1fe);
+}

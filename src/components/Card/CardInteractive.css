@@ -1,0 +1,252 @@
+/* LD Portable – CardInteractive */
+/* Class prefix: ld-interactivecard-* */
+
+/* ── Root ────────────────────────────────────────────────────────────────────
+  The card surface is a <div role="button"> for one card-level action. The root
+  provides layout, border-radius, transitions, and the interactive state fills
+  shared by all four variant styles. */
+
+.ld-interactivecard-root {
+  align-self: flex-start;
+  appearance: none;
+  border-radius: var(--ld-semantic-border-radius-large);
+  box-sizing: border-box;
+  color: var(--ld-semantic-color-text, #2e2f32);
+  cursor: pointer;
+  display: flex;
+  font-family: inherit;
+  overflow: hidden;
+  position: relative;
+  text-align: left;
+  transition:
+    background 0.1s cubic-bezier(0.77, 0, 0.175, 1),
+    border-color 0.1s cubic-bezier(0.77, 0, 0.175, 1),
+    box-shadow 0.1s cubic-bezier(0.77, 0, 0.175, 1);
+  width: 100%;
+  /* Remove default button/link outlines — focus ring is applied explicitly */
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+/* ── Layout axis ─────────────────────────────────────────────────────────────
+   default  → flex column (header stacked above content)
+   inline   → flex row (header + content side-by-side, baseline-aligned) */
+
+.ld-interactivecard-layout-default {
+  flex-direction: column;
+}
+
+.ld-interactivecard-layout-inline {
+  flex-direction: row;
+  align-items: center;
+}
+
+/* ── Interactive states ──────────────────────────────────────────────────────
+   Shared across all four variant styles. Each variant adds its own base
+   background/border but inherits these state overrides. */
+
+.ld-interactivecard-root:hover:not(.ld-interactivecard-disabled):not(.ld-interactivecard-multi-action) {
+  background: var(--ld-semantic-color-surface-hovered, #f1f1f2);
+}
+
+.ld-interactivecard-root:focus-visible:not(.ld-interactivecard-multi-action) {
+  outline: 0.125rem solid var(--ld-semantic-color-border-activated, #0053e2);
+  outline-offset: 0.125rem;
+  background: var(--ld-semantic-color-surface-focused, #f1f1f2);
+}
+
+.ld-interactivecard-root:active:not(.ld-interactivecard-disabled):not(.ld-interactivecard-multi-action) {
+  background: var(--ld-semantic-color-surface-pressed, #e3e4e5);
+}
+
+.ld-interactivecard-disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.ld-interactivecard-multi-action {
+  cursor: default;
+}
+
+/* ── Activated state ─────────────────────────────────────────────────────────
+   Blue border + tinted background. Double-class specificity beats variant rules. */
+
+.ld-interactivecard-root.ld-interactivecard-activated:not(.ld-interactivecard-multi-action) {
+  background: var(--ld-semantic-color-surface-activated, #f0f5ff);
+  border-color: var(--ld-semantic-color-border-activated, #0053e2);
+}
+
+.ld-interactivecard-root.ld-interactivecard-activated:hover:not(.ld-interactivecard-disabled):not(.ld-interactivecard-multi-action) {
+  background: var(--ld-semantic-color-surface-activated-hovered, #e9f1fe);
+}
+
+.ld-interactivecard-root.ld-interactivecard-activated:active:not(.ld-interactivecard-disabled):not(.ld-interactivecard-multi-action) {
+  background: var(--ld-semantic-color-surface-activated-pressed, #c9dcfd);
+}
+
+.ld-interactivecard-root.ld-interactivecard-activated:focus-visible:not(.ld-interactivecard-multi-action) {
+  background: var(--ld-semantic-color-surface-activated-focused, #e9f1fe);
+}
+
+/* ── Read-only state ─────────────────────────────────────────────────────────
+   Display-only: no pointer, no interactive fills, full opacity. */
+
+.ld-interactivecard-root.ld-interactivecard-readonly {
+  cursor: default;
+}
+
+.ld-interactivecard-root.ld-interactivecard-readonly:hover,
+.ld-interactivecard-root.ld-interactivecard-readonly:active,
+.ld-interactivecard-root.ld-interactivecard-readonly:focus-visible {
+  background: inherit;
+  border-color: inherit;
+  box-shadow: inherit;
+  outline: none;
+}
+
+/* ── Variant: elevated ───────────────────────────────────────────────────────
+   White surface with a resting box-shadow; shadow deepens on hover. */
+
+.ld-interactivecard-elevated {
+  background: var(--ld-semantic-color-surface, #ffffff);
+  border: 0.0625rem solid transparent;
+  box-shadow:
+    0 0.0625rem 0.125rem 0.0625rem rgba(0, 0, 0, 0.149),
+    0 -0.0625rem 0.125rem 0 rgba(0, 0, 0, 0.102);
+}
+
+.ld-interactivecard-elevated:hover:not(.ld-interactivecard-disabled) {
+  box-shadow:
+    0 0.125rem 0.5rem 0 rgba(0, 0, 0, 0.15),
+    0 -0.0625rem 0.125rem 0 rgba(0, 0, 0, 0.06);
+}
+
+/* ── Variant: outlined ───────────────────────────────────────────────────────
+   White surface with a 1 px border; no shadow. */
+
+.ld-interactivecard-outlined {
+  background: var(--ld-semantic-color-surface, #ffffff);
+  border: 0.0625rem solid var(--ld-semantic-color-separator, #e3e4e5);
+  box-shadow: none;
+}
+
+/* ── Variant: border ─────────────────────────────────────────────────────────
+   Transparent fill, 1 px border, no shadow. */
+
+.ld-interactivecard-border {
+  background: transparent;
+  border: 0.0625rem solid var(--ld-semantic-color-separator, #e3e4e5);
+  box-shadow: none;
+}
+
+/* ── Variant: frameless ──────────────────────────────────────────────────────
+   Transparent fill, invisible 1 px border (keeps layout stable for
+   hover/focus states that introduce a visible border or outline). */
+
+.ld-interactivecard-frameless {
+  background: transparent;
+  border: 0.0625rem solid transparent;
+  box-shadow: none;
+}
+
+/* ── Header ──────────────────────────────────────────────────────────────────
+  Flex row: [leading?] [title →] [trailing?]
+   Padding is driven by the size modifier class. */
+
+.ld-interactivecard-header {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-shrink: 0;
+  gap: var(--ld-primitive-scale-space-100);
+  text-align: left;
+  width: 100%;
+}
+
+/* Flatten the header in inline layout so its title and trailing adornment become
+   peers of the content in the root flex row. This allows trailing content to
+   render after the content cell and align to the far edge. */
+.ld-interactivecard-header-inline {
+  display: contents;
+}
+
+.ld-interactivecard-header-leading {
+  align-items: center;
+  color: inherit;
+  display: flex;
+  flex-shrink: 0;
+  line-height: 0;
+}
+
+.ld-interactivecard-header-title {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.ld-interactivecard-layout-inline .ld-interactivecard-header-title {
+  flex: 0 1 auto;
+  overflow: hidden;
+  order: 1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ld-interactivecard-header-trailing {
+  align-items: center;
+  display: inline-flex;
+  flex-shrink: 0;
+  margin-left: 0.5rem;
+}
+
+/* In inline layout, the flattened trailing element sits after the content cell.
+  Auto left margin pins it to the far right of the root flex row. */
+.ld-interactivecard-layout-inline .ld-interactivecard-header-trailing {
+  margin-left: auto;
+  order: 99;
+}
+
+/* ── Content ─────────────────────────────────────────────────────────────────
+   Free-form slot — media, body text, images, etc.
+   In default layout it stacks below the header in a column.
+   In inline layout it sits beside the header on the same row. */
+
+.ld-interactivecard-content {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.ld-interactivecard-content-inline {
+  flex: 1 1 auto;
+  align-self: center;
+  overflow: hidden;
+  order: 2;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ── Size modifiers (padding + gap) ──────────────────────────────────────────
+   Padding lives on the root so header title and content body share the exact
+   same left/right edge. Gap provides vertical (default) or horizontal (inline)
+   spacing between the header and content children.
+   small  = 4 px   (--ld-primitive-scale-space-50)
+   medium = 8 px   (--ld-primitive-scale-space-100)
+   large  = 16 px  (--ld-primitive-scale-space-200) */
+
+.ld-interactivecard-root.ld-interactivecard-size-small {
+  gap: var(--ld-primitive-scale-space-50, 0.25rem);
+  padding: var(--ld-primitive-scale-space-50, 0.25rem);
+}
+
+.ld-interactivecard-root.ld-interactivecard-size-medium {
+  gap: var(--ld-primitive-scale-space-50, 0.25rem);
+  padding: var(--ld-primitive-scale-space-100, 0.5rem);
+}
+
+.ld-interactivecard-root.ld-interactivecard-size-large {
+  gap: var(--ld-primitive-scale-space-100, 0.5rem);
+  padding: var(--ld-primitive-scale-space-200, 1rem);
+}

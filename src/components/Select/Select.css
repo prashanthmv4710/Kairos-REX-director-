@@ -1,0 +1,122 @@
+/* LD Portable – Select */
+/* Select */
+.ld-select-root {
+  width: 100%;
+}
+
+.ld-select-label {
+  margin-bottom: 0.25rem;
+}
+
+.ld-select-container {
+  background: var(--ld-semantic-color-field-fill, #ffffff);
+  border-radius: var(--ld-semantic-border-radius-medium);
+  box-shadow: inset 0 0 0 0.0625rem var(--ld-semantic-color-field-border, #909196);
+  position: relative;
+}
+.ld-select-container:hover, .hover .ld-select-container {
+  background: var(--ld-semantic-color-field-fill-hovered, #ffffff);
+  box-shadow: inset 0 0 0 0.125rem var(--ld-semantic-color-field-border-hovered, #2e2f32);
+}
+.ld-select-container:focus-within, .focus .ld-select-container {
+  background: var(--ld-semantic-color-field-fill-focused, #ffffff);
+  box-shadow: inset 0 0 0 0.125rem var(--ld-semantic-color-field-border-focused, #2e2f32);
+}
+.ld-select-disabled .ld-select-container {
+  background: var(--ld-semantic-color-field-fill-disabled, #ffffff);
+  box-shadow: inset 0 0 0 0.0625rem var(--ld-semantic-color-field-border-disabled, #babbbe);
+}
+.ld-select-isMagic .ld-select-container {
+  box-shadow: inset 0 0 0 0.0625rem var(--ld-semantic-color-border-activated, #0053E2);
+}
+.ld-select-isMagic .ld-select-container:hover, .hover.ld-select-isMagic .ld-select-container {
+  box-shadow: inset 0 0 0 0.125rem var(--ld-semantic-color-border-activated, #0053E2);
+}
+.ld-select-isMagic .ld-select-container:focus-within, .focus.ld-select-isMagic .ld-select-container {
+  box-shadow: inset 0 0 0 0.125rem var(--ld-semantic-color-border-activated, #0053E2);
+}
+.ld-select-error .ld-select-container {
+  background: var(--ld-semantic-color-field-fill-negative, #ffffff);
+  box-shadow: inset 0 0 0 0.0625rem var(--ld-semantic-color-field-border-negative, #ea1100);
+}
+.ld-select-error .ld-select-container:hover, .hover.ld-select-error .ld-select-container {
+  box-shadow: inset 0 0 0 0.125rem var(--ld-semantic-color-field-border-negative-hovered, #ea1100);
+}
+.ld-select-error .ld-select-container:focus-within, .focus.ld-select-error .ld-select-container {
+  box-shadow: inset 0 0 0 0.125rem var(--ld-semantic-color-field-border-negative-focused, #ea1100);
+}
+.ld-select-error.ld-select-disabled .ld-select-container {
+  box-shadow: inset 0 0 0 0.0625rem var(--ld-semantic-color-field-border-negative-disabled, #babbbe);
+}
+.ld-select-isMagic.ld-select-disabled .ld-select-container {
+  box-shadow: inset 0 0 0 0.0625rem var(--ld-semantic-color-field-border-disabled, #babbbe);
+}
+
+.ld-select-value {
+
+  -webkit-appearance: none;
+  background: transparent;
+  border: 0;
+  box-sizing: border-box;
+  color: var(--ld-semantic-color-field-text-onFill, #2e2f32);
+  width: 100%;
+  outline: none;
+}
+.ld-select-disabled .ld-select-value {
+  color: var(--ld-semantic-color-field-text-onFill-disabled, #babbbe);
+}
+.ld-select-large .ld-select-value {
+  font-size: var(--ld-semantic-font-body-medium-size);
+  font-weight: var(--ld-semantic-font-body-medium-weight-default);
+  line-height: var(--ld-semantic-font-body-medium-line-height);
+  padding: 1rem 2.25rem 1rem 1rem;
+}
+.ld-select-hasLeadingIcon.ld-select-large .ld-select-value {
+  padding-left: 3.25rem;
+}
+.ld-select-small .ld-select-value {
+  font-size: var(--ld-semantic-font-body-small-size);
+  font-weight: var(--ld-semantic-font-body-small-weight-default);
+  line-height: var(--ld-semantic-font-body-small-line-height);
+  padding: 0.625rem 2.25rem 0.625rem 0.75rem;
+}
+.ld-select-hasLeadingIcon.ld-select-small .ld-select-value {
+  padding-left: 2.75rem;
+}
+
+.ld-select-icon {
+  color: var(--ld-semantic-color-field-text-onFill, #2e2f32);
+  pointer-events: none;
+  position: absolute;
+}
+.ld-select-disabled .ld-select-icon {
+  color: var(--ld-semantic-color-field-text-onFill-disabled, #babbbe);
+}
+
+.ld-select-leadingIcon {
+  color: var(--ld-semantic-color-field-text-subtle-onFill, #515357);
+}
+.ld-select-large .ld-select-leadingIcon {
+  left: 1rem;
+  top: 1rem;
+}
+.ld-select-small .ld-select-leadingIcon {
+  left: 0.75rem;
+  top: 0.5rem;
+}
+.ld-select-disabled .ld-select-leadingIcon {
+  color: var(--ld-semantic-color-field-text-onFill-disabled, #babbbe);
+}
+
+.ld-select-large .ld-select-trailingIcon {
+  right: 0.75rem;
+  top: 1rem;
+}
+.ld-select-small .ld-select-trailingIcon {
+  right: 0.75rem;
+  top: 0.5rem;
+}
+
+.ld-select-helperText {
+  margin-top: 0.25rem;
+}

@@ -1,0 +1,80 @@
+/* LD Portable – NewArrivalsCarousel */
+
+.ld-wcp-new-arrivals-carousel-root {
+  position: relative;
+  width: 100%;
+  height: 260px;
+  border-radius: var(--ld-semantic-border-radius-large);
+  overflow: hidden;
+  margin-top: 16px;
+  margin-bottom: 24px;
+}
+
+/* ---------- Background image ---------- */
+.ld-wcp-new-arrivals-carousel-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ---------- Text panel ---------- */
+.ld-wcp-new-arrivals-carousel-text-panel {
+  position: absolute;
+  top: 20px;
+  left: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-200);
+  max-width: 45%;
+  z-index: 2;
+}
+
+.ld-wcp-new-arrivals-carousel-eyebrow {
+  font-size: var(--ld-semantic-font-body-medium-size);
+  font-weight: var(--ld-primitive-font-weight-800);
+  color: var(--ld-primitive-color-blue-160);
+  line-height: 1.08;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ld-wcp-new-arrivals-carousel-headline {
+  font-size: 40px;
+  font-weight: var(--ld-primitive-font-weight-800);
+  color: var(--ld-primitive-color-blue-160);
+  line-height: 1;
+}
+
+.ld-wcp-new-arrivals-carousel-headline-part {
+  display: block;
+}
+
+/* ---------- Controls ---------- */
+.ld-wcp-new-arrivals-carousel-controls {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-100);
+  z-index: 3;
+}
+
+.ld-wcp-new-arrivals-carousel-control-btn {
+  background: var(--ld-semantic-color-surface);
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ld-semantic-color-text);
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+}

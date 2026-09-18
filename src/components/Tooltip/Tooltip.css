@@ -1,0 +1,36 @@
+/* LD Portable -- Tooltip */
+
+.ld-tooltip-tooltip {
+  position: fixed;
+  background: var(--ld-semantic-color-fill-inverse, #2e2f32);
+  border-radius: var(--ld-semantic-border-radius-medium);
+  color: var(--ld-semantic-color-text-inverse, #ffffff);
+  font-size: var(--ld-semantic-font-caption-size);
+  font-weight: var(--ld-primitive-font-weight-400);
+  line-height: var(--ld-semantic-font-caption-line-height);
+  max-width: 15rem;
+  padding: 0.375rem 0.5rem;
+  pointer-events: none;
+  z-index: 100;
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+/* Transition: fade in/out */
+.ld-tooltip-enter {
+  opacity: 0;
+}
+
+.ld-tooltip-enterActive {
+  opacity: 1;
+  transition: opacity 80ms ease-in;
+}
+
+.ld-tooltip-exit {
+  opacity: 1;
+}
+
+.ld-tooltip-exitActive {
+  opacity: 0;
+  transition: opacity 80ms ease-out;
+}

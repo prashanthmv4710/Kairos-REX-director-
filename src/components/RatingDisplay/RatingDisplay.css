@@ -1,0 +1,135 @@
+.ld-wcp-ratingdisplay-wrapper {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--ld-primitive-scale-space-100);
+}
+.ld-wcp-ratingdisplay-stars {
+  display: inline-flex;
+  align-items: center;
+}
+.ld-wcp-ratingdisplay-wrapperSmall .ld-wcp-ratingdisplay-stars { gap: 2px; }
+.ld-wcp-ratingdisplay-wrapperMedium .ld-wcp-ratingdisplay-stars { gap: 4px; }
+.ld-wcp-ratingdisplay-starFilled {
+  color: var(--ld-semantic-color-rating-fill);
+}
+.ld-wcp-ratingdisplay-starEmpty {
+  color: var(--ld-semantic-color-rating-border);
+}
+.ld-wcp-ratingdisplay-wrapperSmall .ld-wcp-ratingdisplay-starFilled,
+.ld-wcp-ratingdisplay-wrapperSmall .ld-wcp-ratingdisplay-starEmpty {
+  font-size: var(--ld-semantic-font-caption-size);
+}
+.ld-wcp-ratingdisplay-wrapperMedium .ld-wcp-ratingdisplay-starFilled,
+.ld-wcp-ratingdisplay-wrapperMedium .ld-wcp-ratingdisplay-starEmpty {
+  font-size: 1.25rem;
+}
+/* Inverse mode: filled stars stay white (full opacity) while empty stars
+   drop to ~40% so filled vs empty remains visually distinguishable on a
+   dark surface. Using the same token for both colors would render every
+   star identical, which is a contrast-discriminability a11y issue. */
+.ld-wcp-ratingdisplay-wrapperInverse .ld-wcp-ratingdisplay-starFilled {
+  color: var(--ld-semantic-color-text-inverse);
+}
+.ld-wcp-ratingdisplay-wrapperInverse .ld-wcp-ratingdisplay-starEmpty {
+  color: var(--ld-semantic-color-text-inverse);
+  opacity: 0.4;
+}
+.ld-wcp-ratingdisplay-content {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.ld-wcp-ratingdisplay-wrapperSmall .ld-wcp-ratingdisplay-content {
+  gap: var(--ld-primitive-scale-space-50);
+}
+.ld-wcp-ratingdisplay-wrapperMedium .ld-wcp-ratingdisplay-content {
+  gap: var(--ld-primitive-scale-space-100);
+}
+.ld-wcp-ratingdisplay-leftGroup {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-50);
+}
+.ld-wcp-ratingdisplay-count {
+  color: var(--ld-semantic-color-text-subtle);
+  text-align: center;
+  font-kerning: none;
+  font-feature-settings: 'liga' off;
+  font-weight: var(--ld-primitive-font-weight-400);
+}
+.ld-wcp-ratingdisplay-wrapperSmall .ld-wcp-ratingdisplay-count {
+  font-size: var(--ld-semantic-font-caption-size);
+  line-height: 1.333;
+}
+.ld-wcp-ratingdisplay-wrapperMedium .ld-wcp-ratingdisplay-count {
+  font-size: var(--ld-semantic-font-body-medium-size);
+  line-height: 1.5;
+}
+.ld-wcp-ratingdisplay-wrapperInverse .ld-wcp-ratingdisplay-count {
+  color: var(--ld-semantic-color-text-inverse);
+}
+.ld-wcp-ratingdisplay-link {
+  color: var(--ld-semantic-color-link-text);
+  font-kerning: none;
+  font-feature-settings: 'liga' off;
+  font-weight: var(--ld-primitive-font-weight-400);
+  text-decoration: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: auto;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+.ld-wcp-ratingdisplay-link:hover {
+  text-decoration: none;
+}
+.ld-wcp-ratingdisplay-wrapperSmall .ld-wcp-ratingdisplay-link {
+  font-size: var(--ld-semantic-font-caption-size);
+  line-height: 1.333;
+}
+.ld-wcp-ratingdisplay-wrapperMedium .ld-wcp-ratingdisplay-link {
+  font-size: var(--ld-semantic-font-body-medium-size);
+  line-height: 1.5;
+}
+.ld-wcp-ratingdisplay-wrapperInverse .ld-wcp-ratingdisplay-link {
+  color: var(--ld-semantic-color-link-text-accent-white);
+}
+.ld-wcp-ratingdisplay-pipe {
+  color: var(--ld-semantic-color-text-subtlest);
+  font-kerning: none;
+  font-feature-settings: 'liga' off;
+  font-weight: var(--ld-primitive-font-weight-400);
+  user-select: none;
+}
+.ld-wcp-ratingdisplay-wrapperSmall .ld-wcp-ratingdisplay-pipe {
+  font-size: var(--ld-semantic-font-caption-size);
+  line-height: 1.333;
+}
+.ld-wcp-ratingdisplay-wrapperMedium .ld-wcp-ratingdisplay-pipe {
+  font-size: var(--ld-semantic-font-body-medium-size);
+  line-height: 1.5;
+}
+.ld-wcp-ratingdisplay-wrapperInverse .ld-wcp-ratingdisplay-pipe {
+  color: var(--ld-semantic-color-text-inverse);
+}
+.ld-wcp-ratingdisplay-text {
+  color: var(--ld-semantic-color-text-subtle);
+  text-align: center;
+  font-kerning: none;
+  font-feature-settings: 'liga' off;
+  font-weight: var(--ld-primitive-font-weight-400);
+}
+.ld-wcp-ratingdisplay-wrapperSmall .ld-wcp-ratingdisplay-text {
+  font-size: var(--ld-semantic-font-caption-size);
+  line-height: 1.333;
+}
+.ld-wcp-ratingdisplay-wrapperMedium .ld-wcp-ratingdisplay-text {
+  font-size: var(--ld-semantic-font-body-medium-size);
+  line-height: 1.5;
+}
+.ld-wcp-ratingdisplay-wrapperInverse .ld-wcp-ratingdisplay-text {
+  color: var(--ld-semantic-color-text-inverse);
+}

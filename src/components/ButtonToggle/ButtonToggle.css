@@ -1,0 +1,109 @@
+/* LD Portable – Button Toggle */
+.ld-buttontoggle-button {
+  align-items: center;
+  appearance: none;
+  background: var(--ld-semantic-color-action-fill-tertiary, #ffffff);
+  border-style: solid;
+  border-width: var(--ld-semantic-scale-borderwidth-interactive, 0.0625rem);
+  border-color: var(--ld-semantic-color-action-border-tertiary, #babbbe);
+  box-sizing: border-box;
+  color: var(--ld-semantic-color-action-text-onFill-tertiary, #2e2f32);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: inherit;
+  font-weight: var(--ld-primitive-font-weight-400, 400);
+  gap: var(--ld-primitive-scale-space-50, 0.25rem);
+  justify-content: center;
+  text-decoration: none;
+  transition: background 0.1s cubic-bezier(0.77, 0, 0.175, 1),
+              border-color 0.1s cubic-bezier(0.77, 0, 0.175, 1),
+              color 0.1s cubic-bezier(0.77, 0, 0.175, 1);
+  white-space: nowrap;
+}
+.ld-buttontoggle-button:hover, .ld-buttontoggle-button.hover {
+  background: var(--ld-semantic-color-action-fill-tertiary-hovered, #f1f1f2);
+  border-color: var(--ld-semantic-color-action-border-tertiary-hovered, #babbbe);
+  color: var(--ld-semantic-color-action-text-onFill-tertiary-hovered, #2e2f32);
+}
+.ld-buttontoggle-button:focus-visible {
+  background: var(--ld-semantic-color-action-fill-tertiary-focused, #f1f1f2);
+  border-color: var(--ld-semantic-color-action-border-tertiary-focused, #babbbe);
+  color: var(--ld-semantic-color-action-text-onFill-tertiary-focused, #2e2f32);
+  outline: 0.125rem solid var(--ld-semantic-color-action-focus-outline, #0053e2);
+  outline-offset: 0.125rem;
+}
+.ld-buttontoggle-button:active, .ld-buttontoggle-button.active {
+  background: var(--ld-semantic-color-action-fill-tertiary-pressed, #e3e4e5);
+  border-color: var(--ld-semantic-color-action-border-tertiary-pressed, #babbbe);
+  color: var(--ld-semantic-color-action-text-onFill-tertiary-pressed, #2e2f32);
+}
+.ld-buttontoggle-button:disabled {
+  background: var(--ld-semantic-color-action-fill-tertiary-disabled, #ffffff);
+  border-color: var(--ld-semantic-color-action-border-tertiary-disabled, #babbbe);
+  color: var(--ld-semantic-color-action-text-onFill-tertiary-disabled, #babbbe);
+  cursor: not-allowed;
+}
+
+/* ── Shape ───────────────────────────────────────────────────────────── */
+.ld-buttontoggle-pill {
+  border-radius: var(--ld-semantic-border-radius-round, 62.5rem);
+}
+.ld-buttontoggle-square {
+  border-radius: var(--ld-semantic-border-radius-medium, 0.25rem);
+}
+/* Square has no border in any state (only the default filled pill is bordered). */
+.ld-buttontoggle-square,
+.ld-buttontoggle-square:hover,
+.ld-buttontoggle-square.hover,
+.ld-buttontoggle-square:focus-visible,
+.ld-buttontoggle-square:active,
+.ld-buttontoggle-square.active,
+.ld-buttontoggle-square:disabled {
+  border-color: transparent;
+}
+
+/* ── No fill on default ──────────────────────────────────────────────────
+   Drops the default fill and border; the subtle hover/focus/pressed fills
+   from the base rules still apply. */
+.ld-buttontoggle-noFill,
+.ld-buttontoggle-noFill:hover,
+.ld-buttontoggle-noFill.hover,
+.ld-buttontoggle-noFill:focus-visible,
+.ld-buttontoggle-noFill:active,
+.ld-buttontoggle-noFill.active,
+.ld-buttontoggle-noFill:disabled {
+  border-color: transparent;
+}
+.ld-buttontoggle-noFill,
+.ld-buttontoggle-noFill:disabled {
+  background: transparent;
+}
+
+/* ── Sizes ───────────────────────────────────────────────────────────── */
+.ld-buttontoggle-small {
+  font-size: var(--ld-semantic-font-body-small-size, 0.875rem);
+  height: var(--ld-primitive-scale-space-400, 2rem);
+  padding: 0 var(--ld-primitive-scale-space-100, 0.5rem) 0 var(--ld-primitive-scale-space-150, 0.75rem);
+}
+.ld-buttontoggle-medium {
+  font-size: var(--ld-semantic-font-body-medium-size, 1rem);
+  height: var(--ld-primitive-scale-space-500, 2.5rem);
+  padding: 0 var(--ld-primitive-scale-space-200, 1rem);
+}
+.ld-buttontoggle-large {
+  font-size: var(--ld-semantic-font-body-large-size, 1.125rem);
+  height: var(--ld-primitive-scale-space-600, 3rem);
+  padding: 0 var(--ld-primitive-scale-space-300, 1.5rem);
+}
+
+/* ── Parts ───────────────────────────────────────────────────────────── */
+.ld-buttontoggle-leadingIcon,
+.ld-buttontoggle-chevron {
+  align-items: center;
+  display: inline-flex;
+  flex-shrink: 0;
+}
+.ld-buttontoggle-label,
+.ld-buttontoggle-count {
+  line-height: 1;
+}

@@ -1,0 +1,94 @@
+.ax-resizable__panel-group {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.ax-resizable__panel-group[data-panel-group-direction='vertical'] {
+  flex-direction: column;
+}
+
+.ax-resizable__handle {
+  position: relative;
+  display: flex;
+  width: 2px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  /* The divider line is hidden until the user hovers (or drags) the handle. */
+  background: transparent;
+  transition: background-color 0.15s ease;
+  cursor: col-resize;
+}
+
+.ax-resizable__handle::after {
+  content: '';
+  position: absolute;
+  inset: 0 auto;
+  left: 50%;
+  width: 8px;
+  transform: translateX(-50%);
+}
+
+.ax-resizable__handle:hover,
+.ax-resizable__handle:focus-visible,
+.ax-resizable__handle[data-resize-handle-state='hover'],
+.ax-resizable__handle[data-resize-handle-state='drag'] {
+  background: var(--ld-semantic-color-border-subtle);
+}
+
+.ax-resizable__handle:focus-visible {
+  box-shadow: 0 0 0 2px var(--ld-semantic-color-border-activated);
+}
+
+.ax-resizable__handle[data-panel-group-direction='vertical'] {
+  width: 100%;
+  height: 2px;
+  cursor: row-resize;
+}
+
+.ax-resizable__handle[data-panel-group-direction='vertical']::after {
+  inset: auto 0;
+  top: 50%;
+  width: 100%;
+  height: 8px;
+  transform: translateY(-50%);
+}
+
+.ax-resizable__grip {
+  z-index: 10;
+  display: flex;
+  height: 16px;
+  width: 12px;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--ld-semantic-border-radius-small);
+  border: 1px solid var(--ld-semantic-color-separator);
+  background: var(--ld-semantic-color-surface);
+  color: var(--ld-semantic-color-text-subtle);
+  cursor: inherit;
+  /* The grip only appears on hover / focus / while dragging. */
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+.ax-resizable__handle:hover .ax-resizable__grip,
+.ax-resizable__handle:focus-visible .ax-resizable__grip,
+.ax-resizable__handle[data-resize-handle-state='hover'] .ax-resizable__grip,
+.ax-resizable__handle[data-resize-handle-state='drag'] .ax-resizable__grip {
+  opacity: 1;
+}
+
+.ax-resizable__grip * {
+  cursor: inherit;
+  pointer-events: none;
+}
+
+.ax-resizable__handle[data-panel-group-direction='vertical'] .ax-resizable__grip {
+  transform: rotate(90deg);
+}
+
+.ax-resizable__grip--expand {
+  width: 20px;
+  height: 20px;
+  border-radius: var(--ld-primitive-scale-borderRadius-50, 4px);
+}

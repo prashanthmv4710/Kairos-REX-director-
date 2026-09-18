@@ -1,0 +1,247 @@
+/* ========================================
+   SegmentedControl — Living Design
+   Matches [WCP] Segmented Control Figma spec
+   ======================================== */
+
+/* Container */
+.ld-segmented-control-root {
+  display: inline-flex;
+  align-items: stretch;
+  position: relative;
+}
+
+.ld-segmented-control-root--full-width {
+  display: flex;
+  width: 100%;
+}
+
+/* ========================================
+   Individual Segment
+   ======================================== */
+
+.ld-segmented-control-segment {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ld-primitive-scale-space-100, 0.5rem);
+
+  /*
+   * Border-box sizing is load-bearing here. With the default `content-box`,
+   * the active segment's 2px border made the box 2px wider than inactive
+   * neighbors and forced a `-2px` margin hack, which in turn made the active
+   * segment overlap the previous segment by 2px. Because the active segment
+   * also has `z-index: 1; position: relative`, clicks landing on the last
+   * 2px of an inactive segment were captured by the active segment — the
+   * "can't click each segment" bug. Border-box freezes the outer width.
+   */
+  box-sizing: border-box;
+
+  /* Sizing */
+  padding: var(--ld-primitive-scale-space-50, 0.25rem)
+    var(--ld-primitive-scale-space-250, 1.25rem);
+  min-height: var(--ld-primitive-scale-space-400, 2rem);
+
+  /* Equal-width segments */
+  flex: 1 0 0;
+
+  /* Typography */
+  font-size: var(--ld-semantic-font-body-small-size, 0.875rem);
+  line-height: var(--ld-semantic-font-body-small-line-height, 1.25rem);
+  font-weight: var(--ld-semantic-font-body-small-weight-default, 400);
+  /* Inactive segment text — `semantic/text` (LD body text, gray-160). */
+  color: var(--ld-semantic-color-text, #2e2f32);
+  text-align: center;
+  white-space: nowrap;
+
+  /*
+   * Default (inactive) border — `semantic/border-brand` (brand blue). All
+   * segments share the brand-blue border; the selected variant swaps this
+   * for a 2px ring via `border-activated` + inset box-shadow below.
+   */
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--ld-semantic-color-border-brand, #0053e2);
+
+  /* Default (inactive) background — `semantic/fill` per the Figma spec. */
+  background-color: var(--ld-semantic-color-fill, #ffffff);
+
+  /* Interaction */
+  cursor: pointer;
+  user-select: none;
+  /*
+   * Transition uses the LD semantic fast-transition duration + the ease-out
+   * timing token (the same easing other components use for button hover).
+   */
+  transition:
+    background-color var(--ld-semantic-duration-fast, 0.2s)
+      var(--ld-semantic-timing-ease-out, cubic-bezier(0.165, 0.84, 0.44, 1)),
+    border-color var(--ld-semantic-duration-fast, 0.2s)
+      var(--ld-semantic-timing-ease-out, cubic-bezier(0.165, 0.84, 0.44, 1)),
+    color var(--ld-semantic-duration-fast, 0.2s)
+      var(--ld-semantic-timing-ease-out, cubic-bezier(0.165, 0.84, 0.44, 1));
+
+  /* Prevent border-radius inheritance */
+  border-radius: 0;
+}
+
+/* ========================================
+   Position modifiers — rounded outer corners
+   ======================================== */
+
+.ld-segmented-control-segment--left {
+  border-radius:
+    var(--ld-primitive-scale-borderRadius-100, 0.5rem)
+    0
+    0
+    var(--ld-primitive-scale-borderRadius-100, 0.5rem);
+}
+
+.ld-segmented-control-segment--right {
+  border-radius:
+    0
+    var(--ld-primitive-scale-borderRadius-100, 0.5rem)
+    var(--ld-primitive-scale-borderRadius-100, 0.5rem)
+    0;
+  margin-left: -1px;
+}
+
+.ld-segmented-control-segment--center {
+  margin-left: -1px;
+}
+
+/* ========================================
+   Active (selected) state
+   ======================================== */
+
+.ld-segmented-control-segment--active {
+  /*
+   * Selected segment uses the LD activated-border token (brand blue) per the
+   * Figma spec, paired with the activated-subtle blue-tint fill. Text uses
+   * the corresponding on-fill activated-subtle token so re-theming keeps
+   * contrast correct.
+   *
+   * The 2px-thick ring is produced as `1px border + inset 1px box-shadow`
+   * instead of bumping `border-width` to 2px. This keeps the outer box the
+   * same size as inactive segments — no layout shift, no `-2px` margin
+   * hack, and no overlap that would steal clicks from neighbors.
+   */
+  border-color: var(--ld-semantic-color-border-activated, #0053e2);
+  box-shadow: inset 0 0 0 1px
+    var(--ld-semantic-color-border-activated, #0053e2);
+  background-color: var(--ld-semantic-color-fill-activated-subtle, #f0f5ff);
+  font-weight: var(--ld-semantic-font-body-small-weight-alt, 700);
+  color: var(--ld-semantic-color-text-onFill-activated-subtle, #2e2f32);
+  position: relative;
+  z-index: 1;
+}
+
+/* ========================================
+   Hover — inactive
+   ======================================== */
+
+.ld-segmented-control-segment:not(.ld-segmented-control-segment--active):not(.ld-segmented-control-segment--disabled):hover {
+  /* Neutral hover fill — inactive segments don't tint blue until selected. */
+  background-color: var(--ld-semantic-color-fill-hovered, #f1f1f2);
+  border-color: var(--ld-semantic-color-border-brand, #0053e2);
+  z-index: 1;
+  position: relative;
+}
+
+/* ========================================
+   Hover — active (selected) segment
+   Stays in the activated-subtle family.
+   ======================================== */
+
+.ld-segmented-control-segment--active:not(.ld-segmented-control-segment--disabled):hover {
+  background-color: var(--ld-semantic-color-fill-activated-subtle-hovered, #e9f1fe);
+  border-color: var(--ld-semantic-color-border-activated, #0053e2);
+}
+
+/* ========================================
+   Pressed
+   ======================================== */
+
+.ld-segmented-control-segment:not(.ld-segmented-control-segment--active):not(.ld-segmented-control-segment--disabled):active {
+  background-color: var(--ld-semantic-color-fill-pressed, #e3e4e5);
+  border-color: var(--ld-semantic-color-border-brand, #0053e2);
+  z-index: 1;
+  position: relative;
+}
+
+.ld-segmented-control-segment--active:not(.ld-segmented-control-segment--disabled):active {
+  background-color: var(--ld-semantic-color-fill-activated-subtle-pressed, #c9dcfd);
+  border-color: var(--ld-semantic-color-border-activated, #0053e2);
+}
+
+/* ========================================
+   Focus visible
+   ======================================== */
+
+.ld-segmented-control-segment:focus-visible {
+  /*
+   * Matches the focus convention used by Button + Chip: brand-blue ring at
+   * 2px offset. `action-focus-outline` is the agreed-upon token name across
+   * LD components even when not formally exported by every theme.
+   * Fill also shifts on focus per Figma spec (same values as hover).
+   */
+  outline: 2px solid var(--ld-semantic-color-border-activated, #0053e2);
+  outline-offset: 2px;
+  background-color: var(--ld-semantic-color-fill-focused, #f1f1f2);
+  z-index: 2;
+  position: relative;
+}
+
+.ld-segmented-control-segment--active:focus-visible {
+  background-color: var(--ld-semantic-color-fill-activated-subtle-focused, #e9f1fe);
+}
+
+/* ========================================
+   Disabled state
+   ======================================== */
+
+.ld-segmented-control-segment--disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+  /* Per Figma spec: per-property colors rather than opacity fade. */
+  background-color: var(--ld-semantic-color-fill-disabled, #ffffff);
+  border-color: var(--ld-semantic-color-border-brand, #0053e2);
+  color: var(--ld-semantic-color-text-disabled, #babbbe);
+}
+
+/* ========================================
+   Inner elements
+   ======================================== */
+
+.ld-segmented-control-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ld-segmented-control-icon svg,
+.ld-segmented-control-icon {
+  width: var(--ld-semantic-scale-icon-small, 16px);
+  height: var(--ld-semantic-scale-icon-small, 16px);
+  font-size: var(--ld-semantic-scale-icon-small, 16px);
+}
+
+.ld-segmented-control-label {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* ========================================
+   Icon-only variant
+   16px icon + space-100 (8px) padding on every side = a 32px square that
+   matches the standard segment min-height (space-400). No gap is needed
+   since the label is suppressed.
+   ======================================== */
+
+.ld-segmented-control-segment--icon-only {
+  gap: 0;
+  padding: var(--ld-primitive-scale-space-100, 0.5rem);
+  /* Lock the square footprint so segments don't flex wider than the icon. */
+  flex: 0 0 auto;
+  min-width: var(--ld-primitive-scale-space-400, 2rem);
+}

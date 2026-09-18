@@ -1,0 +1,178 @@
+.ax-attribute {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.ax-attribute--small,
+.ax-attribute--medium {
+  gap: var(--ld-primitive-scale-space-50);
+}
+
+.ax-attribute--large {
+  gap: var(--ld-primitive-scale-space-50);
+  align-items: center;
+}
+
+/*
+ * Extended: labels can wrap to multiple lines, so centering the icons against
+ * the whole block would drift them away from the first line as it grows.
+ * Anchor to the top instead, then nudge by the line-height/icon-height
+ * difference so the icon still lands on the first line's optical center
+ * (a no-op at `small`, where the 16px caption line-height already matches
+ * the icon).
+ */
+.ax-attribute--extended {
+  align-items: flex-start;
+}
+.ax-attribute--extended.ax-attribute--medium .ax-attribute__icon,
+.ax-attribute--extended.ax-attribute--medium .ax-attribute__media {
+  margin-top: var(--ld-primitive-scale-space-25, 2px);
+}
+.ax-attribute--extended.ax-attribute--large .ax-attribute__icon,
+.ax-attribute--extended.ax-attribute--large .ax-attribute__media {
+  margin-top: var(--ld-primitive-scale-space-50, 4px);
+}
+
+.ax-attribute__icon,
+.ax-attribute__media {
+  display: inline-flex;
+  width: var(--ld-primitive-scale-space-200);
+  height: var(--ld-primitive-scale-space-200);
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ax-attribute__icon {
+  font-size: var(--ld-primitive-scale-space-200);
+}
+
+.ax-attribute__media > svg,
+.ax-attribute__media > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.ax-attribute__label,
+.ax-attribute__composite-label {
+  font-family: var(--ld-semantic-font-family-sans, 'Everyday Sans UI', sans-serif);
+}
+
+.ax-attribute__label {
+  line-height: 1;
+}
+
+.ax-attribute__text--small {
+  font-size: var(--ld-semantic-font-caption-size);
+  font-weight: var(--ld-semantic-font-caption-weight-default);
+  line-height: var(--ld-semantic-font-caption-line-height);
+}
+
+.ax-attribute__text--medium {
+  font-size: var(--ld-semantic-font-body-small-size);
+  font-weight: var(--ld-semantic-font-body-small-weight-default);
+  line-height: var(--ld-semantic-font-body-small-line-height);
+}
+
+.ax-attribute__text--large {
+  font-size: var(--ld-semantic-font-body-medium-size);
+  font-weight: var(--ld-semantic-font-body-medium-weight-default);
+  line-height: var(--ld-semantic-font-body-medium-line-height);
+}
+
+.ax-attribute__additional-container {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-50);
+}
+
+.ax-attribute__composite-label-group {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-25);
+  white-space: nowrap;
+}
+
+.ax-attribute--small .ax-attribute__composite-label {
+  font-size: var(--ld-semantic-font-caption-size);
+  font-weight: var(--ld-semantic-font-caption-weight-default);
+  line-height: var(--ld-semantic-font-caption-line-height);
+}
+
+.ax-attribute--medium .ax-attribute__composite-label {
+  font-size: var(--ld-semantic-font-body-small-size);
+  font-weight: var(--ld-semantic-font-body-small-weight-default);
+  line-height: var(--ld-semantic-font-body-small-line-height);
+}
+
+.ax-attribute--large .ax-attribute__composite-label {
+  font-size: var(--ld-semantic-font-body-medium-size);
+  font-weight: var(--ld-semantic-font-body-medium-weight-default);
+  line-height: var(--ld-semantic-font-body-medium-line-height);
+}
+
+.ax-attribute__composite-label--alt {
+  font-weight: var(--ld-semantic-font-caption-weight-alt);
+}
+
+.ax-attribute--small .ax-attribute__composite-label--alt {
+  font-weight: var(--ld-semantic-font-caption-weight-alt);
+}
+
+.ax-attribute--medium .ax-attribute__composite-label--alt {
+  font-weight: var(--ld-semantic-font-body-small-weight-alt);
+}
+
+.ax-attribute--large .ax-attribute__composite-label--alt {
+  font-weight: var(--ld-semantic-font-body-medium-weight-alt);
+}
+
+.ax-attribute__additional-icon {
+  flex-shrink: 0;
+}
+
+.ax-attribute--color-default .ax-attribute__icon,
+.ax-attribute--color-default .ax-attribute__label,
+.ax-attribute--color-default .ax-attribute__composite-label {
+  color: var(--ld-semantic-color-text-onFill, #2E2F32);
+}
+
+.ax-attribute--color-subtle .ax-attribute__icon,
+.ax-attribute--color-subtle .ax-attribute__label,
+.ax-attribute--color-subtle .ax-attribute__composite-label {
+  color: var(--ld-semantic-color-text-subtle, #74767C);
+}
+
+.ax-attribute--color-brand .ax-attribute__icon,
+.ax-attribute--color-brand .ax-attribute__label,
+.ax-attribute--color-brand .ax-attribute__composite-label {
+  color: var(--ld-semantic-color-text-brand, #0053E2);
+}
+
+.ax-attribute--color-positive .ax-attribute__icon,
+.ax-attribute--color-positive .ax-attribute__label,
+.ax-attribute--color-positive .ax-attribute__composite-label {
+  color: var(--ld-semantic-color-text-positive, #2A8703);
+}
+
+.ax-attribute--color-negative .ax-attribute__icon,
+.ax-attribute--color-negative .ax-attribute__label,
+.ax-attribute--color-negative .ax-attribute__composite-label {
+  color: var(--ld-semantic-color-text-negative-bold, #a20c00);
+}
+
+.ax-attribute--color-accent-blue .ax-attribute__icon,
+.ax-attribute--color-accent-blue .ax-attribute__label,
+.ax-attribute--color-accent-blue .ax-attribute__composite-label {
+  color: var(--ld-semantic-color-text-onFill-accent-blue-subtle, #002E99);
+}
+
+.ax-attribute--color-inverse .ax-attribute__icon,
+.ax-attribute--color-inverse .ax-attribute__label,
+.ax-attribute--color-inverse .ax-attribute__composite-label {
+  color: var(--ld-semantic-color-text-inverse, #ffffff);
+}
+

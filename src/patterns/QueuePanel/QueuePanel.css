@@ -1,0 +1,7 @@
+.ld-wcp-queuepanel-cardList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-200);
+  padding-block: var(--ld-primitive-scale-space-200);
+  padding-inline: 0;
+}

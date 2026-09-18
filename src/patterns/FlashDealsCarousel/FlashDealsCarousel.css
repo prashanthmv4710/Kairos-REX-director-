@@ -1,0 +1,154 @@
+/* LD Portable – FlashDealsCarousel */
+.ld-wcp-flash-deals-carousel-root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-100);
+}
+.ld-wcp-flash-deals-carousel-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+.ld-wcp-flash-deals-carousel-title {
+  font-size: 20px;
+  font-weight: var(--ld-primitive-font-weight-700);
+  color: var(--ld-semantic-color-text);
+  margin: 0;
+  line-height: 1.2;
+}
+/* Layout only — typography/color from LD LinkButton */
+.ld-wcp-flash-deals-carousel-viewall {
+  flex-shrink: 0;
+}
+.ld-wcp-flash-deals-carousel-subtitle {
+  font-size: var(--ld-semantic-font-body-small-size);
+  color: var(--ld-primitive-color-gray-130);
+  margin: 0;
+  line-height: var(--ld-semantic-font-body-small-line-height);
+}
+.ld-wcp-flash-deals-carousel-scroll-wrapper {
+  position: relative;
+}
+.ld-wcp-flash-deals-carousel-scroll {
+  display: flex;
+  gap: var(--ld-primitive-scale-space-150);
+  overflow-x: auto;
+  overflow-y: visible;
+  scroll-snap-type: x proximity;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding-block: var(--ld-primitive-scale-space-500);
+  padding-inline: 0;
+  margin: -40px 0;
+  cursor: grab;
+}
+.ld-wcp-flash-deals-carousel-scroll::-webkit-scrollbar {
+  display: none;
+}
+.ld-wcp-flash-deals-carousel-card {
+  min-width: 200px;
+  max-width: 200px;
+  border-radius: 12px;
+  background-color: var(--ld-semantic-color-surface);
+  overflow: hidden;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+.ld-wcp-flash-deals-carousel-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--ld-primitive-color-gray-5);
+}
+.ld-wcp-flash-deals-carousel-image {
+  max-width: 85%;
+  max-height: 85%;
+  object-fit: contain;
+}
+.ld-wcp-flash-deals-carousel-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  color: var(--ld-semantic-color-text-inverse);
+  font-size: 11px;
+  font-weight: var(--ld-primitive-font-weight-700);
+  padding-block: var(--ld-primitive-scale-space-25);
+  padding-inline: var(--ld-primitive-scale-space-100);
+  border-radius: var(--ld-semantic-border-radius-medium);
+}
+.ld-wcp-flash-deals-carousel-body {
+  padding-block-start: var(--ld-primitive-scale-space-150);
+  padding-block-end: var(--ld-primitive-scale-space-200);
+  padding-inline: var(--ld-primitive-scale-space-150);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.ld-wcp-flash-deals-carousel-price-row {
+  margin-bottom: 4px;
+}
+.ld-wcp-flash-deals-carousel-price-prefix {
+  font-size: var(--ld-semantic-font-caption-size);
+  color: var(--ld-semantic-color-text-positive);
+  font-weight: var(--ld-primitive-font-weight-600);
+}
+.ld-wcp-flash-deals-carousel-price-dollar {
+  font-size: var(--ld-semantic-font-caption-size);
+  color: var(--ld-semantic-color-text-positive);
+}
+.ld-wcp-flash-deals-carousel-price-main {
+  font-size: 24px;
+  font-weight: var(--ld-primitive-font-weight-700);
+  color: var(--ld-semantic-color-text-positive);
+}
+.ld-wcp-flash-deals-carousel-price-cents {
+  font-size: var(--ld-semantic-font-caption-size);
+  font-weight: var(--ld-primitive-font-weight-700);
+  color: var(--ld-semantic-color-text-positive);
+  vertical-align: super;
+}
+.ld-wcp-flash-deals-carousel-was-price {
+  font-size: var(--ld-semantic-font-caption-size);
+  color: var(--ld-semantic-color-text-subtle);
+  text-decoration: line-through;
+  margin-bottom: 6px;
+}
+.ld-wcp-flash-deals-carousel-options-text {
+  font-size: 11px;
+  color: var(--ld-semantic-color-text);
+  margin-bottom: 6px;
+}
+.ld-wcp-flash-deals-carousel-name {
+  font-size: var(--ld-semantic-font-caption-size);
+  color: var(--ld-semantic-color-text);
+  line-height: 1.4;
+  margin: 0 0 12px;
+  flex: 1;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.ld-wcp-flash-deals-carousel-chevron {
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--ld-semantic-color-separator);
+  background-color: var(--ld-semantic-color-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  color: var(--ld-semantic-color-text);
+  z-index: 2;
+}

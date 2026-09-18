@@ -1,0 +1,1 @@
+Inline label / flag pill

@@ -1,0 +1,71 @@
+/**
+ * Illustration Theme Tokens
+ * Auto-generated from Airtable — do not edit manually
+ *
+ * A standalone, non-brand theming axis (data-ld-illustration-theme) for
+ * illustration artwork, orthogonal to the real brand theme (data-ld-theme).
+ * Each block declares the same 7 positional custom properties;
+ * illustration SVGs reference them positionally (--ld-illustration-token-<N>),
+ * never by color name, because the same slot resolves to a different
+ * color per theme.
+ */
+
+[data-ld-illustration-theme="default"] {
+  --ld-illustration-token-1: #4dbdf5;
+  --ld-illustration-token-2: #a9ddf7;
+  --ld-illustration-token-3: #0053e2;
+  --ld-illustration-token-4: #002e99;
+  --ld-illustration-token-5: #ffffff;
+  --ld-illustration-token-6: #ffc220;
+  --ld-illustration-token-7: #995213;
+}
+
+[data-ld-illustration-theme="walmart"] {
+  --ld-illustration-token-1: #4dbdf5;
+  --ld-illustration-token-2: #a9ddf7;
+  --ld-illustration-token-3: #0053e2;
+  --ld-illustration-token-4: #002e99;
+  --ld-illustration-token-5: #ffffff;
+  --ld-illustration-token-6: #ffc220;
+  --ld-illustration-token-7: #995213;
+}
+
+[data-ld-illustration-theme="walmart-connect"] {
+  --ld-illustration-token-1: #4dbdf5;
+  --ld-illustration-token-2: #a9ddf7;
+  --ld-illustration-token-3: #0053e2;
+  --ld-illustration-token-4: #002e99;
+  --ld-illustration-token-5: #ffffff;
+  --ld-illustration-token-6: #c7a0fe;
+  --ld-illustration-token-7: #993ef4;
+}
+
+[data-ld-illustration-theme="data-ventures"] {
+  --ld-illustration-token-1: #002e99;
+  --ld-illustration-token-2: #eedefd;
+  --ld-illustration-token-3: #993ef4;
+  --ld-illustration-token-4: #4c2280;
+  --ld-illustration-token-5: #ffffff;
+  --ld-illustration-token-6: #ddf1fc;
+  --ld-illustration-token-7: #001e60;
+}
+
+[data-ld-illustration-theme="bodega"] {
+  --ld-illustration-token-1: #5faa37;
+  --ld-illustration-token-2: #ecf8ce;
+  --ld-illustration-token-3: #a4cc42;
+  --ld-illustration-token-4: #15340f;
+  --ld-illustration-token-5: #ffffff;
+  --ld-illustration-token-6: #ff765f;
+  --ld-illustration-token-7: #ea1100;
+}
+
+[data-ld-illustration-theme="walmart-inverse"] {
+  --ld-illustration-token-1: #a9ddf7;
+  --ld-illustration-token-2: #0053e2;
+  --ld-illustration-token-3: #4dbdf5;
+  --ld-illustration-token-4: #ddf1fc;
+  --ld-illustration-token-5: #002e99;
+  --ld-illustration-token-6: #ffc220;
+  --ld-illustration-token-7: #fbe298;
+}

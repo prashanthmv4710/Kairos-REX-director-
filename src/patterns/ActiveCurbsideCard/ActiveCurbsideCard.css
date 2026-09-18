@@ -1,0 +1,101 @@
+/* LD Portable – ActiveCurbsideCard */
+.ld-wcp-active-curbside-card-root {
+  background: var(--ld-semantic-color-surface, #fff);
+  border-radius: 12px;
+  box-shadow: 0 -1px 2px 0 rgba(0, 0, 0, 0.10), 0 1px 2px 1px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+.ld-wcp-active-curbside-card-body {
+  display: flex;
+  gap: var(--ld-primitive-scale-space-300);
+  padding-block-start: var(--ld-primitive-scale-space-250);
+  padding-block-end: var(--ld-primitive-scale-space-200);
+  padding-inline: var(--ld-primitive-scale-space-250);
+  flex-wrap: wrap;
+}
+.ld-wcp-active-curbside-card-left {
+  flex: 1;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-200);
+}
+.ld-wcp-active-curbside-card-fulfillment {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--ld-primitive-scale-space-150);
+}
+.ld-wcp-active-curbside-card-icon {
+  flex-shrink: 0;
+}
+.ld-wcp-active-curbside-card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-25);
+}
+.ld-wcp-active-curbside-card-type-label {
+  font-size: var(--ld-semantic-font-caption-size);
+  font-weight: var(--ld-primitive-font-weight-600);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ld-semantic-color-text-subtle, #46474a);
+}
+.ld-wcp-active-curbside-card-store-name {
+  font-size: 13px;
+  color: var(--ld-semantic-color-text-subtle, #46474a);
+}
+.ld-wcp-active-curbside-card-status {
+  font-size: var(--ld-semantic-font-body-medium-size);
+  font-weight: var(--ld-primitive-font-weight-700);
+  color: var(--ld-semantic-color-text, #2e2f32);
+  margin: 4px 0 0;
+}
+.ld-wcp-active-curbside-card-thumbnails {
+  display: flex;
+  gap: var(--ld-primitive-scale-space-100);
+  flex-wrap: wrap;
+}
+.ld-wcp-active-curbside-card-thumb {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid var(--ld-semantic-color-border, #e0e0e0);
+}
+.ld-wcp-active-curbside-card-thumb-overflow {
+  width: 56px;
+  height: 56px;
+  border-radius: 6px;
+  border: 1px solid var(--ld-semantic-color-border, #e0e0e0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  color: var(--ld-semantic-color-text-subtle, #46474a);
+}
+.ld-wcp-active-curbside-card-right {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-100);
+  min-width: 160px;
+  align-self: flex-start;
+}
+.ld-wcp-active-curbside-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: var(--ld-primitive-scale-space-150);
+  padding-inline: var(--ld-primitive-scale-space-250);
+}
+.ld-wcp-active-curbside-card-footer-location {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.ld-wcp-active-curbside-card-footer-pin {
+  color: var(--ld-semantic-color-text-subtle, #46474a);
+}
+.ld-wcp-active-curbside-card-footer-store {
+  font-size: 13px;
+  color: var(--ld-semantic-color-text-subtle, #46474a);
+}

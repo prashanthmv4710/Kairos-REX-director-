@@ -1,0 +1,157 @@
+/* LD Portable – Popover */
+/* SR-only close button — hidden until keyboard focused, then appears top-right */
+.ld-popover-closeButton {
+  position: absolute !important;
+  top: 6px;
+  right: 6px;
+  opacity: 0;
+  pointer-events: none;
+  background: var(--ld-semantic-color-surface, #ffffff) !important;
+}
+.ld-popover-closeButton:focus-visible,
+.ld-popover-closeButton:focus {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* BasePopover */
+.ld-popover-basepopover-popover {
+  border-radius: var(--ld-semantic-border-radius-medium);
+  box-shadow: var(--ld-semantic-elevation-300);
+  box-sizing: border-box;
+  display: inline-flex;
+  position: relative;
+}
+
+.ld-popover-basepopover-nubbin::before {
+  background: var(--ld-semantic-color-surface, #ffffff);
+  box-shadow: 2.1213px 2.1213px 5px 2px rgba(0, 0, 0, 0.15), -0.7071px -0.7071px 3px 0 rgba(0, 0, 0, 0.1);
+  content: "";
+  height: 0.7071875rem;
+  position: absolute;
+  transform: translate(-50%, -50%) rotate(45deg);
+  width: 0.7071875rem;
+}
+
+.ld-popover-basepopover-bottomCenter::before {
+  left: 50%;
+  top: 100%;
+}
+
+.ld-popover-basepopover-bottomLeft::before {
+  left: 1.5rem;
+  top: 100%;
+}
+
+.ld-popover-basepopover-bottomRight::before {
+  left: calc(100% - 1.5rem);
+  top: 100%;
+}
+
+.ld-popover-basepopover-left::before {
+  left: 0;
+  top: 50%;
+}
+
+.ld-popover-basepopover-right::before {
+  left: 100%;
+  top: 50%;
+}
+
+.ld-popover-basepopover-topCenter::before {
+  left: 50%;
+  top: 0;
+}
+
+.ld-popover-basepopover-topLeft::before {
+  left: 1.5rem;
+  top: 0;
+}
+
+.ld-popover-basepopover-topRight::before {
+  left: calc(100% - 1.5rem);
+  top: 0;
+}
+
+.ld-popover-basepopover-content {
+  background: var(--ld-semantic-color-surface, #ffffff);
+  border-radius: var(--ld-semantic-border-radius-medium);
+  padding: var(--ld-primitive-scale-space-200);
+  position: relative;
+}
+
+/* Popover */
+.ld-popover-popover {
+  display: inline-block;
+  position: relative;
+}
+
+/* PopoverFocusGuard */
+.ld-popover-popoverfocusguard-a11yContentLabel {
+  margin: 0;
+}
+
+/* PopoverLayoutManager */
+.ld-popover-popoverlayoutmanager-layoutManager {
+  z-index: 100;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transition: transform;
+}
+
+.ld-popover-popoverlayoutmanager-bottomCenter {
+  padding-top: 0.25rem;
+}
+.ld-popover-popoverlayoutmanager-bottomCenter.ld-popover-popoverlayoutmanager-hasNubbin {
+  padding-top: 0.75rem;
+}
+
+.ld-popover-popoverlayoutmanager-bottomLeft {
+  padding-top: 0.25rem;
+}
+.ld-popover-popoverlayoutmanager-bottomLeft.ld-popover-popoverlayoutmanager-hasNubbin {
+  padding-top: 0.75rem;
+}
+
+.ld-popover-popoverlayoutmanager-bottomRight {
+  padding-top: 0.25rem;
+}
+.ld-popover-popoverlayoutmanager-bottomRight.ld-popover-popoverlayoutmanager-hasNubbin {
+  padding-top: 0.75rem;
+}
+
+.ld-popover-popoverlayoutmanager-left {
+  padding-right: 0.25rem;
+}
+.ld-popover-popoverlayoutmanager-left.ld-popover-popoverlayoutmanager-hasNubbin {
+  padding-right: 0.75rem;
+}
+
+.ld-popover-popoverlayoutmanager-right {
+  padding-left: 0.25rem;
+}
+.ld-popover-popoverlayoutmanager-right.ld-popover-popoverlayoutmanager-hasNubbin {
+  padding-left: 0.75rem;
+}
+
+.ld-popover-popoverlayoutmanager-topCenter {
+  padding-bottom: 0.25rem;
+}
+.ld-popover-popoverlayoutmanager-topCenter.ld-popover-popoverlayoutmanager-hasNubbin {
+  padding-bottom: 0.75rem;
+}
+
+.ld-popover-popoverlayoutmanager-topLeft {
+  padding-bottom: 0.25rem;
+}
+.ld-popover-popoverlayoutmanager-topLeft.ld-popover-popoverlayoutmanager-hasNubbin {
+  padding-bottom: 0.75rem;
+}
+
+.ld-popover-popoverlayoutmanager-topRight {
+  padding-bottom: 0.25rem;
+}
+.ld-popover-popoverlayoutmanager-topRight.ld-popover-popoverlayoutmanager-hasNubbin {
+  padding-bottom: 0.75rem;
+}

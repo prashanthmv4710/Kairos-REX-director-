@@ -1,0 +1,15 @@
+.ld-radio-group {
+  display: grid;
+  gap: var(--ld-primitive-scale-space-150, 0.75rem);
+}
+
+.ld-radio-group--vertical {
+  grid-auto-flow: row;
+}
+
+.ld-radio-group--horizontal {
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-300, 1.5rem);
+}

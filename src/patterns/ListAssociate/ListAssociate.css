@@ -1,0 +1,199 @@
+.ax-list-associate {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ax-list-associate__item {
+  display: flex;
+  flex-direction: column;
+  padding-top: var(--ld-primitive-scale-space-200, 16px);
+}
+
+.ax-list-associate__item-row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--ld-primitive-scale-space-200, 16px);
+}
+
+.ax-list-associate__item-leading-avatar {
+  display: flex;
+  align-items: flex-start;
+  align-self: flex-start;
+  flex-shrink: 0;
+}
+
+.ax-list-associate__item-leading-custom {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  align-self: flex-start;
+  flex-shrink: 0;
+}
+
+.ax-list-associate__item-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+.ax-list-associate__item-content {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--ld-primitive-scale-space-100, 8px);
+}
+
+.ax-list-associate__item-content-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1 0 0;
+  min-width: 0;
+}
+
+.ax-list-associate__item-tag {
+  flex-shrink: 0;
+  align-self: flex-start;
+}
+
+.ax-list-associate__item-eyebrow,
+.ax-list-associate__item-title,
+.ax-list-associate__item-text,
+.ax-list-associate__item-monitoring-label,
+.ax-list-associate__assigned-goal-title,
+.ax-list-associate__assigned-goal-actions {
+  margin: 0;
+}
+
+.ax-list-associate__item-eyebrow {
+  color: var(--ld-semantic-color-text-subtle, #74767c);
+  font-size: var(--ld-semantic-font-caption-size, 12px);
+  line-height: var(--ld-semantic-font-caption-line-height, 16px);
+  margin-bottom: var(--ld-primitive-scale-space-50, 4px);
+}
+
+.ax-list-associate__item-title {
+  color: var(--ld-semantic-color-text, #2e2f32);
+  font-size: var(--ld-semantic-font-body-large-size, 18px);
+  font-weight: var(--ld-semantic-font-body-large-weight-alt, 700);
+  line-height: var(--ld-semantic-font-body-large-line-height, 24px);
+}
+
+.ax-list-associate__item-text {
+  color: var(--ld-semantic-color-text, #2e2f32);
+  font-size: var(--ld-semantic-font-body-medium-size, 16px);
+  line-height: var(--ld-semantic-font-body-medium-line-height, 24px);
+  margin-top: var(--ld-primitive-scale-space-50, 4px);
+}
+
+.ax-list-associate__item-extras {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-150, 12px);
+  margin-top: var(--ld-primitive-scale-space-100, 8px);
+}
+
+.ax-list-associate__item-attributes {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-50, 4px);
+}
+
+.ax-list-associate__item-monitoring {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-200, 16px);
+}
+
+/* Progress title + ProgressIndicator grouped with tighter 8px gap */
+.ax-list-associate__item-monitoring-progress {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-100, 8px);
+}
+
+.ax-list-associate__item-monitoring-label {
+  color: var(--ld-semantic-color-text, #2e2f32);
+  font-size: var(--ld-semantic-font-body-medium-size, 16px);
+  font-weight: var(--ld-semantic-font-body-medium-weight-alt, 700);
+  line-height: var(--ld-semantic-font-body-medium-line-height, 24px);
+}
+
+.ax-list-associate__assigned-goal-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-100, 8px);
+}
+
+.ax-list-associate__assigned-goal {
+  display: flex;
+  flex-direction: column;
+  /* No gap between goal name and actions row — matches Figma .assignedActionListItem */
+}
+
+.ax-list-associate__assigned-goal-title {
+  /* Goal name: caption, subtle color, regular weight */
+  color: var(--ld-semantic-color-text-subtle, #515357);
+  font-size: var(--ld-semantic-font-caption-size, 12px);
+  font-weight: var(--ld-semantic-font-caption-weight-default, 400);
+  line-height: var(--ld-semantic-font-caption-line-height, 16px);
+}
+
+.ax-list-associate__assigned-goal-actions {
+  /* Actions row: flex-wrap inline chips — matches Figma "Actions" flex row */
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ld-primitive-scale-space-25, 2px);
+}
+
+.ax-list-associate__assigned-goal-action {
+  color: var(--ld-semantic-color-text, #2e2f32);
+  font-size: var(--ld-semantic-font-body-small-size, 14px);
+  line-height: var(--ld-semantic-font-body-small-line-height, 20px);
+  white-space: nowrap;
+}
+
+.ax-list-associate__item-alert {
+  align-self: stretch;
+}
+
+.ax-list-associate__item-trailing-icon,
+.ax-list-associate__item-trailing-link,
+.ax-list-associate__item-trailing-select {
+  align-self: flex-start;
+  flex-shrink: 0;
+}
+
+.ax-list-associate__item-trailing-icon-inner {
+  width: var(--ld-semantic-scale-icon-medium, 24px);
+  height: var(--ld-semantic-scale-icon-medium, 24px);
+  color: var(--ld-semantic-color-text, #2e2f32);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ax-list-associate__item-trailing-link {
+  white-space: nowrap;
+}
+
+.ax-list-associate__item-insight {
+  align-self: stretch;
+}
+
+.ax-list-associate__item-content-slot {
+  align-self: stretch;
+}
+
+.ax-list-associate__item-footer-action {
+  align-self: stretch;
+  display: flex;
+}
+
+.ax-list-associate__item-divider {
+  margin-top: var(--ld-primitive-scale-space-200, 16px);
+}

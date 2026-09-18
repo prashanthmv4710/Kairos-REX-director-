@@ -1,0 +1,30 @@
+/* LD Portable – FormGroup */
+/* FormGroup */
+.ld-formgroup-formGroup {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.ld-formgroup-formGroupLegend {
+  margin-bottom: 0.75rem;
+}
+
+.ld-formgroup-formGroupRow {
+  display: flex;
+  margin-bottom: 0.75rem;
+}
+.ld-formgroup-formGroupRow:last-child {
+  margin-bottom: 0;
+}
+
+.ld-formgroup-title + .ld-formgroup-helperTextContainer {
+  padding-top: 0.75rem;
+}
+
+.ld-formgroup-title {
+  font-size: var(--ld-semantic-font-body-small-size);
+  font-weight: var(--ld-primitive-font-weight-700);
+  line-height: var(--ld-semantic-font-body-small-line-height);
+}

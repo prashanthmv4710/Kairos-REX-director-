@@ -1,0 +1,1 @@
+Block-level error state

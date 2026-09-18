@@ -1,0 +1,33 @@
+/* Page — skip link + main landmark styling. */
+
+.ld-page-skipLink {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-block: var(--ld-primitive-scale-space-100);
+  padding-inline: var(--ld-primitive-scale-space-200);
+  background: var(--ld-semantic-color-background, #ffffff);
+  color: var(--ld-semantic-color-text-brand, #0053e2);
+  font-weight: var(--ld-primitive-font-weight-600);
+  text-decoration: none;
+  z-index: 1000;
+  transform: translateY(-100%);
+  transition: transform 120ms ease;
+}
+
+.ld-page-skipLink:focus {
+  transform: translateY(0);
+  outline: 2px solid var(--ld-semantic-color-border-activated, #0053e2);
+  outline-offset: 2px;
+}
+
+.ld-page-main {
+  min-height: 100vh;
+  display: block;
+}
+
+.ld-page-title {
+  /* Let consumers control the visual h1 styling via inner components.
+     Page itself just ensures the h1 exists and is first in the main landmark. */
+  margin: 0;
+}

@@ -1,0 +1,553 @@
+/* LD Portable – Text */
+/* Body */
+.ld-text-body-body {
+  color: var(--ld-semantic-color-text);
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.ld-text-body-isMonospace {
+  font-family: EverydaySansMono, 'Courier New', 'monospace';
+}
+
+.ld-text-body-large.ld-text-body-weightDefault {
+  font-size: 1.125rem;
+  font-weight: var(--ld-primitive-font-weight-400);
+  line-height: var(--ld-semantic-font-body-medium-line-height);
+}
+.ld-text-body-large.ld-text-body-weightAlt {
+  font-size: 1.125rem;
+  font-weight: var(--ld-primitive-font-weight-700);
+  line-height: var(--ld-semantic-font-body-medium-line-height);
+}
+
+.ld-text-body-medium.ld-text-body-weightDefault {
+  font-size: var(--ld-semantic-font-body-medium-size);
+  font-weight: var(--ld-primitive-font-weight-400);
+  line-height: var(--ld-semantic-font-body-medium-line-height);
+}
+.ld-text-body-medium.ld-text-body-weightAlt {
+  font-size: var(--ld-semantic-font-body-medium-size);
+  font-weight: var(--ld-primitive-font-weight-700);
+  line-height: var(--ld-semantic-font-body-medium-line-height);
+}
+
+.ld-text-body-small.ld-text-body-weightDefault {
+  font-size: var(--ld-semantic-font-body-small-size);
+  font-weight: var(--ld-primitive-font-weight-400);
+  line-height: var(--ld-semantic-font-body-small-line-height);
+}
+.ld-text-body-small.ld-text-body-weightAlt {
+  font-size: var(--ld-semantic-font-body-small-size);
+  font-weight: var(--ld-primitive-font-weight-700);
+  line-height: var(--ld-semantic-font-body-small-line-height);
+}
+
+/* Caption */
+.ld-text-caption-caption {
+  color: var(--ld-semantic-color-text);
+}
+
+.ld-text-caption-isMonospace {
+  font-family: EverydaySansMono, 'Courier New', 'monospace';
+}
+
+.ld-text-caption-weightDefault {
+  font-size: var(--ld-semantic-font-caption-size);
+  font-weight: var(--ld-primitive-font-weight-400);
+  line-height: var(--ld-semantic-font-caption-line-height);
+}
+
+.ld-text-caption-weightAlt {
+  font-size: var(--ld-semantic-font-caption-size);
+  font-weight: var(--ld-primitive-font-weight-700);
+  line-height: var(--ld-semantic-font-caption-line-height);
+}
+
+/* Display */
+.ld-text-display-display {
+  color: var(--ld-semantic-color-text);
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.ld-text-display-large.ld-text-display-weightDefault {
+  font-size: 2rem;
+  font-weight: var(--ld-primitive-font-weight-400);
+  line-height: var(--ld-primitive-font-lineHeight-500);
+}
+@media screen and (min-width: 56.25rem) {
+  .ld-text-display-large.ld-text-display-weightDefault {
+    font-size: 2.625rem;
+    line-height: var(--ld-primitive-font-lineHeight-650);
+  }
+}
+.ld-text-display-large.ld-text-display-weightAlt {
+  font-size: 2rem;
+  font-weight: var(--ld-primitive-font-weight-700);
+  line-height: var(--ld-primitive-font-lineHeight-500);
+}
+@media screen and (min-width: 56.25rem) {
+  .ld-text-display-large.ld-text-display-weightAlt {
+    font-size: 2.625rem;
+    line-height: var(--ld-primitive-font-lineHeight-650);
+  }
+}
+
+.ld-text-display-small.ld-text-display-weightDefault {
+  font-size: 1.75rem;
+  font-weight: var(--ld-primitive-font-weight-400);
+  line-height: var(--ld-primitive-font-lineHeight-450);
+}
+@media screen and (min-width: 56.25rem) {
+  .ld-text-display-small.ld-text-display-weightDefault {
+    font-size: 2.25rem;
+    line-height: var(--ld-primitive-font-lineHeight-600);
+  }
+}
+.ld-text-display-small.ld-text-display-weightAlt {
+  font-size: 1.75rem;
+  font-weight: var(--ld-primitive-font-weight-700);
+  line-height: var(--ld-primitive-font-lineHeight-450);
+}
+@media screen and (min-width: 56.25rem) {
+  .ld-text-display-small.ld-text-display-weightAlt {
+    font-size: 2.25rem;
+    line-height: var(--ld-primitive-font-lineHeight-600);
+  }
+}
+
+/* Heading */
+.ld-text-heading-heading {
+  color: var(--ld-semantic-color-text);
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.ld-text-heading-large.ld-text-heading-weightDefault {
+  font-size: 1.5rem;
+  font-weight: var(--ld-primitive-font-weight-700);
+  line-height: var(--ld-primitive-font-lineHeight-400);
+}
+@media screen and (min-width: 56.25rem) {
+  .ld-text-heading-large.ld-text-heading-weightDefault {
+    font-size: 2rem;
+    line-height: var(--ld-primitive-font-lineHeight-500);
+  }
+}
+.ld-text-heading-large.ld-text-heading-weightAlt {
+  font-size: 1.5rem;
+  font-weight: var(--ld-primitive-font-weight-400);
+  line-height: var(--ld-primitive-font-lineHeight-400);
+}
+@media screen and (min-width: 56.25rem) {
+  .ld-text-heading-large.ld-text-heading-weightAlt {
+    font-size: 2rem;
+    line-height: var(--ld-primitive-font-lineHeight-500);
+  }
+}
+
+.ld-text-heading-medium.ld-text-heading-weightDefault {
+  font-size: 1.25rem;
+  font-weight: var(--ld-primitive-font-weight-700);
+  line-height: var(--ld-primitive-font-lineHeight-350);
+}
+@media screen and (min-width: 56.25rem) {
+  .ld-text-heading-medium.ld-text-heading-weightDefault {
+    font-size: 1.5rem;
+    line-height: var(--ld-primitive-font-lineHeight-450);
+  }
+}
+.ld-text-heading-medium.ld-text-heading-weightAlt {
+  font-size: 1.25rem;
+  font-weight: var(--ld-primitive-font-weight-400);
+  line-height: var(--ld-primitive-font-lineHeight-350);
+}
+@media screen and (min-width: 56.25rem) {
+  .ld-text-heading-medium.ld-text-heading-weightAlt {
+    font-size: 1.5rem;
+    line-height: var(--ld-primitive-font-lineHeight-450);
+  }
+}
+
+.ld-text-heading-small.ld-text-heading-weightDefault {
+  font-size: 1.125rem;
+  font-weight: var(--ld-primitive-font-weight-700);
+  line-height: var(--ld-semantic-font-body-medium-line-height);
+}
+@media screen and (min-width: 56.25rem) {
+  .ld-text-heading-small.ld-text-heading-weightDefault {
+    font-size: 1.25rem;
+    line-height: var(--ld-primitive-font-lineHeight-350);
+  }
+}
+.ld-text-heading-small.ld-text-heading-weightAlt {
+  font-size: 1.125rem;
+  font-weight: var(--ld-primitive-font-weight-400);
+  line-height: var(--ld-semantic-font-body-medium-line-height);
+}
+@media screen and (min-width: 56.25rem) {
+  .ld-text-heading-small.ld-text-heading-weightAlt {
+    font-size: 1.25rem;
+    line-height: var(--ld-primitive-font-lineHeight-350);
+  }
+}
+
+/* TextColor */
+.ld-text-textcolor-accentBlue {
+  color: var(--ld-semantic-color-text-accent-blue) !important;
+}
+
+.ld-text-textcolor-accentBlueBold {
+  color: var(--ld-semantic-color-text-accent-blue-bold) !important;
+}
+
+.ld-text-textcolor-accentCyan {
+  color: var(--ld-semantic-color-text-accent-cyan) !important;
+}
+
+.ld-text-textcolor-accentCyanBold {
+  color: var(--ld-semantic-color-text-accent-cyan-bold) !important;
+}
+
+.ld-text-textcolor-accentGray {
+  color: var(--ld-semantic-color-text-accent-gray) !important;
+}
+
+.ld-text-textcolor-accentGrayBold {
+  color: var(--ld-semantic-color-text-accent-gray-bold) !important;
+}
+
+.ld-text-textcolor-accentGreen {
+  color: var(--ld-semantic-color-text-accent-green) !important;
+}
+
+.ld-text-textcolor-accentGreenBold {
+  color: var(--ld-semantic-color-text-accent-green-bold) !important;
+}
+
+.ld-text-textcolor-accentOrange {
+  color: var(--ld-semantic-color-text-accent-orange) !important;
+}
+
+.ld-text-textcolor-accentOrangeBold {
+  color: var(--ld-semantic-color-text-accent-orange-bold) !important;
+}
+
+.ld-text-textcolor-accentPink {
+  color: var(--ld-semantic-color-text-accent-pink) !important;
+}
+
+.ld-text-textcolor-accentPinkBold {
+  color: var(--ld-semantic-color-text-accent-pink-bold) !important;
+}
+
+.ld-text-textcolor-accentPurple {
+  color: var(--ld-semantic-color-text-accent-purple) !important;
+}
+
+.ld-text-textcolor-accentPurpleBold {
+  color: var(--ld-semantic-color-text-accent-purple-bold) !important;
+}
+
+.ld-text-textcolor-accentRed {
+  color: var(--ld-semantic-color-text-accent-red) !important;
+}
+
+.ld-text-textcolor-accentRedBold {
+  color: var(--ld-semantic-color-text-accent-red-bold) !important;
+}
+
+.ld-text-textcolor-accentSpark {
+  color: var(--ld-semantic-color-text-accent-spark) !important;
+}
+
+.ld-text-textcolor-accentSparkBold {
+  color: var(--ld-semantic-color-text-accent-spark-bold) !important;
+}
+
+.ld-text-textcolor-accentTeal {
+  color: var(--ld-semantic-color-text-accent-teal) !important;
+}
+
+.ld-text-textcolor-accentTealBold {
+  color: var(--ld-semantic-color-text-accent-teal-bold) !important;
+}
+
+.ld-text-textcolor-accentYellow {
+  color: var(--ld-semantic-color-text-accent-yellow) !important;
+}
+
+.ld-text-textcolor-accentYellowBold {
+  color: var(--ld-semantic-color-text-accent-yellow-bold) !important;
+}
+
+.ld-text-textcolor-onFillAccentBlue {
+  color: var(--ld-semantic-color-text-onFill-accent-blue) !important;
+}
+
+.ld-text-textcolor-onFillAccentBlueSubtle {
+  color: var(--ld-semantic-color-text-onFill-accent-blue-subtle) !important;
+}
+
+.ld-text-textcolor-onFillAccentCyan {
+  color: var(--ld-semantic-color-text-onFill-accent-cyan) !important;
+}
+
+.ld-text-textcolor-onFillAccentCyanSubtle {
+  color: var(--ld-semantic-color-text-onFill-accent-cyan-subtle) !important;
+}
+
+.ld-text-textcolor-onFillAccentGray {
+  color: var(--ld-semantic-color-text-onFill-accent-gray) !important;
+}
+
+.ld-text-textcolor-onFillAccentGraySubtle {
+  color: var(--ld-semantic-color-text-onFill-accent-gray-subtle) !important;
+}
+
+.ld-text-textcolor-onFillAccentGreen {
+  color: var(--ld-semantic-color-text-onFill-accent-green) !important;
+}
+
+.ld-text-textcolor-onFillAccentGreenSubtle {
+  color: var(--ld-semantic-color-text-onFill-accent-green-subtle) !important;
+}
+
+.ld-text-textcolor-onFillAccentOrange {
+  color: var(--ld-semantic-color-text-onFill-accent-orange) !important;
+}
+
+.ld-text-textcolor-onFillAccentOrangeSubtle {
+  color: var(--ld-semantic-color-text-onFill-accent-orange-subtle) !important;
+}
+
+.ld-text-textcolor-onFillAccentPink {
+  color: var(--ld-semantic-color-text-onFill-accent-pink) !important;
+}
+
+.ld-text-textcolor-onFillAccentPinkSubtle {
+  color: var(--ld-semantic-color-text-onFill-accent-pink-subtle) !important;
+}
+
+.ld-text-textcolor-onFillAccentPurple {
+  color: var(--ld-semantic-color-text-onFill-accent-purple) !important;
+}
+
+.ld-text-textcolor-onFillAccentPurpleSubtle {
+  color: var(--ld-semantic-color-text-onFill-accent-purple-subtle) !important;
+}
+
+.ld-text-textcolor-onFillAccentRed {
+  color: var(--ld-semantic-color-text-onFill-accent-red) !important;
+}
+
+.ld-text-textcolor-onFillAccentRedSubtle {
+  color: var(--ld-semantic-color-text-onFill-accent-red-subtle) !important;
+}
+
+.ld-text-textcolor-onFillAccentSpark {
+  color: var(--ld-semantic-color-text-onFill-accent-spark) !important;
+}
+
+.ld-text-textcolor-onFillAccentSparkSubtle {
+  color: var(--ld-semantic-color-text-onFill-accent-spark-subtle) !important;
+}
+
+.ld-text-textcolor-onFillAccentTeal {
+  color: var(--ld-semantic-color-text-onFill-accent-teal) !important;
+}
+
+.ld-text-textcolor-onFillAccentTealSubtle {
+  color: var(--ld-semantic-color-text-onFill-accent-teal-subtle) !important;
+}
+
+.ld-text-textcolor-onFillAccentYellow {
+  color: var(--ld-semantic-color-text-onFill-accent-yellow) !important;
+}
+
+.ld-text-textcolor-onFillAccentYellowSubtle {
+  color: var(--ld-semantic-color-text-onFill-accent-yellow-subtle) !important;
+}
+
+.ld-text-textcolor-onFill {
+  color: var(--ld-semantic-color-text-onFill) !important;
+}
+
+.ld-text-textcolor-onFillActivated {
+  color: var(--ld-semantic-color-text-onFill-activated) !important;
+}
+
+.ld-text-textcolor-onFillActivatedDisabled {
+  color: var(--ld-semantic-color-text-onFill-activated-disabled) !important;
+}
+
+.ld-text-textcolor-onFillActivatedSubtle {
+  color: var(--ld-semantic-color-text-onFill-activated-subtle) !important;
+}
+
+.ld-text-textcolor-onFillActivatedSubtleDisabled {
+  color: var(--ld-semantic-color-text-onFill-activated-subtle-disabled) !important;
+}
+
+.ld-text-textcolor-onFillBrand {
+  color: var(--ld-semantic-color-text-onFill-brand) !important;
+}
+
+.ld-text-textcolor-onFillBrandBold {
+  color: var(--ld-semantic-color-text-onFill-brand-bold) !important;
+}
+
+.ld-text-textcolor-onFillBrandSubtle {
+  color: var(--ld-semantic-color-text-onFill-brand-subtle) !important;
+}
+
+.ld-text-textcolor-onFillDisabled {
+  color: var(--ld-semantic-color-text-onFill-disabled) !important;
+}
+
+.ld-text-textcolor-onFillEdited {
+  color: var(--ld-semantic-color-text-onFill-edited) !important;
+}
+
+.ld-text-textcolor-onFillEditedSubtle {
+  color: var(--ld-semantic-color-text-onFill-edited-subtle) !important;
+}
+
+.ld-text-textcolor-onFillInfo {
+  color: var(--ld-semantic-color-text-onFill-info) !important;
+}
+
+.ld-text-textcolor-onFillInfoSubtle {
+  color: var(--ld-semantic-color-text-onFill-info-subtle) !important;
+}
+
+.ld-text-textcolor-onFillInverse {
+  color: var(--ld-semantic-color-text-onFill-inverse) !important;
+}
+
+.ld-text-textcolor-onFillNegative {
+  color: var(--ld-semantic-color-text-onFill-negative) !important;
+}
+
+.ld-text-textcolor-onFillNegativeSubtle {
+  color: var(--ld-semantic-color-text-onFill-negative-subtle) !important;
+}
+
+.ld-text-textcolor-onFillPositive {
+  color: var(--ld-semantic-color-text-onFill-positive) !important;
+}
+
+.ld-text-textcolor-onFillPositiveSubtle {
+  color: var(--ld-semantic-color-text-onFill-positive-subtle) !important;
+}
+
+.ld-text-textcolor-onFillTransparent {
+  color: var(--ld-semantic-color-text-onFill-transparent) !important;
+}
+
+.ld-text-textcolor-onFillWarning {
+  color: var(--ld-semantic-color-text-onFill-warning) !important;
+}
+
+.ld-text-textcolor-onFillWarningSubtle {
+  color: var(--ld-semantic-color-text-onFill-warning-subtle) !important;
+}
+
+.ld-text-textcolor-activated {
+  color: var(--ld-semantic-color-text-activated) !important;
+}
+
+.ld-text-textcolor-brand {
+  color: var(--ld-semantic-color-text-brand) !important;
+}
+
+.ld-text-textcolor-brandBold {
+  color: var(--ld-semantic-color-text-brand-bold) !important;
+}
+
+.ld-text-textcolor-disabled {
+  color: var(--ld-semantic-color-text-disabled) !important;
+}
+
+.ld-text-textcolor-edited {
+  color: var(--ld-semantic-color-text-edited) !important;
+}
+
+.ld-text-textcolor-editedBold {
+  color: var(--ld-semantic-color-text-edited-bold) !important;
+}
+
+.ld-text-textcolor-info {
+  color: var(--ld-semantic-color-text-info) !important;
+}
+
+.ld-text-textcolor-infoBold {
+  color: var(--ld-semantic-color-text-info-bold) !important;
+}
+
+.ld-text-textcolor-infoInverse {
+  color: var(--ld-semantic-color-text-info-inverse) !important;
+}
+
+.ld-text-textcolor-inverse {
+  color: var(--ld-semantic-color-text-inverse) !important;
+}
+
+/* magic-* tokens are only defined under [data-agent-theme]; fall back to the
+   customer agent theme's values so text stays legible outside that scope. */
+.ld-text-textcolor-magicStart {
+  color: var(--ld-semantic-color-text-magic-start, #0053e2) !important;
+}
+
+.ld-text-textcolor-magicMiddle {
+  color: var(--ld-semantic-color-text-magic-middle, #3d90ec) !important;
+}
+
+.ld-text-textcolor-magicStop {
+  color: var(--ld-semantic-color-text-magic-stop, #79cdf6) !important;
+}
+
+.ld-text-textcolor-negative {
+  color: var(--ld-semantic-color-text-negative) !important;
+}
+
+.ld-text-textcolor-negativeBold {
+  color: var(--ld-semantic-color-text-negative-bold) !important;
+}
+
+.ld-text-textcolor-negativeInverse {
+  color: var(--ld-semantic-color-text-negative-inverse) !important;
+}
+
+.ld-text-textcolor-positive {
+  color: var(--ld-semantic-color-text-positive) !important;
+}
+
+.ld-text-textcolor-positiveBold {
+  color: var(--ld-semantic-color-text-positive-bold) !important;
+}
+
+.ld-text-textcolor-positiveInverse {
+  color: var(--ld-semantic-color-text-positive-inverse) !important;
+}
+
+.ld-text-textcolor-subtle {
+  color: var(--ld-semantic-color-text-subtle) !important;
+}
+
+.ld-text-textcolor-subtlest {
+  color: var(--ld-semantic-color-text-subtlest) !important;
+}
+
+.ld-text-textcolor-warning {
+  color: var(--ld-semantic-color-text-warning) !important;
+}
+
+.ld-text-textcolor-warningBold {
+  color: var(--ld-semantic-color-text-warning-bold) !important;
+}
+
+.ld-text-textcolor-warningInverse {
+  color: var(--ld-semantic-color-text-warning-inverse) !important;
+}

@@ -1,0 +1,21 @@
+.px-scrim {
+  background-color: var(--ld-semantic-color-scrim, rgba(0, 0, 0, 0.6));
+}
+
+.px-scrim--inverse {
+  background-color: var(--ld-semantic-color-scrim-inverse, rgba(255, 255, 255, 0.6));
+}
+
+.px-scrim--open {
+  opacity: 1;
+}
+
+.px-scrim--closing {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .px-scrim {
+    transition: none;
+  }
+}

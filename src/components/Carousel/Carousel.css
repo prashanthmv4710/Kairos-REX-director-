@@ -1,0 +1,319 @@
+/* LD Portable – Carousel */
+
+.ld-carousel-root {
+  position: relative;
+  width: 100%;
+}
+
+/* ── Viewport & content ───────────────────────────────────────────── */
+
+.ld-carousel-viewport {
+  /* clip horizontally so off-screen slides don't show, but keep vertical
+     visible so item box-shadows / focus rings aren't cut off top & bottom */
+  overflow-x: clip;
+  overflow-y: visible;
+  width: 100%;
+}
+
+.ld-carousel-content {
+  display: flex;
+  align-items: stretch;
+  gap: var(--ld-primitive-scale-space-200, 1rem);
+  overflow-x: auto;
+  /* overflow-x: auto forces overflow-y to clip too, so pad on all sides
+     to give item box-shadows / focus rings room to render at the edges */
+  padding-block-start: var(--ld-primitive-scale-space-50);
+  padding-block-end: var(--ld-primitive-scale-space-100);
+  padding-inline: var(--ld-primitive-scale-space-100);
+  /* keep scroll-snap targets aligned to the content's content-box, not its
+     padding-box, so first/last slides still snap flush to the viewport edges */
+  scroll-padding-inline: 8px;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.ld-carousel-content::-webkit-scrollbar {
+  display: none;
+}
+
+.ld-carousel-content--vertical {
+  flex-direction: column;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+}
+
+/* ── Item ─────────────────────────────────────────────────────────── */
+
+.ld-carousel-item {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Direct children of an item fill its full height */
+.ld-carousel-item > * {
+  flex: 1;
+  min-height: 0;
+}
+
+/* ── Column-based item sizing ─────────────────────────────────────── */
+
+/* 1 card always fills the viewport width */
+.ld-carousel-item--cols-1 {
+  flex: 0 0 calc(100% - 16px);
+}
+
+/* 2 cards side by side; collapses to 1 on mobile */
+.ld-carousel-item--cols-2 {
+  flex: 0 0 calc(50% - 8px);
+}
+
+@media (max-width: 37.4375rem) {
+  .ld-carousel-item--cols-2 {
+    flex: 0 0 calc(100% - 16px);
+  }
+}
+
+/* 3 cards side by side; collapses to 1 on mobile */
+.ld-carousel-item--cols-3 {
+  flex: 0 0 calc(33.333% - 11px);
+}
+
+@media (max-width: 37.4375rem) {
+  .ld-carousel-item--cols-3 {
+    flex: 0 0 calc(100% - 16px);
+  }
+}
+
+.ld-carousel-item--multi {
+  flex: 0 0 calc(33.333% - 11px);
+}
+
+@media (max-width: 37.4375rem) {
+  .ld-carousel-item--multi {
+    flex: 0 0 calc(50% - 8px);
+  }
+}
+
+@media (max-width: 37.4375rem) {
+  .ld-carousel-item--multi {
+    flex: 0 0 calc(100% - 16px);
+  }
+}
+
+/* ── Navigation buttons ───────────────────────────────────────────── */
+
+.ld-carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--ld-primitive-scale-space-500, 2.5rem);
+  height: var(--ld-primitive-scale-space-500, 2.5rem);
+  border-radius: var(--ld-primitive-scale-borderRadius-round, 62.5rem);
+  border: 1px solid var(--ld-semantic-color-border-subtlest, #e6e6e8);
+  background: var(--ld-semantic-color-surface, #fff);
+  color: var(--ld-semantic-color-text, #2e2f32);
+  box-shadow: var(--ld-semantic-elevation-100, 0 1px 4px rgba(0, 0, 0, 0.12));
+  cursor: pointer;
+  padding: 0;
+  transition: opacity 150ms ease, box-shadow 150ms ease;
+}
+
+.ld-carousel-btn:hover:not(:disabled) {
+  box-shadow: var(--ld-semantic-elevation-200, 0 2px 8px rgba(0, 0, 0, 0.18));
+}
+
+.ld-carousel-btn:disabled {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.ld-carousel-btn--prev {
+  left: -20px;
+}
+
+.ld-carousel-btn--next {
+  right: -20px;
+}
+
+@media (max-width: 37.4375rem) {
+  .ld-carousel-btn {
+    display: none;
+  }
+}
+
+/* ── Pagination (dots) ────────────────────────────────────────────── */
+
+.ld-carousel-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-100, 0.5rem);
+  padding-top: var(--ld-primitive-scale-space-200, 1rem);
+}
+
+/* Inactive dot: white-filled, black outlined circle */
+.ld-carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--ld-primitive-scale-borderRadius-round, 62.5rem);
+  border: 1px solid var(--ld-semantic-color-fill-inverse, #2e2f32);
+  background: var(--ld-semantic-color-fill-subtle, #f8f8f8);
+  padding: 0;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: width 150ms ease, background 150ms ease, border-color 150ms ease;
+}
+
+/* Active dot: black filled pill */
+.ld-carousel-dot--active {
+  width: 16px;
+  background: var(--ld-semantic-color-fill-inverse, #2e2f32);
+  border-color: var(--ld-semantic-color-fill-inverse, #2e2f32);
+}
+
+/* ── Section (title header + optional actions) ────────────────────── */
+
+.ld-carousel-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-50, 0.25rem);
+  width: 100%;
+}
+
+.ld-carousel-section-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--ld-primitive-scale-space-200, 1rem);
+  min-height: 2rem;
+}
+
+.ld-carousel-section-title {
+  font-family: var(--ld-semantic-font-body-medium-family, inherit);
+  font-size: var(--ld-semantic-font-body-medium-size, 1rem);
+  font-weight: var(--ld-semantic-font-body-medium-weight-alt, 700);
+  line-height: var(--ld-semantic-font-body-medium-line-height, 1.5rem);
+  color: var(--ld-semantic-color-text, #2e2f32);
+  flex: 1;
+  margin: 0;
+}
+
+.ld-carousel-section-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-50, 0.25rem);
+  flex-shrink: 0;
+}
+
+/* ── Header navigation buttons (inline, for section header) ────────── */
+
+.ld-carousel-header-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--ld-primitive-scale-borderRadius-round, 62.5rem);
+  border: 1px solid var(--ld-semantic-color-border, #d0d0d2);
+  background: var(--ld-semantic-color-surface, #fff);
+  color: var(--ld-semantic-color-text, #2e2f32);
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+  transition: opacity 150ms ease, box-shadow 150ms ease;
+}
+
+.ld-carousel-header-btn:hover:not(:disabled) {
+  box-shadow: var(--ld-semantic-elevation-100, 0 1px 4px rgba(0, 0, 0, 0.12));
+}
+
+.ld-carousel-header-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+/* ── Progress bar ─────────────────────────────────────────────────── */
+
+.ld-carousel-progressbar {
+  display: flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-50, 0.25rem);
+  padding: var(--ld-primitive-scale-space-100, 0.5rem) 0;
+}
+
+.ld-carousel-progressbar-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--ld-primitive-scale-borderRadius-round, 62.5rem);
+  border: none;
+  background: none;
+  color: var(--ld-semantic-color-text, #2e2f32);
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.ld-carousel-progressbar-btn:hover:not(:disabled) {
+  background: var(--ld-semantic-color-fill-accent-gray-subtle, rgba(0, 0, 0, 0.06));
+}
+
+.ld-carousel-progressbar-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.ld-carousel-progressbar-track-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-50, 0.25rem);
+}
+
+.ld-carousel-progressbar-track {
+  width: 100%;
+  height: 3px;
+  background: var(--ld-semantic-color-separator, #e3e4e5);
+  border-radius: var(--ld-primitive-scale-borderRadius-25, 0.125rem);
+  overflow: hidden;
+}
+
+.ld-carousel-progressbar-fill {
+  height: 100%;
+  background: var(--ld-semantic-color-action-fill-primary, #0053e2);
+  border-radius: var(--ld-primitive-scale-borderRadius-25, 0.125rem);
+  transition: width 300ms ease;
+}
+
+.ld-carousel-progressbar-dots {
+  display: flex;
+  justify-content: center;
+  gap: var(--ld-primitive-scale-space-50, 0.25rem);
+}
+
+.ld-carousel-progressbar-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--ld-primitive-scale-borderRadius-round, 62.5rem);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  background: var(--ld-semantic-color-border-disabled, #babbbe);
+  transition: background 150ms ease;
+}
+
+.ld-carousel-progressbar-dot--active {
+  background: var(--ld-semantic-color-action-fill-primary, #0053e2);
+}

@@ -1,0 +1,118 @@
+/* LD Portable – SelectCard */
+
+/* SelectCard Container */
+.ld-select-card-container {
+  background: var(--ld-semantic-color-surface);
+  border-radius: var(--ld-primitive-scale-borderRadius-100, 0.5rem);
+  box-shadow: 0 var(--ld-semantic-border-width-thin, 0.0625rem) calc(2 * var(--ld-semantic-border-width-thin, 0.0625rem)) var(--ld-semantic-border-width-thin, 0.0625rem) rgba(0, 0, 0, 0.1490196078), 0 calc(-1 * var(--ld-semantic-border-width-thin, 0.0625rem)) calc(2 * var(--ld-semantic-border-width-thin, 0.0625rem)) 0 rgba(0, 0, 0, 0.1019607843);
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.2s ease-in-out;
+  width: 100%;
+  border: var(--ld-semantic-border-width-thin, 0.0625rem) solid var(--ld-semantic-color-input-border);
+  padding: var(--ld-semantic-spacing-200, 1rem);
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+.ld-select-card-container.ld-select-card-small {
+  padding: var(--ld-semantic-spacing-150, 0.75rem);
+}
+
+/* Hover state */
+.ld-select-card-container:hover:not(.ld-select-card-disabled) {
+  box-shadow: 0 calc(4 * var(--ld-semantic-border-width-thin, 0.0625rem)) calc(8 * var(--ld-semantic-border-width-thin, 0.0625rem)) var(--ld-semantic-border-width-medium, 0.125rem) rgba(0, 0, 0, 0.1490196078), 0 calc(-1 * var(--ld-semantic-border-width-thin, 0.0625rem)) calc(2 * var(--ld-semantic-border-width-thin, 0.0625rem)) 0 rgba(0, 0, 0, 0.1019607843);
+  background: var(--ld-semantic-color-surface-hovered);
+  border-color: var(--ld-semantic-color-input-border-hovered);
+}
+
+/* Checked state */
+.ld-select-card-container.ld-select-card-checked {
+  border-color: var(--ld-semantic-color-input-border-activated);
+  background: var(--ld-semantic-color-surface-activated);
+  box-shadow: inset 0 0 0 var(--ld-semantic-border-width-thin, 0.0625rem) var(--ld-semantic-color-input-border-activated), 0 var(--ld-semantic-border-width-thin, 0.0625rem) calc(2 * var(--ld-semantic-border-width-thin, 0.0625rem)) var(--ld-semantic-border-width-thin, 0.0625rem) rgba(0, 0, 0, 0.1490196078);
+}
+
+.ld-select-card-container.ld-select-card-checked:hover:not(.ld-select-card-disabled) {
+  background: var(--ld-semantic-color-surface-activated-hovered);
+  box-shadow: inset 0 0 0 var(--ld-semantic-border-width-thin, 0.0625rem) var(--ld-semantic-color-input-border-activated), 0 calc(4 * var(--ld-semantic-border-width-thin, 0.0625rem)) calc(8 * var(--ld-semantic-border-width-thin, 0.0625rem)) var(--ld-semantic-border-width-medium, 0.125rem) rgba(0, 0, 0, 0.1490196078);
+}
+
+/* Focus state */
+.ld-select-card-container:has(.ld-checkbox-input:focus-visible),
+.ld-select-card-container:has(.ld-radio-input:focus-visible) {
+  outline: calc(3 * var(--ld-semantic-border-width-thin, 0.0625rem)) solid var(--ld-semantic-color-input-border-focused);
+  outline-offset: calc(3 * var(--ld-semantic-border-width-thin, 0.0625rem));
+}
+
+/* Disabled state */
+.ld-select-card-container.ld-select-card-disabled {
+  background: var(--ld-semantic-color-input-fill-disabled);
+  border-color: var(--ld-semantic-color-input-border-disabled);
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+/* Content Wrapper */
+.ld-select-card-content-wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--ld-semantic-spacing-200, 1rem);
+  width: 100%;
+}
+
+.ld-select-card-small .ld-select-card-content-wrapper {
+  gap: var(--ld-semantic-spacing-150, 0.75rem);
+}
+
+/* Selection Control Positioning */
+.ld-select-card-control {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: var(--ld-semantic-spacing-100, 0.5rem);
+  min-width: 1.5rem;
+  margin-top: var(--ld-semantic-border-width-medium, 0.125rem);
+}
+
+.ld-select-card-small .ld-select-card-control {
+  min-width: 1.25rem;
+}
+
+/* Children Content Area */
+.ld-select-card-children {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: var(--ld-semantic-spacing-100, 0.5rem);
+  width: 100%;
+  text-align: center;
+}
+
+/* Override control label styling when inside SelectCard */
+.ld-select-card-container .ld-checkbox-label,
+.ld-select-card-container .ld-radio-label {
+  margin: 0;
+  cursor: inherit;
+}
+
+/* Label text rendered by SelectCard (not Checkbox/Radio) for aria-labelledby composition */
+.ld-select-card-label-text {
+  font-size: var(--ld-semantic-font-body-small-size);
+  font-weight: var(--ld-primitive-font-weight-400);
+  line-height: var(--ld-semantic-font-body-small-line-height);
+  color: var(--ld-semantic-color-text);
+}
+
+.ld-select-card-checked .ld-select-card-label-text {
+  font-weight: var(--ld-primitive-font-weight-700);
+}
+
+.ld-select-card-disabled .ld-select-card-label-text {
+  color: var(--ld-semantic-color-text-disabled);
+}

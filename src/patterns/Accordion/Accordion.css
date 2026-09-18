@@ -1,0 +1,101 @@
+/* LD Portable -- Accordion */
+
+.ld-accordion-root {
+  width: 100%;
+}
+
+/* AccordionItem */
+.ld-accordion-item {
+  border-bottom: 1px solid var(--ld-semantic-color-separator, #e3e4e5);
+}
+.ld-accordion-item:first-child {
+  border-top: 1px solid var(--ld-semantic-color-separator, #e3e4e5);
+}
+
+/* AccordionHeader */
+.ld-accordion-headerWrapper {
+  margin: 0;
+}
+
+.ld-accordion-header {
+  align-items: center;
+  appearance: none;
+  background: none;
+  border: none;
+  color: var(--ld-semantic-color-text, #2e2f32);
+  cursor: pointer;
+  display: flex;
+  font-size: var(--ld-semantic-font-body-small-size);
+  font-weight: var(--ld-primitive-font-weight-600);
+  gap: var(--ld-primitive-scale-space-100);
+  justify-content: space-between;
+  line-height: var(--ld-semantic-font-body-small-line-height);
+  padding-block: var(--ld-primitive-scale-space-150);
+  padding-inline: var(--ld-primitive-scale-space-200);
+  text-align: left;
+  width: 100%;
+}
+
+.ld-accordion-header:hover {
+  background: var(--ld-semantic-color-action-fill-secondary-hovered, #f1f1f2);
+}
+
+.ld-accordion-header:focus-visible {
+  outline: 2px solid var(--ld-semantic-color-border-activated, #0053e2);
+  outline-offset: -2px;
+  border-radius: var(--ld-semantic-border-radius-medium);
+}
+
+.ld-accordion-headerContent {
+  flex: 1;
+  min-width: 0; /* allow content to shrink so it never crowds the chevron */
+  overflow: hidden;
+}
+
+/* Chevron */
+.ld-accordion-chevron {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.25rem;
+  transition: transform 0.15s ease;
+  transform: rotate(0deg);
+}
+.ld-accordion-chevronOpen {
+  transform: rotate(90deg);
+}
+
+/* Panel collapse animation */
+.ld-accordion-panel {
+  width: 100%;
+}
+
+.ld-accordion-panelEnter {
+  height: 0;
+  overflow-y: hidden;
+}
+
+.ld-accordion-panelEnterActive {
+  overflow-y: hidden;
+  transition: height 150ms ease;
+}
+
+.ld-accordion-panelExit {
+  height: 0;
+  overflow-y: hidden;
+}
+
+.ld-accordion-panelExitActive {
+  overflow-y: hidden;
+  transition: height 120ms ease;
+}
+
+.ld-accordion-panelContent {
+  padding-block-start: 0;
+  padding-block-end: var(--ld-primitive-scale-space-150);
+  padding-inline: var(--ld-primitive-scale-space-200);
+  color: var(--ld-semantic-color-text-subtle, #515357);
+  font-size: var(--ld-semantic-font-body-small-size);
+  line-height: var(--ld-semantic-font-body-small-line-height);
+}

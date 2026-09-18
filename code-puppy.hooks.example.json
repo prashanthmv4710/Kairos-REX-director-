@@ -1,0 +1,50 @@
+{
+  "_readme": [
+    "OPT-IN Code Puppy accessibility auto-fix hook for @walmart/ld-kit.",
+    "",
+    "Code Puppy is a best-effort / experimental runtime for this loop -- see",
+    "scripts/a11y/README.md -> 'Code Puppy (experimental, interactive-only)'.",
+    "",
+    "TO ENABLE:",
+    "  1. Copy the \"hooks\" block below into ~/.code_puppy/hooks.json",
+    "     (create the file, or merge into your existing PreToolUse array).",
+    "  2. Restart Code Puppy (it loads hook config once at startup).",
+    "  3. Use the interactive TUI -- headless `code-puppy -p` fires no hooks.",
+    "",
+    "WHY THIS ISN'T SHIPPED ACTIVE:",
+    "  Code Puppy's only project-level config is the shared .claude/settings.json",
+    "  (also read by Claude Code). Adding a PreToolUse hook there would make",
+    "  Claude Code scan before every edit (regression), and the timeout unit",
+    "  conflicts (Code Puppy reads ms; Claude reads seconds). The clean Code-Puppy",
+    "  -only location is the per-machine global ~/.code_puppy/hooks.json, which a",
+    "  per-project starter cannot ship -- hence this copy-me example.",
+    "",
+    "GOTCHAS baked into the config below:",
+    "  - matcher MUST be bare \"*\" -- Code Puppy reads any leading-dot pattern",
+    "    (e.g. \".*\") as a FILE-EXTENSION match, so \".*\" never matches a tool.",
+    "  - timeout is in MILLISECONDS (min 100); 55000 = 55s.",
+    "  - invoke via `node` (not `npm run`) so the npm banner can't corrupt the",
+    "    stdout {decision:block} JSON that Code Puppy parses.",
+    "  - engine PATH: defaults to the relative scripts/a11y/run-endhook.mjs (Code",
+    "    Puppy runs the hook with cwd = the project root you launched from, same",
+    "    convention as every other runtime). This is model-agnostic -- it does not",
+    "    depend on the model you pick. Override it for a non-standard layout by",
+    "    exporting LD_A11Y_ENGINE=/abs/path/to/run-endhook.mjs before launching.",
+    "  - the `test -f ... || true` guard makes it a safe no-op in projects that",
+    "    don't have the ld-kit a11y engine."
+  ],
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "test -f \"${LD_A11Y_ENGINE:-scripts/a11y/run-endhook.mjs}\" && node \"${LD_A11Y_ENGINE:-scripts/a11y/run-endhook.mjs}\" --agent claude --event posttooluse || true",
+            "timeout": 55000
+          }
+        ]
+      }
+    ]
+  }
+}

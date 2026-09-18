@@ -1,0 +1,5 @@
+{
+  "name": "ld-a11y",
+  "version": "1.0.0",
+  "description": "Living Design accessibility auto-fix loop. Wibey VS Code path: a PostToolUse hook that re-scans changed components with axe and blocks (re-engaging the agent) when violations are found. Mirrors the Stop-hook loop used by the CLI / Claude Code / Cursor."
+}

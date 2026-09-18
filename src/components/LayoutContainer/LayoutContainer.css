@@ -1,0 +1,13 @@
+/* LD Portable – LayoutContainer */
+/* LayoutContainer */
+.ld-layoutcontainer-layoutContainer {
+  display: inline-block;
+  position: relative;
+}
+
+.ld-layoutcontainer-content {
+  z-index: var(--ld-semantic-z-index-dropdown, 1000);
+  left: 0;
+  position: absolute;
+  top: 0;
+}

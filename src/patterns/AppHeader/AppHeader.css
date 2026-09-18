@@ -1,0 +1,363 @@
+.ld-shared-app-header {
+  --app-header-fill: var(--ld-semantic-color-surface, #ffffff);
+  --app-header-text: var(--ld-semantic-color-text, #2e2f32);
+  --app-header-muted: var(--ld-semantic-color-text-subtle, #74767c);
+  --app-header-search-fill: var(--ld-semantic-color-fill-subtle, #f2f2f3);
+  width: 100%;
+  background: var(--app-header-fill);
+  color: var(--app-header-text);
+  font-family: var(--ld-semantic-font-family-sans, sans-serif);
+}
+
+.ld-shared-app-header--blue {
+  --app-header-fill: var(--ld-semantic-color-topNav-fill, #0053e2);
+  --app-header-text: var(--ld-semantic-color-topNav-text-onFill, #ffffff);
+  --app-header-muted: var(--ld-semantic-color-topNav-text-onFill, #ffffff);
+  --app-header-search-fill: var(--ld-semantic-color-surface, #ffffff);
+}
+
+.ld-shared-app-header__status-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 34px;
+  padding: 0 18px;
+  box-sizing: border-box;
+  color: var(--app-header-text);
+  font-size: var(--ld-semantic-font-body-small-size);
+  font-weight: var(--ld-primitive-font-weight-700);
+}
+
+.ld-shared-app-header__status-bar--android {
+  min-height: 28px;
+}
+
+.ld-shared-app-header__dynamic-island {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  width: 105px;
+  height: 29px;
+  border-radius: var(--ld-semantic-border-radius-round);
+  background: var(--ld-semantic-color-fill-inverse);
+  transform: translateX(-50%);
+}
+
+.ld-shared-app-header__status-icons {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 76px;
+  justify-content: flex-end;
+}
+
+.ld-shared-app-header__android-network {
+  font-size: 11px;
+  font-weight: var(--ld-primitive-font-weight-700);
+}
+
+.ld-shared-app-header__cell-bars {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: var(--ld-primitive-scale-space-25);
+  height: 13px;
+}
+
+.ld-shared-app-header__cell-bars span {
+  width: 3px;
+  border-radius: 1px;
+  background: currentColor;
+}
+
+.ld-shared-app-header__cell-bars span:nth-child(1) {
+  height: 5px;
+}
+
+.ld-shared-app-header__cell-bars span:nth-child(2) {
+  height: 7px;
+}
+
+.ld-shared-app-header__cell-bars span:nth-child(3) {
+  height: 10px;
+}
+
+.ld-shared-app-header__cell-bars span:nth-child(4) {
+  height: 12px;
+}
+
+.ld-shared-app-header__battery {
+  position: relative;
+  width: 23px;
+  height: 12px;
+  border: 1.5px solid currentColor;
+  border-radius: var(--ld-semantic-border-radius-medium);
+  box-sizing: border-box;
+}
+
+.ld-shared-app-header__battery::before {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  bottom: 2px;
+  left: 2px;
+  border-radius: var(--ld-semantic-border-radius-small);
+  background: currentColor;
+  content: '';
+}
+
+.ld-shared-app-header__battery::after {
+  position: absolute;
+  top: 3px;
+  right: -4px;
+  width: 2px;
+  height: 5px;
+  border-radius: 0 2px 2px 0;
+  background: currentColor;
+  opacity: 0.55;
+  content: '';
+}
+
+.ld-shared-app-header__bar {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  min-height: 54px;
+  padding-block: 0;
+  padding-inline: var(--ld-primitive-scale-space-200);
+  gap: 10px;
+  box-sizing: border-box;
+}
+
+.ld-shared-app-header--tablet .ld-shared-app-header__bar {
+  min-height: 56px;
+}
+
+.ld-shared-app-header__icon-button,
+.ld-shared-app-header__avatar-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: var(--ld-semantic-border-radius-round);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  padding: 0;
+}
+
+.ld-shared-app-header__icon-button:hover,
+.ld-shared-app-header__avatar-button:hover {
+  background: color-mix(in srgb, currentColor 10%, transparent);
+}
+
+.ld-shared-app-header__title-area {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.ld-shared-app-header--tablet.ld-shared-app-header--android .ld-shared-app-header__title-area {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.ld-shared-app-header__title {
+  max-width: 100%;
+  overflow: hidden;
+  color: var(--app-header-text);
+  font-size: 20px;
+  font-weight: var(--ld-primitive-font-weight-700);
+  line-height: var(--ld-semantic-font-body-medium-line-height);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ld-shared-app-header__subtitle {
+  max-width: 100%;
+  overflow: hidden;
+  color: var(--app-header-muted);
+  font-size: var(--ld-semantic-font-caption-size);
+  font-weight: var(--ld-primitive-font-weight-500);
+  line-height: var(--ld-semantic-font-caption-line-height);
+  opacity: 0.9;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ld-shared-app-header__actions {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--ld-primitive-scale-space-50);
+  min-width: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.ld-shared-app-header__account-root {
+  position: relative;
+  display: inline-flex;
+}
+
+.ld-shared-app-header__avatar-button {
+  position: relative;
+  background: color-mix(in srgb, currentColor 12%, transparent);
+}
+
+.ld-shared-app-header__avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--ld-semantic-border-radius-round);
+  background: var(--ld-semantic-color-surface, #ffffff);
+  color: var(--ld-semantic-color-action-fill-primary, #0053e2);
+  font-size: var(--ld-semantic-font-caption-size);
+  font-weight: var(--ld-primitive-font-weight-700);
+  line-height: 1;
+}
+
+.ld-shared-app-header__avatar-indicator {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  width: 9px;
+  height: 9px;
+  border: 2px solid var(--app-header-fill);
+  border-radius: var(--ld-semantic-border-radius-round);
+  background: var(--ld-semantic-color-fill-positive, #2a8703);
+}
+
+.ld-shared-app-header__account-menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  width: min(280px, calc(100vw - 32px));
+  overflow: hidden;
+  border-radius: var(--ld-primitive-scale-borderRadius-50, 4px);
+  background: var(--ld-semantic-color-surface-overlay, #ffffff);
+  box-shadow: 0 -1px 4px 0 rgba(0, 0, 0, 0.10), 0 5px 10px 3px rgba(0, 0, 0, 0.15);
+  color: var(--ld-semantic-color-text, #2e2f32);
+  font-family: var(--ld-semantic-font-family-sans, sans-serif);
+  z-index: 20;
+}
+
+.ld-shared-app-header__account-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-50);
+  padding-block-start: var(--ld-primitive-scale-space-250);
+  padding-block-end: var(--ld-primitive-scale-space-200);
+  padding-inline: var(--ld-primitive-scale-space-200);
+  background: var(--ld-semantic-color-fill-transparent, transparent);
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.ld-shared-app-header__account-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--ld-semantic-border-radius-round);
+  background: var(--ld-semantic-color-fill-brand-subtle, #e9f1fe);
+  color: var(--ld-semantic-color-text-onFill-brand-subtle, #114ab6);
+  font-size: var(--ld-semantic-font-heading-small-size-b-s, 18px);
+  font-weight: var(--ld-primitive-font-weight-700);
+  line-height: 1;
+}
+
+.ld-shared-app-header__account-name {
+  color: var(--ld-semantic-color-text-onFill-transparent, #2e2f32);
+  font-size: var(--ld-semantic-font-body-small-size, 14px);
+  line-height: var(--ld-semantic-font-body-small-line-height, 20px);
+}
+
+.ld-shared-app-header__account-link {
+  border: 0;
+  background: transparent;
+  color: var(--ld-semantic-color-text, #2e2f32);
+  cursor: pointer;
+  font: inherit;
+  font-size: var(--ld-semantic-font-body-small-size, 14px);
+  line-height: var(--ld-semantic-font-body-small-line-height, 20px);
+  padding: 0;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.ld-shared-app-header__account-row {
+  display: grid;
+  grid-template-columns: 16px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-150);
+  width: 100%;
+  min-height: 0;
+  border: 0;
+  background: var(--ld-semantic-color-surface, #ffffff);
+  color: var(--ld-semantic-color-text, #2e2f32);
+  font: inherit;
+  font-size: var(--ld-semantic-font-body-small-size, 14px);
+  line-height: var(--ld-semantic-font-body-small-line-height, 20px);
+  padding: var(--ld-primitive-scale-space-200);
+  text-align: left;
+  box-sizing: border-box;
+  transition: background-color 100ms;
+}
+
+button.ld-shared-app-header__account-row {
+  cursor: pointer;
+}
+
+button.ld-shared-app-header__account-row:hover {
+  background: var(--ld-semantic-color-surface-hovered, #f5f5f6);
+}
+
+button.ld-shared-app-header__account-row:active {
+  background: var(--ld-semantic-color-fill-accent-blue-subtle, #e6f0fa);
+}
+
+.ld-shared-app-header__account-row > i {
+  color: var(--ld-semantic-color-text-subtlest, #74767c);
+  flex-shrink: 0;
+}
+
+.ld-shared-app-header__account-row-text {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+}
+
+.ld-shared-app-header__account-muted,
+.ld-shared-app-header__account-version {
+  color: var(--ld-semantic-color-text-subtlest, #74767c);
+}
+
+.ld-shared-app-header__account-row-label {
+  min-width: 0;
+  color: var(--ld-semantic-color-text-onFill-transparent, #2e2f32);
+  font-weight: var(--ld-semantic-font-body-small-weight-default, 400);
+}
+
+.ld-shared-app-header__account-version {
+  justify-self: end;
+  white-space: nowrap;
+}
+
+.ld-shared-app-header__account-separator {
+  height: 1px;
+  background: var(--ld-semantic-color-separator, #e6e6e8);
+}
+
+.ld-shared-app-header__search-row {
+  padding: 0 16px 14px;
+}

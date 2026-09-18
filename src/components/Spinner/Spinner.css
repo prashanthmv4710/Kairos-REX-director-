@@ -1,0 +1,191 @@
+/* LD Portable – Spinner */
+/* Spinner */
+.ld-spinner-container {
+  display: inline-block;
+  line-height: 1;
+}
+
+.ld-spinner-neutral {
+  color: var(--ld-semantic-color-loading, #74767c);
+}
+
+.ld-spinner-white {
+  color: var(--ld-semantic-color-loading-white, #ffffff);
+}
+
+.ld-spinner-large {
+  height: 3rem;
+  width: 3rem;
+}
+
+.ld-spinner-small {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+/* Generic – gradient ring with a rounded leading cap */
+.ld-spinner-generic {
+  --ld-spinner-generic-stroke: 4px;
+  --ld-spinner-generic-color: var(--ld-semantic-color-text-brand, #0053e2);
+  animation: ld-spinner-generic-rotate 1s linear infinite;
+  aspect-ratio: 1;
+  display: block;
+  background: conic-gradient(
+    from 0deg,
+    var(--ld-spinner-generic-color) 0deg,
+    color-mix(in srgb, var(--ld-spinner-generic-color), transparent 100%) 300deg,
+    transparent 300deg 360deg
+  );
+  block-size: 100%;
+  border-radius: 50%;
+  inline-size: 100%;
+  position: relative;
+  -webkit-mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - var(--ld-spinner-generic-stroke)),
+    var(--ld-primitive-color-black, #000000) calc(100% - var(--ld-spinner-generic-stroke))
+  );
+  mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - var(--ld-spinner-generic-stroke)),
+    var(--ld-primitive-color-black, #000000) calc(100% - var(--ld-spinner-generic-stroke))
+  );
+}
+
+/* Rounded cap on the solid leading edge of the arc */
+.ld-spinner-generic::before {
+  background: var(--ld-spinner-generic-color);
+  block-size: var(--ld-spinner-generic-stroke);
+  border-radius: 50%;
+  content: '';
+  inline-size: var(--ld-spinner-generic-stroke);
+  inset-block-start: 0;
+  inset-inline-start: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+}
+
+.ld-spinner-large .ld-spinner-generic {
+  --ld-spinner-generic-stroke: 4px;
+}
+
+.ld-spinner-small .ld-spinner-generic {
+  --ld-spinner-generic-stroke: 2px;
+}
+
+.ld-spinner-generic-white {
+  --ld-spinner-generic-color: var(--ld-semantic-color-loading-white, #ffffff);
+}
+
+.ld-spinner-generic-brand {
+  --ld-spinner-generic-color: var(--ld-semantic-color-text-brand, #0053e2);
+}
+
+.ld-spinner-generic-dark {
+  --ld-spinner-generic-color: var(--ld-semantic-color-loading, #74767c);
+}
+
+@keyframes ld-spinner-generic-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.ld-spinner-pill {
+  animation-duration: 1.2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0.77, 0, 0.175, 1);
+  fill: currentcolor;
+  transform-origin: 24px 24px;
+}
+
+.ld-spinner-pill2 {
+  animation-name: pill2;
+}
+
+@keyframes pill2 {
+  0% {
+    transform: rotate(0deg);
+  }
+  35% {
+    transform: rotate(60deg);
+  }
+  70% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.ld-spinner-pill3 {
+  animation-name: pill3;
+}
+
+@keyframes pill3 {
+  0% {
+    transform: rotate(0deg);
+  }
+  35% {
+    transform: rotate(120deg);
+  }
+  70% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.ld-spinner-pill4 {
+  animation-name: pill4;
+}
+
+@keyframes pill4 {
+  0% {
+    transform: rotate(0deg);
+  }
+  35% {
+    transform: rotate(180deg);
+  }
+  70% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.ld-spinner-pill5 {
+  animation-name: pill5;
+}
+
+@keyframes pill5 {
+  0% {
+    transform: rotate(0deg);
+  }
+  35% {
+    transform: rotate(240deg);
+  }
+  70% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.ld-spinner-pill6 {
+  animation-name: pill6;
+}
+
+@keyframes pill6 {
+  0% {
+    transform: rotate(0deg);
+  }
+  35% {
+    transform: rotate(300deg);
+  }
+  70% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

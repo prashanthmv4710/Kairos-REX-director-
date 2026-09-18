@@ -1,0 +1,152 @@
+.ld-userresponse {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--ld-primitive-scale-space-50);
+}
+
+/* File attachment tiles rendered above the prompt bubble — each tile is a
+   direct flex-end child so its right edge aligns with the bubble's right edge
+   naturally, without a shared wrapper.
+
+   Inter-tile gap: space-100 (8px).
+
+   margin-block-end adds space-50 (4px) to the parent's existing space-50 (4px)
+   gap, producing 8px between the final tile and the bubble. The Copy footer
+   and caption remain at 4px (parent gap only) — this margin is intentional
+   asymmetric spacing, not an accident. */
+.ld-userresponse-attachments {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--ld-primitive-scale-space-100);
+  margin-block-end: var(--ld-primitive-scale-space-50);
+}
+
+/* A right-aligned status caption below the bubble (e.g. a delivery error). */
+.ld-userresponse-caption {
+  margin: 0;
+  padding-block: 0;
+  padding-inline: var(--ld-primitive-scale-space-50);
+}
+
+.ld-userresponse-bubble {
+  /* Single-line bubbles shrink to their content width (flex-end alignment
+     already gives us fit-content behaviour on the cross axis). Long prompts
+     are capped at 67% of the conversation container so they expand naturally
+     as a fluid %, not a hard pixel value, and text wraps inside. */
+  max-width: 67%;
+  display: grid;
+  gap: var(--ld-primitive-scale-space-100);
+  padding-block: var(--ld-primitive-scale-space-150);
+  padding-inline: var(--ld-primitive-scale-space-200);
+  border-radius: var(--ld-semantic-border-radius-xlarge);
+  /* Fill + text color are supplied inline via the `fill` / `textColor` props,
+     defaulting to the brand-subtle fill with brand-bold text. */
+  background: var(--ld-semantic-color-fill-brand-subtle, #e6f1fd);
+  color: var(--ld-semantic-color-text-brand-bold, #001e60);
+}
+
+.ld-userresponse-body {
+  margin: 0;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+/* Collapsed (clamped) state — applied only when content exceeds 5 lines.
+   max-height mirrors the JS threshold: 5 lines × line-height 1.5 = 7.5em.
+   Keep these two values in sync with line-height above if line-height ever
+   changes; the JS ResizeObserver reads the computed lineHeight dynamically
+   so it stays correct automatically, but the CSS max-height must be updated
+   by hand.
+
+   mask-image fades the last portion of the text to transparent so the cut-off
+   communicates that more content exists. An alpha mask (black → transparent)
+   works across every UserResponse fill color — it masks the element itself
+   rather than overlaying a hard-coded background color. */
+.ld-userresponse-body--clamped {
+  max-height: calc(5 * 1.5em);
+  overflow: hidden;
+  mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
+
+/* Show more / Show less LinkButton — a grid item inside the bubble.
+   justify-self:start prevents it from stretching to fill the full grid column
+   so it only occupies the width of its text label. The bubble's padding-inline
+   already insets it to match the message text; no extra margin is needed.
+
+   color:inherit on all interactive states overrides LinkButton's own explicit
+   color tokens so the control always matches the bubble's text color regardless
+   of which fill variant is active. */
+.ld-userresponse-expand,
+.ld-userresponse-expand:hover,
+.ld-userresponse-expand:focus,
+.ld-userresponse-expand:active {
+  color: inherit;
+  justify-self: start;
+}
+
+/* Wibey (dark + light) accent-teal UserResponse uses the *subtle* token pair
+   instead of the accent-teal fill + generic inverse text the JS pairing map
+   sets via inline styles. Both Wibey variants now have their own
+   data-agent-theme attribute ('wibey' and 'wibey-light') so each gets its
+   own selector — no developer alias needed.
+
+   Wibey dark:  fill-accent-teal-subtle #10201e + text #f7f7f7 → 15.71:1
+   Wibey light: fill-accent-teal-subtle #c2f3ed + text #22635d →  5.76:1
+
+   !important beats the inline style={{background,color}} the component sets;
+   data-fill="accent-teal" is the scope hook. */
+[data-agent-theme='wibey'] .ld-userresponse-bubble[data-fill='accent-teal'],
+[data-agent-theme='wibey-light'] .ld-userresponse-bubble[data-fill='accent-teal'] {
+  background: var(--ld-semantic-color-fill-accent-teal-subtle, #10201e) !important;
+  color: var(--ld-semantic-color-text-onFill-accent-teal-subtle, #f7f7f7) !important;
+}
+[data-agent-theme='wibey'] .ld-userresponse-bubble[data-fill='accent-teal'] .ld-userresponse-body,
+[data-agent-theme='wibey-light'] .ld-userresponse-bubble[data-fill='accent-teal'] .ld-userresponse-body {
+  color: var(--ld-semantic-color-text-onFill-accent-teal-subtle, #f7f7f7) !important;
+}
+
+/* Wibey's brand-subtle fill is near-black (#10201e), so the gray-180 text
+   this pairing uses by default in other themes is nearly invisible here.
+   Use the theme's light onFill-brand-subtle text token instead (white by
+   default). Overrides the inline fill/textColor colors set via the `style`
+   prop. */
+[data-agent-theme='wibey'] .ld-userresponse-bubble[data-fill='brand-subtle'],
+[data-agent-theme='wibey'] .ld-userresponse-bubble[data-fill='brand-subtle'] .ld-userresponse-body {
+  color: var(--ld-semantic-color-text-onFill-brand-subtle, #ffffff) !important;
+}
+
+/* Footer row beneath the bubble — Edit / Copy icon buttons or any other
+   right-aligned per-message actions. Parent align-items:flex-end handles
+   the right-alignment; only the intra-footer spacing is managed here.
+
+   Hidden by default; revealed in two ways:
+     1. Mouse — JS toggles --visible when the pointer enters the bubble or
+        footer and schedules a hide (100ms debounce) on leave.
+     2. Keyboard — CSS :focus-within reveals the footer as soon as any child
+        button receives keyboard focus, with no JS involvement.
+
+   pointer-events:none prevents invisible buttons from intercepting clicks.
+   pointer-events does NOT block keyboard focus, so Tab still reaches the
+   buttons in either state and :focus-within fires as expected. */
+.ld-userresponse-footer {
+  display: flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-50);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 100ms ease;
+}
+
+.ld-userresponse-footer--visible,
+.ld-userresponse-footer:focus-within {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.ld-userresponse-slot {
+  min-width: 0;
+  max-width: 100%;
+}

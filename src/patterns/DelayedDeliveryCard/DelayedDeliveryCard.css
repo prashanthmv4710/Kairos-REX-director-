@@ -1,0 +1,119 @@
+/* LD Portable – DelayedDeliveryCard */
+
+.ld-wcp-delayed-delivery-card-root {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--ld-semantic-color-border-warning, #f0c060);
+  border-radius: var(--ld-semantic-border-radius-large);
+  overflow: hidden;
+  background: var(--ld-semantic-color-surface, #fff);
+}
+
+.ld-wcp-delayed-delivery-card-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background: var(--ld-semantic-color-fill-warning-subtle, #fff3e0);
+  border-bottom: 1px solid var(--ld-semantic-color-border-warning, #f0c060);
+  gap: var(--ld-primitive-scale-space-150);
+}
+
+.ld-wcp-delayed-delivery-card-banner-left {
+  display: flex;
+  align-items: center;
+  gap: var(--ld-primitive-scale-space-100);
+  color: var(--ld-semantic-color-text-warning, #b35c00);
+}
+
+.ld-wcp-delayed-delivery-card-banner-icon {
+  flex-shrink: 0;
+}
+
+.ld-wcp-delayed-delivery-card-banner-text {
+  font-size: 13px;
+  font-weight: var(--ld-primitive-font-weight-600);
+  line-height: 1.3;
+}
+
+.ld-wcp-delayed-delivery-card-body {
+  display: flex;
+  gap: var(--ld-primitive-scale-space-400);
+  padding-block-start: var(--ld-primitive-scale-space-250);
+  padding-block-end: var(--ld-primitive-scale-space-200);
+  padding-inline: var(--ld-primitive-scale-space-250);
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.ld-wcp-delayed-delivery-card-left {
+  flex: 1;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.ld-wcp-delayed-delivery-card-meta {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--ld-primitive-scale-space-150);
+}
+
+.ld-wcp-delayed-delivery-card-meta-img {
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.ld-wcp-delayed-delivery-card-meta-subtitle {
+  display: block;
+  font-size: var(--ld-semantic-font-caption-size);
+  color: var(--ld-semantic-color-text-subtle, #46474a);
+  line-height: var(--ld-semantic-font-caption-line-height);
+  margin-bottom: 2px;
+}
+
+.ld-wcp-delayed-delivery-card-meta-heading {
+  font-size: var(--ld-semantic-font-body-medium-size);
+  font-weight: var(--ld-primitive-font-weight-700);
+  color: var(--ld-semantic-color-text-warning, #b35c00);
+  margin: 0;
+}
+
+.ld-wcp-delayed-delivery-card-thumbnails {
+  display: flex;
+  gap: var(--ld-primitive-scale-space-100);
+  flex-wrap: wrap;
+}
+
+.ld-wcp-delayed-delivery-card-thumbnail {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  border-radius: var(--ld-semantic-border-radius-medium);
+  background: var(--ld-semantic-color-fill-subtle, #f8f8f8);
+}
+
+.ld-wcp-delayed-delivery-card-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-100);
+  align-items: stretch;
+  width: 200px;
+  flex-shrink: 0;
+}
+
+.ld-wcp-delayed-delivery-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 10px 20px;
+  background: var(--ld-semantic-color-fill-warning-subtle, #fff3e0);
+  border-top: 1px solid var(--ld-semantic-color-border-warning, #f0c060);
+}
+
+.ld-wcp-delayed-delivery-card-footer-total {
+  font-size: 13px;
+  font-weight: var(--ld-primitive-font-weight-600);
+  color: var(--ld-semantic-color-text-warning, #b35c00);
+}

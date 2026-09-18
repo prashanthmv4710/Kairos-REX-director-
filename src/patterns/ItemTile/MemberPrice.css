@@ -1,0 +1,72 @@
+/* LD Portable – MemberPrice */
+.ld-wcp-memberprice-root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-primitive-scale-space-25, 0.125rem);
+}
+
+.ld-wcp-memberprice-row {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: var(--ld-primitive-scale-space-25, 0.125rem);
+  color: var(--ld-semantic-color-text-positive, #2a8703);
+}
+
+.ld-wcp-memberprice-logo {
+  display: inline-flex;
+  /* 16px icon slot — no LD scale token at exactly 1rem for icon sizes;
+     using primitive space-200 (1rem = 16px) as the closest equivalent. */
+  width: var(--ld-primitive-scale-space-200, 1rem);
+  height: var(--ld-primitive-scale-space-200, 1rem);
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.ld-wcp-memberprice-logo > svg {
+  width: 100%;
+  height: 100%;
+}
+
+.ld-wcp-memberprice-dollarSign {
+  /* 11px superscript glyph — no LD token at 11px (caption is 12px);
+     documented exception: spec'd at this size in Figma 88981:21028. */
+  font-size: 11px;
+  font-weight: 700;
+  /* 14px leading for 11px glyph — no ld lineHeight token below 1rem (16px). */
+  line-height: 14px;
+  padding-bottom: var(--ld-primitive-scale-space-50, 0.25rem);
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.ld-wcp-memberprice-price {
+  font-size: var(--ld-semantic-font-body-medium-size, 1rem);
+  font-weight: 700;
+  line-height: var(--ld-semantic-font-body-small-line-height, 1.25rem);
+}
+
+.ld-wcp-memberprice-cents {
+  /* Same exception as dollarSign — 11px glyph, 14px leading. */
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 14px;
+  padding-bottom: var(--ld-primitive-scale-space-50, 0.25rem);
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.ld-wcp-memberprice-label {
+  /* Same 11px exception; leading matches body-small line-height. */
+  font-size: 11px;
+  font-weight: 400;
+  line-height: var(--ld-semantic-font-body-small-line-height, 1.25rem);
+  color: var(--ld-semantic-color-text-subtle, #515357);
+  margin-left: var(--ld-primitive-scale-space-25, 0.125rem);
+}
+
+.ld-wcp-memberprice-lock {
+  margin-left: 0;
+}

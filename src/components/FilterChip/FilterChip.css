@@ -1,0 +1,122 @@
+/* @source PX */
+
+.px-filter-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  flex: 0 0 auto;
+  width: fit-content;
+  max-width: 100%;
+  gap: var(--ld-primitive-scale-space-100, 8px);
+  height: 32px;
+  padding: 0 var(--ld-primitive-scale-space-150, 12px);
+  border-radius: var(--ld-semantic-border-radius-round, 9999px);
+  border: 0;
+  background-color: var(--ld-semantic-color-filter-fill, #ffffff);
+  box-shadow: inset 0 0 0 1px var(--ld-semantic-color-filter-border, #2e2f32);
+  color: var(--ld-semantic-color-filter-text-onFill, #2e2f32);
+  font-family: var(--ld-semantic-font-family-sans, inherit);
+  font-size: var(--ld-semantic-font-body-small-size, 0.875rem);
+  font-weight: var(--ld-semantic-font-body-small-weight-default, 400);
+  line-height: 1;
+  cursor: pointer;
+  white-space: nowrap;
+  user-select: none;
+  transition: background-color 150ms ease, box-shadow 150ms ease, color 150ms ease;
+  box-sizing: border-box;
+}
+
+.px-filter-chip:hover:not(:disabled) {
+  background-color: var(--ld-semantic-color-filter-fill-hovered, #f5f5f6);
+  box-shadow: inset 0 0 0 2px var(--ld-semantic-color-filter-border-hovered, #2e2f32);
+}
+
+.px-filter-chip:focus-visible {
+  background-color: var(--ld-semantic-color-filter-fill-focused, #f1f1f2);
+  box-shadow: inset 0 0 0 2px var(--ld-semantic-color-filter-border-focused, #2e2f32);
+  outline: 2px solid var(--ld-semantic-color-border-activated, #0053e2);
+  outline-offset: 2px;
+}
+
+.px-filter-chip:active:not(:disabled) {
+  background-color: var(--ld-semantic-color-filter-fill-pressed, #ebebed);
+  box-shadow: inset 0 0 0 2px var(--ld-semantic-color-filter-border-pressed, #2e2f32);
+}
+
+/* Selected state */
+.px-filter-chip--selected {
+  background-color: var(--ld-semantic-color-filter-fill-activated, #e8f0ff);
+  box-shadow: inset 0 0 0 2px var(--ld-semantic-color-filter-border-activated, #0053e2);
+  color: var(--ld-semantic-color-filter-text-onFill, #2e2f32);
+}
+
+.px-filter-chip--selected:hover:not(:disabled) {
+  background-color: var(--ld-semantic-color-filter-fill-activated-hovered, #d1e0ff);
+  box-shadow: inset 0 0 0 2px var(--ld-semantic-color-filter-border-activated-hovered, #0053e2);
+}
+
+.px-filter-chip--selected:focus-visible {
+  background-color: var(--ld-semantic-color-filter-fill-activated-focused, #e9f1fe);
+  box-shadow: inset 0 0 0 2px var(--ld-semantic-color-filter-border-activated-focused, #0053e2);
+}
+
+.px-filter-chip--selected:active:not(:disabled) {
+  background-color: var(--ld-semantic-color-filter-fill-activated-pressed, #bfd0ff);
+  box-shadow: inset 0 0 0 2px var(--ld-semantic-color-filter-border-activated-pressed, #002185);
+}
+
+/* Disabled state */
+.px-filter-chip:disabled {
+  background-color: var(--ld-semantic-color-filter-fill-disabled, #ffffff);
+  box-shadow: inset 0 0 0 1px var(--ld-semantic-color-filter-border-disabled, #babbbe);
+  color: var(--ld-semantic-color-filter-text-onFill-disabled, #babbbe);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.px-filter-chip--selected:disabled {
+  box-shadow: inset 0 0 0 2px var(--ld-semantic-color-filter-border-activated-disabled, #babbbe);
+}
+
+/* All Filters variant — icon-only mode gets slightly less padding */
+.px-filter-chip--allFilters {
+  gap: var(--ld-primitive-scale-space-100, 8px);
+}
+
+/* Icon slots */
+.px-filter-chip__icon-leading,
+.px-filter-chip__icon-trailing {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: inherit;
+  /* Sizes LD font-icon glyphs (rendered as <i>) to the small icon scale. */
+  font-size: var(--ld-semantic-scale-icon-small, 16px);
+}
+
+/* Constrain any SVG passed in via iconLeading/iconTrailing to the same box. */
+.px-filter-chip__icon-leading svg,
+.px-filter-chip__icon-trailing svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Label */
+.px-filter-chip__label {
+  display: inline-flex;
+  align-items: center;
+}
+
+.px-filter-chip--allFilters:not(:has(.px-filter-chip__label)) {
+  width: 28px;
+  height: 28px;
+  min-height: 28px;
+  padding: 6px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .px-filter-chip {
+    transition: none;
+  }
+}

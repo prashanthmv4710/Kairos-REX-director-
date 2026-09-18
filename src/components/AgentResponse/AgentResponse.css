@@ -1,0 +1,142 @@
+.ld-agentresponse {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: 12px;
+  row-gap: 8px;
+  align-items: start;
+}
+
+/* The response block can be a programmatic focus target (focus moves here when a
+   reply arrives so users can tab into the new content). It isn't an interactive
+   control, so suppress the focus ring on the container itself; interactive
+   children (links, feedback buttons) keep their own focus styles. */
+.ld-agentresponse:focus,
+.ld-agentresponse:focus-visible {
+  outline: none;
+}
+
+.ld-agentresponse-content {
+  grid-column: 2;
+  grid-row: 2;
+  display: grid;
+  gap: var(--ld-primitive-scale-space-100);
+  min-width: 0;
+}
+
+.ld-agentresponse > .ld-avatar-root {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: center;
+}
+
+.ld-agentresponse-name {
+  margin: 0;
+}
+
+.ld-agentresponse-thinking {
+  margin: 0;
+}
+
+.ld-agentresponse-body {
+  margin: 0;
+  display: grid;
+  /* 16 px between paragraph blocks per the agent conversation spec. */
+  gap: var(--ld-primitive-scale-space-200);
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+  font-size: var(--ld-semantic-font-body-medium-size, 1rem);
+  color: var(--ld-semantic-color-text, #2e2f32);
+}
+
+/* Bulleted / numbered lists in agent responses: 8 px between items. */
+.ld-agentresponse-body ul,
+.ld-agentresponse-body ol {
+  margin: 0;
+  padding-left: 1.5rem;
+  display: grid;
+  gap: var(--ld-primitive-scale-space-100);
+}
+
+.ld-agentresponse-slot {
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* Processing trace paired with this turn — sits above the reply body. */
+.ld-agentresponse-trace {
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* Header: optional status dot + name + meta + info */
+.ld-agentresponse-header {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: center;
+  /* Keep header tokens in one inline flow so wraps continue naturally into
+     following tokens instead of wrapping by flex item boundaries. */
+  display: block;
+}
+
+.ld-agentresponse--noavatar {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.ld-agentresponse--noavatar .ld-agentresponse-header,
+.ld-agentresponse--noavatar .ld-agentresponse-content {
+  grid-column: 1;
+}
+
+.ld-agentresponse--noavatar .ld-agentresponse-header {
+  align-self: start;
+}
+
+.ld-agentresponse-header > * {
+  vertical-align: baseline;
+}
+
+.ld-agentresponse-header > * + * {
+  margin-inline-start: 8px;
+}
+.ld-agentresponse-status {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex: 0 0 auto;
+  vertical-align: middle;
+}
+.ld-agentresponse-meta {
+  margin-block: 0;
+}
+.ld-agentresponse-info {
+  display: inline-block;
+  font-size: var(--ld-semantic-font-body-small-size);
+  color: var(--ld-semantic-color-text-subtlest, #74767c);
+  vertical-align: baseline;
+  position: relative;
+  top: var(--ld-primitive-scale-space-50, 0.25rem);
+}
+
+/* Feedback / actions toolbar */
+.ld-agentresponse-feedback {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--ld-primitive-scale-space-50);
+  margin-top: 4px;
+}
+
+.ld-agentresponse-feedback > .ld-feedback {
+  align-self: stretch;
+}
+
+.ld-agentresponse-feedback .ld-divider-divider--vertical {
+  margin-inline: var(--ld-primitive-scale-space-100, 0.5rem);
+}
+
+@media (max-width: 768px) {
+  .ld-agentresponse-feedback > .ld-buttontoggle-button {
+    flex-basis: 100%;
+  }
+}

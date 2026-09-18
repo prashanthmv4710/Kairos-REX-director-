@@ -1,0 +1,47 @@
+.ld-chatdropoverlay {
+  position: absolute;
+  inset: 0;
+  /* Sit above the ScrollArea + composer but below any panel-level scrim /
+     framework card that a surface may render on top. */
+  z-index: 20;
+  /* Never intercept drag events itself — the parent container owns them via
+     useChatDropOverlay. */
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ld-primitive-scale-space-100);
+  padding: var(--ld-primitive-scale-space-300);
+  box-sizing: border-box;
+
+  background: var(--ld-primitive-color-transparentLight-90, rgba(255, 255, 255, 0.9));
+
+  /* Hidden by default — fades in when .ld-chatdropoverlay-visible is applied. */
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity var(--ld-semantic-duration-fade-in, 0.15s) var(--ld-semantic-timing-fade, ease-out),
+    visibility 0s linear var(--ld-semantic-duration-fade-in, 0.15s);
+}
+
+.ld-chatdropoverlay-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ld-chatdropoverlay-visible {
+  opacity: 1;
+  visibility: visible;
+  /* Show visibility immediately when appearing; delay only on hide. */
+  transition:
+    opacity var(--ld-semantic-duration-fade-in, 0.15s) var(--ld-semantic-timing-fade, ease-out),
+    visibility 0s linear 0s;
+}
+
+/* Reduced motion — no fade, snap in/out. */
+.ld-chatdropoverlay-reduceMotion,
+.ld-chatdropoverlay-reduceMotion.ld-chatdropoverlay-visible {
+  transition: none;
+}

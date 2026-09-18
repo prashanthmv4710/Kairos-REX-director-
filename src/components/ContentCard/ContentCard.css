@@ -1,0 +1,207 @@
+/* LD Portable – ContentCard */
+
+.ld-content-card-root {
+  display: flex;
+  border-radius: var(--ld-primitive-scale-borderRadius-200, 1rem);
+  overflow: hidden;
+  background: var(--ld-semantic-color-surface, #fff);
+  box-shadow: var(--ld-semantic-elevation-100, 0 -1px 2px 0 rgba(0, 0, 0, 0.04), 0 1px 4px 0 rgba(0, 0, 0, 0.1));
+  text-decoration: none;
+  border: none;
+  text-align: left;
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+}
+
+.ld-content-card-clickable {
+  cursor: pointer;
+}
+
+.ld-content-card-clickable:hover {
+  box-shadow: var(--ld-semantic-elevation-200, 0 -1px 2px 0 rgba(0, 0, 0, 0.06), 0 2px 8px 0 rgba(0, 0, 0, 0.15));
+}
+
+/* ── Vertical variant (default) ────────────────────────────────────── */
+
+.ld-content-card-vertical {
+  flex-direction: column;
+}
+
+.ld-content-card-vertical .ld-content-card-image-wrapper {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.ld-content-card-vertical .ld-content-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ── Horizontal variant ────────────────────────────────────────────── */
+
+.ld-content-card-horizontal {
+  flex-direction: row;
+}
+
+.ld-content-card-horizontal .ld-content-card-image-wrapper {
+  width: 140px;
+  min-height: 120px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+@media (min-width: 56.25rem) {
+  .ld-content-card-horizontal .ld-content-card-image-wrapper {
+    width: 180px;
+  }
+}
+
+.ld-content-card-horizontal .ld-content-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ── Background variant ────────────────────────────────────────────── */
+
+.ld-content-card-background {
+  flex-direction: column;
+  min-height: 200px;
+  color: var(--ld-semantic-color-text-onFill-inverse, #fff);
+}
+
+.ld-content-card-bg-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ld-content-card-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.6) 0%,
+    rgba(0, 0, 0, 0.15) 60%,
+    transparent 100%
+  );
+}
+
+.ld-content-card-bg-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-semantic-spacing-50, 0.25rem);
+  padding: var(--ld-semantic-spacing-200, 1rem);
+  margin-top: auto;
+  color: var(--ld-semantic-color-text-onFill-inverse, #fff);
+}
+
+.ld-content-card-bg-content .ld-content-card-eyebrow {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.ld-content-card-bg-content .ld-content-card-headline {
+  color: var(--ld-semantic-color-text-onFill-inverse, #fff);
+}
+
+.ld-content-card-bg-content .ld-content-card-subtext {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.ld-content-card-bg-content .ld-content-card-cta {
+  color: var(--ld-semantic-color-text-onFill-inverse, #fff);
+  text-decoration: underline;
+}
+
+/* ── Body (vertical + horizontal) ──────────────────────────────────── */
+
+.ld-content-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ld-semantic-spacing-50, 0.25rem);
+  padding: var(--ld-semantic-spacing-150, 0.75rem) var(--ld-semantic-spacing-200, 1rem);
+  min-width: 0;
+  flex: 1;
+  justify-content: center;
+}
+
+/* ── Typography ────────────────────────────────────────────────────── */
+
+.ld-content-card-eyebrow,
+.ld-content-card-headline,
+.ld-content-card-subtext {
+  margin: 0;
+  padding: 0;
+}
+
+.ld-content-card-eyebrow {
+  font-size: var(--ld-semantic-font-caption-size, 0.75rem);
+  font-weight: var(--ld-semantic-font-caption-weight-default, 400);
+  line-height: var(--ld-semantic-font-caption-line-height, 1rem);
+  color: var(--ld-semantic-color-text-subtle, #46474a);
+}
+
+.ld-content-card-headline {
+  font-size: var(--ld-semantic-font-body-medium-size, 1rem);
+  font-weight: var(--ld-semantic-font-body-medium-weight-alt, 700);
+  line-height: var(--ld-semantic-font-body-medium-line-height, 1.5rem);
+  color: var(--ld-semantic-color-text, #2e2f32);
+}
+
+.ld-content-card-subtext {
+  font-size: var(--ld-semantic-font-body-small-size, 0.875rem);
+  font-weight: var(--ld-semantic-font-body-small-weight-default, 400);
+  line-height: var(--ld-semantic-font-body-small-line-height, 1.25rem);
+  color: var(--ld-semantic-color-text-subtle, #46474a);
+}
+
+.ld-content-card-cta {
+  font-size: var(--ld-semantic-font-body-small-size, 0.875rem);
+  font-weight: var(--ld-semantic-font-body-small-weight-alt, 700);
+  line-height: var(--ld-semantic-font-body-small-line-height, 1.25rem);
+  color: var(--ld-semantic-color-text-brand, #0071dc);
+  text-decoration: underline;
+  margin-top: var(--ld-semantic-spacing-50, 0.25rem);
+}
+
+.ld-content-card-clickable:hover .ld-content-card-cta {
+  color: var(--ld-semantic-color-text-brand-bold, #004f9a);
+}
+
+/*
+ * Clickable card mode: the wrapper is the interactive (a `<button>`), so the
+ * CTA inside it must NOT pretend to be a separate hyperlink — drop the
+ * underline + link-blue color and render it as a bold action label that
+ * inherits the surrounding text color. The whole-card hover state is the
+ * affordance.
+ */
+.ld-content-card-clickable .ld-content-card-cta,
+.ld-content-card-clickable:hover .ld-content-card-cta {
+  color: var(--ld-semantic-color-text, #2e2f32);
+  text-decoration: none;
+}
+
+/* Preserve the readable white treatment when the clickable card uses the
+ * background variant (text sits on top of imagery). */
+.ld-content-card-clickable.ld-content-card-background .ld-content-card-cta,
+.ld-content-card-clickable.ld-content-card-background:hover .ld-content-card-cta {
+  color: var(--ld-semantic-color-text-onFill-inverse, #fff);
+}
+
+/* Link-rendered CTA — inherits Link's own color tokens, only adds the same
+ * font-weight / spacing as the static span CTA. */
+.ld-content-card-cta-link {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: var(--ld-semantic-font-body-small-size, 0.875rem);
+  font-weight: var(--ld-semantic-font-body-small-weight-alt, 700);
+  line-height: var(--ld-semantic-font-body-small-line-height, 1.25rem);
+  margin-top: var(--ld-semantic-spacing-50, 0.25rem);
+}

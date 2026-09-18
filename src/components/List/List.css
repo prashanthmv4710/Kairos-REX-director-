@@ -1,0 +1,59 @@
+/* LD Portable – List */
+/* List */
+.ld-list-list {
+  line-height: 1;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ld-list-divider {
+  padding-block: var(--ld-primitive-scale-space-200);
+  padding-inline: 0;
+}
+
+/* ListItem */
+.ld-list-listitem-listItem {
+  align-items: stretch;
+  display: flex;
+}
+
+/* When the whole row is a button touch target */
+.ld-list-listitem-listItem--button {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+  color: inherit;
+  font: inherit;
+  border-radius: var(--ld-primitive-scale-borderRadius-50, 4px);
+}
+
+.ld-list-listitem-listItem--button:focus-visible {
+  outline: 2px solid var(--ld-semantic-color-border-activated, #0860f6);
+  outline-offset: 2px;
+}
+
+.ld-list-listitem-container {
+  flex: 1 1;
+}
+
+.ld-list-listitem-title {
+  display: block;
+}
+
+.ld-list-listitem-textLabel {
+  display: block;
+}
+
+.ld-list-listitem-leading {
+  flex: none;
+  margin-right: 1rem;
+}
+
+.ld-list-listitem-trailing {
+  flex: none;
+  margin-left: 1rem;
+}

@@ -1,0 +1,5 @@
+/**
+ * RatingStars is a deprecation shim that re-exports `Rating`.
+ * All styles live in `../Rating/Rating.css`. This file is intentionally
+ * empty so existing `import './RatingStars.css'` paths keep working.
+ */

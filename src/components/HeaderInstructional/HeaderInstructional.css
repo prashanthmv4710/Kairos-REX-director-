@@ -1,0 +1,149 @@
+.ax-header-instructional {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.ax-header-instructional__top-padding {
+  height: var(--ld-primitive-scale-space-300, 24px);
+  align-self: stretch;
+}
+
+.ax-header-instructional__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--ld-primitive-scale-space-50, 4px);
+  align-self: stretch;
+  padding: 0 var(--ld-primitive-scale-space-200, 16px);
+}
+
+.ax-header-instructional__title-row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--ld-primitive-scale-space-100, 8px);
+  align-self: stretch;
+}
+
+.ax-header-instructional__title-and-count {
+  display: flex;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 4px var(--ld-primitive-scale-space-50, 4px);
+  flex: 1 0 0;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+}
+
+.ax-header-instructional__title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--ld-semantic-color-text, #2e2f32);
+  font-family: var(
+    --ld-semantic-font-heading-large-family,
+    'Everyday Sans UI',
+    -apple-system,
+    Roboto,
+    sans-serif
+  );
+  font-size: var(--ld-semantic-font-heading-large-size-b-s, 24px);
+  font-weight: var(--ld-semantic-font-heading-large-weight-default, 700);
+  line-height: var(--ld-semantic-font-heading-large-line-height-b-s, 1.333);
+  font-kerning: none;
+  font-feature-settings: 'liga' off;
+}
+
+.ax-header-instructional__count-wrapper {
+  display: flex;
+  padding-top: 6px;
+  align-items: center;
+}
+
+.ax-header-instructional__count {
+  color: var(--ld-semantic-color-text, #2e2f32);
+  font-family: var(
+    --ld-semantic-font-heading-small-family,
+    'Everyday Sans UI',
+    -apple-system,
+    Roboto,
+    sans-serif
+  );
+  font-size: var(--ld-semantic-font-heading-small-size-b-s, 18px);
+  font-weight: var(--ld-semantic-font-heading-small-weight-alt, 400);
+  line-height: var(--ld-semantic-font-heading-small-line-height-b-s, 1.333);
+  font-kerning: none;
+  font-feature-settings: 'liga' off;
+}
+
+/* Chevron variant: title-row becomes the positioning context for the stretched touch target */
+.ax-header-instructional__title-row--chevron {
+  position: relative;
+}
+
+.ax-header-instructional__chevron-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin-top: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--ld-semantic-color-text, #2e2f32);
+  flex-shrink: 0;
+  border-radius: var(--ld-primitive-scale-borderRadius-50, 4px);
+}
+
+/* Stretched touch target — ::before fills the entire title-row (the positioned parent) */
+.ax-header-instructional__title-row--chevron .ax-header-instructional__chevron-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+.ax-header-instructional__chevron-button:focus-visible {
+  outline: 2px solid var(--ld-semantic-color-border-activated, #0860f6);
+  outline-offset: 2px;
+}
+
+.ax-header-instructional__trailing-action {
+  display: flex;
+  height: var(--ld-primitive-scale-space-400, 32px);
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.ax-header-instructional__description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  align-self: stretch;
+  margin: 0;
+  color: var(--ld-semantic-color-text, #2e2f32);
+  font-family: var(
+    --ld-semantic-font-body-medium-family,
+    'Everyday Sans UI',
+    -apple-system,
+    Roboto,
+    sans-serif
+  );
+  font-size: var(--ld-semantic-font-body-medium-size, 16px);
+  font-weight: var(--ld-semantic-font-body-medium-weight-default, 400);
+  line-height: var(--ld-semantic-font-body-medium-line-height, 1.5);
+  font-kerning: none;
+  font-feature-settings: 'liga' off;
+}
+
+.ax-header-instructional__bottom-padding {
+  height: var(--ld-primitive-scale-space-200, 16px);
+  align-self: stretch;
+}

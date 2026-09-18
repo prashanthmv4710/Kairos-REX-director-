@@ -1,0 +1,195 @@
+/* ============================================
+   TOGGLE - Mirrors LD 3.5 Icon Button tokens
+   ============================================ */
+
+.ld-toggle-root {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: var(--ld-semantic-scale-border-width-interactive, 1px) solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all var(--ld-primitive-duration-200, 0.2s) ease-in-out;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  position: relative;
+  border-radius: var(--ld-primitive-scale-borderRadius-50, 0.25rem);
+
+  /* Default / unpressed — ghost style */
+  background-color: var(--ld-semantic-color-action-fill-transparent, transparent);
+  color: var(--ld-semantic-color-action-text-onFill-transparent, #2e2f32);
+}
+
+/* ============================================
+   FOCUS
+   ============================================ */
+
+.ld-toggle-root:focus-visible {
+  outline: var(--ld-semantic-scale-border-width-interactive-focused, 2px) solid var(--ld-semantic-color-border-activated, #0053e2);
+  outline-offset: var(--ld-primitive-scale-space-50, 0.25rem);
+}
+
+/* ============================================
+   DISABLED
+   ============================================ */
+
+.ld-toggle-root:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+/* ============================================
+   ICON CONTAINER
+   ============================================ */
+
+.ld-toggle-content {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.ld-toggle-content svg {
+  width: var(--ld-semantic-scale-icon-medium, 20px);
+  height: var(--ld-semantic-scale-icon-medium, 20px);
+}
+
+/* ============================================
+   SIZE VARIANTS
+   ============================================ */
+
+.ld-toggle-root--size-small {
+  width: var(--ld-primitive-scale-space-300, 1.5rem);
+  height: var(--ld-primitive-scale-space-300, 1.5rem);
+  min-width: var(--ld-primitive-scale-space-300, 1.5rem);
+  padding: var(--ld-primitive-scale-space-50, 0.25rem);
+  font-size: var(--ld-primitive-font-size-50, 0.875rem);
+}
+
+.ld-toggle-root--size-small .ld-toggle-content svg {
+  width: var(--ld-semantic-scale-icon-small, 16px);
+  height: var(--ld-semantic-scale-icon-small, 16px);
+}
+
+.ld-toggle-root--size-medium {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  padding: var(--ld-primitive-scale-space-100, 0.5rem);
+  font-size: var(--ld-primitive-font-size-100, 1rem);
+}
+
+.ld-toggle-root--size-medium .ld-toggle-content svg {
+  width: var(--ld-semantic-scale-icon-medium, 20px);
+  height: var(--ld-semantic-scale-icon-medium, 20px);
+}
+
+.ld-toggle-root--size-large {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  padding: var(--ld-primitive-scale-space-100, 0.5rem);
+  font-size: var(--ld-primitive-font-size-150, 1.125rem);
+}
+
+.ld-toggle-root--size-large .ld-toggle-content svg {
+  width: var(--ld-primitive-scale-space-300, 1.5rem);
+  height: var(--ld-primitive-scale-space-300, 1.5rem);
+}
+
+/* ============================================
+   SHAPE VARIANTS
+   ============================================ */
+
+.ld-toggle-root--shape-square {
+  border-radius: var(--ld-primitive-scale-borderRadius-50, 0.25rem);
+}
+
+.ld-toggle-root--shape-rounded {
+  border-radius: var(--ld-semantic-border-radius-round);
+}
+
+/* ============================================
+   VARIANT: DEFAULT (ghost)
+   Unpressed = transparent / Pressed = secondary
+   ============================================ */
+
+/* --- Unpressed (off) --- */
+.ld-toggle-root--variant-default {
+  background-color: var(--ld-semantic-color-action-fill-transparent, transparent);
+  color: var(--ld-semantic-color-action-text-onFill-transparent, #2e2f32);
+  border-color: transparent;
+}
+
+.ld-toggle-root--variant-default:hover:not(:disabled) {
+  background-color: var(--ld-semantic-color-action-fill-transparent-hovered, rgba(0, 0, 0, 0.06));
+  color: var(--ld-semantic-color-action-text-onFill-transparent-hovered, #2e2f32);
+}
+
+.ld-toggle-root--variant-default:active:not(:disabled) {
+  background-color: var(--ld-semantic-color-action-fill-transparent-pressed, rgba(0, 0, 0, 0.1));
+  color: var(--ld-semantic-color-action-text-onFill-transparent-pressed, #2e2f32);
+}
+
+/* --- Pressed (on) --- */
+.ld-toggle-root--variant-default[data-state="on"] {
+  background-color: var(--ld-semantic-color-action-fill-secondary, #e6e6e8);
+  color: var(--ld-semantic-color-action-text-onFill-secondary, #2e2f32);
+  border-color: var(--ld-semantic-color-action-border-secondary, #babbbe);
+}
+
+.ld-toggle-root--variant-default[data-state="on"]:hover:not(:disabled) {
+  background-color: var(--ld-semantic-color-action-fill-secondary-hovered, #d4d4d8);
+  border-color: var(--ld-semantic-color-action-border-secondary-hovered, #a1a1a6);
+  color: var(--ld-semantic-color-action-text-onFill-secondary-hovered, #2e2f32);
+}
+
+.ld-toggle-root--variant-default[data-state="on"]:active:not(:disabled) {
+  background-color: var(--ld-semantic-color-action-fill-secondary-pressed, #c4c4c8);
+  border-color: var(--ld-semantic-color-action-border-secondary-pressed, #919196);
+  color: var(--ld-semantic-color-action-text-onFill-secondary-pressed, #2e2f32);
+}
+
+/* ============================================
+   VARIANT: OUTLINE
+   Unpressed = secondary / Pressed = primary
+   ============================================ */
+
+/* --- Unpressed (off) --- */
+.ld-toggle-root--variant-outline {
+  background-color: var(--ld-semantic-color-action-fill-secondary, #e6e6e8);
+  color: var(--ld-semantic-color-action-text-onFill-secondary, #2e2f32);
+  border-color: var(--ld-semantic-color-action-border-secondary, #babbbe);
+}
+
+.ld-toggle-root--variant-outline:hover:not(:disabled) {
+  background-color: var(--ld-semantic-color-action-fill-secondary-hovered, #d4d4d8);
+  border-color: var(--ld-semantic-color-action-border-secondary-hovered, #a1a1a6);
+  color: var(--ld-semantic-color-action-text-onFill-secondary-hovered, #2e2f32);
+}
+
+.ld-toggle-root--variant-outline:active:not(:disabled) {
+  background-color: var(--ld-semantic-color-action-fill-secondary-pressed, #c4c4c8);
+  border-color: var(--ld-semantic-color-action-border-secondary-pressed, #919196);
+  color: var(--ld-semantic-color-action-text-onFill-secondary-pressed, #2e2f32);
+}
+
+/* --- Pressed (on) --- */
+.ld-toggle-root--variant-outline[data-state="on"] {
+  background-color: var(--ld-semantic-color-action-fill-primary, #0053e2);
+  color: var(--ld-semantic-color-action-text-onFill-primary, #ffffff);
+  border-color: var(--ld-semantic-color-action-fill-primary, #0053e2);
+}
+
+.ld-toggle-root--variant-outline[data-state="on"]:hover:not(:disabled) {
+  background-color: var(--ld-semantic-color-action-fill-primary-hovered, #004bcc);
+  border-color: var(--ld-semantic-color-action-fill-primary-hovered, #004bcc);
+  color: var(--ld-semantic-color-action-text-onFill-primary-hovered, #ffffff);
+}
+
+.ld-toggle-root--variant-outline[data-state="on"]:active:not(:disabled) {
+  background-color: var(--ld-semantic-color-action-fill-primary-pressed, #0043b6);
+  border-color: var(--ld-semantic-color-action-fill-primary-pressed, #0043b6);
+  color: var(--ld-semantic-color-action-text-onFill-primary-pressed, #ffffff);
+}

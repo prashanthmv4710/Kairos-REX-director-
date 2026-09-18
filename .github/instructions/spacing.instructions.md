@@ -1,0 +1,156 @@
+---
+description: 'Responsive layout guardrails, breakpoint usage, and page-composition spacing conventions — token VALUES live in the generated tokens-reference, not here'
+applyTo: 'src/**/*.tsx,src/**/*.css'
+---
+
+# Spacing
+
+## Token values — one source, not two
+
+Spacing scale values (`--ld-primitive-scale-space-*`) and the five allowed breakpoints are **generated** from `src/themes/base.css` — see `tokens-reference` (run `node scripts/ld/cli.mjs rule tokens-reference` or `node scripts/ld/cli.mjs search spacing tokens`). Read the numbers there, not here: this file used to hand-copy them, and that copy silently went stale — in one case it told agents to write hardcoded pixel values in a component (`Flag`) that had since migrated to spacing tokens, which would have made an agent regress it.
+
+If you need to change a spacing value, edit `base.css`; the reference regenerates from it. Never hand-write a spacing scale number that has a token.
+
+## Responsive Layout Guardrails (Required)
+
+These rules exist to prevent mobile-only layouts from being shipped as full pages.
+
+- **MUST build page shells mobile-first but fluid**: base styles should work at small widths, then expand at breakpoints.
+- **MUST use `Container` for body content** (header/footer can remain full-bleed).
+- **MUST set `sm` + `md` + `lg` on each `GridColumn`** when using `Grid`.
+- **MUST use `<Grid hasGutter>`** for multi-column layouts.
+- **MUST keep main content width flexible** (`width: '100%'`) and constrain media/cards with `maxWidth` wrappers.
+
+- **NEVER lock a page to phone width** (`maxWidth: 375`, `width: 390`, etc.) unless the user explicitly asks for a mobile-only prototype.
+- **NEVER hardcode desktop section widths** for layout structure (for example `width: 1200px` on the main content wrapper).
+- **NEVER rely on `overflowX: 'hidden'` to mask responsive breakage.**
+- **NEVER hide content with `display: none`** at breakpoints instead of reflowing it — reflow, stack, or collapse content; don't just hide it.
+
+### Page Shell Pattern
+
+```tsx
+// CORRECT — responsive shell (mobile-first, desktop-ready)
+<div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+  <Header />
+  <Container>
+    {/* page sections */}
+  </Container>
+  <DesktopFooter />
+</div>
+
+// WRONG — locked to mobile viewport width
+<div style={{ maxWidth: 375, margin: '0 auto' }}>
+  <Header />
+  {/* content */}
+</div>
+```
+
+### Grid Breakpoint Pattern
+
+```tsx
+// CORRECT — stacks on mobile, splits on tablet/desktop
+<Grid hasGutter>
+  <GridColumn sm={12} md={6} lg={6}>...</GridColumn>
+  <GridColumn sm={12} md={6} lg={6}>...</GridColumn>
+</Grid>
+
+// WRONG — missing breakpoints, layout never becomes responsive
+<Grid hasGutter>
+  <GridColumn>...</GridColumn>
+  <GridColumn>...</GridColumn>
+</Grid>
+```
+
+Mobile-first components change their own spacing at a breakpoint internally — you don't need to re-derive this, just be aware it happens:
+
+```css
+/* SearchBar — mobile 12px, desktop asymmetric 8px/16px */
+.ld-wcp-searchbar-pill { padding: var(--ld-primitive-scale-space-150, 12px); }
+@media (min-width: 56.25rem) {
+  .ld-wcp-searchbar-pill {
+    padding: var(--ld-primitive-scale-space-100, 8px) var(--ld-primitive-scale-space-200, 16px);
+  }
+}
+```
+
+**Breakpoint px/rem pairs and the `<GridColumn>` prop mapping live in `tokens-reference` — `node scripts/ld/cli.mjs rule tokens-reference`.** CSS `@media` cannot consume `var()`, which is why that reference gives you the rem literal directly. Never invent a custom breakpoint.
+
+## Carousel Overhang Pattern
+
+Padding + negative margin trick for shadow overflow:
+```css
+.ld-wcp-flash-deals-carousel-scroll {
+  gap: 12px;
+  padding: 40px 0;   /* room for shadows */
+  margin: -40px 0;    /* pull back to not affect layout */
+  overflow-x: auto;
+}
+```
+
+## Page Section Spacing
+
+When composing full pages, use these consistent spacing conventions between sections.
+
+### Section Vertical Rhythm
+
+| Between | Spacing | How |
+|---------|---------|-----|
+| Content sections | 32px | `marginBottom: 32` on section wrappers |
+| Major zones (hero → content, content → footer) | 48px | `marginTop: 48` or `marginBottom: 48` |
+| Content and a Divider | 24px | Wrap `<Divider />` in `<div style={{ margin: '24px 0' }}>` |
+| Stacked banners on mobile | 16px | Use `gap: 16` on parent or `marginBottom: 16` |
+| Section title to content | 16px | `marginBottom: 16` on the heading row |
+
+### Divider Requires Margin
+
+`Divider` renders as a 1px line with `margin: 0`. It will visually collide with adjacent sections unless you add explicit spacing:
+
+```tsx
+// CORRECT — Divider breathes
+<section style={{ marginBottom: 32 }}>
+  {/* deals section */}
+</section>
+<div style={{ margin: '24px 0' }}>
+  <Divider />
+</div>
+<section style={{ marginTop: 8 }}>
+  {/* next section */}
+</section>
+
+// WRONG — no breathing room
+<Section title="Deals">...</Section>
+<Divider />
+<Section title="Popular">...</Section>
+```
+
+### Product Row Spacing
+
+Product carousels (`FlashDealsCarousel`, `Carousel`) include internal padding for card shadows. When stacking multiple product rows, use 32px vertical spacing between them. Do not add extra top/bottom padding inside the carousel — it handles its own overhang.
+
+### Full Page Template
+
+```tsx
+<Header />
+<Container>
+  <section style={{ margin: '24px 0' }}>{/* Hero */}</section>
+  <section style={{ marginBottom: 32 }}>{/* Category nav */}</section>
+  <div style={{ margin: '24px 0' }}><Divider /></div>
+  <section style={{ marginBottom: 32 }}>{/* Product row 1 */}</section>
+  <div style={{ margin: '24px 0' }}><Divider /></div>
+  <section style={{ marginBottom: 32 }}>{/* Product row 2 */}</section>
+  <div style={{ marginTop: 48 }} />
+</Container>
+<DesktopFooter ... />
+```
+
+## Rules Summary
+
+1. **Prefer flex `gap`** over margin for grouped children.
+2. **Never hand-write a spacing scale value** — use `var(--ld-primitive-scale-space-*)`; see `tokens-reference`.
+3. **Page layout uses inline styles**, component CSS uses tokens.
+4. **Carousel overhang**: `padding: Npx 0; margin: -Npx 0;` for shadow overflow.
+5. **Mobile-first responsive** — tighter on mobile, expand at breakpoints.
+6. **Divider needs margin** — always wrap with `margin: '24px 0'`.
+7. **32px between sections**, 48px between major page zones.
+8. **No fixed-width page shells** — do not lock entire pages to phone widths.
+9. **No breakpointless grids** — always define `sm`/`md`/`lg` on `GridColumn`.

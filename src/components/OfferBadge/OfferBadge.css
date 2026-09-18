@@ -1,0 +1,91 @@
+/*
+ * Offer badge — Figma `Offer badge / 0-899px` (88885:18959) and
+ * `Offer badge / 900+px` (88885:18960).
+ *
+ * Both breakpoints share one structure; only type scale and the leading
+ * element's optical alignment differ, so the 900px+ form is a container-query
+ * override rather than a second component.
+ */
+.ld-wcp-offerbadge {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--ld-primitive-scale-space-50, 4px);
+  box-sizing: border-box;
+  min-width: 0;
+  padding-block: var(--ld-primitive-scale-space-50, 4px);
+  padding-inline-start: var(--ld-primitive-scale-space-50, 4px);
+  padding-inline-end: var(--ld-primitive-scale-space-100, 8px);
+  border: var(--ld-semantic-scale-border-width-interactive, 1px) solid
+    var(--ld-semantic-color-border-brand-bold, #001e60);
+  border-radius: var(--ld-primitive-scale-borderRadius-50, 4px);
+}
+.ld-wcp-offerbadge--cashback {
+  background-color: var(--ld-semantic-color-fill-accent-teal-subtle, #e1f3f8);
+}
+.ld-wcp-offerbadge--discount {
+  background-color: var(--ld-semantic-color-fill-accent-cyan-subtle, #e7f6fe);
+}
+
+/*
+ * The checkbox labels itself off the badge title (aria-labelledby), so it has
+ * no label text of its own and must not claim the row's leftover width.
+ */
+.ld-wcp-offerbadge-checkbox {
+  flex: 0 0 auto;
+}
+.ld-wcp-offerbadge-icon {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  color: var(--ld-semantic-color-text-accent-teal-bold, #005a6f);
+}
+
+.ld-wcp-offerbadge-content {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-width: 0;
+}
+.ld-wcp-offerbadge-title {
+  font-size: var(--ld-semantic-font-caption-size);
+  font-weight: var(--ld-semantic-font-caption-weight-alt, 700);
+  line-height: var(--ld-semantic-font-caption-line-height);
+}
+.ld-wcp-offerbadge--cashback .ld-wcp-offerbadge-title {
+  color: var(--ld-semantic-color-text-brand-bold, #001e60);
+}
+.ld-wcp-offerbadge--discount .ld-wcp-offerbadge-title {
+  color: var(--ld-semantic-color-text-accent-teal-bold, #005a6f);
+}
+.ld-wcp-offerbadge-subtitle,
+.ld-wcp-offerbadge-requirement {
+  font-size: var(--ld-semantic-font-caption-size);
+  font-weight: var(--ld-semantic-font-caption-weight-default, 400);
+  line-height: var(--ld-semantic-font-caption-line-height);
+  color: var(--ld-semantic-color-text, #2e2f32);
+}
+.ld-wcp-offerbadge-link {
+  align-self: flex-start;
+  font-size: var(--ld-semantic-font-body-small-size);
+  line-height: var(--ld-semantic-font-body-small-line-height);
+}
+
+/*
+ * 900px+ — the badge steps up from caption to body-small type on the title;
+ * supporting lines stay at caption size per Figma. Width stays hug at both
+ * breakpoints (Figma `Offer badge` instances are HUG, 93–139px), so the badge
+ * never stretches to the detail column. Must stay last in the file: @container
+ * adds no specificity, so it only beats the base rules on source order.
+ */
+@container ld-itemtile (min-width: 900px) {
+  .ld-wcp-offerbadge-title {
+    font-size: var(--ld-semantic-font-body-small-size);
+    font-weight: var(--ld-semantic-font-body-small-weight-alt, 700);
+    line-height: var(--ld-semantic-font-body-small-line-height);
+  }
+  /* Optically centre the 16px glyph against the taller 20px title line. */
+  .ld-wcp-offerbadge--discount .ld-wcp-offerbadge-icon {
+    padding-block-start: var(--ld-primitive-scale-space-25, 2px);
+  }
+}
